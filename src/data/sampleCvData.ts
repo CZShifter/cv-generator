@@ -12,7 +12,8 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   linkedin: "eliska.hrabalova",
   birthyear: "1989",
   photo: "/photo_img/photo.jpg", // obrázek vlož do složky /public
-  showPhoto: true,               // ← PŘIDAT
+  showPhoto: true,
+  photoVersion: 0,               // ← PŘIDAT
   showSummary: true,
   showLinkedin: true,
   showCertifications: true,
@@ -101,6 +102,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   birthyear: "1998",
   photo: "/photo_img/photo2.png", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: true, // Pro manažera prodeje jsou certifikace relevantní
@@ -181,6 +183,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   birthyear: "2001",
   photo: "/photo_img/photo3.png", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: true,
@@ -262,6 +265,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   birthyear: "1991",
   photo: "/photo_img/photo4.png", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: false,

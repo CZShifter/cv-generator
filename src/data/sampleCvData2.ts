@@ -12,7 +12,8 @@ cvtemplate: {
   linkedin: "eliska.hrabalova",
   birthyear: "1989",
   photo: "https://st.depositphotos.com/1418932/4475/i/450/depositphotos_44757287-stock-photo-beautiful-woman-face-closeup.jpg", // obrázek vlož do složky /public
-  showPhoto: true,               // ← PŘIDAT
+  showPhoto: true,
+  photoVersion: 0,               // ← PŘIDAT
   showSummary: true,
   showLinkedin: true,
   showCertifications: true,
@@ -104,6 +105,7 @@ cvtemplate: {
   birthyear: "1998",
   photo: "https://i0.wp.com/www.andrew-mason.com/wp-content/uploads/2015/04/Headshot-Photoggrapher-Clapham.jpg?resize=400%2C599&ssl=1", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: true, // Pro manažera prodeje jsou certifikace relevantní
@@ -185,6 +187,7 @@ cvtemplate: {
   birthyear: "2001",
   photo: "https://www.fredericvigier.com/wp-content/uploads/2021/01/commercial-photo-cv.jpg", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: true,
@@ -278,6 +281,7 @@ cvtemplate: {
   birthyear: "1991",
   photo: "https://easy-peasy.ai/cdn-cgi/image/quality=70,format=auto,width=500/https://media.easy-peasy.ai/3b8c14bd-68e9-49e6-8672-cc945ba2093d/08445331-0292-4386-ab9f-24b099ec541e.png", // obrázek vlož do složky /public
   showPhoto: true,
+  photoVersion: 0,
   showSummary: true,
   showLinkedin: true,
   showCertifications: false,
