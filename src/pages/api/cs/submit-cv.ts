@@ -8,7 +8,7 @@ import crypto from 'crypto';
 
 
 // Pomocná funkce na ošetření jména
-function sanitizeString(str: string): string {
+/* function sanitizeString(str: string): string {
   return str
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")       // odstraní diakritiku
@@ -16,7 +16,7 @@ function sanitizeString(str: string): string {
     .replace(/\s+/g, "_")                  // mezery na _
     .replace(/[^a-zA-Z0-9_]/g, "")         // odstraní speciální znaky
     .trim();
-}
+} */
 
 /* function generatePdfFilename(name: string, surname: string): string {
   const firstName = sanitizeString(name || "Uzivatel");

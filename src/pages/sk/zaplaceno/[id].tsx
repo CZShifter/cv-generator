@@ -80,7 +80,7 @@ export default function ZaplacenoPage({ data }: Props) {
     update();
     const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
-  }, [data?.expires_at]);
+  }, [data]);
 
   if (!data) {
     return (

@@ -46,7 +46,7 @@ export default function DopisSection() {
       const data = await res.json();
       setText(data.motivation || "Žádná odpověď od AI.");
       setIsResult(true);
-    } catch (_err) {
+    } catch {
       setError("Nepodařilo se vygenerovat dopis. Zkuste to znovu.");
       setText(zadani); // vrátí původní zadání pokud je error
       setIsResult(false);

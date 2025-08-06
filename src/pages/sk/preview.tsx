@@ -61,9 +61,9 @@ export default function Preview() {
 
   // Výběr správných sekcí a stylů pro aktuální šablonu
   const getSections =
-    SECTION_GETTERS[selectedTemplateId] || ((_data: CvData) => ({ left: [], right: [] }));
+    SECTION_GETTERS[selectedTemplateId] || (() => ({ left: [], right: [] }));
   const styles = STYLES_MAP[selectedTemplateId] || stylesCv2;
-  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData, getSections]);
+  const { left, right } = useMemo(() => getSections(cvData), [ cvData, getSections]);
 
   // --- Paddingy (dynamicky měřené podle aktivní šablony)
   const [resumePadding, setResumePadding] = useState(0);

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   initGoogleAnalytics,
-  initFacebookPixel,
   initSklik,
   initGoogleAds
 } from "@/utils/analytics";
@@ -20,7 +19,6 @@ const CookieConsent: React.FC = () => {
     if (consent === "accepted_all") {
       setState("accepted_all");
       initGoogleAnalytics();
-      initFacebookPixel();
       initSklik();
       initGoogleAds();
     } else if (consent === "essential_only") {
@@ -36,7 +34,6 @@ const CookieConsent: React.FC = () => {
     localStorage.setItem(COOKIE_NAME, "accepted_all");
     setState("accepted_all");
     initGoogleAnalytics();
-    initFacebookPixel();
     initSklik();
     initGoogleAds();
   };

@@ -1038,7 +1038,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
             } else {
               alert("Něco se pokazilo.");
             }
-          } catch (_e) {
+          } catch {
             alert("Došlo k chybě při odeslání.");
           } finally {
             setIsProcessing(false);

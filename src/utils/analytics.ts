@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { GA_MEASUREMENT_ID, SKLIK_ID, GOOGLE_ADS_ID } from "@/config/site";
 
-// Rozšíření window
+// Rozšíření window pro externí skripty
 declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
@@ -11,6 +12,7 @@ declare global {
     dataLayer?: any[];
   }
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 
 // Funkce sledování chování uživatele
 export function trackGAEvent(
@@ -42,7 +44,7 @@ export function initGoogleAnalytics() {
 
   // Inicializuj dataLayer a gtag
   window.dataLayer = window.dataLayer || [];
-  const gtag = (...args: any[]) => { window.dataLayer!.push(args); };
+  const gtag = (...args: unknown[]) => { window.dataLayer!.push(args); };
   window.gtag = window.gtag || gtag;
 
   if (typeof window.gtag === "function") {
@@ -83,7 +85,7 @@ export function initGoogleAds() {
   if (!GOOGLE_ADS_ID || window.gadsInitialized) return;
 
   window.dataLayer = window.dataLayer || [];
-  const gtag = (...args: any[]) => { window.dataLayer!.push(args); };
+  const gtag = (...args: unknown[]) => { window.dataLayer!.push(args); };
   window.gtag = window.gtag || gtag;
   if (typeof window.gtag === "function") {
     window.gtag('config', GOOGLE_ADS_ID);

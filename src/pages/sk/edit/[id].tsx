@@ -85,7 +85,7 @@ export default function EditPage({ dataFromDb, templateId, id }: Props) {
   const selectedTemplateId = templateId as keyof typeof SECTION_GETTERS;
   const getSections = SECTION_GETTERS[selectedTemplateId] || (() => ({ left: [], right: [] }));
   const styles = STYLES_MAP[selectedTemplateId] || stylesCv2;
-  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData, getSections]);
+  const { left, right } = useMemo(() => getSections(cvData), [cvData, getSections]);
 
   // --- Paddingy (změříme jen jednou na začátku, pro zjednodušení, případně lze změnit)
   const [resumePadding, setResumePadding] = useState(0);

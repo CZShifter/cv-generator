@@ -46,7 +46,7 @@ export default function DopisSection() {
       const data = await res.json();
       setText(data.motivation || "Žádná odpověď od AI.");
       setIsResult(true);
-    } catch (_err) {
+    } catch {
       setError(" Nepodarilo sa vygenerovať list. Skúste to znova.");
       setText(zadani); // vrátí původní zadání pokud je error
       setIsResult(false);

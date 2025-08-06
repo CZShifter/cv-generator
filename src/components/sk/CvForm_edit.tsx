@@ -1007,7 +1007,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                     } else {
                       alert("Niečo sa pokazilo.");
                     }
-                  } catch (_e) {
+                  } catch {
                     alert("Došlo k chybe pri spracovaní.");
                   } finally {
                     setIsProcessing(false);
