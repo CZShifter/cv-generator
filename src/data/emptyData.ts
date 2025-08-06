@@ -20,6 +20,7 @@ export const emptyData: CvData = {
   showTitle: false,
   showLinkedin: false,
   showPhoto: false,
+  photoVersion: 0,
   showSummary: false,
   showCertifications: false,
   showBirthyear: false,
