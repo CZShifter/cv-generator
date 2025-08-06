@@ -1,10 +1,10 @@
 import type { AppProps } from 'next/app';
+import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, GA_MEASUREMENT_ID } from '@/config/site';
 
-// Jazykové varianty layoutových komponent
 import HeaderCs from '@/components/cs/Header';
 import FooterCs from '@/components/cs/Footer';
 import CookieConsentCs from '@/components/cs/CookieConsent';
@@ -12,7 +12,6 @@ import HeaderSk from '@/components/sk/Header';
 import FooterSk from '@/components/sk/Footer';
 import CookieConsentSk from '@/components/sk/CookieConsent';
 
-// Styly
 import "@/styles/globals.scss";
 import '@/scss/main.scss';
 import '@fontsource-variable/montserrat';
@@ -27,17 +26,23 @@ import "@fontsource/poppins/300-italic.css";
 
 const COOKIE_NAME = "cookie_consent_v1";
 
-export default function App({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  noLayout?: boolean;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const router = useRouter();
 
-  // Detekce jazyka podle URL
   const isSk = router.pathname.startsWith("/sk");
   const Header = isSk ? HeaderSk : HeaderCs;
   const Footer = isSk ? FooterSk : FooterCs;
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
-  // Zjisti při načtení, zda má uživatel povolenou analytiku
   useEffect(() => {
     if (typeof window !== "undefined") {
       const consent = localStorage.getItem(COOKIE_NAME);
@@ -45,7 +50,6 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  // Odesílá pageview při změně cesty, pokud je analytika povolena
   useEffect(() => {
     if (!analyticsEnabled) return;
     const handleRouteChange = (url: string) => {
@@ -59,14 +63,12 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [analyticsEnabled, router.events]);
 
-  // Pokud komponenta má prop "noLayout", nevkládej Header/Footer (JEN PRO LADĚNÍ!!!)
-  if ((Component as any).noLayout) {
+  if (Component.noLayout) {
     return <Component {...pageProps} />;
   }
 
   return (
     <>
-      {/* Globální meta tagy v <Head> */}
       <Head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -74,7 +76,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
       </Head>
-
       <Header />
       <Component {...pageProps} />
       <CookieConsent />

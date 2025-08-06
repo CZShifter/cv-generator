@@ -19,7 +19,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ]);
 
     res.status(200).json({ motivation: aiMotivation });
-  } catch (e: any) {
-    res.status(500).json({ error: e.message || "Chyba pri komunikácii s AI." });
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      res.status(500).json({ error: e.message || "Chyba při komunikaci s AI." });
+    } else {
+      res.status(500).json({ error: "Chyba při komunikaci s AI." });
+    }
   }
 }

@@ -7,6 +7,7 @@ import type { CvData } from "@/data/CvData";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
 
 // Mapuj templateId → PDF komponenta (flat verze)
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pdfComponents: Record<string, (props: { data: CvData }) => JSX.Element> = {
   cvtemplate: require("@/pdftemplates/sk/pdfTemplate").default,
   cvtemplate2: require("@/pdftemplates/sk/pdfTemplate2").default,

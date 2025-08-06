@@ -34,7 +34,7 @@ const ReloadableImage: React.FC<ReloadableImageProps> = ({ src, ...imgProps }) =
         URL.revokeObjectURL(blobUrl);
       }
     };
-  }, [src]);
+  }, [src, blobUrl]);
 
   return <img src={blobUrl} {...imgProps} />;
 };

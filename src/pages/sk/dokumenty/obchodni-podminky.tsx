@@ -2,6 +2,7 @@ import Head from "next/head";
 import { SITE_URL, SITE_MAIL, SITE_NAME } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
+import Link from 'next/link';
 export default function ObchodniPodminky() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function ObchodniPodminky() {
           <h1>Obchodní podmínky služby {SITE_NAME}</h1>
           <h2>1. Úvodní ustanovení</h2>
           <p>
-            Tyto obchodní podmínky upravují vztahy mezi poskytovatelem služby a uživatelem vznikající při nákupu digitálního obsahu prostřednictvím webových stránek <a href="/">{SITE_URL}</a>.
+            Tyto obchodní podmínky upravují vztahy mezi poskytovatelem služby a uživatelem vznikající při nákupu digitálního obsahu prostřednictvím webových stránek <Link href='/sk'>{SITE_URL}</Link>.
           </p>
           <h2>2. Identifikace poskytovatele služby</h2>
           <div>
@@ -82,7 +83,7 @@ export default function ObchodniPodminky() {
             Tyto obchodní podmínky se řídí právním řádem České republiky. Veškeré případné spory budou přednostně řešeny smírnou cestou. Pokud nedojde k dohodě, spor bude řešen v souladu s platnými zákony ČR.
           </p>
           <p>
-            Poskytovatel si vyhrazuje právo kdykoliv tyto podmínky změnit. Nové podmínky jsou účinné okamžikem zveřejnění na webových stránkách <a href="/">{SITE_URL}</a>.
+            Poskytovatel si vyhrazuje právo kdykoliv tyto podmínky změnit. Nové podmínky jsou účinné okamžikem zveřejnění na webových stránkách <Link href='/sk'>{SITE_URL}</Link>.
           </p>
           <p><strong>Datum poslední aktualizace: 26. 7. 2025</strong></p>
         </div>

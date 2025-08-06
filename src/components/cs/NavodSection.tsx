@@ -34,7 +34,7 @@ export default function NavodSection() {
                   Fotografie není povinná, ale její přidání může výrazně zvýšit důvěryhodnost vašeho životopisu. Pokud ji chcete připojit, použijte přepínač „Přidat fotku“ a nahrajte obrázek ve vhodné kvalitě.
                 </p>
                 <blockquote>
-                  Všimněte si <strong>zelených přepínačů</strong> u jednotlivých polí – slouží k zapnutí nebo vypnutí konkrétní položky v životopise.<br></br> Pokud je přepínač aktivní <strong>(zelený)</strong>, tato informace bude zahrnuta ve výsledném CV.<br></br> Pokud jej vypnete <strong>(červený)</strong>, údaj se do životopisu nedostane.<br></br> Můžete si tak snadno zvolit, které informace chcete nebo nechcete prezentovat.<br></br> <strong>Základní nastavení je "vypnuto", takže pokud chcete danou sekci použít, musíte jí nejdříve zapnou přepínačem.</strong>
+                  Všimněte si <strong>zelených přepínačů</strong> u jednotlivých polí – slouží k zapnutí nebo vypnutí konkrétní položky v životopise.<br></br> Pokud je přepínač aktivní <strong>(zelený)</strong>, tato informace bude zahrnuta ve výsledném CV.<br></br> Pokud jej vypnete <strong>(červený)</strong>, údaj se do životopisu nedostane.<br></br> Můžete si tak snadno zvolit, které informace chcete nebo nechcete prezentovat.<br></br> <strong>Základní nastavení je &quot;vypnuto&quot;, takže pokud chcete danou sekci použít, musíte jí nejdříve zapnou přepínačem.</strong>
                 </blockquote>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function NavodSection() {
                 </p>
                 <blockquote>
                   Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> („Upravit“), nebo zcela odstranit kliknutím na ikonu <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> („Smazat“). Editace umožňuje rychle opravovat překlepy nebo doplňovat informace, mazání zase slouží k odstranění starých či nepotřebných údajů.<br></br>
-                  <strong style={{ color: "red"}}>Celá tato sekce je nepovinná. Pokud nemáte žádné kurzy nebo certifikáty k uvedení, klidně ji přeskočte – její základní stav je "vypnuto".</strong>
+                  <strong style={{ color: "red"}}>Celá tato sekce je nepovinná. Pokud nemáte žádné kurzy nebo certifikáty k uvedení, klidně ji přeskočte – její základní stav je &quot;vypnuto&quot;.</strong>
                 </blockquote>
               </div>
             </div>

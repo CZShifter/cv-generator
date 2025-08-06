@@ -1,4 +1,5 @@
 import styles from '@/scss/NarrativeSection2.module.scss';
+import Link from 'next/link';
 
 export default function NarrativeSection3() {
   return (
@@ -17,7 +18,7 @@ export default function NarrativeSection3() {
         </p>
 
         <p>
-          <strong>Doporučujeme začít u životopisu</strong> – <a href="/cs/preview"><strong>vytvořte si nejprve profesionální životopis</strong></a>, který bude tvořit pevný základ celé žádosti. Spolu s motivačním dopisem pak získáte kompletní a přesvědčivou prezentaci Vašich zkušeností i motivace.
+          <strong>Doporučujeme začít u životopisu</strong> – <Link href='/cs/preview'><strong>vytvořte si nejprve profesionální životopis</strong></Link>, který bude tvořit pevný základ celé žádosti. Spolu s motivačním dopisem pak získáte kompletní a přesvědčivou prezentaci Vašich zkušeností i motivace.
         </p>
       </div>
     </section>

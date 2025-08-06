@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "@/scss/preview.module.scss";
 import { FaTrash, FaEdit, FaCamera } from "react-icons/fa";
 import { CvData } from "@/data/CvData";
-import { useRouter } from "next/router";
+/* import { useRouter } from "next/router"; */
 import HelpTooltip from "@/components/HelpTooltip";
 import ImageCropModal from "@/components/ImageCropModal";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
@@ -56,7 +56,7 @@ const languageLevels: string[] = [
 
 const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCancel }) => {
   const [step, setStep] = useState(0);
-  const router = useRouter();
+  /* const router = useRouter(); */
 
   // ✅ Nové stavy pro krok 6 (souhlas a zpracování)
   const [agree, setAgree] = useState(false);
@@ -1038,7 +1038,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
             } else {
               alert("Něco se pokazilo.");
             }
-          } catch (e) {
+          } catch (_e) {
             alert("Došlo k chybě při odeslání.");
           } finally {
             setIsProcessing(false);

@@ -62,7 +62,7 @@ const SECTION_GETTERS: Record<string, (data: CvData) => { left: React.ReactNode[
   cvtemplate3: getCvTemplate3Sections,
   cvtemplate4: getCvTemplate4Sections,
 };
-const STYLES_MAP: Record<string, any> = {
+const STYLES_MAP: Record<string, { [key: string]: string }> = {
   cvtemplate: stylesCv1,
   cvtemplate2: stylesCv2,
   cvtemplate3: stylesCv3,
@@ -85,7 +85,7 @@ export default function EditPage({ dataFromDb, templateId, id }: Props) {
   const selectedTemplateId = templateId as keyof typeof SECTION_GETTERS;
   const getSections = SECTION_GETTERS[selectedTemplateId] || (() => ({ left: [], right: [] }));
   const styles = STYLES_MAP[selectedTemplateId] || stylesCv2;
-  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData]);
+  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData, getSections]);
 
   // --- Paddingy (změříme jen jednou na začátku, pro zjednodušení, případně lze změnit)
   const [resumePadding, setResumePadding] = useState(0);

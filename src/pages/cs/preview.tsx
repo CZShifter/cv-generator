@@ -33,7 +33,7 @@ const SECTION_GETTERS: Record<string, (data: CvData) => { left: React.ReactNode[
   cvtemplate4:  getCvTemplate4Sections,
 };
 // Mapování SCSS podle šablony
-const STYLES_MAP: Record<string, any> = {
+const STYLES_MAP: Record<string, { [key: string]: string }> = {
   cvtemplate: stylesCv1,
   cvtemplate2: stylesCv2,
   cvtemplate3: stylesCv3,
@@ -61,9 +61,9 @@ export default function Preview() {
 
   // Výběr správných sekcí a stylů pro aktuální šablonu
   const getSections =
-    SECTION_GETTERS[selectedTemplateId] || ((data: CvData) => ({ left: [], right: [] }));
+    SECTION_GETTERS[selectedTemplateId] || ((_data: CvData) => ({ left: [], right: [] }));
   const styles = STYLES_MAP[selectedTemplateId] || stylesCv2;
-  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData]);
+  const { left, right } = useMemo(() => getSections(cvData), [selectedTemplateId, cvData, getSections]);
 
   // --- Paddingy (dynamicky měřené podle aktivní šablony)
   const [resumePadding, setResumePadding] = useState(0);

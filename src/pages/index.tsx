@@ -13,7 +13,7 @@ export default function IndexRedirect() {
     } else {
       router.replace("/cs"); // default
     }
-  }, []);
+  }, [router]); // Oprava: Přidán 'router' do pole závislostí
 
   return null;
 }

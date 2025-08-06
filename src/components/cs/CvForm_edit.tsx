@@ -56,7 +56,7 @@ const languageLevels: string[] = [
 const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, isEditMode = false, id }) => {
   const [step, setStep] = useState(0);
   const router = useRouter();
-  const [agree, setAgree] = useState(false);
+  /* const [agree, setAgree] = useState(false); */
   const [isProcessing, setIsProcessing] = useState(false);
   const [expiredModalOpen, setExpiredModalOpen] = useState(false);
 
@@ -1007,7 +1007,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                     } else {
                       alert("Něco se pokazilo.");
                     }
-                  } catch (e) {
+                  } catch (_e) {
                     alert("Došlo k chybě při zpracování.");
                   } finally {
                     setIsProcessing(false);

@@ -42,7 +42,11 @@ Napíš 4 až 6 odrážok, ktoré by zhrnuli hlavnú pracovnú náplň človeka 
     }
 
     res.status(200).json({ points });
-  } catch (e: any) {
-    res.status(500).json({ error: e.message || "Chyba pri komunikácii s AI." });
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      res.status(500).json({ error: e.message || "Chyba při komunikaci s AI." });
+    } else {
+      res.status(500).json({ error: "Chyba při komunikaci s AI." });
+    }
   }
 }

@@ -16,11 +16,11 @@ function sanitizeString(str: string): string {
     .trim();
 }
 
-function generatePdfFilename(name: string, surname: string): string {
+/* function generatePdfFilename(name: string, surname: string): string {
   const firstName = sanitizeString(name || "Uzivatel");
   const lastName = sanitizeString(surname || "Bezejmeny");
   return `Zivotopis_${firstName}_${lastName}.pdf`;
-}
+} */
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
@@ -146,8 +146,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       pdfUrl: finalPdfUrl,
     });
 
-  } catch (err: any) {
-    console.error("Globální chyba v /api/cs/update-cv:", err);
+  } catch (err: unknown) {
+  console.error("Globální chyba v /api/cs/update-cv:", err);
+  if (err instanceof Error) {
     res.status(500).json({ error: err.message || "Unknown server error" });
+  } else {
+    // Pro chyby, které nejsou typu Error, vrátíme obecnou zprávu
+    res.status(500).json({ error: "Unknown server error" });
   }
+}
 }

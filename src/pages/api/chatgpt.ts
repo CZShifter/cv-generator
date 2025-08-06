@@ -1,4 +1,4 @@
-// src/api/chatgpt.ts
+// src/pages/api/chatgpt.ts
 import OpenAI from "openai";
 
 const openai = new OpenAI({
@@ -22,8 +22,12 @@ export async function askChatGPT(
       temperature: 0.7,
     });
     return completion.choices[0]?.message?.content?.trim();
-  } catch (error: any) {
-    console.error("ChatGPT API error:", error?.message || error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("ChatGPT API error:", error.message);
+    } else {
+      console.error("Unknown ChatGPT API error:", error);
+    }
     throw new Error("Chyba při komunikaci s ChatGPT API.");
   }
 }

@@ -43,7 +43,7 @@ const ImageCropModal: React.FC<ImageCropModalProps> = ({
         if (cropperContainerRef.current) {
           // Volání offsetHeight může pomoci vynutit reflow, 
           // i když s odloženým zobrazením už by to nemuselo být nezbytné
-          cropperContainerRef.current.offsetHeight; 
+          /* cropperContainerRef.current.offsetHeight; */ 
         }
         setIsCropperVisible(true); // Zobrazíme Cropper
       }, 100); 

@@ -62,6 +62,26 @@ function generateFilename(name?: string, surname?: string): string {
 }
 
 export default function ZaplacenoPage({ data }: Props) {
+  // Unconditional hooks
+  const [remainingMs, setRemainingMs] = useState(0);
+  const [isClient, setIsClient] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!data) return;
+
+    setIsClient(true);
+    const expiresDate = new Date(data.expires_at);
+
+    const update = () => {
+      setRemainingMs(expiresDate.getTime() - Date.now());
+    };
+
+    update();
+    const interval = setInterval(update, 1000);
+    return () => clearInterval(interval);
+  }, [data?.expires_at]);
+
   if (!data) {
     return (
       <div className={styles.wrapper}>
@@ -72,7 +92,7 @@ export default function ZaplacenoPage({ data }: Props) {
   }
 
   const { id, pdf_url, invoice_url, expires_at, cv_json } = data;
-  const isExpired = new Date() > new Date(expires_at);
+  const isExpired = Date.now() > new Date(expires_at).getTime();
 
   const name = cv_json?.name;
   const surname = cv_json?.surname;
@@ -81,46 +101,32 @@ export default function ZaplacenoPage({ data }: Props) {
   const pdfPath = pdf_url?.split("/object/public/pdfs/")[1] ?? "";
   const invoicePath = invoice_url?.split("/object/public/invoices/")[1] ?? "";
 
-  const expiresDate = new Date(expires_at);
-  const [remainingMs, setRemainingMs] = useState(0); // nebo null
-  const [isClient, setIsClient] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-
-    const update = () => setRemainingMs(expiresDate.getTime() - Date.now());
-    update();
-    const interval = setInterval(update, 1000);
-    return () => clearInterval(interval);
-  }, [expiresDate]);
-
   // Formátovací funkce
-    function formatCountdown(ms: number) {
-      if (ms <= 0) return "vypršelo";
-      const totalSeconds = Math.floor(ms / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      let result = "";
-      if (hours > 0) result += `${hours} h `;
-      if (minutes > 0 || hours > 0) result += `${minutes} min `;
-      result += `${seconds} s`;
-      return result.trim();
-    }
+  function formatCountdown(ms: number) {
+    if (ms <= 0) return "vypršelo";
+    const totalSeconds = Math.floor(ms / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    let result = "";
+    if (hours > 0) result += `${hours} h `;
+    if (minutes > 0 || hours > 0) result += `${minutes} min `;
+    result += `${seconds} s`;
+    return result.trim();
+  }
 
   // Funkce pro programové stažení PDF
   const downloadPdf = async () => {
     try {
-      const res = await fetch(`/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}`);
+      const res = await fetch(
+        `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}`
+      );
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
-
       const a = document.createElement("a");
       a.href = url;
       a.download = filename;
       a.click();
-
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error("❌ Chyba při stahování PDF:", error);
@@ -130,21 +136,24 @@ export default function ZaplacenoPage({ data }: Props) {
   // Funkce pro programové stažení faktury
   const downloadInvoice = async () => {
     try {
-      const res = await fetch(`/api/download-invoice?path=${encodeURIComponent(invoicePath)}&filename=Doklad_${id}.pdf`);
+      const res = await fetch(
+        `/api/download-invoice?path=${encodeURIComponent(
+          invoicePath
+        )}&filename=Doklad_${id}.pdf`
+      );
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
       a.download = `Doklad_o_zaplaceni_${id}.pdf`;
       a.click();
-
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error("❌ Chyba při stahování faktury:", error);
     }
   };
 
-  // ---- Funkce pro kopírování odkazu ----
+  // Kopírování odkazu
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(`${SITE_URL_SK}/sk/edit/${id}`);
@@ -158,40 +167,63 @@ export default function ZaplacenoPage({ data }: Props) {
   return (
     <>
       <Head>
-        <title>{`Životopis byl úspěšně vytvořen | ${SITE_NAME}`}</title>
+        <title>{`Životopis bol úspešně vytvorený | ${SITE_NAME}`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
       </Head>
       <section className={styles.ZaplacenoWrapper}>
         <div className={styles.wrapper}>
           <h1 className={styles.title}>🎉 Váš životopis bol úspešne vytvorený!</h1>
-          <button className={styles.link} id="cvbtn" onClick={() => {trackGAEvent('click', 'download', 'download_cv_pdf_sk');downloadPdf(); }}>
+
+          <button
+            className={styles.link}
+            id="cvbtn"
+            onClick={() => {
+              trackGAEvent("click", "download", "download_cv_pdf_sk");
+              downloadPdf();
+            }}
+          >
             <FaRegFilePdf /> Stiahnuť životopis (PDF)
           </button>
+
           {invoice_url ? (
-            <button className={styles.link} id="invoicebtn" onClick={() => {trackGAEvent('click', 'download', 'download_cv_invoice_sk');downloadInvoice(); }}>
+            <button
+              className={styles.link}
+              id="invoicebtn"
+              onClick={() => {
+                trackGAEvent("click", "download", "download_cv_invoice_sk");
+                downloadInvoice();
+              }}
+            >
               <FaFileInvoice /> Doklad o zaplatení
             </button>
           ) : (
             <p className={styles.note}>Doklad zatiaľ nie je k dispozícii.</p>
           )}
+
           <div className={styles.edit}>
             {!isExpired ? (
-              <>
-                <a className={styles.link} id="editbtn" href={`/sk/edit/${id}`}>
-                  <FaEdit /> Upraviť životopis
-                </a>
-              </>
+              <a className={styles.link} id="editbtn" href={`/sk/edit/${id}`}>
+                <FaEdit /> Upraviť životopis
+              </a>
             ) : (
-              <p className={styles.expired}>⏰ Ubehlo 24h – možnosť úpravy vypršala.</p>
+              <p className={styles.expired}>
+                ⏰ Ubehlo 24h – možnosť úpravy vypršala.
+              </p>
             )}
           </div>
+
           {!isExpired && (
-            <p className={styles.editbtn} onClick={() => {
-              trackGAEvent('click', 'edit', 'uprava_cv_sk');}}>
+            <p
+              className={styles.editbtn}
+              onClick={() => {
+                trackGAEvent("click", "edit", "uprava_cv_sk");
+              }}
+            >
               {`${SITE_URL_SK}/sk/edit/${id}`}
             </p>
-           )}
+          )}
+
           {!isExpired && (
             <div className={styles.copylinkwrapper}>
               <p className={styles.editbtnremind}>
@@ -208,11 +240,15 @@ export default function ZaplacenoPage({ data }: Props) {
               </button>
             </div>
           )}
+
           <p className={styles.expiry}>
-            {isClient && remainingMs > 0
-              ? <>Do vypršania možnosti úpravy zostáva:<br /><strong>{formatCountdown(remainingMs)}</strong></>
-              : null
-            }
+            {isClient && remainingMs > 0 && (
+              <>
+                Do vypršania možnosti úpravy zostáva:
+                <br />
+                <strong>{formatCountdown(remainingMs)}</strong>
+              </>
+            )}
           </p>
         </div>
       </section>

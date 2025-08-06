@@ -51,7 +51,7 @@ export default function HookSection2() {
         <div className={styles.HookTitleWrapper}>
           <h2>Vytvorte <span>štruktúrovaný</span><br></br><span>životopis</span> s absolútnou ľahkosťou</h2>
           <p>S touto aplikáciou jednoducho vytvoríte životopis, ktorý zaujme na prvý pohľad. Profesionálny, prehľadný a presne vystihujúci Vaše schopnosti aj ambície.</p>
-          <p>Vyberte si <a href='/sk/preview'>modernú šablónu</a>, upravte všetko podľa seba a stiahnite hotové CV behom pár minút. Bez komplikácií a bez straty času. Cesta k novej práci ešte nikdy nebola jednoduchšia.</p>
+          <p>Vyberte si <Link href='/sk/preview'>moderní šablonu</Link>, upravte všetko podľa seba a stiahnite hotové CV behom pár minút. Bez komplikácií a bez straty času. Cesta k novej práci ešte nikdy nebola jednoduchšia.</p>
           <p>Dobre navrhnutý životopis pomôže personalistovi rýchlo pochopiť, kto ste, čo viete a kam smerujete. V konkurencii desiatok až stoviek uchádzačov môžete získať značnú výhodu.</p>
           <div>
             <Link

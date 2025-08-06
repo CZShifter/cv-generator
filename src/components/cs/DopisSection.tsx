@@ -46,7 +46,7 @@ export default function DopisSection() {
       const data = await res.json();
       setText(data.motivation || "Žádná odpověď od AI.");
       setIsResult(true);
-    } catch (err) {
+    } catch (_err) {
       setError("Nepodařilo se vygenerovat dopis. Zkuste to znovu.");
       setText(zadani); // vrátí původní zadání pokud je error
       setIsResult(false);
@@ -154,7 +154,7 @@ export default function DopisSection() {
             <h2>Jak použít generátor</h2>
             <p>Pro maximální kvalitu generovaného textu napište o jakou pozici se ucházíte, ideálně v jaké společnosti a jaké jsou Vaše předešlé zkušenosti.</p>
             <p>Také doporučuji napsat své jméno a příjmení, popřípadě Vaše relevantní záliby a dovednosti. Dále můžete zmínit roky své praxe, Vaší motivaci, proč tuto práci chcete dělat atd...</p>
-            <p><strong>PŘÍKLAD:</strong> "Jmenuji se Jan Novák, ucházím se o pozici prodejce automobilů ve společnosti Auto ESA. Mám 10 let praxe jako prodejce v AAA auto. Ve volném čase jezdím autocross."</p>
+            <p><strong>PŘÍKLAD:</strong> &quot;Jmenuji se Jan Novák, ucházím se o pozici prodejce automobilů ve společnosti Auto ESA. Mám 10 let praxe jako prodejce v AAA auto. Ve volném čase jezdím autocross.&quot;</p>
           </div>
         </div>
       </div>

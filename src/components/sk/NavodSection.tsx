@@ -38,7 +38,7 @@ export default function NavodSection() {
                   Ak je prepínač aktívny <strong>(zelený)</strong>, táto informácia bude zahrnutá vo výslednom CV.<br />
                   Ak ho vypnete <strong>(červený)</strong>, údaj sa do životopisu nedostane.<br />
                   Môžete si tak jednoducho zvoliť, ktoré informácie chcete alebo nechcete prezentovať.<br />
-                  <strong>Východiskové nastavenie je "vypnuté", takže ak chcete danú sekciu použiť, musíte ju najprv zapnúť prepínačom.</strong>
+                  <strong>Východiskové nastavenie je &quot;vypnuté&quot;, takže ak chcete danú sekciu použiť, musíte ju najprv zapnúť prepínačom.</strong>
                 </blockquote>
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function NavodSection() {
                 </p>
                 <blockquote>
                   Každý záznam môžete upraviť alebo vymazať podobne ako v predchádzajúcom kroku.<br />
-                  <strong style={{ color: "red" }}>Celá táto sekcia je nepovinná. Jej základný stav je "vypnutý".</strong>
+                  <strong style={{ color: "red" }}>Celá táto sekcia je nepovinná. Jej základný stav je &quot;vypnutý&quot;.</strong>
                 </blockquote>
               </div>
             </div>
