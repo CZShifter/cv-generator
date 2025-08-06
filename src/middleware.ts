@@ -41,7 +41,7 @@ export function middleware(request: NextRequest) {
   );
 
   if (!isAllowed) {
-    return new Response("Nepovolený přístup", { status: 404 });
+    return new Response("Nepovolený přístup!", { status: 404 });
   }
 
   // Výchozí jazyk
