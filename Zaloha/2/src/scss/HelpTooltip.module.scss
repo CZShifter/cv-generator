@@ -1,0 +1,81 @@
+@use '../scss/variables' as *;
+.tooltipWrap {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  font-size: $p_small !important;
+
+  .icon {
+    color: $btn-hover-color;
+    font-size: $p !important;
+    font-weight: normal !important;
+    vertical-align: middle;
+    transition: color 0.2s;
+    margin-bottom: 3px;
+    pointer-events: auto;
+  }
+
+  &:hover .icon,
+  &:focus .icon {
+    color: $btn-hover-color;
+  }
+}
+
+// Tooltip box (vlastní bublina)
+.tooltipBox {
+  position: absolute;
+  min-width: 200px;
+  max-width: 320px;
+  background: #fff;
+  color: #222;
+  font-size: 0.85em !important;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px #0001;
+  padding: 10px 14px;
+  border-radius: 7px;
+  z-index: 10;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  pointer-events: none;
+  transition: opacity 0.18s, left 0.15s, right 0.15s;
+  opacity: 1;
+}
+
+// Zarovnání tooltipu podle detekce JS
+.tooltipBox.center {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+.tooltipBox.left {
+  left: 0;
+  right: auto;
+  transform: none;
+}
+.tooltipBox.right {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+// Výchozí pozice (dle prop "position")
+.top    { .tooltipBox { top: auto;    bottom: calc(100% + 0.3rem); left: 50%; transform: translateX(-50%); } }
+.bottom { .tooltipBox { top:  calc(100% + 1rem); left: 50%; transform: translateX(-50%); bottom: auto; } }
+.right  { .tooltipBox { left: calc(100% + 1rem); top: 50%; bottom: auto; transform: translateY(-50%); } }
+.left   { .tooltipBox { right: calc(100% + 2rem); left: auto; top: 50%; bottom: auto; transform: translateY(-50%); } }
+.tooltipBox.center { left: 50%; right: auto; transform: translateX(-50%); }
+
+// Adaptace pro úzké obrazovky
+@media (max-width: 480px) {
+  .tooltipBox {
+    max-width: 90vw;
+    font-size: 0.95em;
+  }
+}
+
+// Volitelné – schovat tooltip když není visible (animace)
+.tooltipBox[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}

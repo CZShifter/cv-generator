@@ -1,0 +1,59 @@
+// src/scss/NotFound.module.scss
+@use '../scss/variables' as *;
+.container {
+  min-height: calc(100vh - $header-height - $footer-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+  background: #f8f9fb;
+  font-family: inherit;
+  padding: $main-padding;
+}
+@media (max-width: 700px) {
+    .container{
+        flex-direction: column;
+        .divider {
+            width: 80%;
+            height: 3px;
+            background: $bar-color;
+            margin: 0 auto;
+            border-radius: $border-radius;
+        }
+        .big{
+            line-height: 1;
+        }
+        .text{
+            text-align: center;
+        }
+    }
+}
+.columnLeft,
+.columnRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big {
+  font-size: 7rem;
+  font-weight: 900;
+  color: $btn-hover-color;
+  letter-spacing: 0.08em;
+}
+
+.divider {
+  width: 3px;
+  height: 100px;
+  background: $bar-color;
+  margin: 0 2rem;
+  border-radius: $border-radius;
+}
+
+.text {
+  font-size: $h3;
+  color: $text2-color;
+  max-width: 320px;
+  text-align: left;
+  font-weight: 400;
+}

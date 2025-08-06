@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /dokumenty/obchodni-podminky
+Disallow: /dokumenty/gdpr
+Disallow: /404
+
+Sitemap: https://rychlyzivotopis.cz/sitemap.xml

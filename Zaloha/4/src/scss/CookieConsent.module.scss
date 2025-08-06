@@ -1,0 +1,81 @@
+@use '../scss/variables' as *;
+.cookieConsent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #232323;
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+}
+
+.cookieConsentText {
+  font-size: 1rem;
+  margin-right: 1.5rem;
+  a {
+    color: #aee8ff;
+    text-decoration: underline;
+    &:hover {
+      color: #66cfff;
+    }
+  }
+}
+
+.cookieConsentButtons {
+  display: flex;
+  gap: 0.5rem;
+  @media (max-width: 1530px) {
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+}
+
+.acceptAll {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: $btn-hover-color;
+  color: #fff;
+  transition: background 0.2s;
+  &:hover {
+    background: $btn-form;
+  }
+}
+
+.acceptEssential {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #444;
+  color: #fff;
+  transition: background 0.2s;
+  &:hover {
+    background: #666;
+  }
+}
+
+@media (max-width: 600px) {
+  .cookieConsent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .cookieConsentText {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+  .cookieConsentButtons {
+    width: 100%;
+    justify-content: center;
+  }
+}

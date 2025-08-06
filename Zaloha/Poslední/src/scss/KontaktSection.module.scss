@@ -1,0 +1,222 @@
+@use '../scss/variables' as *;
+
+.contact {
+  width: 100%;
+  align-items: center;
+  background: $white-color;
+  padding: $padding-base;
+  text-align: center;
+  > p {
+    margin-bottom: 2rem;
+    font-size: $p;
+  }
+   @media (max-width: 700px) {
+    padding: 1rem 1rem;
+  }
+}
+
+.contact_wrapper {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: $gap;
+  justify-content: center;
+  align-items: start;
+  max-width: $max-width;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: $gap;
+  }
+}
+
+.left_wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: $gap;
+}
+
+.right_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $main-padding;
+  background-color: $form-color;
+  border-radius: $border-radius;
+  height: 100%;
+  h2 {
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    padding: 2rem 1rem;
+
+  }
+}
+
+.contactTop {
+  margin-top: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.oNas {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: $gap;
+  background-color: $primary-color;
+  
+  border-radius: $border-radius;
+  padding: $main-padding;
+  align-self: start;
+  color: $form-color;
+  text-align: left;
+   @media (max-width: 700px) {
+    p{
+      text-align: justify;
+    }
+  }
+}
+.kontaktbox{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: $btn-hover-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: $main-padding;
+  align-self: start;
+  color: $form-color;
+  text-align: left;
+  a:hover{
+    text-decoration: underline;
+  }
+}
+.kontakt_img{
+  position: absolute;
+  display: inline-block;
+  max-width: 115px;
+  right: 1rem;
+  bottom: -6.9rem;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  @media (max-width: 545px) {
+    display: none;
+  }
+
+}
+.intro {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.info ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.email {
+  color: $white-color;
+  text-decoration: none;
+  font-weight: 600;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.faq {}
+
+.faqHeading {
+  font-size: $h2;
+  margin-bottom: 1rem;
+}
+
+.faqList {
+  margin-top: 1rem;
+}
+
+.faqItem {
+  background: $gradient;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  padding: 0.7rem 1rem;
+  transition: box-shadow 0.15s;
+  box-shadow: none;
+  text-align: left;
+  &.open {
+    box-shadow: 0 2px 8px rgba(61,97,211,0.08);
+  }
+}
+
+.faqQuestion {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-weight: 500;
+  font-size: $p;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: color 0.15s;
+}
+
+.faqItem.open .faqQuestion {
+  color: $btn-hover-color;
+}
+
+// --- SEO-friendly odpovědi ---
+.faqAnswer {
+  margin-top: 0.7rem;
+  color: #434a54;
+  font-size: 1rem;
+  // odpověď je v DOM vždy, ale defaultně skrytá
+  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.2s, opacity 0.2s;
+  animation: none;
+  &.visible {
+    display: block;
+    max-height: 500px;
+    opacity: 1;
+    animation: fadeInFaq 0.2s;
+  }
+  &.hidden {
+    display: none;
+    max-height: 0;
+    opacity: 0;
+    animation: none;
+  }
+}
+
+@keyframes fadeInFaq {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.personal {
+  font-size: 1.05rem;
+  text-align: center;
+  color: #444;
+  margin-top: 2rem;
+}

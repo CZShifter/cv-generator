@@ -1,0 +1,148 @@
+@use '../scss/variables' as *;
+
+.Hero {
+  position: relative !important;
+  display: flex;
+  flex-direction: column;
+  gap: $gap2;
+  align-items: center;
+  padding: $padding-base;
+  padding-bottom: 0;
+  background: $form-color;
+  background: -webkit-linear-gradient(100deg,rgba(235, 242, 248, 1) 0%, rgba(235, 242, 248, 1) 30%, rgba(200, 217, 230, 1) 60%, rgba(200, 217, 230, 1) 80%, rgba(235, 242, 248, 1) 100%);
+  background: -moz-linear-gradient(100deg,rgba(235, 242, 248, 1) 0%, rgba(235, 242, 248, 1) 30%, rgba(200, 217, 230, 1) 60%, rgba(200, 217, 230, 1) 80%, rgba(235, 242, 248, 1) 100%);
+  background: linear-gradient(100deg,rgba(235, 242, 248, 1) 0%, rgba(235, 242, 248, 1) 30%, rgba(200, 217, 230, 1) 60%, rgba(200, 217, 230, 1) 80%, rgba(235, 242, 248, 1) 100%);
+  text-align: center;
+  @media (max-width: 700px) {
+     padding: 2rem 1rem; 
+  }
+}
+.HeroWrapper{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: $gap2;
+  width: 100%;
+  max-width: $max-width;
+  justify-content: left;
+}
+.HeroLeft{
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  @media (max-width: 940px) {
+      width: 300px;
+   }
+   @media (max-width: 700px) {
+      width: 50%;
+   }
+}
+.HeroTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: $text-color;
+  gap: $gap;
+  max-width: auto;
+  min-height: 500px;
+  padding-right: $main-padding;
+  height: auto;
+  text-align: left;
+  h1{
+    font-size: 3.5rem;
+    font-weight: 800;
+    span{
+      color: $btn-form;
+      text-transform: none;
+    }
+  }
+  @media (max-width: 940px) {
+    max-width: 55%;
+  }
+  @media (max-width: 700px) {
+     padding: 0;
+     max-width: 40%; 
+     h1{
+      font-size: 3rem;
+     }
+  }
+  @media (max-width: 520px) {
+      h1{
+        font-size: 2.5rem;
+      }
+   }
+}
+.LinkWrapper{
+   display: flex;
+   flex-direction: row;
+   gap: $gap;
+   align-items: center;
+    @media (max-width: 540px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+}
+.IconWrapper{
+   display: flex;
+   flex-direction: row;
+   gap: $gap;
+   pointer-events: none;
+   user-select: none;
+   -webkit-user-drag: none;
+    img{
+      width: auto;
+      height: 24px;
+   }
+
+}
+.HeroleftImg{
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  max-width: 500px;
+  margin-top: 2rem;
+   @media (max-width: 940px) {
+      display: none;
+   }
+}
+.HeroleftImg2{
+  display: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  max-width: 300px;
+   @media (max-width: 940px) {
+      display: inline-block;
+      position: absolute;
+      top: inherit;
+      bottom: 0;
+      right: 0rem;
+   }
+   @media (max-width: 700px) {
+      bottom: -1rem;
+      right: -0.2rem;
+   }
+   @media (max-width: 520px) {
+      max-width: 230px;
+   }
+}
+.cta {
+    display: inline-block;
+    width: auto;
+    padding: $btn-padding;
+    background-color: $btn-hover-color;
+    color: $form-color;
+    border-radius: $btn-radius;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    &:hover {
+      text-decoration: none;
+      background-color: $btn-form;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transform: translateY(5px);
+    }
+}

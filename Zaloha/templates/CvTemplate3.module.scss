@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+.resume {
+  width: 794px;
+  height: 1123px;
+  padding: 0;
+  background-color: #2a2a2a;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+.resume_wrapper{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: fit-content(250px) 1fr;
+  background-color: #2a2a2a;
+}
+
+// LEVÝ SLOUPEC
+.left {
+  width: 100%;
+  max-width: 250px;
+  padding: 0;
+  position: relative;
+  background-color: #2a2a2a;
+  color: #fff;
+  // Každá sekce na levé straně (vč. .rightSection, .nameSection, .photo) má spodní mezery, kromě poslední
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.left_section, .rightSection, .nameSection, .photo {
+  // všechny hlavní bloky na levé straně mají stejné základní odsazení/mezery
+  width: 100%;
+}
+
+.left_section,
+.rightSection {
+  padding: 0 5mm;
+  box-sizing: border-box;
+  h3{
+    color: #f4b740;
+  }
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+}
+
+// PRAVÝ SLOUPEC (menší)
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  padding: 10mm 5mm;
+  background-color: #ffffff;
+  h3{
+    color: #f4b740;
+  }
+  svg{
+    margin-right: 1.5rem;
+  }
+}
+
+// --- Styly pro LEVÝ sloupec ---
+
+.nameSection {
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  text-align: center;
+  strong {
+    font-weight: 700;
+  }
+}
+
+.position-title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #bcbcbc;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #33333381;
+  color: #f4b740;
+}
+.section-title--noborder {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.summary {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.experience-entry {
+  position: relative;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  gap: 1.5rem;
+
+  strong {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+  }
+  .company {
+    font-size: 12px;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  ul {
+    padding-left: 16px;
+    margin-top: 5px;
+    li {
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 300;
+      margin-bottom: 4px;
+    }
+  }
+}
+.expirience_columns{
+  display: flex;
+  flex-direction: column;
+}
+.skillsList {
+  padding-left: 0;
+  list-style-type: none;
+  li {
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px 5px 5px 0;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #11539e46;
+  }
+}
+
+// --- Styly pro PRAVÝ sloupec ---
+
+.photo {
+  width: 250px;
+  height: 300px;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.rightSection {
+  margin-bottom: 0.8rem;
+  color: #cacaca;
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #dad7d771;
+    margin-bottom: 10px;
+  }
+  p, .educationEntry {
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 4px 0;
+    max-width: 25ch;
+  }
+  .educationEntry {
+    margin-bottom: 12px;
+  }
+  svg {
+    font-size: 14px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+}
+
+// --- Utility třídy ---
+.hiddenText {
+  font-size: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden;
+}
+
+.contact, .education, .expertise {
+  margin-bottom: 20px;
+}

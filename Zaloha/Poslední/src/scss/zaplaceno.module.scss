@@ -1,0 +1,82 @@
+// zaplaceno.module.scss
+@use '../scss/variables' as *;
+.ZaplacenoWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - $header-height - $footer-height);
+    padding: $padding-base;
+    background-color: $white-color;
+    @media (max-width: 720px) {
+    padding: 2rem 1rem;
+  }
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width;
+    padding: $main-padding;
+    text-align: center;
+    background: $form-color;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $form-color;
+  text-decoration: none;
+  font-weight: 600;
+  padding: $btn-padding;
+  border-radius: $btn-radius;
+  background-color: $btn-hover-color;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  svg{
+    width: 22px;
+    height: 22px;
+    margin-right: 1rem;
+  }
+}
+.link:hover {
+    background-color: $primary-color;
+    color: $white-color;
+    text-decoration: none;
+    transform: translateY(5px);
+}
+.edit{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.expired {
+  color: red;
+  font-weight: bold;
+}
+.editbtn{
+    margin-top: 1rem;
+    padding: $btn-padding;
+    border-radius: $btn-radius;
+    background-color: $text3-color;
+    box-shadow: $shadow;
+    color: $text-color;
+}
+.editbtnremind{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: rgb(209, 19, 19);
+}

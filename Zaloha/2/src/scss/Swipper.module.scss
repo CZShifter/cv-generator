@@ -1,0 +1,29 @@
+@use '../scss/variables' as *;
+.mySwiper {
+  display: inline-block;
+  width: 100%;
+  max-width: 339px;
+  max-height: 479px;
+  box-shadow: $shadow;
+  border-radius: $border-radius;
+  @media (max-width: 800px) {
+    max-width: auto;
+    max-height: auto;
+  }
+}
+.mySwiperSlide {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: inline-block;
+  max-width: fit-content;
+  max-height: fit-content;
+  object-fit: cover;
+}

@@ -1,0 +1,87 @@
+@use '../scss/variables' as *;
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $gap2;
+  padding: $padding-base;
+  background-color: $form-color;
+  text-align: center;
+  h2 {
+    font-size: $h2;
+    color: $secondary-color;
+  }
+  @media (max-width: 700px) {
+    h2{
+      font-size: 1.5rem;
+    }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $gap2;
+    max-width: $max-width;
+    margin: 0 auto;
+     @media (max-width: 720px) {
+    gap: $gap;
+  }
+  }
+  @media only screen and (max-width: 1170px){
+    .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    }
+  }
+  @media only screen and (max-width: 700px){
+    .grid {
+    grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media only screen and (max-width: 350px){
+    .grid {
+    grid-template-columns: 1fr;
+    }
+  }
+}
+.tile {
+  background: $gradient;
+  border-radius: $border-radius;
+  padding: $main-padding;
+  box-shadow: $shadow;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  h3 {
+    margin-top: 1rem;
+    font-size: $h3;
+    color: $secondary-color;
+  }
+  p {
+    font-size: $p;
+    color: $text2-color;
+  }
+  .icon {
+    font-size: $icon;
+    color: $btn-hover-color;
+  }
+  @media (max-width: 700px) {
+    padding: 1.5rem 1rem;
+    h3{
+      font-size: 1rem;
+      margin-top: 0;
+    }
+    p{
+      font-size: $p_small;
+    }
+     .icon {
+      font-size: 1.8rem;
+      color: $btn-hover-color;
+    }
+  }
+}
+@media (max-width: 700px) {
+    .features{
+        padding: 2rem 1rem;
+    }
+}

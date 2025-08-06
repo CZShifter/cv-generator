@@ -1,0 +1,143 @@
+@use '../scss/variables' as *;
+
+.guideSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: $padding-base;
+  color: $text-color;
+  background-color: $white-color;
+  h1{
+    font-size: $h2;
+  }
+}
+.intro{
+    font-size: $p;
+    text-align: center;
+    margin-bottom: $gap;
+}
+.guideSection blockquote {
+  background: #f5f8fe;
+  border-left: 5px solid $btn-hover-color;
+  padding: 1rem 1.5rem;
+  font-style: italic;
+  color: $text2-color;
+  margin: 1.6rem 0;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  font-size: $p;
+  font-weight: 400;
+    strong:nth-of-type(1) {
+    color: rgb(4, 179, 4);
+    }
+    strong:nth-of-type(2) {
+    color: rgb(4, 179, 4);
+    }
+    strong:nth-of-type(3) {
+    color: red;
+    }
+    strong:nth-of-type(4) {
+    color: red;
+    font-size: $p;
+    }
+}
+
+.guideWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: $max-width;
+    gap: $gap2;
+    @media (max-width: 720px) {
+      gap: $gap;
+    }
+}
+.guideWrapper > p {
+  margin-top: -1rem;
+  margin-bottom: 0rem;
+  @media (max-width: 720px) {
+      margin-top: 0rem;
+    margin-bottom: 1rem;
+    }
+}
+.heading {
+  font-size: $h2;
+  text-align: center;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+.guideStep {
+  width: 100%;
+  max-width: $max-width;
+  background-color: $form-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $main-padding;
+
+  @media (max-width: 900px) {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+.guideImage {
+  width: 100%;
+  max-width: 1084px;
+  border-radius: 0.8rem;
+  margin-bottom: 1.3rem;
+  box-shadow: $shadow;
+  background: #f6f9fd;
+}
+
+.guideText {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: left;
+  h2 {
+    font-size: calc($h2 / 1.3);
+    color: $btn-hover-color;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+    margin-top: 0;
+  }
+  p {
+    font-size: $p;
+    color: $text-color;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    strong{
+        color: $btn-hover-color;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .guideSection {
+    padding: 2rem 1rem;
+  }
+  .guideStep {
+    padding: 0.8rem 0.3rem;
+  }
+  .guideImage {
+    max-width: 100vw;
+    margin-bottom: 1rem;
+    border-radius: 0.6rem;
+  }
+  .guideText {
+    max-width: 100vw;
+    h2 {
+      font-size: calc($h2 / 1.6);
+      text-align: center;
+    }
+    p {
+      font-size: $p;
+      text-align: justify;
+    }
+  }
+}

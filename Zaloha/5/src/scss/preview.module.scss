@@ -1,0 +1,1263 @@
+@use '../scss/variables' as *; // Předpokládáme, že proměnné jako $header-height, $footer-height, atd. jsou definovány zde.
+// Hlavní kontejner pro rozdělení obrazovky
+.split {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - $header-height - $footer-height);
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+// Media Query pro menší obrazovky (tablet/mobil)
+@media (max-width: 1439px) {
+  .split {
+    flex-direction: column-reverse;
+    padding: 0 2rem;
+    width: 100%;
+    height: auto;
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .split {
+    padding: 0 1rem;
+  }
+}
+
+// Levá strana: Kontejner pro náhled CV
+.preview {
+  display: flex;
+  justify-content: center;   // Centrování horizotálně
+  align-items: center;       // Centrování vertikálně (Důležité: Nyní center!)
+  overflow: hidden;
+  background: $white-color;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.116);
+  border-radius: $border-radius;
+  width: auto;
+  height: auto;
+  position: relative;
+}
+
+// Media Query pro menší obrazovky (tablet/mobil)
+@media (max-width: 1440px) {
+  .preview {
+    align-self: center;
+  }
+}
+
+// Kontejner pro samotné škálované CV uvnitř .preview
+.cvScale {
+  width: 794px;
+  height: 1123px;
+  aspect-ratio: 794 / 1123;
+  display: flex;
+  align-items: flex-start;   // Obsah CV Template zarovnat nahoře
+  justify-content: center;   // Obsah CV Template vycentrovat horizontálně
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute; // Umístí element absolutně vzhledem k .preview
+  top: 50%;           // Posune horní okraj na 50% výšky rodiče
+  left: 50%;          // Posune levý okraj na 50% šířky rodiče
+  transform: translate(-50%, -50%) scale(var(--cv-scale-factor, 1)); // Posune element zpět o polovinu své šířky/výšky a aplikuje měřítko
+}
+.preview::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-top: 1px solid $primary-color;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Pravá strana: Formulář
+.formWrapper {
+  flex: 1;                   // Formulář vyplní zbývající dostupnou šířku
+  // Výška je plně řízena inline stylem z React komponenty (Preview.tsx),
+  // aby odpovídala výšce náhledu CV.
+  display: flex;
+  flex-direction: column;    // Důležité pro to, aby se obsah (formOuter/card) řadil pod sebe
+  justify-content: center;
+  background-color: $form-color;
+  border-radius: $border-radius; // Zaoblení na všech stranách
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); // Lehký stín
+  padding: 20px;             // Vnitřní odsazení pro formulář
+  box-sizing: border-box;
+  min-width: 300px;          // Minimální šířka formuláře, aby byl použitelný
+  overflow-y: auto;          // KLÍČOVÉ: Umožní scroll uvnitř formuláře, pokud je jeho obsah delší než výška CV
+  > p {
+    text-align: center;
+    font-size: $p_small;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    color: #666;
+  }
+}
+
+// Styly pro tlačítko "Začít vyplňovat"
+.startButton {
+  padding: $btn-padding;
+  font-size: $p_small;
+  font-weight: 600;
+  border-radius: $border-radius;
+  color: $white-color;
+  background-color: $btn-hover-color;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  width: auto;             // Zabere 100% šířky svého rodiče (.formWrapper)
+  margin: 0 auto;          // Vycentrování tlačítka horizontálně
+}
+
+.startButton:hover {
+  background-color: $btn-form;
+}
+/* --- NOVÉ STYLY PRO VÝBĚR ŠABLON --- */
+.templateSelection {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h3 {
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+}
+
+.templateThumbnails {
+    display: flex;
+    gap: 1.5rem; // Mezera mezi náhledy šablon
+    justify-content: center;
+    flex-wrap: wrap; // Umožní zalomení na více řádků na menších obrazovkách
+    @media (max-width: 1650px) {
+        display: grid;
+        grid-template-rows: 1fr 1rf;
+        grid-template-columns: auto auto;
+    }
+    @media (max-width: 400px) {
+        display: flex;
+        flex-direction: column; // Na menších obrazovkách pod sebou
+        align-items: center;
+    }
+}
+
+.thumbnailContainer {
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+        border-color: #11539e;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    &.selected {
+        border-color: #11539e;
+        box-shadow: 0 4px 10px #a7caffb2;
+    }
+
+    p {
+        margin-top: 0.8rem;
+        font-size: 0.9rem;
+        color: #555;
+        font-weight: 600;
+    }
+}
+
+.thumbnail {
+    width: 200px; // Pevná šířka pro náhledy
+    height: auto; // Automatická výška pro zachování poměru stran
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.10);
+    @media (max-width: 1650px) {
+        width: 150px;
+    }
+}
+
+// Media Query pro menší obrazovky (tablet/mobil)
+@media (max-width: 1439px) {
+  .formWrapper {
+    flex-basis: auto;        // Zpět na automatickou základnu ve flex-direction: column
+    width: 100%;             // Zabere celou šířku
+    min-height: auto;        // Automatická minimální výška
+    height: auto !important; // PŘEPÍŠE inline height z JS, když je layout sloupcový
+    order: 2;                // Formulář je pod náhledem CV
+    border-radius: $border-radius; // Zaoblení na všech stranách
+    padding: 1rem;           // Menší padding na mobilu
+  }
+}
+ @media (max-width: 530px){
+    .formWrapper {
+      padding: 1rem 0;
+      padding-bottom: 0;
+    }
+  }
+
+// `.formOuter` - Zvažte, zda je tato třída stále potřeba.
+// Pokud ji zachováváte jako vnitřní obal pro obsah formuláře (např. stepper a card),
+// její styly by měly podporovat flexibilní rozložení.
+.formOuter {
+  width: 100%;
+  flex-grow: 1;              // Umožní formOuter, aby se roztáhl a zabral dostupný prostor
+  display: flex;
+  flex-direction: column;
+  padding: $main-padding;    // Vnitřní odsazení uvnitř formOuter
+  border-radius: 0;          // Zaoblení je nyní na formWrapper
+  box-sizing: border-box;
+  overflow: hidden;          // Zabrání přetečení obsahu, pokud není ve .card scroll
+}
+
+@media (max-width: 970px) {
+  .formOuter {
+    min-height: auto;
+    height: auto;
+    overflow: hidden;
+    border-radius: $border-radius; // Zaoblení pro celý formulář na mobilu
+    padding: 0;                  // Padding je nyní na .formWrapper
+  }
+}
+
+// Stepper
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); // Pět stejně širokých sloupců
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 0 1rem 0;        // Spodní okraj pro mezeru pod stepperem
+  gap: 2rem;               // Mezera mezi kroky
+  //padding: 0 2rem;           // Horizontální padding, aby stepper nebyl nalepený na okraje
+   @media (max-width: 540px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+   }
+}
+
+@media (max-width: 970px) {
+  .stepper {
+    margin-top: 1rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .stepper {
+    gap: 0.1rem;
+    padding: 0;
+  }
+}
+
+.stepCircleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: .7;
+}
+
+.active {
+  opacity: 1;
+}
+
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: $form-color;
+  border: 2px solid $btn-hover-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $p_small;
+  font-weight: bold;
+  color: $btn-hover-color;
+  margin-bottom: .2rem;
+}
+
+@media (max-width: 970px) {
+  .circle {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1.8px solid $btn-hover-color;
+  }
+}
+
+.active .circle {
+  background: $btn-hover-color;
+  color: #fff;
+  border-color: $btn-hover-color;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: $text-color;
+  font-weight: 600;
+  text-align: center; // Centrování textu pod kruhem
+}
+
+@media (max-width: 970px) {
+  .label {
+    font-size: 0.8rem;
+  }
+}
+
+// Card pro obsah formuláře (např. kroky formuláře)
+.card {
+  background: #fff;
+  border-radius: $border-radius;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.116);
+  padding: $main-padding;
+  width: 100%;
+  height: 100%;           // KLÍČOVÉ: Card zabere celou výšku rodiče (.formOuter nebo .formWrapper)
+  flex-grow: 1;           // Povolí card, aby se roztáhla a zabrala dostupný prostor
+  flex-shrink: 1;         // Povolí card, aby se zmenšila, když je potřeba
+  flex-basis: auto;       // Důležité pro správné fungování flex-grow/shrink
+  display: flex;
+  flex-direction: column; // Umožňuje vertikální rozložení obsahu uvnitř karty
+  overflow-y: auto;       // KLÍČOVÉ: Umožňuje vertikální scrollbar uvnitř karty
+  box-sizing: border-box;
+
+  /* Stylování scrollbaru pro WebKit/Blink (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 15px; /* Šířka vertikálního scrollbaru */
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $btn-hover-color;
+    border-radius: 10px;
+    border: 4px solid #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $btn-form;
+  }
+
+  /* Stylování scrollbaru pro Firefox */
+  scrollbar-width: auto;
+  scrollbar-color: $btn-hover-color #f1f1f1;
+}
+
+// Poslední potomek v card (např. tlačítka Pokračovat/Uložit)
+.card > *:last-child {
+  margin-top: auto;        // Posune prvek na konec cardy
+  align-self: flex-end;    // Posune prvek doprava (pokud je flex item)
+}
+
+@media (max-width: 970px) {
+  .card {
+    min-height: auto;        // Zruší pevné min-výšky
+    max-height: none;        // Zruší max-height
+    height: auto;            // Flexibilní výška
+    overflow-y: auto;        // Udržujeme scroll, pokud je formulář delší
+    border-radius: $border-radius; // Zaoblení na všech stranách
+    padding: calc($main-padding / 2); // Menší padding na mobilu
+  }
+}
+@media (max-width: 700px){
+ .card {
+    padding: calc($main-padding / 2); // Menší padding uvnitř karty
+  }
+}
+.card2 {
+  background: #fff;
+  border-radius: $border-radius;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.116);
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column; // Umožňuje vertikální rozložení obsahu uvnitř karty
+  overflow-y: auto;       // KLÍČOVÉ: Umožňuje vertikální scrollbar uvnitř karty
+  box-sizing: border-box;
+
+  /* Stylování scrollbaru pro WebKit/Blink (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 15px; /* Šířka vertikálního scrollbaru */
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $btn-hover-color;
+    border-radius: 10px;
+    border: 4px solid #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $btn-form;
+  }
+
+  /* Stylování scrollbaru pro Firefox */
+  scrollbar-width: auto;
+  scrollbar-color: $btn-hover-color #f1f1f1;
+}
+
+// Poslední potomek v card (např. tlačítka Pokračovat/Uložit)
+/* .card2 > *:last-child {
+  margin-top: auto;        // Posune prvek na konec cardy
+  align-self: flex-end;    // Posune prvek doprava (pokud je flex item)
+} */
+
+@media (max-width: 970px) {
+  .card2 {
+    min-height: auto;        // Zruší pevné min-výšky
+    max-height: none;        // Zruší max-height
+    height: auto;            // Flexibilní výška
+    overflow-y: auto;        // Udržujeme scroll, pokud je formulář delší
+    border-radius: $border-radius; // Zaoblení na všech stranách
+    padding: 0; // Menší padding na mobilu
+  }
+}
+
+// Styly pro formulářové prvky (inputy, atd.)
+.formTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $text-color;
+  margin-bottom: 1.2rem;
+  //margin-left: calc(19.2px);
+  letter-spacing: .4px;
+  display: flex;
+}
+
+.rowGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.inputGroup {
+  flex: 1 1 210px; // Flexibilní šířka, s minimem 210px
+  min-width: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.input {
+  font-size: 0.85rem;
+  width: 100%;
+  padding: 0.3rem 0.7rem;
+  border-radius: $border-radius;
+  border: 1.4px solid #e1e6f7;
+  background: $white-color;
+  transition: border .18s;
+  margin-top: .14rem;
+}
+
+.input:focus {
+  border-color: #9db3cc;
+  border: 1px;
+}
+
+// Styly pro disabled inputy
+.disabled {
+  background: $form-color !important;
+  color: #bababa;
+  // pointer-events: none; // Ponecháno, pokud je to záměr
+}
+
+// Sekce s přepínači (switche)
+.sectionSwitch {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column; // Switche pod sebou
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; // Mezera mezi jednotlivými switchi
+    span {
+      font-size: 0.9rem;
+      color: $text-color;
+    }
+  }
+}
+
+.switchWrap {
+  display: inline-flex;
+  align-items: center;
+  margin-left: .7rem;
+}
+
+.switchTrack {
+  width: 36px;
+  height: 18px;
+  border-radius: 999px;
+  background: #ffdede;
+  display: inline-block;
+  position: relative;
+  transition: background .19s;
+  margin-left: 0.5rem;
+}
+
+.switchOn {
+  background: #e5ffe5 !important;
+}
+.switchOff {
+  background: #ffdede !important;
+}
+
+.switchTrack::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left .2s, background .2s;
+}
+
+input[type="checkbox"]:checked + .switchTrack::before {
+  left: 20px;
+  background: #51d18d;
+}
+input[type="checkbox"]:not(:checked) + .switchTrack::before {
+  left: 2px;
+  background: #e54646;
+}
+
+// Sekce pro nahrávání fotky
+.photoUpload {
+  width: auto;
+  margin-top: .9rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.photoBtn {
+  background: $btn-hover-color;
+  color: #fff; // Barva ikony v aktivním stavu (bílá)
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  box-shadow: 0 2px 8px #a7caff;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid $btn-hover-color; // Přidán border pro konzistentní vzhled
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  svg{
+    width: 22px;
+    height: 22px;
+    color: $form-color;
+  }
+  input {
+    display: none; // Skryje input type="file"
+  }
+
+  // Styly pro disabled stav (když je přepínač "Fotka" vypnutý)
+  &.disabled {
+    background: $form-color;           // Světle šedá pro kruh
+    color: $text-color;                      // Barva ikony: černá
+    border-color: #e1e6f7;             // Šedý border
+    box-shadow: 0 1px 4px #f4f6fa;     // Světlejší šedý stín
+    cursor: not-allowed;
+    svg{
+      color: $text-color;
+    }
+  }
+}
+
+.photoPreview {
+  border-radius: calc($border-radius / 2);
+  width: auto;
+  max-height: 4.5rem; // Zajištění, že se náhled fotky vejde
+  box-shadow: 0 1px 5px #d6ddee;
+}
+
+// Styly pro přidávání/editování opakovatelných položek (vzdělání, zkušenosti, atd.)
+.addBox {
+  display: flex;
+  flex-wrap: wrap;             // Umožní zalomení řádků inputů
+  gap: 1rem;
+  background: $form-color;
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.3rem;
+  align-items: flex-end;       // Zarovná položky na konec řádku (spodní část)
+  justify-content: space-between;
+  box-shadow: 0 1px 5px #f4f6fa;
+  strong{
+    font-size: 0.9em;
+  }
+  @media (max-width: 490px) {
+    strong{
+      font-size: $p_small;
+    }
+  }
+}
+.addBox2{
+  display: flex;             // Umožní zalomení řádků inputů
+  gap: 1rem;
+  background: $form-color;
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.3rem;
+  align-items: flex-end;       // Zarovná položky na konec řádku (spodní část)
+  justify-content: space-between;
+  box-shadow: 0 1px 5px #f4f6fa;
+}
+.addBox3{
+  display: flex;             // Umožní zalomení řádků inputů
+  gap: 1rem;
+  background: $form-color;
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.3rem;
+  align-items: flex-end;       // Zarovná položky na konec řádku (spodní část)
+  justify-content: space-between;
+  box-shadow: 0 1px 5px #f4f6fa;
+}
+.addBox4{
+  display: flex;             // Umožní zalomení řádků inputů
+  gap: 1rem;
+  background: $form-color;
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0;
+  align-items: flex-end;       // Zarovná položky na konec řádku (spodní část)
+  justify-content: space-between;
+  box-shadow: 0 1px 5px #f4f6fa;
+}
+@media (max-width: 1580px) {
+  .addBox3{
+    flex-wrap: wrap;
+  }
+  .addBox3 > div:last-child {
+  margin-left: auto;
+  }
+}
+.addBox > div:last-child {
+  margin-left: auto;
+}
+.addBoxActions {
+  display: flex;
+  gap: .7rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.addBoxCol {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  flex: 1 1 210px; // Umožňuje sloupci růst a zmenšovat se s minimální šířkou
+}
+
+.inlineLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding-left: 0.8rem;
+}
+
+@media (max-width: 1580px) {
+
+  .addBoxCol {
+    flex: 1 1 48%; // Dva sloupce na řádek
+    min-width: 220px;
+  }
+}
+
+// Tlačítka Uložit/Zrušit
+.save {
+  background: $btn-hover-color;
+  color: #fff;
+  border-radius: $border-radius;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background .18s;
+  box-shadow: 0 1px 4px #a7caffb2;
+}
+
+.save:hover {
+  background-color: $btn-form;
+}
+.generate {
+  background: $btn-hover-color;
+  color: #fff;
+  border-radius: $border-radius;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-weight: 700;
+  font-size: 0.6rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: background .18s;
+  box-shadow: 0 1px 4px #a7caffb2;
+}
+.generate:hover {
+  background-color: $btn-form;
+}
+.cancel {
+  background: #f5f5f5;
+  color: #d15228;
+  border-radius: $border-radius;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background .18s;
+}
+
+.cancel:hover {
+  background: #ffd8b7;
+}
+.cancel2 {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: #f5f5f5;
+  color: #d15228;
+  border-radius: 0 0 0.8rem 0.8rem;
+  border: none;
+  padding: 1.5rem 1rem;
+  font-weight: 700;
+  font-size: calc($h2 /1.5);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .18s;
+}
+
+.cancel2:hover {
+  background: #ffd8b7;
+}
+
+// Řádky záznamů (např. jednotlivé položky vzdělání, zkušeností)
+.recordRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ecf0f3;
+  border-radius: $border-radius;
+  padding: .6rem 1rem;
+  margin-bottom: .65rem;
+  font-size: 0.9rem;
+  color: #273353;
+  box-shadow: 0 1px 4px #f4f5f8;
+}
+
+.recordRow button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 1.16rem;
+  color: $btn-hover-color;
+   svg{
+    width: 17px;
+    height: 17px;
+  }
+}
+
+.recordRow button:last-child {
+  color: #f44530; // Červená pro tlačítko smazat
+}
+.recordRow button:hover {
+  opacity: .75;
+}
+
+.formButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-end; // Tlačítka vpravo
+}
+.formButtons2 {
+  display: flex;
+  justify-content: center; // Tlačítka 
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: .12rem;
+  font-size: 0.85rem;
+}
+.suggestedSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.suggestedSkill {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1.5px solid #e2e3ee;
+  background: #f0f4f8;
+  color: #233048;
+  border-radius: 1.5rem;
+  padding: 0.4rem 1.1rem 0.4rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border .18s, background .18s, color .18s;
+  outline: none;
+
+  input[type="checkbox"] {
+    pointer-events: none;
+    accent-color: #518cff;
+  }
+  &:hover:not(:disabled) {
+    border-color: #9bbcf9;
+    background: #e9f3ff;
+    color: #2465c7;
+  }
+  &.selected,
+  &:disabled {
+    background: #dbe8fb;
+    border-color: #518cff;
+    color: #2471c7;
+    cursor: default;
+    opacity: 0.7;
+  }
+}
+/* Styly pro jazykové úrovně v CvForm.tsx */
+
+.languageLevels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.7rem; /* Mezera mezi jednotlivými úrovněmi */
+  margin-bottom: 0.9rem;
+  padding: 0 1rem;
+  border: 1px solid var(--color-border); /* Můžeš si nastavit barvu ohraničení */
+  border-radius: $border-radius;
+  background-color: $form-color; /* Světlejší pozadí pro sekci úrovní */
+}
+
+.CheckboxContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: $form-color;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+}
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  padding: 0.1rem .6rem;
+  border: 1.4px solid #e1e6f7;
+  background-color: white; /* Světlejší pozadí pro neoznačené */
+  border: 1px solid $btn-hover-color;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  font-size: 0.85em !important;
+  color: var(--color-text); /* Barva textu */
+  &:hover {
+    background-color: $btn-hover-color; /* Jemné zvýraznění při najetí myší */
+    border-color: white;
+    color: white;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 0.5rem; /* Mezera mezi checkboxem a textem */
+    /* Skryj nativní checkbox a stylizuj vlastní */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid var(--color-primary); /* Barva ohraničení checkboxu */
+    border-radius: 4px;
+    background-color: var(--color-white); /* Pozadí checkboxu */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0; /* Zabrání zmenšení checkboxu */
+
+    &:checked {
+      background-color: $btn-hover-color; /* Barva pozadí při zaškrtnutí */
+      border-color: white;
+      color: white;
+
+      /* Vytvoření ikonky fajfky */
+      &::after {
+        content: '\2713'; /* Unicode symbol fajfky */
+        display: block;
+        color: var(--color-white);
+        font-size: 1.2em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+.checked {
+  background-color: $btn-hover-color !important;
+  color: white !important;
+  border-color: $btn-hover-color;
+}
+.price_card_wrapp{
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ max-width: 100%;
+ align-self: center;
+ 
+}
+.price_card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: calc(1123px / 2);
+    gap: 2rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+    background-color: $primary-color;
+    box-shadow: $shadow;
+    padding: $main-padding;
+    @media (max-width: 720px) {
+      padding-left: calc($main-padding / 2);
+      padding-right: calc($main-padding / 2);
+    @media (max-width: 530px){
+      background-color: $price-color;
+    }
+  }
+   
+}
+.price_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
+    line-height: 1.5;
+    p {
+        color: $white-color;
+        font-size: $p_small;
+        margin-bottom: 0;
+    }
+    h2{
+        position: relative;
+        color: $form-color;
+        font-size: 3.5rem;
+        &::after{
+            position: absolute;
+            content: "Kč";
+            font-size: 1.5rem;
+            color: $form-color;
+            top: 0;
+        }
+    }
+    @media (max-width: 530px){
+        h2::after{
+            top: 2.2rem;
+        }
+    }
+}
+.price_bar{
+    display: inline-block;
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 6rem);
+    top: 10.4rem;
+    background-color: $bar-color;
+    @media (max-width: 720px) {
+        left: 3rem;
+    }
+     @media (max-width: 530px) {
+        top: 10.2rem;
+    }
+}
+.price_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $gap_list;
+    text-align: center;
+    p{
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 530px) {
+      p{
+        margin-top: 0.2rem;
+      }
+    }
+}
+.price_list p{
+    color: $text3-color;
+    font-size: $p_small;
+}
+.button{
+        color: $white-color;
+        width: auto;
+        padding: 1.5rem 1rem;
+        font-size: calc($h2 / 1.5);
+        font-weight: 600;
+        background-color: $btn-hover-color;
+        border-radius: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+            background-color: rgb(20, 67, 197);
+            color: $form-color;
+        }
+        @media (max-width: 700px) {
+          font-size: 1.2rem;
+        }
+}
+.inputGroupAgree{
+ display: flex;
+ margin-bottom: 1rem;
+ @media (max-width: 432px) {
+  max-width: 240px;
+ }
+}
+.inputAgree{
+  display: block;
+  color: $form-color;
+  font-size: $p;
+  input[type="checkbox"] {
+  transform: scale(1.3); // nebo 2 pro větší
+  accent-color: $btn-hover-color; // volitelné, barva zaškrtnutí
+  margin-right: 12px; // podle potřeby
+  justify-self: center;
+  cursor: pointer;
+  }
+   a{
+    color: $form-color;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+}
+.modalOverlay {
+  position: fixed;
+  z-index: 3000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(30, 30, 30, 0.35);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modalContent {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  box-shadow: 0 6px 48px #0003;
+  max-width: 500px;
+  text-align: center;
+  animation: fade-in 0.2s;
+  h2 { font-size: 1.2em; color: #b70c0c; }
+  p { margin: 1.1em 0 1.4em 0; color: #333; }
+  button { min-width: 80px; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.92);}
+  to   { opacity: 1; transform: scale(1);}
+}
+.errorPopup {
+  background: #fee;
+  color: #b00;
+  border: 1px solid #b00;
+  padding: 12px 32px 12px 16px;
+  border-radius: 8px;
+  margin: 8px 0;
+  position: relative;
+  font-size: $p_small;
+  animation: popupfadein 0.3s;
+  max-width: 340px;
+}
+.errorClose {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  color: #b00;
+  cursor: pointer;
+  padding: 0;
+}
+.errorAgree {
+  position: absolute;
+  bottom: 3.5rem;
+  color: #b70c0c;
+  background: #fee;
+  border: 1px solid #b70c0c;
+  border-radius: $btn-radius;
+  padding: $btn-padding;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: $p_small;
+  animation: fade-in 0.3s;
+  @media (max-width: 435px){
+    margin-bottom: 3.2rem;
+  }
+}
+
+.inputAgreeError {
+  border: 1.5px solid #e54545 !important;
+  background: #fff0f0 !important;
+  color: #c00 !important;
+  a{
+    color: #c00;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+}
+@keyframes popupfadein {
+  from { opacity: 0; transform: translateY(-10px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+.generate.disabled {
+  pointer-events: none;
+  background: #ebf2f8 !important;
+  border-radius: 0.8rem;
+  border: 1.4px solid #e1e6f7;
+  color: #7e7e7e !important;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.previewWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+.page {
+  position: relative;
+  flex-shrink: 0;
+  width: 794px;
+  height: 1123px;
+  background: white;
+  margin: 0 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navButtonLeft, .navButtonRight, .pageNumber {
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: $btn-hover-color;
+  cursor: pointer;
+  padding: 0;
+  z-index: 50;
+}
+.navButtonLeft{
+left: 2rem;
+bottom: 0;
+}
+.navButtonRight{
+right: 2rem;
+bottom: 0;
+}
+.pageNumber{
+  font-size: 1.2em;
+  bottom: 8px;
+  cursor: default;
+}
+.navButtonLeft:disabled, .navButtonRight:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.modalContent{
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  h2{
+    margin-bottom: 1rem;
+  }
+}
+.modalContentIMG{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-color: $text2-color;
+
+}
+.sliderContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: $gap;
+  margin-top: 1rem;
+}
+// Mobilní úpravy pro menší prvky
+@media (max-width: 700px) {
+  .inlineLabel {
+    font-size: 0.8rem;
+  }
+  .inputGroup {
+    font-size: 0.8rem;
+  }
+  .sectionSwitch {
+    font-size: 0.8rem;
+  }
+  .formTitle {
+    font-size: 1rem;
+  }
+  .save, .cancel {
+    font-size: 0.8rem;
+  }
+  .cancel2 {
+    font-size: 1rem;
+  }
+  .photoUpload {
+    flex-direction: column; // Fotka a tlačítko pod sebou
+    align-items: flex-start;
+  }
+  .photoBtn {
+    width: 3.5rem; // Menší tlačítko pro foto
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+  .photoPreview {
+    max-height: 3.5rem; // Menší náhled fotky
+  }
+}
