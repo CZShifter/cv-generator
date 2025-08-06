@@ -43,11 +43,11 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                 )}
                 {/* Narozeniny pouze pokud showBirthyear */}
                 {data.showBirthyear && data.birthyear && (
-                  <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+                  <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
                 )}
               </div>
               <div className="education" id="skola">
-                <h3>VZDĚLÁNÍ</h3>
+                <h3>VZDELANIE</h3>
                 {data.education.map((e, i) => (
                   <div key={i} className="educationEntry">
                     <strong>{e.level}</strong><br />
@@ -86,12 +86,12 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
             {/* O MNĚ pouze pokud showSummary */}
             {data.showSummary && data.summary && (
               <div className="summary_wrapper">
-                <div className="section-title section-title--noborder"><CgProfile />O MNĚ</div>
+                <div className="section-title section-title--noborder"><CgProfile />O MNE</div>
                 <div className="summary">{data.summary}</div>
               </div>
             )}
             <div className="experience">
-              <div className="section-title"><MdOutlineWorkOutline />PRACOVNÍ ZKUŠENOSTI</div>
+              <div className="section-title"><MdOutlineWorkOutline />PRACOVNÉ SKÚSENOSTI</div>
                 {data.experience.map((exp, i) => (
                 
                 <div className="experience-entry" key={i}>
@@ -109,7 +109,7 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                 ))}
               </div>
               <div className="skills" id="skill_container">
-              <div className="section-title"><FaRegStar />DOVEDNOSTI</div>
+              <div className="section-title"><FaRegStar />ZRUČNOSTI</div>
               <ul className="skillsList">
                 {data.skills.map((skill, i) => (
                   <li key={i}>{skill}</li>

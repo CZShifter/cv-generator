@@ -52,7 +52,7 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
         <p><FaLinkedin /> in/{data.linkedin}</p>
       )}
       {data.showBirthyear && data.birthyear && (
-        <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+        <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
       )}
     </div>
   );
@@ -61,7 +61,7 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
   if (data.education.length > 0) {
     left.push(
       <div className={styles.education} key="education">
-        <h3>VZDĚLÁNÍ</h3>
+        <h3>VZDELANIE</h3>
         {data.education.map((e, i) => (
           <div key={i} className={styles.educationEntry}>
             <strong>{e.level}</strong><br />
@@ -108,7 +108,7 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
   if (data.showSummary && data.summary) {
     right.push(
       <div className={styles.summary_wrapper} key="summary">
-        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}><CgProfile />O MNĚ</div>
+        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}><CgProfile />O MNE</div>
         <div className={styles.summary}>{data.summary}</div>
       </div>
     );
@@ -122,7 +122,7 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
         {i === 0 && (
           <div className={styles["section-title"]}>
             <MdOutlineWorkOutline />
-            PRACOVNÍ ZKUŠENOSTI
+            PRACOVNÉ SKÚSENOSTI
           </div>
         )}
         <div className={styles["experience-entry"]}>
@@ -147,7 +147,7 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
   if (data.skills.length > 0) {
     right.push(
       <div className={styles.skills} key="skills">
-        <div className={styles["section-title"]}><FaRegStar />DOVEDNOSTI</div>
+        <div className={styles["section-title"]}><FaRegStar />ZRUČNOSTI</div>
         <ul className={styles.skillsList}>
           {data.skills.map((skill, i) => (
             <li key={i}>{skill}</li>

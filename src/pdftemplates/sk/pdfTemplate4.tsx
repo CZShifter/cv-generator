@@ -30,11 +30,11 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                   <p> in/{data.linkedin}<FaLinkedin /></p>
                 )}
                 {data.showBirthyear && data.birthyear && (
-                  <p>Rok narození: {data.birthyear}<FaRegCalendarAlt /></p>
+                  <p>Rok narodenia: {data.birthyear}<FaRegCalendarAlt /></p>
                 )}
               </div>
               <div className="education" id="skola">
-                <h3>VZDĚLÁNÍ</h3>
+                <h3>VZDELANIE</h3>
                 {data.education.map((e, i) => (
                   <div key={i} className="educationEntry">
                     <strong>{e.level}</strong><br />
@@ -67,7 +67,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                 </div>
               )}
               <div className="skillsWrapp" id="skill_container">
-                <h3>DOVEDNOSTI</h3>
+                <h3>ZRUČNOSTI</h3>
                 <ul className="skillsList">
                   {data.skills.map((skill, i) => (
                     <li key={i}>{skill}</li>
@@ -87,12 +87,12 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
             </div>
             {data.showSummary && data.summary && (
               <div className="summaryWrapp">
-                <div className="section-title section-title--noborder">O MNĚ</div>
+                <div className="section-title section-title--noborder">O MNE</div>
                 <div className="summary">{data.summary}</div>
               </div>
             )}
             <div className="experienceWrapper">
-              <div className="section-title">PRACOVNÍ ZKUŠENOSTI</div>
+              <div className="section-title">PRACOVNÉ SKÚSENOSTI</div>
               {data.experience.map((exp, i) => (
                 <div className="experience-entry" key={i}>
                   <span className="company">{exp.date_od} - {exp.date_do}</span>

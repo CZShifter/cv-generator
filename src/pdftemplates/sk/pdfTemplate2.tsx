@@ -23,12 +23,12 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
         {/* O MNĚ pouze pokud showSummary */}
         {data.showSummary && data.summary && (
           <div className="section">
-            <div className="section-title section-title--noborder">O MNĚ</div>
+            <div className="section-title section-title--noborder">O MNE</div>
             <div className="summary">{data.summary}</div>
           </div>
         )}
         <div className="section">
-          <div className="section-title2">PRACOVNÍ ZKUŠENOSTI</div>
+          <div className="section-title2">PRACOVNÉ SKÚSENOSTI</div>
           {data.experience.map((exp, i) => (
             <div className="experience-entry" key={i}>
               <strong>{exp.position}</strong>
@@ -44,7 +44,7 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
           ))}
         </div>          
         <div className="section" id="skill_container">
-          <div className="section-title">DOVEDNOSTI</div>
+          <div className="section-title">ZRUČNOSTI</div>
           <ul className="skillsList">
             {data.skills.map((skill, i) => (
               <li key={i}>{skill}</li>
@@ -72,11 +72,11 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
           )}
           {/* Narozeniny pouze pokud showBirthyear */}
           {data.showBirthyear && data.birthyear && (
-            <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+            <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
           )}
         </div>
         <div className="rightSection">
-          <h3>VZDĚLÁNÍ</h3>
+          <h3>VZDELANIE</h3>
           {data.education.map((e, i) => (
             <div key={i} className="educationEntry">
               <strong>{e.level}</strong><br />

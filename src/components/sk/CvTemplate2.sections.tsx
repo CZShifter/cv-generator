@@ -1,5 +1,5 @@
 import React from "react";
-import type { CvData } from "../data/CvData";
+import type { CvData } from "@/data/CvData";
 import styles from "@/templates/CvTemplate2.module.scss";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
 import ReloadableImage from "@/components/ReloadableImage";
@@ -33,7 +33,7 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
   if (data.showSummary && data.summary) {
     left.push(
       <div className={styles.section} key="summary">
-        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}>O MNĚ</div>
+        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}>O MNE</div>
         <div className={styles.summary}>{data.summary}</div>
       </div>
     );
@@ -45,7 +45,7 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
       left.push(
         <div className={styles.section} key={`exp-${i}`}>
           {/* Nadpis jen u prvního */}
-          {i === 0 && <div className={styles["section-title2"]}>PRACOVNÍ ZKUŠENOSTI</div>}
+          {i === 0 && <div className={styles["section-title2"]}>PRACOVNÉ SKÚSENOSTI</div>}
           <div className={styles["experience-entry"]}>
             <strong>{exp.position}</strong>
             <span className={styles.company}>
@@ -65,7 +65,7 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
   if (data.skills?.length) {
     left.push(
       <div className={styles.section} key="skills">
-        <div className={styles["section-title"]}>DOVEDNOSTI</div>
+        <div className={styles["section-title"]}>ZRUČNOSTI</div>
         <ul className={styles.skillsList}>
           {data.skills.map((skill, i) => (
             <li key={i}>{skill}</li>
@@ -98,7 +98,7 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
         <p><FaLinkedin /> in/{data.linkedin}</p>
       )}
       {data.showBirthyear && data.birthyear && (
-        <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+        <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
       )}
     </div>
   );
@@ -106,7 +106,7 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
   if (data.education?.length) {
     right.push(
       <div key="education">
-        <h3>VZDĚLÁNÍ</h3>
+        <h3>VZDELANIE</h3>
         {data.education.map((e, i) => (
           <div key={i} className={styles.educationEntry}>
             <strong>{e.level}</strong><br />

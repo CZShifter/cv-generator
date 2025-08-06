@@ -28,11 +28,11 @@ const CvTemplate: React.FC<Props> = ({ data }) => {
           )}
           {/* Narozeniny pouze pokud showBirthyear */}
           {data.showBirthyear && data.birthyear && (
-            <p><FaRegCalendarAlt />Rok narození: {data.birthyear}</p>
+            <p><FaRegCalendarAlt />Rok narodenia: {data.birthyear}</p>
           )}
         </div>
         <div className="education">
-          <h3>VZDĚLÁNÍ</h3>
+          <h3>VZDELANIE</h3>
           {data.education.map((e, i) => (
             <p key={i}>
               <em><strong>{e.level}</strong></em><br />
@@ -63,7 +63,7 @@ const CvTemplate: React.FC<Props> = ({ data }) => {
           ))}
         </div>
         <div className="expertise">
-          <h3>DOVEDNOSTI</h3>
+          <h3>ZRUČNOSTI</h3>
           <ul>
             {data.skills.map((skill, i) => (
               <li key={i}>{skill}</li>
@@ -82,11 +82,11 @@ const CvTemplate: React.FC<Props> = ({ data }) => {
         {data.showSummary && data.summary && (
         <div className="summary_wrapper">
           <div className="position-title"></div>
-          <div className="section-title"><strong>O MNĚ</strong></div>
+          <div className="section-title"><strong>O MNE</strong></div>
           <div className="summary">{data.summary}</div>
         </div>
         )}
-        <div className="section_title2"><strong>PRACOVNÍ ZKUŠENOSTI</strong></div>
+        <div className="section_title2"><strong>PRACOVNÉ SKÚSENOSTI</strong></div>
         {data.experience.map((exp, i) => (
         <div className="experience-entry" key={i}>
           <strong>{exp.position}</strong><br />

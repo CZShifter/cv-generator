@@ -38,7 +38,7 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
         <p> in/{data.linkedin}<FaLinkedin /></p>
       )}
       {data.showBirthyear && data.birthyear && (
-        <p> Rok narození: {data.birthyear}<FaRegCalendarAlt /></p>
+        <p> Rok narodenia: {data.birthyear}<FaRegCalendarAlt /></p>
       )}
     </div>
   );
@@ -47,7 +47,7 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
   if (data.education.length > 0) {
     left.push(
       <div className={styles.education} key="education">
-        <h3>VZDĚLÁNÍ</h3>
+        <h3>VZDELANIE</h3>
         {data.education.map((e, i) => (
           <div key={i} className={styles.educationEntry}>
             <strong>{e.level}</strong><br />
@@ -94,7 +94,7 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
   if (data.skills.length > 0) {
     left.push(
       <div className={styles.skillsWrapp} key="skills">
-        <h3>DOVEDNOSTI</h3>
+        <h3>ZRUČNOSTI</h3>
         <ul className={styles.skillsList}>
           {data.skills.map((skill, i) => (
             <li key={i}>{skill}</li>
@@ -124,7 +124,7 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
   if (data.showSummary && data.summary) {
     right.push(
       <div className={styles.summaryWrapp} key="summary">
-        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}>O MNĚ</div>
+        <div className={`${styles["section-title"]} ${styles["section-title--noborder"]}`}>O MNE</div>
         <div className={styles.summary}>{data.summary}</div>
       </div>
     );
@@ -136,7 +136,7 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
     right.push(
       <div className={styles.experienceWrapper} key={`exp-${i}`}>
         {i === 0 && (
-          <div className={styles["section-title"]}>PRACOVNÍ ZKUŠENOSTI</div>
+          <div className={styles["section-title"]}>PRACOVNÉ SKÚSENOSTI</div>
         )}
         <div className={styles["experience-entry"]}>
           <span className={styles.company}>{exp.date_od} - {exp.date_do}</span>

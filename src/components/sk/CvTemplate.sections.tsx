@@ -38,7 +38,7 @@ export function getCvTemplate1Sections(data: CvData & { photoVersion?: number })
         <p><FaLinkedin /> in/{data.linkedin}</p>
       )}
       {data.showBirthyear && data.birthyear && (
-        <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+        <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
       )}
     </div>
   );
@@ -46,7 +46,7 @@ export function getCvTemplate1Sections(data: CvData & { photoVersion?: number })
   if (data.education?.length) {
     left.push(
       <div className={styles.education} key="education">
-        <h3>VZDĚLÁNÍ</h3>
+        <h3>VZDELANIE</h3>
         {data.education.map((e, i) => (
           <p key={i}>
             <em><strong>{e.level}</strong></em><br />
@@ -90,7 +90,7 @@ export function getCvTemplate1Sections(data: CvData & { photoVersion?: number })
   if (data.skills.length > 0) {
     left.push(
       <div className={styles.expertise} key="skills">
-        <h3>DOVEDNOSTI</h3>
+        <h3>ZRUČNOSTI</h3>
         <ul>
           {data.skills.map((skill, i) => (
             <li key={i}>{skill}</li>
@@ -120,7 +120,7 @@ export function getCvTemplate1Sections(data: CvData & { photoVersion?: number })
     right.push(
       <div className={styles.summary_wrapper} key="summary">
         <div className={styles.position_title}></div>
-        <div className={styles.section_title}><strong>O MNĚ</strong></div>
+        <div className={styles.section_title}><strong>O MNE</strong></div>
         <div className={styles.summary}>{data.summary}</div>
       </div>
     );
@@ -132,7 +132,7 @@ export function getCvTemplate1Sections(data: CvData & { photoVersion?: number })
         <div key={`exp-${i}`}>
           {i === 0 && (
             <div className={styles.section_title2}>
-              <strong>PRACOVNÍ ZKUŠENOSTI</strong>
+              <strong>PRACOVNÉ SKÚSENOSTI</strong>
             </div>
           )}
           <div className={styles.experience_entry}>
