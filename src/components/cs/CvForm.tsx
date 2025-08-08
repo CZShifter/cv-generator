@@ -1018,14 +1018,13 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
           onClick={async () => {
           trackGAEvent('click', 'payment', 'placeni_zivotopisu');
           if (!agree) { setShowAgreeError(true); return; }
-                  
+
           try {
             setIsProcessing(true);
             const r = await fetch("/api/cs/create-payment", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                data,
                 templateId: selectedTemplate,
                 priceCZK: PRICE_CV, // tvoje stávající cena v Kč
               }),

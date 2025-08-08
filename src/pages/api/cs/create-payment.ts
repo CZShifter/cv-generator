@@ -11,12 +11,18 @@ const TEST     = (process.env.COMGATE_TEST ?? "true") === "true";
 if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT");
 if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
 
+type RequestBody = {
+  templateId: string;
+  priceCZK: number;
+};
+
+type ComgateCreateOk = { code: 0; redirect: string; transId: string };
+type ComgateCreateErr = { code: number; message?: string };
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
-  const { data, templateId, priceCZK } = req.body as {
-    data: any; templateId: string; priceCZK: number;
-  };
+  const { templateId, priceCZK } = req.body as RequestBody;
 
   const BASE = getBaseUrl(req);
   const refId = crypto.randomUUID();
@@ -28,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     curr: "CZK",
     label: "CV",
     refId,
-    method: "CARD_ALL",      // karta + Apple Pay/Google Pay
+    method: "CARD_ALL", // karta + Apple Pay/Google Pay
     lang: "cs",
     url_paid:      `${BASE}/cs/po-platbe?status=paid&refId=${refId}`,
     url_cancelled: `${BASE}/cs/po-platbe?status=cancelled&refId=${refId}`,
@@ -38,22 +44,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const auth = Buffer.from(`${MERCHANT}:${SECRET}`).toString("base64");
   const r = await fetch(`${COMGATE_BASE}/v2.0/payment.json`, {
     method: "POST",
-    headers: { Authorization: `Basic ${auth}`, "Content-Type": "application/json", Accept: "application/json" },
+    headers: {
+      Authorization: `Basic ${auth}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
     body: JSON.stringify(payload),
   });
 
-  const cg = await r.json();
-  if (!(cg?.code === 0 && cg?.redirect && cg?.transId)) {
-    return res.status(400).json({ error: cg?.message || "Create payment failed" });
+  const cg = (await r.json()) as ComgateCreateOk | ComgateCreateErr;
+
+  if ("code" in cg && cg.code === 0 && "redirect" in cg && "transId" in cg) {
+    const paymentToken = signPayment({
+      refId,
+      transId: cg.transId,
+      amount,
+      curr: "CZK",
+      templateId,
+    });
+
+    return res.json({
+      redirectUrl: cg.redirect,
+      transId: cg.transId,
+      refId,
+      paymentToken,
+    });
   }
 
-  const paymentToken = signPayment({
-    refId,
-    transId: cg.transId,
-    amount,
-    curr: "CZK",
-    templateId,
-  });
-
-  return res.json({ redirectUrl: cg.redirect, transId: cg.transId, refId, paymentToken });
+  return res
+    .status(400)
+    .json({ error: (cg as ComgateCreateErr)?.message || "Create payment failed" });
 }

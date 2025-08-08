@@ -9,13 +9,27 @@ const SECRET   = process.env.COMGATE_SECRET!;
 if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT");
 if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
 
+// ---- typy requestu/odpovědi
+type VerifyFinalizeBody = {
+  transId: string;
+  refId: string;
+  data: Record<string, unknown>; // tady nechávám volné, klidně si to časem zpřesni (Zod/TS interface)
+  templateId: string;
+  paymentToken: { payload: PaymentPayload; signature: string };
+};
+
+type ComgateStatus = {
+  status?: "PAID" | "PENDING" | "CANCELLED" | string;
+  refId?: string;
+  price?: string; // přichází jako string (např. "9900")
+  curr?: "CZK" | "EUR" | string;
+  [k: string]: string | undefined;
+};
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
-  const { transId, refId, data, templateId, paymentToken } = req.body as {
-    transId: string; refId: string; data: any; templateId: string;
-    paymentToken: { payload: PaymentPayload; signature: string };
-  };
+  const { transId, refId, data, templateId, paymentToken } = req.body as VerifyFinalizeBody;
 
   if (!transId || !refId || !data || !templateId || !paymentToken) {
     return res.status(400).json({ error: "Missing payload" });
@@ -35,11 +49,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // 2) Ověření stavu /status (jen PAID)
   const statusRes = await fetch(`${COMGATE_BASE}/v1.0/status`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Accept: "application/x-www-form-urlencoded",
+    },
     body: new URLSearchParams({ merchant: MERCHANT, transId, secret: SECRET }),
   });
+
   const text = await statusRes.text();
-  const cg = Object.fromEntries(new URLSearchParams(text)); // { status, refId, price, curr, ... }
+  const cg = Object.fromEntries(new URLSearchParams(text)) as ComgateStatus; // { status, refId, price, curr, ... }
 
   if (cg.status === "PENDING")   return res.json({ status: "PENDING" });
   if (cg.status === "CANCELLED") return res.json({ status: "CANCELLED" });
@@ -48,8 +66,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   // 3) Amount/currency match
-  const amount = Number(cg.price || 0);
-  const curr = (cg.curr as "CZK" | "EUR") || "CZK";
+  const amount = Number(cg.price ?? 0);
+  const curr = (cg.curr as "CZK" | "EUR") ?? "CZK";
   if (amount !== paymentToken.payload.amount || curr !== paymentToken.payload.curr) {
     return res.status(400).json({ error: "Amount/currency mismatch" });
   }
@@ -72,7 +90,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const err = await finalize.text().catch(() => "");
     return res.status(500).json({ error: `submit-cv failed: ${err}` });
   }
-  const json = await finalize.json(); // { previewUrl }
+  const json = await finalize.json() as { previewUrl?: string };
   if (!json?.previewUrl) return res.status(500).json({ error: "Missing previewUrl" });
 
   // 6) Zapiš marker
