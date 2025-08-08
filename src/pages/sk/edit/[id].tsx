@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { SITE_NAME } from "@/config/site";
+import { SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ALL_CV_TEMPLATES} from "@/utils/cvTemplatesConfig";
 import { createClient } from "@supabase/supabase-js";
@@ -281,7 +281,10 @@ console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
   return (
     <>
       <Head>
-        <title>{`Úprava životopisu | ${SITE_NAME}`}</title>
+        <title>{`Úprava životopisu | ${SITE_NAME_SK}`}</title>
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
         <meta name="description" content="Upravte si svůj životopis online a přegenerujte PDF během 24h." />
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />

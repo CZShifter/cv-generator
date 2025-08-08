@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { renderCvHtml } from '@/utils/sk/renderCvHtml';
 import { renderInvoiceHtml } from "@/utils/sk/renderInvoiceHtml";
-import { SITE_NAME_SK, PRICE_CV, PDF_SANDBOX } from "@/config/site";
+import { SITE_NAME_SK, PRICE_CV_SK, PDF_SANDBOX } from "@/config/site";
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 import crypto from 'crypto';
@@ -43,7 +43,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const id = crypto.randomUUID();
     const now = new Date();
     const expiresAt = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-    const amount = PRICE_CV;
+    const amount = PRICE_CV_SK;
 
     // Fotka
     let photoUrl = '';

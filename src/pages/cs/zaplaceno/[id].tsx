@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaRegFilePdf, FaFileInvoice, FaCopy } from "react-icons/fa";
-import { SITE_URL, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_NAME, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { trackGAEvent } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -166,6 +166,9 @@ export default function ZaplacenoPage({ data }: Props) {
     <>
       <Head>
         <title>{`Životopis byl úspěšně vytvořen | ${SITE_NAME}`}</title>
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
       </Head>
