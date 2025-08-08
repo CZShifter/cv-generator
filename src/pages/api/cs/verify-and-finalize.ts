@@ -6,6 +6,8 @@ import { getFinalizeMarker, setFinalizeMarker } from "@/utils/paymentIdem";
 const COMGATE_BASE = "https://payments.comgate.cz";
 const MERCHANT = process.env.COMGATE_MERCHANT!;
 const SECRET   = process.env.COMGATE_SECRET!;
+const VERCEL_BYPASS = process.env.VERCEL_AUTOMATION_BYPASS_SECRET; // <- nový env
+
 if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT");
 if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
 
@@ -13,7 +15,7 @@ if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
 type VerifyFinalizeBody = {
   transId: string;
   refId: string;
-  data: Record<string, unknown>; // tady nechávám volné, klidně si to časem zpřesni (Zod/TS interface)
+  data: Record<string, unknown>;
   templateId: string;
   paymentToken: { payload: PaymentPayload; signature: string };
 };
@@ -78,11 +80,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.json({ status: "PAID", previewUrl: existing.previewUrl });
   }
 
-  // 5) Finalizace — zavolej tvůj PŮVODNÍ submit-cv
+  // 5) Finalizace — zavolej tvůj PŮVODNÍ submit-cv (s Vercel bypass headerem)
   const submitUrl = absoluteUrl(req, "/api/cs/submit-cv");
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (VERCEL_BYPASS) {
+    headers["x-vercel-protection-bypass"] = VERCEL_BYPASS;
+  }
+
   const finalize = await fetch(submitUrl, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify({ data, templateId }),
   });
 
@@ -90,7 +97,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const err = await finalize.text().catch(() => "");
     return res.status(500).json({ error: `submit-cv failed: ${err}` });
   }
-  const json = await finalize.json() as { previewUrl?: string };
+  const json = (await finalize.json()) as { previewUrl?: string };
   if (!json?.previewUrl) return res.status(500).json({ error: "Missing previewUrl" });
 
   // 6) Zapiš marker
