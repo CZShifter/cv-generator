@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     curr: "CZK",
     label: "CV",
     refId,
-    method: "CARD_ALL", // karta + Apple Pay/Google Pay
+    method: "CARD_CZ_COMGATE", // karta + Apple Pay/Google Pay
     lang: "cs",
     url_paid:      `${BASE}/cs/po-platbe?status=paid&refId=${refId}`,
     url_cancelled: `${BASE}/cs/po-platbe?status=cancelled&refId=${refId}`,
