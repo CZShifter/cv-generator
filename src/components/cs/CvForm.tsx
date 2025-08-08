@@ -1025,8 +1025,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                templateId: selectedTemplate,
-                priceCZK: PRICE_CV, // tvoje stávající cena v Kč
+                templateId: selectedTemplate
               }),
             });
             const j = await r.json();

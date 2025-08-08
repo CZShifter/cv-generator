@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "@/scss/PoPlatbe.module.scss";
-import { SITE_NAME, SITE_URL, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { SITE_NAME_SK, SITE_URL_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { MdErrorOutline } from "react-icons/md";
@@ -11,13 +11,13 @@ type StatusKind = "verifying" | "cancelled" | "error" | "info";
 
 export default function PoPlatbe() {
   const [status, setStatus] = useState<StatusKind>("verifying");
-  const [msg, setMsg] = useState<React.ReactNode>("Ověřujeme platbu");
+  const [msg, setMsg] = useState<React.ReactNode>("Overujeme platbu");
 
-  // Retry: zpět na /cs/preview se stejnou šablonou a rovnou krok 6
+  // Retry: späť na /sk/preview
   const handleRetry = () => {
-  try { localStorage.removeItem("cv_payment"); } catch {}
-  window.location.href = "/cs/preview";
-};
+    try { localStorage.removeItem("cv_payment"); } catch {}
+    window.location.href = "/sk/preview";
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -28,12 +28,12 @@ export default function PoPlatbe() {
 
     if (!paymentRaw) {
       setStatus("error");
-      setMsg("Chybí data platby. Vraťte se k objednávce.");
+      setMsg("Chýbajú údaje platby. Vráťte sa k objednávke.");
       return;
     }
     if (!draftRaw) {
       setStatus("error");
-      setMsg("Chybí rozepsaný návrh (draft). Vraťte se k objednávce.");
+      setMsg("Chýba rozpracovaný návrh (draft). Vráťte sa k objednávke.");
       return;
     }
 
@@ -50,14 +50,14 @@ export default function PoPlatbe() {
 
     if (!transId || !refId || !paymentToken || !templateId || !data) {
       setStatus("error");
-      setMsg("Chybí potřebná data (platba/šablona/formulář). Vraťte se k objednávce.");
+      setMsg("Chýbajú potrebné dáta (platba/šablóna/formulár). Vráťte sa k objednávke.");
       return;
     }
 
     const tick = async () => {
       if (cancelled) return;
       try {
-        const r = await fetch("/api/cs/verify-and-finalize", {
+        const r = await fetch("/api/sk/verify-and-finalize", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ transId, refId, data, templateId, paymentToken }),
@@ -74,8 +74,9 @@ export default function PoPlatbe() {
           setStatus("cancelled");
           setMsg(
             <>
-            <span>Platba byla zamítnuta. Můžete ji zopakovat.</span><br></br>
-            <small>Vaše data jsou dočasně uložena. Stačí znovu vybrat šablonu a přejit ke kroku 6: "Dokončit".</small>
+              <span>Platba bola zamietnutá. Môžete ju zopakovať.</span>
+              <br />
+              <small>Vaše údaje sú dočasne uložené. Stačí znovu vybrať šablónu a prejsť na krok 6: „Dokončiť“.</small>
             </>
           );
           return;
@@ -86,21 +87,21 @@ export default function PoPlatbe() {
             localStorage.removeItem("cv_draft");
             localStorage.removeItem("cv_payment");
           } catch {}
-          window.location.href = j.previewUrl; // -> /cs/zaplaceno/[id]
+          window.location.href = j.previewUrl; // -> /sk/zaplaceno/[id]
           return;
         }
 
         setStatus("error");
-        setMsg(j.error || "Platba ověřena, ale dokončení selhalo.");
+        setMsg(j.error || "Platba overená, ale dokončenie zlyhalo.");
       } catch {
         setStatus("error");
-        setMsg("Chyba při ověřování platby. Zkuste to prosím znovu.");
+        setMsg("Chyba pri overovaní platby. Skúste to prosím znova.");
       }
     };
 
-    // start ověřování
+    // štart overovania
     setStatus("verifying");
-    setMsg("Ověřujeme platbu");
+    setMsg("Overujeme platbu");
     tick();
 
     return () => {
@@ -109,7 +110,7 @@ export default function PoPlatbe() {
     };
   }, []);
 
-  // vyber ikonu podle stavu
+  // vyber ikonu podľa stavu
   const renderIcon = () => {
     switch (status) {
       case "verifying":
@@ -127,28 +128,28 @@ export default function PoPlatbe() {
   return (
     <>
       <Head>
-        <title>{`Platební brána – průběh platby | ${SITE_NAME}`}</title>
+        <title>{`Platobná brána – priebeh platby | ${SITE_NAME_SK}`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
-        <meta name="language" content="cs" />
-        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
-        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        <meta name="language" content="sk" />
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
-        <link rel="alternate" href={`${SITE_URL}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL}/sk`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="sk" />
+        <link rel="alternate" href={`${SITE_URL_SK}/cs`} hrefLang="cs" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
       </Head>
 
       <main className={styles.MainWrapper}>
         <div className={styles.Wrapper}>
-          <h1>Platební brána</h1>
+          <h1>Platobná brána</h1>
 
           <div className={styles.StatusBlock}>
             {renderIcon()}
             <p className={styles.Msg} aria-live="polite">
               {status === "verifying" ? (
                 <>
-                  Ověřujeme platbu
+                  Overujeme platbu
                   <span className={styles.Ellipsis} aria-hidden="true" />
                 </>
               ) : (
@@ -159,7 +160,7 @@ export default function PoPlatbe() {
 
           {(status === "cancelled" || status === "error") && (
             <button className={styles.MainButton} onClick={handleRetry}>
-              Zkusit zaplatit znovu
+              Skúsiť zaplatiť znova
             </button>
           )}
         </div>

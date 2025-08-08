@@ -1,0 +1,136 @@
+@use '../scss/variables' as *;
+
+.MainWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: $white-color;
+    padding: $padding-base;
+    text-align: center;
+    min-height: calc(100vh - $header-height - $footer-height);
+    h1{
+        font-size: $h1;
+    }
+    p{
+        font-size: $p;
+    }
+    @media (max-width: 700px) {
+        padding: 1rem 1rem;
+        padding-bottom: 0;
+         h1{
+          font-size: 2rem;
+          text-align: center;
+          align-self: center;
+        }
+    }
+}
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+  width: 100%;
+  max-width: $max-width;
+  padding: $main-padding;
+  text-align: center;
+  background: $form-color;
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  @media (max-width: 700px) {
+    button{
+      font-size: $p_small;
+    }
+  }
+}
+.MainButton{
+    margin-top: 1rem;
+    padding: $btn-padding;
+    border-radius: $btn-radius;
+    background-color: $btn-hover-color;
+    box-shadow: $shadow;
+    color: $form-color;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    &:hover {
+      background-color: $btn-form;
+      color: $white-color;
+      transform: translateY(5px);
+    }
+}
+.Ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: baseline;
+  width: 0ch;
+}
+.Ellipsis::after {
+  content: '...';
+  display: inline-block;
+  animation: ellipsis 1200ms steps(4, end) infinite;
+}
+
+@keyframes ellipsis {
+  0%   { width: 0ch; }  /* ""  */
+  25%  { width: 1ch; }  /* "." */
+  50%  { width: 2ch; }  /* ".."*/
+  75%  { width: 3ch; }  /* "..." */
+  100% { width: 0ch; }
+}
+/* Status wrapper */
+.StatusBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Ikona vždy nad zprávou */
+.StatusIcon {
+  font-size: 48px; /* velikost ikony */
+  line-height: 1;
+}
+
+/* Varianty barev */
+.IconVerifying { color: #6b7280; } /* šedá */
+.IconCancelled { color: #e11d48; } /* červená */
+.IconError     { color: #e11d48; }
+.IconInfo      { color: #6b7280; }
+
+/* Spinner animace pro "verifying" */
+.Spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Text zprávy */
+.Msg {
+  text-align: center;
+  margin: 0;
+}
+
+/* Běžící tečky za "Ověřujeme platbu" */
+.Ellipsis {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.Ellipsis::after {
+  content: '...';
+  display: inline-block;
+  width: 0ch;           /* animujeme šířku pseudo-elementu */
+  overflow: hidden;
+  animation: ellipsis 1200ms steps(4, end) infinite;
+}
+
+@keyframes ellipsis {
+  0%   { width: 0ch; }
+  25%  { width: 1ch; }
+  50%  { width: 2ch; }
+  75%  { width: 3ch; }
+  100% { width: 0ch; }
+}

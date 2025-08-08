@@ -4,12 +4,12 @@ import { verifyPayment, PaymentPayload } from "@/utils/paymentToken";
 import { getFinalizeMarker, setFinalizeMarker } from "@/utils/paymentIdem";
 
 const COMGATE_BASE = "https://payments.comgate.cz";
-const MERCHANT = process.env.COMGATE_MERCHANT!;
-const SECRET   = process.env.COMGATE_SECRET!;
+const MERCHANT = process.env.COMGATE_MERCHANT_SK!;
+const SECRET   = process.env.COMGATE_SECRET_SK!;
 const VERCEL_BYPASS = process.env.VERCEL_AUTOMATION_BYPASS_SECRET; // <- nový env
 
-if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT");
-if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
+if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT_SK");
+if (!SECRET) throw new Error("Missing env: COMGATE_SECRET_SK");
 
 // ---- typy requestu/odpovědi
 type VerifyFinalizeBody = {
@@ -80,8 +80,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.json({ status: "PAID", previewUrl: existing.previewUrl });
   }
 
-  // 5) Finalizace — zavolej tvůj PŮVODNÍ submit-cv (s Vercel bypass headerem)
-  const submitUrl = absoluteUrl(req, "/api/cs/submit-cv");
+  // 5) Finalizace — zavolej tvůj PŮVODNÍ SK submit-cv (s Vercel bypass headerem)
+  const submitUrl = absoluteUrl(req, "/api/sk/submit-cv");
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (VERCEL_BYPASS) {
     headers["x-vercel-protection-bypass"] = VERCEL_BYPASS;
@@ -100,9 +100,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const json = (await finalize.json()) as { previewUrl?: string };
   if (!json?.previewUrl) return res.status(500).json({ error: "Missing previewUrl" });
 
-   // Zapiš Comgate transId/refId do cv_entries – best-effort, neblokuje tok
+  // Zapiš Comgate transId/refId do cv_entries – best-effort, neblokuje tok
   try {
-
     const m = String(json.previewUrl).match(/\/zaplaceno\/([^/?#]+)/);
     const cvId = m?.[1];
 
@@ -119,13 +118,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         .update({
           comgate_trans_id: transId,
           comgate_ref_id: refId,
-
         })
         .eq("id", cvId);
     }
   } catch {
+    // ignore
   }
- // 6) Zapiš marker
+
+  // 6) Zapiš marker
   try { await setFinalizeMarker(transId, { previewUrl: json.previewUrl }); } catch {}
 
   return res.json({ status: "PAID", previewUrl: json.previewUrl });

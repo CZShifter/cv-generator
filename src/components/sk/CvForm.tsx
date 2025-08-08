@@ -1016,30 +1016,35 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
           className={styles.button}
           disabled={isProcessing} // jen při zpracování
           onClick={async () => {
-            trackGAEvent('click', 'payment', 'placeni_zivotopisu_sk');
-            if (!agree) {
-              setShowAgreeError(true);
-              return;
-            }
-            try {
-              setIsProcessing(true);
-            const res = await fetch("/api/sk/submit-cv", {
+          trackGAEvent('click', 'payment', 'placeni_zivotopisu_sk');
+          if (!agree) { setShowAgreeError(true); return; }
+
+          try {
+            setIsProcessing(true);
+            const r = await fetch("/api/sk/create-payment", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                data,
-                templateId: selectedTemplate,
+                templateId: selectedTemplate
               }),
             });
-            const json = await res.json();
-            if (json.previewUrl) {
-              localStorage.removeItem("cv_draft");  // smaže draft po submitu
-              window.location.href = json.previewUrl;
+            const j = await r.json();
+          
+            if (j.redirectUrl && j.transId && j.refId && j.paymentToken) {
+              // POZOR: cv_draft teď NEMAŽEME – smaže se až po úspěchu na /sk/po-platbe
+              localStorage.setItem("cv_payment", JSON.stringify({
+                data,
+                templateId: selectedTemplate,
+                transId: j.transId,
+                refId: j.refId,
+                paymentToken: j.paymentToken,
+              }));
+              window.location.href = j.redirectUrl; // přesměrování na Comgate
             } else {
-              alert("Něco se pokazilo.");
+              alert(j.error || "Něco se pokazilo při zakládání platby.");
             }
           } catch {
-            alert("Došlo k chybě při odeslání.");
+            alert("Došlo k chybě při zakládání platby.");
           } finally {
             setIsProcessing(false);
           }
