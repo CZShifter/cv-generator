@@ -76,7 +76,7 @@ export default function PoPlatbe() {
             <>
               <span>Platba bola zamietnutá. Môžete ju zopakovať.</span>
               <br />
-              <small>Vaše údaje sú dočasne uložené. Stačí znovu vybrať šablónu a prejsť na krok 6: „Dokončiť“.</small>
+              <small>Vaše údaje sú dočasne uložené. Stačí znovu vybrať šablónu a prejsť na krok 6: &ldquo;Dokončiť&ldquo;.</small>
             </>
           );
           return;

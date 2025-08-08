@@ -75,7 +75,7 @@ export default function PoPlatbe() {
           setMsg(
             <>
             <span>Platba byla zamítnuta. Můžete ji zopakovat.</span><br></br>
-            <small>Vaše data jsou dočasně uložena. Stačí znovu vybrat šablonu a přejit ke kroku 6: "Dokončit".</small>
+            <small>Vaše data jsou dočasně uložena. Stačí znovu vybrat šablonu a přejit ke kroku 6: &ldquo;Dokončit&ldquo;.</small>
             </>
           );
           return;
