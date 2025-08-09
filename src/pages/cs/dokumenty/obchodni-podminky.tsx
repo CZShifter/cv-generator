@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_MAIL, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_MAIL, SITE_NAME, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
 import Link from 'next/link'
@@ -8,8 +8,44 @@ export default function ObchodniPodminky() {
     <>
       <Head>
         <title>{`Obchodní podmínky | ${SITE_NAME}`}</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <meta name="description" content="Obchodní podmínky používání služby a nákupu produktů, včetně platebních a reklamačních pravidel." />
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        {/* Canonical + hreflang */}
+        <link rel="canonical" href={`${SITE_URL}/cs/dokumenty/obchodni-podminky/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/dokumenty/obchodni-podminky/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        {/* Open Graph */}
+        <meta property="og:title" content={`Obchodní podmínky | ${SITE_NAME}`} />
+        <meta property="og:description" content="Obchodní podmínky používání služby a nákupu produktů, včetně platebních a reklamačních pravidel." />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:alt" content="Informace o obchodních podmínkách" />
+        <meta property="og:url" content={`${SITE_URL}/cs/dokumenty/obchodni-podminky/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="cs_CZ" />
+        <meta property="og:locale:alternate" content="sk_SK" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Obchodní podmínky | ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Obchodní podmínky používání služby a nákupu produktů, včetně platebních a reklamačních pravidel." />
+        <meta name="twitter:image" content={OG_IMAGE} />
+        {/* Structured data – WebPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Obchodní podmínky",
+              "url": `${SITE_URL}/cs/dokumenty/obchodni-podminky/`,
+              "inLanguage": "cs-CZ",
+              "description": "Obchodní podmínky používání služby a nákupu produktů, včetně platebních a reklamačních pravidel."
+            })
+          }}
+        />
       </Head>
       <section className={styles.dokument_section}>
         <div className={styles.dokument_wrapper}>

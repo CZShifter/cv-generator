@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_MAIL, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_MAIL, SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
 import Link from 'next/link';
@@ -7,13 +7,56 @@ export default function ObchodniPodminky() {
   return (
     <>
       <Head>
-        <title>{`Obchodní podmínky | ${SITE_NAME}`}</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <title>{`Obchodné podmienky | ${SITE_NAME_SK}`}</title>
+        <meta
+          name="description"
+          content="Obchodné podmienky používania služby a nákupu produktov, vrátane platobných a reklamačných pravidiel."/>
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        {/* Canonical + hreflang */}
+        <link rel="canonical" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/dokumenty/obchodni-podminky/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        {/* Open Graph */}
+        <meta property="og:title" content={`Obchodné podmienky | ${SITE_NAME_SK}`} />
+        <meta
+          property="og:description"
+          content="Obchodné podmienky používania služby a nákupu produktov, vrátane platobných a reklamačných pravidiel."/>
+        <meta property="og:image" content={OG_IMAGE_SK} />
+        <meta property="og:image:alt" content="Informácie o obchodných podmienkach" />
+        <meta property="og:url" content={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Obchodné podmienky | ${SITE_NAME_SK}`} />
+        <meta
+          name="twitter:description"
+          content="Obchodné podmienky používania služby a nákupu produktov, vrátane platobných a reklamačných pravidiel."/>
+        <meta name="twitter:image" content={OG_IMAGE_SK} />     
+        {/* Structured data – WebPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Obchodné podmienky",
+              "url": `${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`,
+              "inLanguage": "sk-SK",
+              "description":
+                "Obchodné podmienky používania služby a nákupu produktov, vrátane platobných a reklamačných pravidiel."
+            })
+          }}
+        />
       </Head>
       <section className={styles.dokument_section}>
         <div className={styles.dokument_wrapper}>
-          <h1>Obchodní podmínky služby {SITE_NAME}</h1>
+          <h1>Obchodní podmínky služby {SITE_NAME_SK}</h1>
           <h2>1. Úvodní ustanovení</h2>
           <p>
             Tyto obchodní podmínky upravují vztahy mezi poskytovatelem služby a uživatelem vznikající při nákupu digitálního obsahu prostřednictvím webových stránek <Link href='/sk'>{SITE_URL}</Link>.

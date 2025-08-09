@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, OG_IMAGE, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME } from "@/config/site";
 import NavodSection from '@/components/cs/NavodSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
 export default function NavodPage() {
@@ -7,26 +7,36 @@ export default function NavodPage() {
       <>
       <Head>
         <title>{`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`}</title>
-        <meta name="description" content="Podrobný návod, jak jednoduše a správně vyplnit online životopis. Ukázky všech kroků s obrázky a tipy, na co si dát pozor. Zvládne to každý – podívejte se na postup!"/>
-        <meta name="language" content="cs" />
+        <meta
+          name="description"
+          content="Podrobný návod, jak jednoduše a správně vyplnit online životopis. Ukázky všech kroků s obrázky a tipy, na co si dát pozor. Zvládne to každý – podívejte se na postup!"/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`}/>
-        <meta property="og:description" content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
+        <meta property="og:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`} />
+        <meta
+          property="og:description"
+          content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
         <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:url" content={`${SITE_URL}/navod`} />
+        <meta property="og:image:alt" content="Postup vyplnění online životopisu – návod krok za krokem" />
+        <meta property="og:url" content={`${SITE_URL}/cs/navod/`} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="cs_CZ" />
+        <meta property="og:locale:alternate" content="sk_SK" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`}/>
-        <meta name="twitter:description" content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
+        <meta name="twitter:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`} />
+        <meta
+          name="twitter:description"
+          content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
         <meta name="twitter:image" content={OG_IMAGE} />
-        {/* Structured data - HowToPage */}
-        <link rel="canonical" href={`${SITE_URL}/cs/navod`} />
-        <link rel="alternate" href={`${SITE_URL}/cs/navod`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL}/sk/navod`} hrefLang="sk" />
+        <meta name="twitter:image:alt" content="Postup vyplnění online životopisu – návod krok za krokem" />
+        {/* Canonical + hreflang (absolutní URL, oboustranně .cz ↔ .sk) */}
+        <link rel="canonical" href={`${SITE_URL}/cs/navod/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/navod/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/navod/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+
+        {/* Structured data - HowTo */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -36,8 +46,10 @@ export default function NavodPage() {
               "name": "Jak vyplnit online životopis krok za krokem",
               "description": "Podrobný návod pro vyplnění online životopisu, doplněný obrázky a postupem, který zvládne každý.",
               "image": OG_IMAGE,
+              "inLanguage": "cs-CZ",
               "totalTime": "PT10M",
               "tool": ["Online generátor životopisů"],
+              "url": `${SITE_URL}/cs/navod/`,
               "step": [
                 {
                   "@type": "HowToStep",

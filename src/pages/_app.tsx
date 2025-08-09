@@ -34,6 +34,13 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+// Helper pro určení jazyka z cesty
+function getLangFromPath(pathname: string) {
+  if (pathname.startsWith('/sk')) return 'sk';
+  if (pathname.startsWith('/cs')) return 'cs';
+  return 'cs'; // fallback
+}
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const router = useRouter();
@@ -62,6 +69,26 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [analyticsEnabled, router.events]);
+
+  // Nastavení <html lang> při načtení i po každé změně routy
+  useEffect(() => {
+    const applyLang = (url: string) => {
+      const lang = getLangFromPath(new URL(url, window.location.origin).pathname);
+      if (document.documentElement.lang !== lang) {
+        document.documentElement.lang = lang;
+      }
+    };
+
+    // při načtení
+    applyLang(window.location.href);
+
+    // po každé změně routy
+    const handleRouteChange = (url: string) => applyLang(url);
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   if (Component.noLayout) {
     return <Component {...pageProps} />;

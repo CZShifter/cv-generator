@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { OG_IMAGE_SK, SITE_URL, SITE_URL_SK, SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 import { ALL_CV_TEMPLATES} from "@/utils/cvTemplatesConfig";
 import { createClient } from "@supabase/supabase-js";
@@ -80,6 +80,9 @@ export default function EditPage({ dataFromDb, templateId, id }: Props) {
   const formWrapperRef = useRef<HTMLDivElement>(null);
   const cvScaleRef = useRef<HTMLDivElement>(null);
   const resumeRef = useRef<HTMLDivElement>(null);
+
+  const editUrl   = `${SITE_URL}/cs/edit/${id}/`;
+  const editUrlSk = `${SITE_URL_SK}/sk/edit/${id}/`;
 
   // --- Výběr šablony
   const selectedTemplateId = templateId as keyof typeof SECTION_GETTERS;
@@ -282,12 +285,40 @@ console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
     <>
       <Head>
         <title>{`Úprava životopisu | ${SITE_NAME_SK}`}</title>
-        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
-        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
-        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
-        <meta name="description" content="Upravte si svůj životopis online a přegenerujte PDF během 24h." />
+        <meta
+          name="description"
+          content="Upravte si svoj životopis online a znovu vygenerujte PDF do 24 hodín."/>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        {/* (Voliteľné) Canonical na SK URL */}
+        <link rel="canonical" href={editUrlSk} />
+        {/* Hreflang (dynamické ID, absolútne URL) */}
+        <link rel="alternate" href={editUrl} hrefLang="cs-CZ" />
+        <link rel="alternate" href={editUrlSk} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        {/* Open Graph na interné zdieľanie */}
+        <meta property="og:title" content={`Úprava životopisu | ${SITE_NAME_SK}`} />
+        <meta
+          property="og:description"
+          content="Upravte si svoj životopis online a znovu vygenerujte PDF do 24 hodín."/>
+        <meta property="og:image" content={OG_IMAGE_SK} />
+        <meta property="og:image:alt" content="Úprava životopisu online v editore" />
+        <meta property="og:url" content={editUrlSk} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Úprava životopisu | ${SITE_NAME_SK}`} />
+        <meta
+          name="twitter:description"
+          content="Upravte si svoj životopis online a znovu vygenerujte PDF do 24 hodín."/>
+        <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Úprava životopisu online v editore" />
       </Head>
       {measureWrapper}
       {isGlobalLoading && <Loader />}

@@ -1,14 +1,50 @@
 import Head from "next/head";
-import { SITE_MAIL, SITE_NAME } from "@/config/site";
+import { SITE_MAIL, SITE_URL, SITE_URL_SK, SITE_NAME, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
 export default function Gdpr() {
   return (
      <>
       <Head>
-        <title>{`GDPR | ${SITE_NAME}`}</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <title>{`Zásady ochrany osobních údajů (GDPR) | ${SITE_NAME}`}</title>
+        <meta name="description" content="Zásady zpracování osobních údajů a informace o ochraně soukromí." />
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        {/* Canonical + hreflang (konzistentně cs-CZ / sk-SK) */}
+        <link rel="canonical" href={`${SITE_URL}/cs/dokumenty/gdpr/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/dokumenty/gdpr/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/gdpr/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        {/* Open Graph */}
+        <meta property="og:title" content={`Zásady ochrany osobních údajů (GDPR) | ${SITE_NAME}`} />
+        <meta property="og:description" content="Zásady zpracování osobních údajů a informace o ochraně soukromí." />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:alt" content="Informace o ochraně osobních údajů" />
+        <meta property="og:url" content={`${SITE_URL}/cs/dokumenty/gdpr/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="cs_CZ" />
+        <meta property="og:locale:alternate" content="sk_SK" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Zásady ochrany osobních údajů (GDPR) | ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Zásady zpracování osobních údajů a informace o ochraně soukromí." />
+        <meta name="twitter:image" content={OG_IMAGE} />
+        {/* Structured data – WebPage (+ volitelně props na úrovni Organization) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Zásady ochrany osobních údajů (GDPR)",
+              "url": `${SITE_URL}/cs/dokumenty/gdpr/`,
+              "inLanguage": "cs-CZ",
+              "description": "Zásady zpracování osobních údajů a informace o ochraně soukromí."
+            })
+          }}
+        />
       </Head>
       <section className={styles.dokument_section}>
         <div className={styles.dokument_wrapper}>

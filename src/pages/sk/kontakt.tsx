@@ -1,41 +1,56 @@
 import Head from "next/head";
-import { SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
 import KontaktSection from '@/components/sk/KontaktSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
 export default function KontaktPage() {
   return ( 
     <>
       <Head>
-        <title>{`Kontakt – Podpora a dotazy ke generátoru životopisů | ${SITE_NAME_SK}`}</title>
-        <meta name="description" content="Máte otázku nebo potřebujete poradit? Kontaktujte tým CvGen.cz. Rádi pomůžeme s tvorbou životopisu, platbou nebo technickými dotazy. Odpovídáme většinou do 24 hodin." />
-        <meta name="language" content="sk" />
+        <title>{`Kontakt – Podpora a otázky k generátoru životopisov | ${SITE_NAME_SK}`}</title>
+        <meta
+          name="description"
+          content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás. Radi pomôžeme s tvorbou životopisu, platbou alebo technickými otázkami. Odpovedáme zvyčajne do 24 hodín."/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content="Kontakt | CvGen.cz – Podpora a dotazy ke generátoru životopisů" />
-        <meta property="og:description" content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi." />
-        <meta property="og:image" content={OG_IMAGE_SK}/>
-        <meta property="og:url" content={`${SITE_URL_SK}/kontakt`} />
+        <meta
+          property="og:title"
+          content={`Kontakt – Podpora a otázky k generátoru životopisov | ${SITE_NAME_SK}`}/>
+        <meta
+          property="og:description"
+          content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás, radi vám pomôžeme s tvorbou životopisu alebo technickými záležitosťami."/>
+        <meta property="og:image" content={OG_IMAGE_SK} />
+        <meta property="og:image:alt" content="Kontakt na podporu generátora životopisov" />
+        <meta property="og:url" content={`${SITE_URL_SK}/sk/kontakt/`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Kontakt | CvGen.cz – Podpora a dotazy ke generátoru životopisů" />
-        <meta name="twitter:description" content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi." />
-        <meta name="twitter:image" content={OG_IMAGE_SK}/>
-        {/* Structured data - ContactPage + FAQ */}
-        <link rel="canonical" href={`${SITE_URL_SK}/sk/kontakt`} />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/kontakt`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/cs/kontakt`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL_SK}`} hrefLang="x-default" />
+        <meta
+          name="twitter:title"
+          content={`Kontakt – Podpora a otázky k generátoru životopisov | ${SITE_NAME_SK}`}/>
+        <meta
+          name="twitter:description"
+          content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás, radi vám pomôžeme s tvorbou životopisu alebo technickými záležitosťami."/>
+        <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Kontakt na podporu generátora životopisov" />
+        {/* Canonical + hreflang (obojsmerne .cz ↔ .sk) */}
+        <link rel="canonical" href={`${SITE_URL_SK}/sk/kontakt/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/kontakt/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/kontakt/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        {/* Structured data - ContactPage */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ContactPage",
-              "url": `${SITE_URL_SK}/kontakt`,
+              "url": `${SITE_URL_SK}/sk/kontakt/`,
               "name": `Kontakt - ${SITE_NAME_SK}`,
-              "description": "Máte otázku k životopisu, platbě nebo technický problém? Kontaktujte nás přes e-mail info@cvgen.cz, odpovídáme do 24 hodin."
+              "inLanguage": "sk-SK",
+              "description":
+                "Máte otázku k životopisu, platbe alebo technický problém? Kontaktujte nás e-mailom na info@cvgen.cz, zvyčajne odpovieme do 24 hodín."
             })
           }}
         />

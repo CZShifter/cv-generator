@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_NAME, SITE_URL } from "@/config/site";
+import { SITE_NAME, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import React from "react";
 import styles from "@/scss/NotFound.module.scss";
 export default function NotFoundPage() {
@@ -7,12 +7,15 @@ export default function NotFoundPage() {
     <>
       <Head>
         <title>{`404 – Stránka nenalezena | ${SITE_NAME}`}</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
-        <meta name="language" content="cs" />
-        <link rel="alternate" href={`${SITE_URL}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL}/sk`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <meta
+          name="description"
+          content="Je nám líto, ale stránka, kterou hledáte, neexistuje nebo byla přesunuta."/>
+        <meta name="robots" content="noindex, follow" />
+        <meta name="googlebot" content="noindex, follow" />
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
+        <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
       </Head>
       <section className={styles.container}>
         <div className={styles.columnLeft}>

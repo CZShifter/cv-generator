@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "@/scss/PoPlatbe.module.scss";
-import { SITE_NAME_SK, SITE_URL_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { SITE_NAME_SK, SITE_URL, SITE_URL_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK } from "@/config/site";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { MdErrorOutline } from "react-icons/md";
@@ -131,15 +131,38 @@ export default function PoPlatbe() {
         <title>{`Platobná brána – priebeh platby | ${SITE_NAME_SK}`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
-        <meta name="language" content="sk" />
+        {/* Voliteľný popis – skôr pre UX/zdieľanie */}
+        <meta
+          name="description"
+          content="Prebieha spracovanie platby. Táto stránka nie je indexovaná vo vyhľadávačoch."/>
+        {/* Favikony */}
         <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/cs`} hrefLang="cs" />
+        {/* Hreflang pre jazykové verzie */}
+        <link rel="alternate" href={`${SITE_URL}/cs/po-platbe/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/po-platbe/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        {/* Open Graph (voliteľné, ak sa stránka zdieľa) */}
+        <meta property="og:title" content={`Platobná brána – priebeh platby | ${SITE_NAME_SK}`} />
+        <meta
+          property="og:description"
+          content="Prebieha spracovanie platby. Táto stránka nie je indexovaná vo vyhľadávačoch."/>
+        <meta property="og:image" content={OG_IMAGE_SK} />
+        <meta property="og:image:alt" content="Ilustrácia platobnej brány" />
+        <meta property="og:url" content={`${SITE_URL_SK}/sk/po-platbe/`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Platobná brána – priebeh platby | ${SITE_NAME_SK}`} />
+        <meta
+          name="twitter:description"
+          content="Prebieha spracovanie platby. Táto stránka nie je indexovaná vo vyhľadávačoch."/>
+        <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Ilustrácia platobnej brány" />
       </Head>
-
       <main className={styles.MainWrapper}>
         <div className={styles.Wrapper}>
           <h1>Platobná brána</h1>
@@ -157,7 +180,6 @@ export default function PoPlatbe() {
               )}
             </p>
           </div>
-
           {(status === "cancelled" || status === "error") && (
             <button className={styles.MainButton} onClick={handleRetry}>
               Skúsiť zaplatiť znova

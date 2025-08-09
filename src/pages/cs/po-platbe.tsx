@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "@/scss/PoPlatbe.module.scss";
-import { SITE_NAME, SITE_URL, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { SITE_NAME, SITE_URL_SK, SITE_URL, OG_IMAGE, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { MdErrorOutline } from "react-icons/md";
@@ -130,19 +130,27 @@ export default function PoPlatbe() {
         <title>{`Platební brána – průběh platby | ${SITE_NAME}`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
-        <meta name="language" content="cs" />
-        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
-        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        {/* Volitelný popis – spíš pro UX/sdílení */}
+        <meta
+          name="description"
+          content="Probíhá zpracování platby. Tato stránka není indexována ve vyhledávačích."/>
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
-        <link rel="alternate" href={`${SITE_URL}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL}/sk`} hrefLang="sk" />
+        {/* Hreflang pro jazykové verze */}
+        <link rel="alternate" href={`${SITE_URL}/cs/po-platbe/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/po-platbe/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        {/* Volitelně OG/Twitter metadata, pokud stránku sdílíte */}
+        <meta property="og:title" content={`Platební brána – průběh platby | ${SITE_NAME}`} />
+        <meta property="og:description" content="Probíhá zpracování platby. Tato stránka není indexována ve vyhledávačích." />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:alt" content="Ilustrace platební brány" />
       </Head>
-
       <main className={styles.MainWrapper}>
         <div className={styles.Wrapper}>
           <h1>Platební brána</h1>
-
           <div className={styles.StatusBlock}>
             {renderIcon()}
             <p className={styles.Msg} aria-live="polite">

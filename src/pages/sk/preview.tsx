@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect, useCallback, useMemo, useEffect } from "react";
 import Head from "next/head";
 import { ALL_CV_TEMPLATES as TEMPLATES } from "@/utils/cvTemplatesConfig";
-import { SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, PRICE_CV_SK, OG_IMAGE_SK } from "@/config/site";
 import CvForm from "@/components/sk/CvForm";
 import { CvData } from "@/data/CvData";
 import { FaRegArrowAltCircleLeft ,FaRegArrowAltCircleRight } from "react-icons/fa";
@@ -264,27 +264,40 @@ export default function Preview() {
   return (
     <>
       <Head>
-        <title>{`Vyplňte životopis online – Náhled a úprava šablony | ${SITE_NAME_SK}`}</title>
-        <meta name="description" content="Vyberte šablonu, vyplňte životopis online a ihned si zobrazte náhled i exportujte hotový PDF životopis. Rychle, přehledně, bez registrace." />
-        <meta name="language" content="sk" />
+        <title>{`Vyplňte životopis online – Náhľad a úprava šablóny | ${SITE_NAME_SK}`}</title>
+        <meta
+          name="description"
+          content="Vyberte si šablónu, vyplňte životopis online a okamžite si pozrite náhľad aj export hotového PDF. Rýchlo, prehľadne, bez registrácie."/>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Vyplňte životopis online – Náhled a úprava šablony | ${SITE_NAME_SK}`} />
-        <meta property="og:description" content="Vyplňte životopis online a ihned si zobrazte náhled i exportujte PDF. Jednoduchý formulář a okamžitý výsledek." />
+        <meta
+          property="og:title"
+          content={`Vyplňte životopis online – Náhľad a úprava šablóny | ${SITE_NAME_SK}`}/>
+        <meta
+          property="og:description"
+          content="Vyplňte životopis online a hneď si pozrite náhľad aj exportujte PDF. Jednoduchý formulár a okamžitý výsledok."/>
         <meta property="og:image" content={OG_IMAGE_SK} />
-        <meta property="og:url" content={`${SITE_URL_SK}/preview`} />
+        <meta property="og:image:alt" content="Ukážka online úpravy životopisu v aplikácii" />
+        <meta property="og:url" content={`${SITE_URL_SK}/sk/preview/`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Vyplňte životopis online – Náhled a úprava šablony | ${SITE_NAME_SK}`} />
-        <meta name="twitter:description" content="Vyplňte životopis online a ihned si zobrazte náhled i exportujte PDF. Jednoduchý formulář a okamžitý výsledek." />
+        <meta
+          name="twitter:title"
+          content={`Vyplňte životopis online – Náhľad a úprava šablóny | ${SITE_NAME_SK}`}/>
+        <meta
+          name="twitter:description"
+          content="Vyplňte životopis online a hneď si pozrite náhľad aj exportujte PDF. Jednoduchý formulár a okamžitý výsledok."/>
         <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Ukážka online úpravy životopisu v aplikácii" />
+        {/* Hreflang (absolútne URL, obojsmerne CZ ↔ SK) */}
+        <link rel="alternate" href={`${SITE_URL}/cs/preview/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/preview/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
         {/* Structured data - WebApplication */}
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/preview`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/cs/preview`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL_SK}`} hrefLang="x-default" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -292,14 +305,16 @@ export default function Preview() {
               "@context": "https://schema.org",
               "@type": "WebApplication",
               "name": SITE_NAME_SK,
-              "url": `${SITE_URL_SK}/preview`,
+              "url": `${SITE_URL_SK}/sk/preview/`,
               "applicationCategory": "ProductivityApplication",
-              "description": "Vyplňte životopis online, vyberte šablonu, zobrazte náhled a stáhněte si hotový PDF soubor. Jednoduchý a efektivní generátor životopisů.",
+              "description":
+                "Vyplňte životopis online, vyberte šablónu, pozrite si náhľad a stiahnite hotový PDF súbor. Jednoduchý a efektívny generátor životopisov.",
+              "inLanguage": "sk-SK",
               "operatingSystem": "All",
               "offers": {
                 "@type": "Offer",
-                "price": "89",
-                "priceCurrency": "CZK"
+                "price": PRICE_CV_SK,
+                "priceCurrency": "EUR"
               }
             })
           }}

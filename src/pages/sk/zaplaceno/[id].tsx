@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaRegFilePdf, FaFileInvoice, FaCopy } from "react-icons/fa";
-import { SITE_URL_SK, SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
 import { trackGAEvent } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -94,6 +94,9 @@ export default function ZaplacenoPage({ data }: Props) {
   const { id, pdf_url, invoice_url, expires_at, cv_json } = data;
   const isExpired = Date.now() > new Date(expires_at).getTime();
 
+  const pageUrl   = `${SITE_URL}/cs/zaplaceno/${id}/`;
+  const pageUrlSk = `${SITE_URL_SK}/sk/zaplaceno/${id}/`;
+
   const name = cv_json?.name;
   const surname = cv_json?.surname;
   const filename = generateFilename(name, surname);
@@ -167,17 +170,45 @@ export default function ZaplacenoPage({ data }: Props) {
   return (
     <>
       <Head>
-        <title>{`Životopis bol úspešně vytvorený | ${SITE_NAME_SK}`}</title>
+        <title>{`Životopis bol úspešne vytvorený | ${SITE_NAME_SK}`}</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
-        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
-        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        <meta
+          name="description"
+          content="Váš životopis bol úspešne vytvorený a je pripravený na stiahnutie."/>
+        {/* Favikony */}
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        {/* Canonical */}
+        <link rel="canonical" href={pageUrlSk} />
+        {/* Hreflang (dynamické ID, absolútne URL) */}
+        <link rel="alternate" href={pageUrl} hrefLang="cs-CZ" />
+        <link rel="alternate" href={pageUrlSk} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        {/* Open Graph na interné zdieľanie */}
+        <meta property="og:title" content={`Životopis bol úspešne vytvorený | ${SITE_NAME_SK}`} />
+        <meta
+          property="og:description"
+          content="Váš životopis bol úspešne vytvorený a je pripravený na stiahnutie."/>
+        <meta property="og:image" content={OG_IMAGE_SK} />
+        <meta property="og:image:alt" content="Potvrdenie o úspešnom vytvorení životopisu" />
+        <meta property="og:url" content={pageUrlSk} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`Životopis bol úspešne vytvorený | ${SITE_NAME_SK}`} />
+        <meta
+          name="twitter:description"
+          content="Váš životopis bol úspešne vytvorený a je pripravený na stiahnutie."/>
+        <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Potvrdenie o úspešnom vytvorení životopisu" />
       </Head>
       <section className={styles.ZaplacenoWrapper}>
         <div className={styles.wrapper}>
           <h1 className={styles.title}>🎉 Váš životopis bol úspešne vytvorený!</h1>
-
           <button
             className={styles.link}
             id="cvbtn"
@@ -188,7 +219,6 @@ export default function ZaplacenoPage({ data }: Props) {
           >
             <FaRegFilePdf /> Stiahnuť životopis (PDF)
           </button>
-
           {invoice_url ? (
             <button
               className={styles.link}
@@ -203,7 +233,6 @@ export default function ZaplacenoPage({ data }: Props) {
           ) : (
             <p className={styles.note}>Doklad zatiaľ nie je k dispozícii.</p>
           )}
-
           <div className={styles.edit}>
             {!isExpired ? (
               <a className={styles.link} id="editbtn" href={`/sk/edit/${id}`}>
@@ -215,7 +244,6 @@ export default function ZaplacenoPage({ data }: Props) {
               </p>
             )}
           </div>
-
           {!isExpired && (
             <p
               className={styles.editbtn}
@@ -226,7 +254,6 @@ export default function ZaplacenoPage({ data }: Props) {
               {`${SITE_URL_SK}/sk/edit/${id}`}
             </p>
           )}
-
           {!isExpired && (
             <div className={styles.copylinkwrapper}>
               <p className={styles.editbtnremind}>
@@ -243,7 +270,6 @@ export default function ZaplacenoPage({ data }: Props) {
               </button>
             </div>
           )}
-
           <p className={styles.expiry}>
             {isClient && remainingMs > 0 && (
               <>

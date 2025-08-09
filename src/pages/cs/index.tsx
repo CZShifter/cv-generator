@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, OG_IMAGE, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME } from "@/config/site";
 import HeroSection from '@/components/cs/HeroSection';
 import HookSection from '@/components/cs/HookSection';
 import SecureSection from '@/components/cs/SecureSection';
@@ -14,25 +14,27 @@ export default function Home() {
       <Head>
         <title>{`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`}</title>
         <meta name="description" content="Vytvořte si moderní a profesionální životopis během pár minut. Jednoduše, bez registrace, okamžitě v PDF. Vyberte si šablonu a získejte náskok na trhu práce!" />
-        <meta name="language" content="cs" />
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content="Vytvořte moderní životopis online | Profesionální CV za 5 minut" />
+        <meta property="og:title" content={`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`} />
         <meta property="og:description" content="Vytvořte si moderní životopis rychle a jednoduše. Výběr šablon, bez registrace, PDF ihned." />
         <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:url" content={`${SITE_URL}/`} />
+        <meta property="og:image:alt" content="Ukázka moderního životopisu z aplikace" />
+        <meta property="og:url" content={`${SITE_URL}/cs/`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="cs_CZ" />
+        <meta property="og:locale:alternate" content="sk_SK" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vytvořte moderní životopis online | Profesionální CV za 5 minut" />
+        <meta name="twitter:title" content={`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`} />
         <meta name="twitter:description" content="Vytvořte si moderní životopis rychle a jednoduše. Výběr šablon, bez registrace, PDF ihned." />
         <meta name="twitter:image" content={OG_IMAGE} />
-        {/* Structured data - WebSite */}
-        <link rel="canonical" href={`${SITE_URL}/cs`} />
-        <link rel="alternate" href={`${SITE_URL}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL}/sk`} hrefLang="sk" />
+        {/* Hreflang – absolutní URL a oboustranně na .cz i .sk */}
+        <link rel="canonical" href={`${SITE_URL}/cs/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        {/* Structured data - WebSite (jazyková URL + inLanguage) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -40,11 +42,12 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": SITE_NAME,
-              "url": `${SITE_URL}/`,
+              "url": `${SITE_URL}/cs/`,
+              "inLanguage": "cs-CZ",
               "description": "Vytvořte moderní životopis online – vytvořte si profesionální CV během pár minut. Okamžité PDF, bez registrace, výběr moderních šablon.",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": `${SITE_URL}/?q={search_term_string}`,
+                "target": `${SITE_URL}/cs/?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               }
             })

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
 import DopisSection from '@/components/sk/DopisSection';
 import NarrativeSection3 from '@/components/sk/NarrativeSection3';
 import HookSection2 from '@/components/sk/HookSection2';
@@ -9,38 +9,48 @@ export default function MotivacniDopisPage() {
   return ( 
     <>
       <Head>
-        <title>{`Vytvořte motivační dopis online a zdarma | ${SITE_NAME_SK}`}</title>
-        <meta name="description" content="Vytvořte si profesionální motivační dopis online zdarma. Jednoduchý generátor motivačních dopisů – export do Wordu (.docx). Zjistěte, jak snadno a rychle vytvořit motivační dopis, který personalisty zaujme."/>
-        <meta name="language" content="sk" />
+        <title>{`Vytvorte motivačný list online a zadarmo | ${SITE_NAME_SK}`}</title>
+        <meta
+          name="description"
+          content="Vytvorte si profesionálny motivačný list online zadarmo. Jednoduchý generátor motivačných listov – export do Wordu (.docx). Zistite, ako jednoducho a rýchlo vytvoriť motivačný list, ktorý zaujme personalistov."/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Motivační dopis online zdarma | ${SITE_NAME_SK}`}/>
-        <meta property="og:description" content="Nejrychlejší cesta jak vytvořit motivační dopis zdarma. Vyzkoušejte online generátor motivačních dopisů s možností exportu do Wordu. Ušetřete čas a získejte náskok při hledání práce."/>
+        <meta property="og:title" content={`Vytvorte motivačný list online a zadarmo | ${SITE_NAME_SK}`} />
+        <meta
+          property="og:description"
+          content="Vytvorte si profesionálny motivačný list online zadarmo. Generátor s exportom do Wordu (.docx) a bez registrácie."/>
         <meta property="og:image" content={OG_IMAGE_SK} />
-        <meta property="og:url" content={`${SITE_URL_SK}/motivacni-dopis`} />
+        <meta property="og:image:alt" content="Ukážka motivačného listu vytvoreného online" />
+        <meta property="og:url" content={`${SITE_URL_SK}/sk/motivacni-dopis/`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="sk_SK" />
+        <meta property="og:locale:alternate" content="cs_CZ" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Motivační dopis online zdarma | ${SITE_NAME_SK}`}/>
-        <meta name="twitter:description" content="Vytvořte si motivační dopis online zdarma. Generátor motivačních dopisů s exportem do Wordu a bez registrace. Ideální řešení jak napsat a stáhnout motivační dopis na míru."/>
+        <meta name="twitter:title" content={`Motivačný list online zadarmo | ${SITE_NAME_SK}`} />
+        <meta
+          name="twitter:description"
+          content="Vytvorte si motivačný list online zadarmo. Generátor motivačných listov s exportom do Wordu a bez registrácie. Ideálne riešenie, ako napísať a stiahnuť motivačný list na mieru."/>
         <meta name="twitter:image" content={OG_IMAGE_SK} />
+        <meta name="twitter:image:alt" content="Ukážka motivačného listu vytvoreného online" />
+        {/* Canonical + hreflang */}
+        <link rel="canonical" href={`${SITE_URL_SK}/sk/motivacni-dopis/`} />
+        <link rel="alternate" href={`${SITE_URL}/cs/motivacni-dopis/`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/motivacni-dopis/`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
         {/* Structured data - WebPage */}
-        <link rel="canonical" href={`${SITE_URL_SK}/sk/motivacni-dopis`} />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/motivacni-dopis`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/cs/motivacni-dopis`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL_SK}`} hrefLang="x-default" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "url": `${SITE_URL_SK}/motivacni-dopis`,
-              "name": `Vytvořte motivační dopis online zdarma | ${SITE_NAME_SK}`,
+              "url": `${SITE_URL_SK}/sk/motivacni-dopis/`,
+              "name": `Vytvorte motivačný list online zadarmo | ${SITE_NAME_SK}`,
+              "inLanguage": "sk-SK",
               "description":
-                "Generátor motivačních dopisů online zdarma. Export do Wordu (.docx) a rychlé vytvoření motivačního dopisu, který zaujme personalisty. Zjistěte, jak napsat motivační dopis během pár minut.",
-            }),
+                "Generátor motivačných listov online zadarmo. Export do Wordu (.docx) a rýchle vytvorenie motivačného listu, ktorý zaujme personalistov. Zistite, ako napísať motivačný list za pár minút."
+            })
           }}
         />
       </Head>
