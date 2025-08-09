@@ -1,12 +1,12 @@
 import React, { useState, useRef, useLayoutEffect, useCallback, useMemo, useEffect } from "react";
 import Head from "next/head";
-import { ALL_CV_TEMPLATES as TEMPLATES } from "@/utils/cvTemplatesConfig";
+import { ALL_CV_TEMPLATES as TEMPLATES } from "@/utils/cvTemplatesConfigSK";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, PRICE_CV_SK, OG_IMAGE_SK } from "@/config/site";
 import CvForm from "@/components/sk/CvForm";
 import { CvData } from "@/data/CvData";
 import { FaRegArrowAltCircleLeft ,FaRegArrowAltCircleRight } from "react-icons/fa";
 import stylesPreview from "@/scss/preview.module.scss";
-import { SAMPLE_CV_DATA } from "@/data/sampleCvData";
+import { SAMPLE_CV_DATA } from "@/data/sampleCvDataSK";
 import { emptyData } from "@/data/emptyData";
 import { CV_WIDTH, CV_HEIGHT } from "@/constants";
 import { useDynamicTwoColumnPagination } from "@/hooks/useDynamicTwoColumnPagination";

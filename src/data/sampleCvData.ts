@@ -10,7 +10,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   email: "eliska.hrabalova@email.cz",
   location: "Praha, Česká republika",
   linkedin: "eliska.hrabalova",
-  birthyear: "1989",
+  birthyear: "1995",
   photo: "/photo_img/photo.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,               // ← PŘIDAT
@@ -99,8 +99,8 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   email: "petr.svoboda@email.cz",
   location: "Brno, Česká republika",
   linkedin: "petr.svoboda",
-  birthyear: "1998",
-  photo: "/photo_img/photo2.png", // obrázek vlož do složky /public
+  birthyear: "1986",
+  photo: "/photo_img/photo2.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
   showSummary: true,
@@ -180,8 +180,8 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   email: "tereza.novakova@email.cz",
   location: "Praha, Česká republika",
   linkedin: "tereza.novakova",
-  birthyear: "2001",
-  photo: "/photo_img/photo3.png", // obrázek vlož do složky /public
+  birthyear: "1998",
+  photo: "/photo_img/photo8.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
   showSummary: true,
@@ -262,8 +262,8 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   email: "jan.novak@email.cz",
   location: "Praha, Česká republika",
   linkedin: "jan.novak",
-  birthyear: "1991",
-  photo: "/photo_img/photo4.png", // obrázek vlož do složky /public
+  birthyear: "1994",
+  photo: "/photo_img/photo4.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
   showSummary: true,

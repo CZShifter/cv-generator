@@ -7,7 +7,11 @@ const slides = [
   { src: "/img/cvtemplate-preview.png", alt: "Šablona 1" },
   { src: "/img/cvtemplate2-preview.png", alt: "Šablona 2" },
   { src: "/img/cvtemplate3-preview.png", alt: "Šablona 3" },
-  { src: "/img/cvtemplate4-preview.png", alt: "Šablona 4" }
+  { src: "/img/cvtemplate4-preview.png", alt: "Šablona 4" },
+  { src: "/img/cvtemplate5-preview.png", alt: "Šablona 5" },
+  { src: "/img/cvtemplate6-preview.png", alt: "Šablona 6" },
+  { src: "/img/cvtemplate7-preview.png", alt: "Šablona 7" },
+  { src: "/img/cvtemplate8-preview.png", alt: "Šablona 8" }
 ];
 const visibleSlides = slides.length < 8 ? [...slides, ...slides] : slides
 
