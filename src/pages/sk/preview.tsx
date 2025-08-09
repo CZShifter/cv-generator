@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect, useCallback, useMemo, useEffect } from "react";
 import Head from "next/head";
 import { ALL_CV_TEMPLATES as TEMPLATES } from "@/utils/cvTemplatesConfig";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, PRICE_CV_SK, OG_IMAGE_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, PRICE_CV_SK, OG_IMAGE_SK } from "@/config/site";
 import CvForm from "@/components/sk/CvForm";
 import { CvData } from "@/data/CvData";
 import { FaRegArrowAltCircleLeft ,FaRegArrowAltCircleRight } from "react-icons/fa";
