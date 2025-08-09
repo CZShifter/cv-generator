@@ -1,4 +1,3 @@
-// pages/sitemap.xml.ts
 import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
 import fs from "fs";
@@ -61,19 +60,23 @@ function resolveBases(req: IncomingMessage) {
   const origin = getOrigin(req);
   const host = getHost(req);
 
-  const isCz = host.endsWith(".cz") || host.startsWith("cz.");
+  const isPreview = host.endsWith(".vercel.app");
+  const isCzTld = host.endsWith(".cz") || host.startsWith("cz.");
+
+  const isCz = isPreview ? true : isCzTld; // preview → CZ default
+
   const primaryBase = origin.replace(/\/+$/, "");
   let alternateBase: string;
 
   const isLocal = host.includes("localhost");
-  if (isLocal) {
-    alternateBase = primaryBase; // stejný host pro local
+  if (isLocal || isPreview) {
+    alternateBase = primaryBase;            // stejnej host na preview/local
   } else if (isCz) {
     alternateBase = primaryBase.replace(/\.cz(?::\d+)?$/, ".sk");
   } else if (host.endsWith(".sk") || host.startsWith("sk.")) {
     alternateBase = primaryBase.replace(/\.sk(?::\d+)?$/, ".cz");
   } else {
-    alternateBase = primaryBase; // fallback
+    alternateBase = primaryBase;
   }
 
   return { primaryBase, alternateBase, isCz };
