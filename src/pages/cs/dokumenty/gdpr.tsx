@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link'
 import { SITE_MAIL, SITE_URL, SITE_URL_SK, SITE_NAME, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
@@ -58,7 +59,7 @@ export default function Gdpr() {
             <p><strong>Jméno:</strong> Tomáš Tippl</p>
             <p><strong>Adresa:</strong> Strnady 137, Jíloviště 252 02</p>
             <p><strong>IČO:</strong> 88520510</p>
-            <p><strong>E-mail:</strong> <a href={`mailto:${SITE_MAIL}`}>{SITE_MAIL}</a></p>
+            <p><strong>E-mail:</strong> <Link href={`mailto:${SITE_MAIL}`}>{SITE_MAIL}</Link></p>
           </div>
           <h2>2. Jaké údaje zpracovávám</h2>
           <p>Zpracovávám výhradně údaje, které uživatel dobrovolně vyplní do formuláře za účelem vytvoření a stažení životopisu. Jedná se zejména o:</p>
@@ -100,7 +101,7 @@ export default function Gdpr() {
           <ul>
             <li>požádat o přístup k osobním údajům</li>
             <li>požádat o opravu nebo výmaz údajů</li>
-            <li>podat stížnost u ÚOOÚ (<a href="https://www.uoou.cz">www.uoou.cz</a>), pokud se domníváte, že došlo k porušení Vašich práv</li>
+            <li>podat stížnost u ÚOOÚ (<Link href="https://www.uoou.cz">www.uoou.cz</Link>), pokud se domníváte, že došlo k porušení Vašich práv</li>
           </ul>
           <p>
             Úprava životopisu je možná po dobu 24 hodin od vytvoření přes jedinečný odkaz. Po uplynutí této lhůty

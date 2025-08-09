@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link';
 import { SITE_MAIL, SITE_URL, SITE_URL_SK, SITE_NAME_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK } from "@/config/site";
 import React from "react";
 import styles from "@/scss/Dokumenty.module.scss";
@@ -50,92 +51,92 @@ export default function Gdpr() {
       </Head>
       <section className={styles.dokument_section}>
         <div className={styles.dokument_wrapper}>
-          <h1>Zásady ochrany osobních údajů</h1>
+          <h1>Zásady ochrany osobných údajov</h1>
           <p>
-            Tento dokument popisuje, jakým způsobem zpracovávám osobní údaje v souladu s nařízením 
-            Evropského parlamentu a Rady (EU) 2016/679 (GDPR).
+            Tento dokument opisuje spôsob, akým spracúvam osobné údaje v súlade s Nariadením 
+            Európskeho parlamentu a Rady (EÚ) 2016/679 (GDPR) a zákonom č. 18/2018 Z. z. o ochrane osobných údajov.
           </p>
-          <h2>1. Správce údajů</h2>
+          <h2>1. Prevádzkovateľ údajov</h2>
           <div>
-            <p><strong>Jméno:</strong> Tomáš Tippl</p>
+            <p><strong>Meno:</strong> Tomáš Tippl</p>
             <p><strong>Adresa:</strong> Strnady 137, Jíloviště 252 02</p>
             <p><strong>IČO:</strong> 88520510</p>
-            <p><strong>E-mail:</strong> <a href={`mailto:${SITE_MAIL}`}>{SITE_MAIL}</a></p>
+            <p><strong>E-mail:</strong> <Link href={`mailto:${SITE_MAIL}`}>{SITE_MAIL}</Link></p>
           </div>
-          <h2>2. Jaké údaje zpracovávám</h2>
-          <p>Zpracovávám výhradně údaje, které uživatel dobrovolně vyplní do formuláře za účelem vytvoření a stažení životopisu. Jedná se zejména o:</p>
+          <h2>2. Aké údaje spracúvam</h2>
+          <p>Spracúvam výhradne údaje, ktoré používateľ dobrovoľne vyplní do formulára za účelom vytvorenia a stiahnutia životopisu. Ide najmä o:</p>
           <ul>
-            <li>jméno a příjmení</li>
-            <li>kontaktní údaje (e-mail, telefon, LinkedIn profil)</li>
-            <li>pracovní zkušenosti, vzdělání, dovednosti, jazykové znalosti, ukončené kurzy a další údaje uvedené v životopisu</li>
-            <li>vloženou fotografii (volitelně)</li>
-            <li>IP adresu (pro technické účely)</li>
+            <li>meno a priezvisko</li>
+            <li>kontaktné údaje (e-mail, telefón, LinkedIn profil)</li>
+            <li>pracovné skúsenosti, vzdelanie, zručnosti, jazykové znalosti, absolvované kurzy a ďalšie údaje uvedené v životopise</li>
+            <li>vloženú fotografiu (voliteľne)</li>
+            <li>IP adresu (na technické účely)</li>
           </ul>
-          <h2>3. Účel zpracování</h2>
-          <p>Osobní údaje zpracovávám za účelem:</p>
+          <h2>3. Účel spracúvania</h2>
+          <p>Osobné údaje spracúvam na účely:</p>
           <ul>
-            <li>vytvoření a stažení životopisu (CV)</li>
-            <li>dočasné zpřístupnění životopisu ke zpětné úpravě po zaplacení</li>
-            <li>automatického odstranění po 24 hodinách</li>
-            <li>generování anonymních účtenek (bez jména)</li>
-            <li>měření návštěvnosti a zlepšování webu (Google Analytics)</li>
+            <li>vytvorenia a stiahnutia životopisu (CV)</li>
+            <li>dočasného sprístupnenia životopisu na spätnú úpravu po zaplatení</li>
+            <li>automatického odstránenia po 24 hodinách</li>
+            <li>generovania anonymných účteniek (bez mena)</li>
+            <li>merania návštevnosti a zlepšovania webu (Google Analytics)</li>
           </ul>
-          <h2>4. Kdo má přístup k údajům</h2>
+          <h2>4. Kto má prístup k údajom</h2>
           <p>
-            K osobním údajům má přístup výhradně správce (já). Data nejsou poskytována žádným třetím osobám,
-            kromě nezbytných technických poskytovatelů služeb:
+            K osobným údajom má prístup výhradne prevádzkovateľ (ja). Údaje nie sú poskytované žiadnym tretím osobám, 
+            okrem nevyhnutných technických poskytovateľov služieb:
           </p>
           <ul>
-            <li>Supabase – databáze a úložiště</li>
-            <li>Vercel – hosting a zpracování požadavků</li>
-            <li>Comgate – platební brána (nepředávají se žádné osobní údaje)</li>
-            <li>PDFendpoint – zpracování dokumentu</li>
-            <li>ChatGPTApi – generování textů</li>
+            <li>Supabase – databáza a úložisko</li>
+            <li>Vercel – hosting a spracovanie požiadaviek</li>
+            <li>Comgate – platobná brána (neprenášajú sa žiadne osobné údaje)</li>
+            <li>PDFendpoint – spracovanie dokumentu</li>
+            <li>ChatGPTApi – generovanie textov</li>
           </ul>
-          <h2>5. Doba uchování údajů</h2>
+          <h2>5. Doba uchovávania údajov</h2>
           <p>
-            Osobní údaje a související soubory (např. PDF) jsou automaticky mazány do 24 hodin od vytvoření.
-            Nejsou uchovávány pro žádné další účely.
+            Osobné údaje a súvisiace súbory (napr. PDF) sa automaticky mažú do 24 hodín od vytvorenia. 
+            Nie sú uchovávané na žiadne ďalšie účely.
           </p>
           <h2>6. Vaše práva</h2>
           <p>Máte právo:</p>
           <ul>
-            <li>požádat o přístup k osobním údajům</li>
-            <li>požádat o opravu nebo výmaz údajů</li>
-            <li>podat stížnost u ÚOOÚ (<a href="https://www.uoou.cz">www.uoou.cz</a>), pokud se domníváte, že došlo k porušení Vašich práv</li>
+            <li>požiadať o prístup k osobným údajom</li>
+            <li>požiadať o opravu alebo vymazanie údajov</li>
+            <li>podať sťažnosť na Úrad na ochranu osobných údajov SR (<Link href="https://dataprotection.gov.sk">www.dataprotection.gov.sk</Link>), ak sa domnievate, že došlo k porušeniu Vašich práv</li>
           </ul>
           <p>
-            Úprava životopisu je možná po dobu 24 hodin od vytvoření přes jedinečný odkaz. Po uplynutí této lhůty
-            jsou všechna data nenávratně smazána.
+            Úprava životopisu je možná počas 24 hodín od vytvorenia prostredníctvom jedinečného odkazu. Po uplynutí tejto lehoty 
+            sú všetky údaje nenávratne zmazané.
           </p>
           <h2>7. Cookies a analytika</h2>
           <p>
-            Tento web používá soubory cookies za účelem zajištění základní funkčnosti, měření návštěvnosti a případně i marketingových účelů.
+            Tento web používa súbory cookies na zabezpečenie základnej funkčnosti, meranie návštevnosti a prípadne aj marketingové účely.
           </p>
-          <h3>Typy cookies, které můžeme používat:</h3>
+          <h3>Typy cookies, ktoré môžeme používať:</h3>
           <ul>
-            <li><strong>Nezbytné cookies</strong> – slouží k zajištění správného fungování webu, např. pro uložení aktuální relace nebo jazykového nastavení.</li>
-            <li><strong>Analytické cookies</strong> – pomáhají nám porozumět, jak návštěvníci používají náš web. Například pomocí Google Analytics.</li>
-            <li><strong>Marketingové cookies</strong> – umožňují personalizaci obsahu nebo měření efektivity reklamních kampaní (např. Facebook Pixel, pokud je použit).</li>
+            <li><strong>Nevyhnutné cookies</strong> – slúžia na zabezpečenie správneho fungovania webu, napr. uloženie aktuálnej relácie alebo jazykového nastavenia.</li>
+            <li><strong>Analytické cookies</strong> – pomáhajú nám pochopiť, ako návštevníci používajú náš web. Napríklad pomocou služby Google Analytics.</li>
+            <li><strong>Marketingové cookies</strong> – umožňujú personalizáciu obsahu alebo meranie efektívnosti reklamných kampaní (napr. Facebook Pixel, ak je použitý).</li>
           </ul>
-          <h3>Jak cookies spravovat:</h3>
+          <h3>Ako spravovať cookies:</h3>
           <p>
-            Při první návštěvě webu si uživatel může vybrat, zda přijme všechny cookies, nebo pouze nezbytné. Tento výběr lze kdykoli změnit pomocí odkazu „Nastavení cookies“ ve spodní části stránky (pokud je tato funkce aktivní).
+            Pri prvej návšteve webu si používateľ môže vybrať, či prijme všetky cookies, alebo iba nevyhnutné. Tento výber je možné kedykoľvek zmeniť pomocou odkazu „Nastavenia cookies“ v spodnej časti stránky (ak je táto funkcia aktívna).
           </p>
           <p>
-            Uživatel může také spravovat nebo blokovat cookies ve svém prohlížeči. V takovém případě však může dojít k omezení funkčnosti některých částí webu.
+            Používateľ môže spravovať alebo blokovať cookies aj vo svojom prehliadači. V takom prípade však môže dôjsť k obmedzeniu funkčnosti niektorých častí webu.
           </p>
-          <h3>Další informace:</h3>
+          <h3>Ďalšie informácie:</h3>
           <p>
-            Údaje získané prostřednictvím cookies mohou být zpracovávány společnostmi třetích stran, zejména společností Google Inc., v souladu s jejich vlastními zásadami ochrany soukromí.
+            Údaje získané prostredníctvom cookies môžu byť spracúvané spoločnosťami tretích strán, najmä spoločnosťou Google Inc., v súlade s ich vlastnými zásadami ochrany súkromia.
           </p>
-          <h2>8. Automatické rozhodování a profilování</h2>
+          <h2>8. Automatizované rozhodovanie a profilovanie</h2>
           <p>
-            Na základě Vámi poskytnutých údajů nejsou prováděna žádná rozhodnutí s právními účinky. Web slouží pouze ke generování CV.
+            Na základe Vami poskytnutých údajov sa nevykonávajú žiadne rozhodnutia s právnymi účinkami. Web slúži výhradne na generovanie CV.
           </p>
-          <h2>9. Změny zásad</h2>
+          <h2>9. Zmeny zásad</h2>
           <p>
-            Tyto zásady mohou být průběžně aktualizovány.<br></br> Datum poslední aktualizace: <strong>26. 7. 2025</strong>.
+            Tieto zásady môžu byť priebežne aktualizované.<br /> Dátum poslednej aktualizácie: <strong>26. 7. 2025</strong>.
           </p>
         </div>
       </section>

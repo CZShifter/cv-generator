@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, PRICE_CV_SK } from "@/config/site";
 import PriceSection from '@/components/sk/PriceSection';
+import PlatMetody from '@/components/PlatMetodySection';
 import AISection from '@/components/sk/AISection';
 import HookSection2 from '@/components/sk/HookSection2';
 import FeaturesSection from '@/components/sk/FeaturesSection';
@@ -66,6 +67,7 @@ export default function CenaPage() {
         />
       </Head>
       <PriceSection />
+      <PlatMetody />
       <HookSection2 />
       <AISection />
       <FeaturesSection />

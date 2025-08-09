@@ -7,6 +7,7 @@
     width: 100%;
     gap: $gap;
     padding: $padding-base;
+    padding-bottom: 0;
     color: $text-color;
     background-color: $white-color;  
     h1{
@@ -16,6 +17,7 @@
 @media (max-width: 700px) {
     .container{
         padding: 1rem 1rem;
+        padding-bottom: 0;
     }
 }
 .container > p{

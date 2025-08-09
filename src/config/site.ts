@@ -1,5 +1,5 @@
 //VERZE WEBU !!!
-export const SITE_VERSION = "25.3.8";
+export const SITE_VERSION = "09.08.25";
 // Základní nastavení webu
 export const SITE_URL = "https://rychlyzivotopis.cz";
 export const OG_IMAGE = `${SITE_URL}/img/og-cvgen.png?v=${SITE_VERSION}`;
@@ -8,7 +8,7 @@ export const SITE_MAIL = "info@rychlyzivotopis.cz";
 // Základní nastavení webu SK Verze
 export const SITE_URL_SK = "https://rychlyzivotopis.sk";
 export const OG_IMAGE_SK = `${SITE_URL}/img/og-cvgen.png?v=${SITE_VERSION}`;
-export const SITE_NAME_SK = "RychlýŽivotopis.sk";
+export const SITE_NAME_SK = "RýchlyŽivotopis.sk";
 export const SITE_MAIL_SK = "info@rychlyzivotopis.cz";
 // Analytics & marketing tags
 export const GA_MEASUREMENT_ID = "G-XXXXXXX";      // Google Analytics 4
