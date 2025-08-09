@@ -4,6 +4,7 @@ date: "15.07.2025"
 description: "Praktický návod a tipy, jak napsat moderní životopis a zvýšit svou šanci na úspěch ve výběrovém řízení."
 coverImage: "/img/blog/cover.jpg"
 author: "JanCV"
+pairId: "post-0002"
 ---
 
 Chcete získat vysněnou práci? První krok je napsat životopis, který zaujme na první pohled. Správně sestavené CV může rozhodnout, zda vás personalista pozve na pohovor, nebo vás přeskočí.

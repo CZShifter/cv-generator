@@ -36,7 +36,7 @@ export default function PlatMetody() {
             </picture>
             <picture>
               <img
-                src={`/img/visa.svg?v=${SITE_VERSION}`}
+                src={`/img/Visa.svg?v=${SITE_VERSION}`}
                 alt="Logo Visa"
                 width={165}      // nastav šířku dle reálného obrázku nebo layoutu
                 height={50}     // nastav výšku dle reálného obrázku nebo layoutu

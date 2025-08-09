@@ -51,7 +51,7 @@ const CookieConsent: React.FC = () => {
       <div className={styles.cookieConsentText}>
         Tento web používá cookies pro správné fungování, analýzu návštěvnosti a marketing.
         Více informací najdete v&nbsp;
-        <a href="/dokumenty/gdpr" target="_blank" rel="noopener noreferrer">
+        <a href="/cs/dokumenty/gdpr" target="_blank" rel="noopener noreferrer">
           zásadách ochrany osobních údajů
         </a>
         .

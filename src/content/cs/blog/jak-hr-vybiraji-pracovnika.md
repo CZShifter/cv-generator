@@ -4,6 +4,7 @@ date: "16.07.2025"
 description: "Podívejte se, jak přemýšlí personalisté při výběru uchazečů a jak můžete zvýšit svou šanci na úspěch."
 coverImage: "/img/blog/hrcover.jpg"
 author: "TomášCV"
+pairId: "post-0001"
 ---
 
 Najít toho pravého člověka do firmy je pro HR oddělení někdy jako hledat jehlu v kupce sena. Přestože moderní technologie umožňují hledání kandidátů zrychlit a zautomatizovat, rozhodovací proces je stále z velké části o lidech a jejich intuici. Jak personalisté opravdu vybírají nového člena týmu? A jak můžete zvýšit svou šanci právě vy?
