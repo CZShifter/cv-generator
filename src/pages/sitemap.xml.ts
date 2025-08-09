@@ -1,5 +1,6 @@
 // pages/sitemap.xml.ts
 import type { GetServerSideProps } from "next";
+import type { IncomingMessage } from "http";
 import fs from "fs";
 import path from "path";
 
@@ -17,12 +18,14 @@ const STATIC_PATHS = [
   "/dokumenty/obchodni-podminky",
 ];
 
-// Přepis slugů pro SK, pokud se liší
 type Lang = "cs" | "sk";
+
+// Přepis slugů pro SK, pokud se liší
 const STATIC_OVERRIDES: Record<Lang, Record<string, string>> = {
   cs: {},
   sk: {
-    "/obchodni-podminky": "/obchodne-podmienky",
+    // klíč musí odpovídat přesně položce ve STATIC_PATHS
+    /* "/dokumenty/obchodni-podminky": "/dokumenty/obchodne-podmienky", */
   },
 };
 
@@ -32,30 +35,34 @@ const BLOG_CS_DIR = path.join(CONTENT_DIR, "cs", "blog");
 const BLOG_SK_DIR = path.join(CONTENT_DIR, "sk", "blog");
 
 // ---------------- Pomocné funkce ----------------
-function getProto(req: any) {
-  const p = (req?.headers?.["x-forwarded-proto"] || "").toString().split(",")[0].trim();
+function header(req: IncomingMessage, name: string): string {
+  const v = req.headers[name.toLowerCase()];
+  if (Array.isArray(v)) return (v[0] ?? "").toString();
+  return (v ?? "").toString();
+}
+
+function getProto(req: IncomingMessage) {
+  const p = header(req, "x-forwarded-proto").split(",")[0].trim();
   return p || "https";
 }
-function getHost(req: any) {
-  const xf = (req?.headers?.["x-forwarded-host"] || "").toString().split(",")[0].trim();
-  const host = xf || (req?.headers?.host ?? "");
+
+function getHost(req: IncomingMessage) {
+  const xf = header(req, "x-forwarded-host").split(",")[0].trim();
+  const host = xf || header(req, "host");
   return host.toLowerCase();
 }
-function getOrigin(req: any) {
+
+function getOrigin(req: IncomingMessage) {
   return `${getProto(req)}://${getHost(req)}`;
 }
 
 // ✅ Lokální režim: alternate zůstane na stejném hostu
-function resolveBases(req: any) {
+function resolveBases(req: IncomingMessage) {
   const origin = getOrigin(req);
   const host = getHost(req);
 
-  let isCz = false;
-  if (host.endsWith(".cz") || host.startsWith("cz.")) {
-    isCz = true;
-  }
-
-  let primaryBase = origin.replace(/\/+$/, "");
+  const isCz = host.endsWith(".cz") || host.startsWith("cz.");
+  const primaryBase = origin.replace(/\/+$/, "");
   let alternateBase: string;
 
   const isLocal = host.includes("localhost");
@@ -139,11 +146,11 @@ function urlNode(
   alternates: { lang: "cs" | "sk"; href: string }[],
   lastmod?: string
 ) {
-  const alts = alternates
-    .map(a => `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${xmlEscape(a.href)}" />`)
-    .join("\n");
+  const alts =
+    alternates.map(a =>
+      `    <xhtml:link rel="alternate" hreflang="${a.lang}" href="${xmlEscape(a.href)}" />`
+    ).join("\n");
 
-  // x-default míří na LOC (aktuální doména + jazyk)
   return `
   <url>
     <loc>${xmlEscape(loc)}</loc>
@@ -153,7 +160,11 @@ ${lastmod ? `    <lastmod>${lastmod}</lastmod>\n` : ""}    <changefreq>weekly</c
   </url>`;
 }
 
-function buildXml(req: any, staticPaths: string[], pairs: Array<{ cs?: PostInfo; sk?: PostInfo }>) {
+function buildXml(
+  req: IncomingMessage,
+  staticPaths: string[],
+  pairs: Array<{ cs?: PostInfo; sk?: PostInfo }>
+) {
   const { primaryBase, alternateBase, isCz } = resolveBases(req);
   const baseCz = isCz ? primaryBase : alternateBase;
   const baseSk = isCz ? alternateBase : primaryBase;

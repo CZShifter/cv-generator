@@ -33,7 +33,7 @@ export function middleware(req: NextRequest) {
   const { pathname, search } = url;
 
   // --- hostname normalizace ---
-  let hostname = getRawHost(req);
+   const hostname = getRawHost(req);
 
   // 1) Canonical host: odstraň www. (SEO best practice)
   if (hostname.startsWith("www.")) {
