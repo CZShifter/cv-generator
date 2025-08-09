@@ -17,6 +17,10 @@ type RequestBody = { templateId: string };
 type ComgateCreateOk  = { code: 0; redirect: string; transId: string };
 type ComgateCreateErr = { code: number; message?: string };
 
+// typy pro /v2.0/method.json
+type ComgateMethodItem = { id?: string; group?: string };
+type ComgateMethodsResponse = { methods?: ComgateMethodItem[] };
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
   if (!Number.isFinite(PRICE_CV_CZK) || PRICE_CV_CZK <= 0) {
@@ -45,15 +49,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
-    // Očekáváme: { methods: [{ id, group, ... }, ...] }
-    const data = await methodsRes.json().catch(() => null) as any;
-    const methods: Array<{ id?: string; group?: string }> = Array.isArray(data?.methods) ? data.methods : [];
+    let data: ComgateMethodsResponse | null = null;
+    try {
+      data = (await methodsRes.json()) as ComgateMethodsResponse;
+    } catch {
+      data = null;
+    }
+
+    const methods: ComgateMethodItem[] = Array.isArray(data?.methods) ? data!.methods! : [];
 
     // Povolíme cokoliv ze skupiny CARD + Apple/Google Pay (id jsou APPLEPAY_REDIRECT/GOOGLEPAY_REDIRECT)
     const allowed = new Set<string>();
     for (const m of methods) {
-      const id = String(m.id ?? "").toUpperCase();
-      const group = String(m.group ?? "").toUpperCase();
+      const id = (m.id ?? "").toString().toUpperCase();
+      const group = (m.group ?? "").toString().toUpperCase();
       if (group === "CARD" && id) allowed.add(id); // konkrétní karetní poskytovatelé (např. CARD_CZ_COMGATE)
       if (id === "APPLEPAY_REDIRECT" || id === "GOOGLEPAY_REDIRECT") allowed.add(id);
     }

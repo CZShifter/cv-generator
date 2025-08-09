@@ -17,6 +17,10 @@ type RequestBody = { templateId: string };
 type ComgateCreateOk  = { code: 0; redirect: string; transId: string };
 type ComgateCreateErr = { code: number; message?: string };
 
+// typy pro /v2.0/method.json
+type ComgateMethodItem = { id?: string; group?: string };
+type ComgateMethodsResponse = { methods?: ComgateMethodItem[] };
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
   if (!Number.isFinite(PRICE_CV_EUR) || PRICE_CV_EUR <= 0) {
@@ -35,21 +39,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const ua = req.headers["user-agent"];
   if (typeof ua === "string" && ua) qs.set("userAgent", ua);
 
-  let methodExpr: string = "CARD_ALL"; // bezpečný fallback — aspoň karta
+  let methodExpr = "CARD_ALL"; // bezpečný fallback — aspoň karta
   try {
     const methodsRes = await fetch(`${COMGATE_BASE}/v2.0/method.json?${qs}`, {
       method: "GET",
       headers: { Authorization: `Basic ${auth}`, Accept: "application/json" },
     });
 
-    const data = (await methodsRes.json().catch(() => null)) as any;
-    const methods: Array<{ id?: string; group?: string }> = Array.isArray(data?.methods) ? data.methods : [];
+    let data: ComgateMethodsResponse | null = null;
+    try {
+      data = (await methodsRes.json()) as ComgateMethodsResponse;
+    } catch {
+      data = null;
+    }
+
+    const methods: ComgateMethodItem[] = Array.isArray(data?.methods) ? data!.methods! : [];
 
     const allowed = new Set<string>();
     for (const m of methods) {
-      const id = String(m.id ?? "").toUpperCase();
-      const group = String(m.group ?? "").toUpperCase();
-      if (group === "CARD" && id) allowed.add(id); // konkrétní karetní poskytovatelé (např. CARD_*…)
+      const id = (m.id ?? "").toString().toUpperCase();
+      const group = (m.group ?? "").toString().toUpperCase();
+      if (group === "CARD" && id) allowed.add(id); // konkrétni karetní poskytovatelé (CARD_*)
       if (id === "APPLEPAY_REDIRECT" || id === "GOOGLEPAY_REDIRECT") allowed.add(id);
     }
     if (allowed.size > 0) methodExpr = Array.from(allowed).join("+");
