@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import styles from "@/scss/NavodSection.module.scss";
 import { SITE_VERSION } from "@/config/site";
