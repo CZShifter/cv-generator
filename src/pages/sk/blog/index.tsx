@@ -32,8 +32,8 @@ function parseFrontmatterDate(input: unknown): number {
   const dot = /^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/;
   const m1 = s.match(dot);
   if (m1) {
-    let [_, d, mo, y] = m1;
-    let year = y.length === 2 ? Number(y) + 2000 : Number(y);
+    const [, d, mo, y] = m1; // první prvek pole (celý match) ignorujeme
+    const year = y.length === 2 ? Number(y) + 2000 : Number(y);
     const month = Number(mo) - 1; // JS: 0-11
     const day = Number(d);
     const dt = new Date(year, month, day).getTime();

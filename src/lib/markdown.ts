@@ -14,7 +14,14 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import type { Schema } from 'hast-util-sanitize';
 
-type Frontmatter = Record<string, any>;
+type Frontmatter = {
+  title?: string;
+  description?: string;
+  date?: string;
+  coverImage?: string;
+  author?: string;
+  [key: string]: unknown; // další volitelná pole bez použití `any`
+};
 
 const schema: Schema = {
   ...defaultSchema,
@@ -102,13 +109,20 @@ export function getAllBlogSlugs(lang: 'cs' | 'sk' = 'cs') {
     .map((f) => f.replace(/\.md$/, ''));
 }
 
+/** Bezpečné parsování data (vrací timestamp nebo 0) */
+function parseDateSafe(d?: string): number {
+  if (!d) return 0;
+  const t = Date.parse(d);
+  return Number.isNaN(t) ? 0 : t;
+}
+
 /** Načte frontmatter všech článků (pro listing) a seřadí podle data desc */
 export function getAllPostsMeta(lang: 'cs' | 'sk' = 'cs') {
   const dir = getContentDir(lang);
   if (!fs.existsSync(dir)) return [];
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
-  const posts = files.map((filename) => {
+  const posts: Array<{ slug: string } & Frontmatter> = files.map((filename) => {
     const abs = path.join(dir, filename);
     const raw = fs.readFileSync(abs, 'utf8');
     const { data } = matter(raw);
@@ -116,10 +130,6 @@ export function getAllPostsMeta(lang: 'cs' | 'sk' = 'cs') {
     return { slug, ...(data as Frontmatter) };
   });
 
-  // Seřadit podle date desc (pokud pole date existuje)
-  return posts.sort((a, b) => {
-    const da = new Date((a as any).date ?? 0).getTime();
-    const db = new Date((b as any).date ?? 0).getTime();
-    return db - da;
-  });
+  // Seřadit podle date desc – bez použití `any`
+  return posts.sort((a, b) => parseDateSafe(b.date) - parseDateSafe(a.date));
 }
