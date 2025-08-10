@@ -27,13 +27,28 @@
     pointer-events: none;
     user-select: none;
     -webkit-user-drag: none;
-    max-height: 60px;
-    width: auto;
-    &:last-of-type{
-      img{
-      height: 45px;
-      width: 45px;
-      }
-    }
+  }
+}
+.LogoImg1,
+.LogoImg2,
+.LogoImg3{
+  height: calc(60px / 1);
+  width: auto;
+  @media (max-width: 700px) {
+    height: calc(60px / 1.9);
+  }
+}
+.LogoImg4{
+  height: calc(40px / 1.15);
+  width: auto;
+  @media (max-width: 700px) {
+    height: calc(40px / 2);
+  }
+}
+.LogoImg5{
+  height: calc(45px / 1);
+  width: auto;
+  @media (max-width: 700px) {
+    height: calc(45px / 1.9);
   }
 }

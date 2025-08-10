@@ -107,7 +107,7 @@ pairId: "post-0003"
 
 ## 6. Jak využít online generátor motivačních dopisů?
 
-<p><strong>Online generátor motivačních dopisů</strong> Vám pomůže sestavit dopis rychle a profesionálně. Vplníte o sobě co nejvíce informací a <strong>okamžitě stáhnete hotový WORD dokument</strong>. Protože je velmi důležité text vždy <strong>přizpůsobit konkrétní firmě</strong> a pozici. Můžete následný exportovaný .docx soubor upravit přesně na míru Vašim požadavkům.</p>
+<p><strong>Online generátor motivačních dopisů</strong> Vám pomůže sestavit dopis rychle a profesionálně. Vplníte o sobě co nejvíce informací a <strong>okamžitě stáhnete hotový WORD dokument</strong>. Protože je velmi důležité text vždy <strong>přizpůsobit konkrétní firmě</strong> a pozici, můžete následný exportovaný .docx soubor upravit přesně na míru Vašim požadavkům.</p>
 <br/>
 <a href="/cs/motivacni-dopis">
   Vyzkoušejte náš generátor motivačních dopisů zdarma

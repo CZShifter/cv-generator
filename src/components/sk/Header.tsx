@@ -36,7 +36,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/">
+        <Link href="/sk">
           <Image className={styles.logo} src={`/img/logo_SK_nove_bile.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>

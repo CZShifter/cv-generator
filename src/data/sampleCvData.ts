@@ -17,7 +17,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   showSummary: true,
   showLinkedin: true,
   showCertifications: true,
-  showTitle: false,
+  showTitle: true,
   showBirthyear: true,
   education: [
     { level: "Inženýrka", field: "Softwarové inženýrství", school: "České vysoké učení technické v Praze", year: "2021" },
