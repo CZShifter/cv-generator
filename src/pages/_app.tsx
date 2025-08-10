@@ -14,15 +14,6 @@ import CookieConsentSk from '@/components/sk/CookieConsent';
 
 import "@/styles/globals.scss";
 import '@/scss/main.scss';
-import '@fontsource-variable/montserrat';
-import "@fontsource/poppins/600.css";
-import "@fontsource/poppins/600-italic.css";
-import "@fontsource/poppins/500.css";
-import "@fontsource/poppins/500-italic.css";
-import "@fontsource/poppins/400.css";
-import "@fontsource/poppins/400-italic.css";
-import "@fontsource/poppins/300.css";
-import "@fontsource/poppins/300-italic.css";
 
 const COOKIE_NAME = "cookie_consent_v1";
 

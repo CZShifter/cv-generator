@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/templates/CvTemplate4.module.scss";
 import { CvData } from "@/data/CvData";
+import { playfair } from "@/styles/fonts";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
 
 type Props = {
@@ -11,7 +12,7 @@ const CvTemplate4: React.FC<Props> = ({ data }) => {
   return (
     <div id="cv-container">
       <div className={styles.resume}>
-        <div className={styles.resume_wrapper}>
+        <div className={`${styles.resume} ${playfair.className}`}>
           {/* LEVÝ SLOUPEC - PRACOVNÍ ZKUŠENOSTI, DOVEDNOSTI */}
           <div className={styles.left}>
             {/* Fotka jen pokud showPhoto */}

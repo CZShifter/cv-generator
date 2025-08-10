@@ -5,6 +5,18 @@
 *::after {
   box-sizing: border-box;
 }
+/* Scroll chovani */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Zaklady chovaní BODY */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.6;
+  text-decoration-skip-ink: auto;
+}
 
 /* Odstrani zakladni padding */
 ul[class],
@@ -28,19 +40,6 @@ figure,
 blockquote {
   margin: 0;
   padding: 0;
-}
-
-/* Scroll chovani */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Zaklady chovaní BODY */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.6;
-  text-decoration-skip-ink: auto;
 }
 
 /* Odstrani tecky a znacky u seznamu */

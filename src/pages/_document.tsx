@@ -7,6 +7,7 @@ import Document, {
   DocumentContext,
   DocumentInitialProps,
 } from "next/document";
+import { poppins } from "@/styles/fonts";
 
 type Lang = "cs" | "sk";
 
@@ -34,9 +35,9 @@ class MyDocument extends Document<MyDocumentProps> {
   render() {
     const { lang } = this.props;
     return (
-      <Html lang={lang}>
+      <Html lang={lang} className={poppins.className}>
         <Head />
-        <body>
+        <body >
           <Main />
           <NextScript />
         </body>

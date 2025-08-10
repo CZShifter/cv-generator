@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/templates/CvTemplate2.module.scss";
 import { CvData } from "@/data/CvData";
+import { montserrat } from "@/styles/fonts";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 const CvTemplate2: React.FC<Props> = ({ data }) => {
   return (
     <div id="cv-container">
-      <div className={styles.resume}>
+      <div className={`${styles.resume} ${montserrat.className}`}>
         {/* LEVÝ SLOUPEC - PRACOVNÍ ZKUŠENOSTI, DOVEDNOSTI */}
         <div className={styles.left}>
           <div className={styles.nameSection}>

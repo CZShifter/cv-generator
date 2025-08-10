@@ -1,10 +1,15 @@
 import { FaTrash, FaEdit } from "react-icons/fa";
+import Head from "next/head";
 import styles from "@/scss/NavodSection.module.scss";
 import { SITE_VERSION } from "@/config/site";
 
 export default function NavodSection() {
   return (
     <section className={styles.guideSection}>
+      <Head>
+        <link rel="preload" as="image" href={`/img/krok1.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/krok1.png?v=${SITE_VERSION}`}/>
+      </Head>
         <div className={styles.guideWrapper}>
             <h1 className={styles.heading}>Ako vyplniť životopis krok za krokom</h1>
             <p className={styles.intro}>Neviete si rady, ako správne vyplniť svoj životopis? Pozrite si jednoduchý a prehľadný návod krok za krokom.</p>

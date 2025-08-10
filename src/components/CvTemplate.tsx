@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/templates/CvTemplate.module.scss";
+import { playfair } from "@/styles/fonts";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
 import { CvData } from "@/data/CvData";
 
@@ -10,7 +11,7 @@ type Props = {
 const CvTemplate: React.FC<Props> = ({ data }) => {
   return (
     <div id="cv-container">
-      <div className={styles.resume}>
+      <div className={`${styles.resume} ${playfair.className}`}>
         <div className={styles.left}>
           {/* Fotka jen pokud showPhoto */}
           {data.showPhoto && data.photo && (
