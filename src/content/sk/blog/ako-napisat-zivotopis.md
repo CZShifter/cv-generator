@@ -3,6 +3,7 @@ title: "Ako vytvoriť štruktúrovaný životopis"
 date: "10.08.2025"
 description: "Praktický návod a tipy, ako napísať moderný životopis a zvýšiť svoju šancu na úspech vo výberovom konaní."
 coverImage: "/img/blog/cover.jpg"
+coverImageWebp: "/img/blog/cover.webp"
 author: "JanCV"
 pairId: "post-0002"
 ---

@@ -3,6 +3,7 @@ title: "Ako HR oddelenie vyberá ideálneho kandidáta"
 date: "16.07.2025"
 description: "Pozrite sa, ako uvažujú personalisti pri výbere uchádzačov a ako môžete zvýšiť svoju šancu na úspech."
 coverImage: "/img/blog/hrcover.jpg"
+coverImageWebp: "/img/blog/hrcover.webp"
 author: "TomášCV"
 pairId: "post-0001"
 ---

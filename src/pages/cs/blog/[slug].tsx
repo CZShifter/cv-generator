@@ -67,6 +67,7 @@ type BlogPostProps = {
     description: string;
     date: string;
     coverImage?: string;
+    coverImageWebp?: string;
     author?: string;
   };
   content: string;
@@ -139,7 +140,20 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
       <div className={styles.blogPostWrapper}>
         <article className={styles.blogPost}>
           {data.coverImage && (
-            <img src={`${data.coverImage}?v=${SITE_VERSION}`} alt={data.title} />
+            <picture>
+              {data.coverImageWebp && (
+                <source
+                  srcSet={`${data.coverImageWebp}?v=${SITE_VERSION}`}
+                  type="image/webp"/>
+              )}
+              <img
+                src={`${data.coverImage}?v=${SITE_VERSION}`}
+                alt={data.title}
+                className={styles.coverImage}   // ponechte svůj styl
+                loading="eager"                 // nebo "lazy" dle potřeby
+                decoding="async"
+              />
+            </picture>
           )}
           <h1>{data.title}</h1>
 

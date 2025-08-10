@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "@/scss/LanguageSelector.module.scss";
 import { FaChevronDown } from "react-icons/fa";
+import Head from "next/head";
+import { SITE_VERSION } from "@/config/site";
 
 const FLAGS = [
   { code: "cs", label: "Čeština", svg: "/img/flags/cz.svg" },
@@ -50,6 +52,17 @@ export default function LanguageSelector({ current = "cs", onSelect }: LanguageS
 
   return (
     <div className={styles.languageSelector} ref={containerRef}>
+      {/* Preload ikon – ať mají prioritu ve frontě */}
+      <Head>
+        {FLAGS.map(f => (
+          <link
+            key={f.code}
+            rel="preload"
+            as="image"
+            href={`${f.svg}?v=${SITE_VERSION}`}
+          />
+        ))}
+      </Head>
       <button
         className={styles.selected}
         onClick={() => setOpen(v => !v)}

@@ -3,6 +3,7 @@ title: "Jak napsat působivý motivační dopis"
 date: "09.08.2025"
 description: "Praktický návod, jak napsat motivační dopis, který zaujme personalistu a zvýší šanci na pohovor."
 coverImage: "/img/blog/clanek3.jpg"
+coverImageWebp: "/img/blog/clanek3.webp"
 author: "JanCV"
 pairId: "post-0003"
 ---

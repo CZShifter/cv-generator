@@ -15,6 +15,7 @@ type BlogPostMeta = {
   date: string;          // původní text z frontmatteru (pro zobrazení)
   _ts: number;           // číslo pro bezpečné řazení (timestamp)
   coverImage?: string;
+  coverImageWebp?: string;
   author?: string;
 };
 
@@ -58,6 +59,7 @@ function parseFrontmatterDate(input: unknown): number {
 
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), "src/content/sk/blog");
+  const publicDir = path.join(process.cwd(), "public");
   const filenames = fs.readdirSync(postsDirectory).filter(f => f.endsWith(".md"));
 
   const posts: BlogPostMeta[] = filenames.map(filename => {
@@ -68,16 +70,35 @@ export async function getStaticProps() {
     const dateStr = String(data.date ?? "");
     const ts = parseFrontmatterDate(dateStr);
 
-    return {
-      slug: filename.replace(/\.md$/, ""),
-      title: data.title ?? filename.replace(/\.md$/, ""),
-      description: data.description ?? "",
-      date: dateStr,
-      _ts: ts,
-      coverImage: data.coverImage,
-      author: data.author,
-    };
-  });
+  // původní obrázek z frontmatteru (např. "/img/blog/cover.jpg")
+      const coverImage: string | undefined =
+        typeof data.coverImage === "string" ? data.coverImage : undefined;
+  
+      // webp z frontmatteru má přednost, jinak po něm zkusíme sáhnout vedle PNG/JPG
+      let coverImageWebp: string | undefined =
+        typeof data.coverImageWebp === "string" ? data.coverImageWebp : undefined;
+  
+      if (!coverImageWebp && coverImage && /\.(png|jpe?g)$/i.test(coverImage)) {
+        const rel = coverImage.startsWith("/") ? coverImage.slice(1) : coverImage;
+        const abs = path.join(publicDir, rel);
+        const absWebp = abs.replace(/\.(png|jpe?g)$/i, ".webp");
+        if (fs.existsSync(absWebp)) {
+          const relWebp = "/" + path.relative(publicDir, absWebp).replace(/\\/g, "/");
+          coverImageWebp = relWebp;
+        }
+      }
+  
+      return {
+        slug: filename.replace(/\.md$/, ""),
+        title: data.title ?? filename.replace(/\.md$/, ""),
+        description: data.description ?? "",
+        date: dateStr,
+        _ts: ts,
+        coverImage,
+        coverImageWebp, // ← přidáno
+        author: data.author,
+      };
+    });
 
   // Řazení: nejnovější vlevo → od nejvyššího timestampu k nejnižšímu
   posts.sort((a, b) => b._ts - a._ts);
@@ -182,13 +203,22 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
             <div className={styles.grid}>
               {posts.map(post => (
                 <article key={post.slug} className={styles.card}>
-                    <img
-                      src={`${post.coverImage}?v=${SITE_VERSION}`}
-                      alt={post.title}
-                      className={styles.img}
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {post.coverImage && (
+                      <picture>
+                        {post.coverImageWebp && (
+                          <source
+                            srcSet={`${post.coverImageWebp}?v=${SITE_VERSION}`}
+                            type="image/webp"/>
+                        )}
+                        <img
+                          src={`${post.coverImage}?v=${SITE_VERSION}`}
+                          alt={post.title}
+                          className={styles.img}
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </picture>
+                    )}
                     <small>{post.date}</small>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>

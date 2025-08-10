@@ -3,6 +3,7 @@ title: "Ako napísať pôsobivý motivačný list"
 date: "09.08.2025"
 description: "Praktický návod, ako napísať motivačný list, ktorý zaujme personalistu a zvýši šancu na pohovor."
 coverImage: "/img/blog/clanek3.jpg"
+coverImageWebp: "/img/blog/clanek3.webp"
 author: "JanCV"
 pairId: "post-0003"
 ---

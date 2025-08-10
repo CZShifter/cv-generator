@@ -1,7 +1,7 @@
 import React, { useState, useRef, useLayoutEffect, useCallback, useMemo, useEffect } from "react";
 import Head from "next/head";
 import { ALL_CV_TEMPLATES as TEMPLATES } from "@/utils/cvTemplatesConfig";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME, PRICE_CV } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME, PRICE_CV, SITE_VERSION } from "@/config/site";
 import CvForm from "@/components/cs/CvForm";
 import { CvData } from "@/data/CvData";
 import { FaRegArrowAltCircleLeft ,FaRegArrowAltCircleRight } from "react-icons/fa";
@@ -390,7 +390,21 @@ export default function Preview() {
                         className={`${stylesPreview.thumbnailContainer} ${selectedTemplateId === template.id ? stylesPreview.selected : ""}`}
                         onClick={() => handleSelectTemplate(template.id)}
                       >
-                        <img src={template.previewImage} alt={`Náhled ${template.name}`} className={stylesPreview.thumbnail} />
+                        <picture className={stylesPreview.thumbnailPicture}>
+                          {template.previewImageWebp && (
+                            <source
+                              srcSet={`${template.previewImageWebp}?v=${SITE_VERSION}`}
+                              type="image/webp"
+                            />
+                          )}
+                          <img
+                            src={`${template.previewImage}?v=${SITE_VERSION}`}  // PNG/JPG fallback
+                            alt={`Náhled ${template.name}`}
+                            className={stylesPreview.thumbnail}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                         <p>{template.name}</p>
                       </div>
                     ))}

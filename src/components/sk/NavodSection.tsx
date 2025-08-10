@@ -11,14 +11,19 @@ export default function NavodSection() {
             <p className={styles.intro}>Neviete si rady, ako správne vyplniť svoj životopis? Pozrite si jednoduchý a prehľadný návod krok za krokom.</p>
             {/* KROK 1 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok1.png?v=${SITE_VERSION}`}
-                alt="Krok 1 – Kontaktní údaje"
-                width={1084}
-                height={569}
-                className={styles.guideImage}
-                priority
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok1.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok1.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok1.png?v=${SITE_VERSION}`}
+                  alt="Krok 1 – Kontaktné údaje"
+                  width={1084}
+                  height={569}
+                  className={styles.guideImage}
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 1: Kontaktné údaje</h2>
                 <p>
@@ -44,14 +49,18 @@ export default function NavodSection() {
             </div>
             {/* KROK 2 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok2.png?v=${SITE_VERSION}`}
-                alt="Krok 2 – Vzdělání"
-                width={1084}
-                height={288}
-                className={styles.guideImage}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok2.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok2.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok2.png?v=${SITE_VERSION}`}
+                  alt="Krok 2 – Vzdelanie"
+                  width={1084}
+                  height={288}
+                  className={styles.guideImage}
+                  loading="lazy"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 2: Vzdelanie</h2>
                 <p>
@@ -73,14 +82,18 @@ export default function NavodSection() {
             </div>
             {/* KROK 3 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok3.png?v=${SITE_VERSION}`}
-                alt="Krok 3 – Kurzy a certifikáty"
-                width={1084}
-                height={340}
-                className={styles.guideImage}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok3.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok3.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok3.png?v=${SITE_VERSION}`}
+                  alt="Krok 3 – Kurzy a certifikáty"
+                  width={1084}
+                  height={340}
+                  className={styles.guideImage}
+                  loading="lazy"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 3: Kurzy & Certifikáty</h2>
                 <p>
@@ -103,14 +116,18 @@ export default function NavodSection() {
             </div>
             {/* KROK 4 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok4.png?v=${SITE_VERSION}`}
-                alt="Krok 4 – Jazyky"
-                width={1084}
-                height={413}
-                className={styles.guideImage}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok4.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok4.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok4.png?v=${SITE_VERSION}`}
+                  alt="Krok 4 – Jazykové znalosti"
+                  width={1084}
+                  height={413}
+                  className={styles.guideImage}
+                  loading="lazy"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 4: Jazykové znalosti</h2>
                 <p>
@@ -131,14 +148,18 @@ export default function NavodSection() {
 
             {/* KROK 5 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok5.png?v=${SITE_VERSION}`}
-                alt="Krok 5 – Dovednosti"
-                width={1084}
-                height={568}
-                className={styles.guideImage}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok5.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok5.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok5.png?v=${SITE_VERSION}`}
+                  alt="Krok 5 – Zručnosti"
+                  width={1084}
+                  height={568}
+                  className={styles.guideImage}
+                  loading="lazy"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 5: Zručnosti</h2>
                 <p>
@@ -161,14 +182,18 @@ export default function NavodSection() {
 
             {/* KROK 6 */}
             <div className={styles.guideStep}>
-              <Image
-                src={`/img/navod/krok6.png?v=${SITE_VERSION}`}
-                alt="Krok 6 – Pracovní zkušenosti"
-                width={1084}
-                height={764}
-                className={styles.guideImage}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={`/img/navod/krok6.webp?v=${SITE_VERSION}`} type="image/webp"/>
+                <source srcSet={`/img/navod/krok6.png?v=${SITE_VERSION}`} type="image/png" />
+                <img
+                  src={`/img/navod/krok6.png?v=${SITE_VERSION}`}
+                  alt="Krok 6 – Pracovné skúsenosti"
+                  width={1084}
+                  height={764}
+                  className={styles.guideImage}
+                  loading="lazy"
+                />
+              </picture>
               <div className={styles.guideText}>
                 <h2>Krok 6: Pracovné skúsenosti</h2>
                 <p>

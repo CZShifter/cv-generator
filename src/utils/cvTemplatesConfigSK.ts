@@ -27,6 +27,7 @@ export interface CvTemplateConfig {
   id: string;
   component: React.ComponentType<CommonCvTemplateProps>;
   previewImage: string; // Pro frontend náhledy
+  previewImageWebp?: string;
   name: string; // Pro název šablony na frontendu
   cssFileName: string; // Název CSS souboru pro backend rendering (např. "CvTemplate.css")
   price: number;           // <--- přidané pole
@@ -42,6 +43,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     id: 'cvtemplate',
     component: CvTemplate,
     previewImage: '/img/cvtemplate5-preview.png',
+    previewImageWebp: '/img/cvtemplate5-preview.webp',
     name: 'Klasický',
     cssFileName: 'pdfTemplate.css',
     price: PRICE_CV_SK,
@@ -70,6 +72,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     id: 'cvtemplate2',
     component: CvTemplate2,
     previewImage: '/img/cvtemplate6-preview.png',
+    previewImageWebp: '/img/cvtemplate6-preview.webp',
     name: 'Moderní',
     cssFileName: 'pdfTemplate2.css',
     price: PRICE_CV_SK,
@@ -98,6 +101,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     id: 'cvtemplate3',
     component: CvTemplate3,
     previewImage: '/img/cvtemplate7-preview.png',
+    previewImageWebp: '/img/cvtemplate7-preview.webp',
     name: 'Barevný',
     cssFileName: 'pdfTemplate3.css',
     price: PRICE_CV_SK,
@@ -127,6 +131,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     id: 'cvtemplate4',
     component: CvTemplate4,
     previewImage: '/img/cvtemplate8-preview.png',
+    previewImageWebp: '/img/cvtemplate8-preview.webp',
     name: 'Elegantní',
     cssFileName: 'pdfTemplate4.css',
     price: PRICE_CV_SK,

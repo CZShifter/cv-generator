@@ -38,7 +38,7 @@
   padding: 0;
   transition: all 0.25s;
 }
-@media only screen and (max-width: 1079px) {
+@media only screen and (max-width: 1084px) {
   .menu {
      margin-top: calc($header-height - 1px) !important;
   }
@@ -118,7 +118,7 @@
   box-shadow: 0 8px 10px rgba($btn-form, 0.20);
   transform: scale(1.04) translateY(0px);
   text-decoration: none;
-   @media (max-width: 800px) {
+   @media (max-width: 1080px) {
     border: none;
     }
 }
@@ -138,13 +138,13 @@
   color: $btn-hover-color;
 }
 
-@media only screen and (max-width: 1079px) {
+@media only screen and (max-width: 1084px) {
   .menu {
     gap: 0.5rem;
   }
 }
 
-@media only screen and (max-width: 1079px) {
+@media only screen and (max-width: 1084px) {
   .header {
     padding: 0rem 1rem;
   }
@@ -199,6 +199,7 @@
     margin-left: 0;
     margin-top: 0;
     border: none;
+    border-radius: 0;
   }
   .hamburger {
     display: block;
