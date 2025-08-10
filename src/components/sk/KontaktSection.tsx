@@ -75,6 +75,8 @@ export default function ContactSection() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
         />
+        <link rel="preload" as="image" href={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}/>
       </Head>
       <h1 className={styles.heading}>Kontaktujte ma</h1>
       <p>Potrebujete poradiť? Alebo mi chcete napísať spätnú väzbu? Ozvite sa!</p>

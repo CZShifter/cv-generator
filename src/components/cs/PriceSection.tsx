@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link';
+import Head from "next/head";
 import styles from "@/scss/PriceSection.module.scss";
 import { SITE_VERSION } from "@/config/site";
 
@@ -7,6 +8,10 @@ export default function PriceSection() {
 
   return (
     <section className={styles.container}>
+      <Head>
+        <link rel="preload" as="image" href={`/img/cartoon_cv8.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv8.png?v=${SITE_VERSION}`}/>
+      </Head>
         <h1>Cena životopisu</h1>
         <p>Věřím, že kvalitní životopis Vás posune o krok blíže k vysněné práci</p>
         <div className={styles.price_wrapper}>
@@ -40,6 +45,9 @@ export default function PriceSection() {
                           width={360}      // nastav šířku dle reálného obrázku nebo layoutu
                           height={530}     // nastav výšku dle reálného obrázku nebo layoutu
                           className={styles.price_description_img}  // pokud chceš stylovat ještě obrázek samotný
+                          loading="eager"
+                          fetchPriority="high"
+                          decoding="async"
                         />
                   </picture>
                 </div>

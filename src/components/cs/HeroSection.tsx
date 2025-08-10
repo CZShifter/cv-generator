@@ -2,12 +2,23 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import styles from '@/scss/HeroSection.module.scss'
 import Link from 'next/link'
+import Head from "next/head";
 import Image from "next/image";
 import { SITE_VERSION } from "@/config/site";
 
 export default function HeroSection() {
   return (
     <section className={styles.Hero}>
+      <Head>
+        <link rel="preload" as="image" href={`/img/cartoon_cv3.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv3.png?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv4.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv4.png?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv11.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv11.png?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/openai-icon.svg?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/pdf-icon.svg?v=${SITE_VERSION}`}/>
+      </Head>
       <div className={styles.HeroWrapper}>
         <div className={styles.HeroLeft}>
           <picture className={styles.HeroleftImg}>
