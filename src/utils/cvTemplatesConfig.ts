@@ -1,6 +1,7 @@
 // src/utils/cvTemplatesConfig.ts
 import React from 'react';
 import type { CvData } from '@/data/CvData'; // Předpokládá se, že máte tento typ definovaný
+import { PRICE_CV } from "@/config/site";
 
 // Importujte všechny vaše komponenty
 import CvTemplate from '@/components/CvTemplate';
@@ -43,7 +44,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     previewImage: '/img/cvtemplate-preview.png',
     name: 'Klasický',
     cssFileName: 'pdfTemplate.css',
-    price: 89,
+    price: PRICE_CV,
     description: 'Jednoduchý a elegantní design, který vynikne v každém výběrovém řízení.',
     photoConfig: { aspect: 1, shape: 'round', width: 250, height: 250 }, // Příklad pro kruhovou fotku
     margins: {
@@ -71,7 +72,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     previewImage: '/img/cvtemplate2-preview.png',
     name: 'Moderní',
     cssFileName: 'pdfTemplate2.css',
-    price: 89,
+    price: PRICE_CV,
     description: 'Moderní vzhled pro dynamické pracovní prostředí.',
     photoConfig: { aspect: 3 / 4, shape: 'rect', width: 215, height: 250 }, // Příklad pro obdélníkovou fotku
     margins: {
@@ -99,7 +100,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     previewImage: '/img/cvtemplate3-preview.png',
     name: 'Barevný',
     cssFileName: 'pdfTemplate3.css',
-    price: 89,
+    price: PRICE_CV,
     description: 'Pro ty, kteří ocení styl i přehlednost.',
     photoConfig: { aspect: 3 / 4, shape: 'rect', width: 250, height: 300 }, // Příklad pro obdélníkovou fotku
     margins: {
@@ -128,7 +129,7 @@ export const ALL_CV_TEMPLATES: CvTemplateConfig[] = [
     previewImage: '/img/cvtemplate4-preview.png',
     name: 'Elegantní',
     cssFileName: 'pdfTemplate4.css',
-    price: 89,
+    price: PRICE_CV,
     description: 'Minimalistický design s maximálním důrazem na informace.',
     photoConfig: { aspect: 3 / 4, shape: 'rect', width: 215, height: 250 }, // Příklad pro obdélníkovou fotku
     margins: {

@@ -2,18 +2,59 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
+import type { Schema } from "hast-util-sanitize";
 import Head from "next/head";
 import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, SITE_VERSION, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import {
+  SITE_URL,
+  SITE_URL_SK,
+  SITE_NAME_SK,
+  OG_IMAGE_SK,
+  SITE_VERSION,
+  FAVICON_URL_32,
+  FAVICON_URL_192,
+  APPLE_TOUCH_ICON_URL
+} from "@/config/site";
+
+// Povolené atributy pro HTML v Markdownu
+const schema: Schema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    div: [...(defaultSchema.attributes?.div || []), ["className"], ["style"]],
+    section: [...(defaultSchema.attributes?.section || []), ["className"], ["style"]],
+    img: [
+      ...(defaultSchema.attributes?.img || []),
+      ["className"], ["style"], ["loading"], ["decoding"], ["sizes"], ["srcSet"], ["alt"]
+    ],
+    p: [...(defaultSchema.attributes?.p || []), ["className"], ["style"]],
+    span: [...(defaultSchema.attributes?.span || []), ["className"], ["style"]],
+    ul: [...(defaultSchema.attributes?.ul || []), ["className"], ["style"]],
+    ol: [...(defaultSchema.attributes?.ol || []), ["className"], ["style"]],
+    li: [...(defaultSchema.attributes?.li || []), ["className"], ["style"]],
+    a: [...(defaultSchema.attributes?.a || []), ["className"], ["style"], ["target"], ["rel"]],
+    h1: [...(defaultSchema.attributes?.h1 || []), ["className"], ["style"]],
+    h2: [...(defaultSchema.attributes?.h2 || []), ["className"], ["style"]],
+    h3: [...(defaultSchema.attributes?.h3 || []), ["className"], ["style"]],
+    h4: [...(defaultSchema.attributes?.h4 || []), ["className"], ["style"]],
+    h5: [...(defaultSchema.attributes?.h5 || []), ["className"], ["style"]],
+    h6: [...(defaultSchema.attributes?.h6 || []), ["className"], ["style"]],
+  },
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDirectory = path.join(process.cwd(), "src/content/sk/blog");
   const filenames = fs.readdirSync(postsDirectory);
 
-  const paths = filenames.map(filename => ({
-    params: { slug: filename.replace(/\.md$/, "") },
-  }));
+  const paths = filenames
+    .filter(name => name.endsWith(".md"))
+    .map(filename => ({
+      params: { slug: filename.replace(/\.md$/, "") },
+    }));
 
   return { paths, fallback: false };
 };
@@ -51,12 +92,12 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
         <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
-        {/* Canonical + hreflang (konzistentně sk-SK / cs-CZ) */}
+        {/* Canonical + hreflang */}
         <link rel="canonical" href={`${SITE_URL_SK}/sk/blog/${slug}/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
-        {/* OG (article) */}
+        {/* OG */}
         <meta property="og:title" content={`${data.title} | Blog | ${SITE_NAME_SK}`} />
         <meta property="og:description" content={data.description} />
         <meta
@@ -76,8 +117,8 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
         <meta
           name="twitter:image"
           content={data.coverImage ? `${SITE_URL_SK}${data.coverImage}?v=${SITE_VERSION}` : OG_IMAGE_SK}/>
-        <meta name="twitter:image:alt" content={data.title} />        
-        {/* Structured data – BlogPosting (SK) */}
+        <meta name="twitter:image:alt" content={data.title} />
+        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -109,8 +150,16 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
             <img src={`${data.coverImage}?v=${SITE_VERSION}`} alt={data.title} />
           )}
           <h1>{data.title}</h1>
-          <ReactMarkdown>{content}</ReactMarkdown>
-          <div style={{marginTop: "2.4rem", color: "#7b849c", fontSize: "0.98rem"}}>
+          {/* Povolit HTML bloky + bezpečná sanitizace */}
+          <div className={styles.prose}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
+            >
+              {content}
+            </ReactMarkdown>
+          </div>
+          <div style={{ marginTop: "2.4rem", color: "#7b849c", fontSize: "0.98rem" }}>
             {data.author && <span>Autor: {data.author} | </span>}
             {data.date && <span>{data.date}</span>}
           </div>

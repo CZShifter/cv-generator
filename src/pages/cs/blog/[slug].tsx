@@ -2,18 +2,51 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize from "rehype-sanitize";
+import { defaultSchema } from "hast-util-sanitize";
 import Head from "next/head";
 import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { SITE_URL, SITE_URL_SK, SITE_NAME, OG_IMAGE, SITE_VERSION, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import {
+  SITE_URL, SITE_URL_SK, SITE_NAME, OG_IMAGE, SITE_VERSION,
+  FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL
+} from "@/config/site";
+
+// --- povolíme class/style a užitečné atributy na elementech, které používáš v MD ---
+const schema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    div: [...(defaultSchema.attributes?.div || []), ["className"], ["style"]],
+    section: [...(defaultSchema.attributes?.section || []), ["className"], ["style"]],
+    img: [
+      ...(defaultSchema.attributes?.img || []),
+      ["className"], ["style"], ["loading"], ["decoding"], ["sizes"], ["srcSet"], ["alt"]
+    ],
+    p: [...(defaultSchema.attributes?.p || []), ["className"], ["style"]],
+    span: [...(defaultSchema.attributes?.span || []), ["className"], ["style"]],
+    ul: [...(defaultSchema.attributes?.ul || []), ["className"], ["style"]],
+    ol: [...(defaultSchema.attributes?.ol || []), ["className"], ["style"]],
+    li: [...(defaultSchema.attributes?.li || []), ["className"], ["style"]],
+    a: [...(defaultSchema.attributes?.a || []), ["className"], ["style"], ["target"], ["rel"]],
+    h1: [...(defaultSchema.attributes?.h1 || []), ["className"], ["style"]],
+    h2: [...(defaultSchema.attributes?.h2 || []), ["className"], ["style"]],
+    h3: [...(defaultSchema.attributes?.h3 || []), ["className"], ["style"]],
+    h4: [...(defaultSchema.attributes?.h4 || []), ["className"], ["style"]],
+    h5: [...(defaultSchema.attributes?.h5 || []), ["className"], ["style"]],
+    h6: [...(defaultSchema.attributes?.h6 || []), ["className"], ["style"]],
+  },
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDirectory = path.join(process.cwd(), "src/content/cs/blog");
   const filenames = fs.readdirSync(postsDirectory);
 
-  const paths = filenames.map(filename => ({
-    params: { slug: filename.replace(/\.md$/, "") },
-  }));
+  const paths = filenames
+    .filter(name => name.endsWith(".md"))
+    .map(filename => ({ params: { slug: filename.replace(/\.md$/, "") } }));
 
   return { paths, fallback: false };
 };
@@ -102,14 +135,27 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
           }}
         />
       </Head>
+
       <div className={styles.blogPostWrapper}>
         <article className={styles.blogPost}>
           {data.coverImage && (
             <img src={`${data.coverImage}?v=${SITE_VERSION}`} alt={data.title} />
           )}
           <h1>{data.title}</h1>
-          <ReactMarkdown>{content}</ReactMarkdown>
-          <div style={{marginTop: "2.4rem", color: "#7b849c", fontSize: "0.98rem"}}>
+
+          {/* OBAL pro styly a zapnutí HTML v Markdownu */}
+          <div className={styles.prose}>
+            <ReactMarkdown
+              // GitHub-flavored Markdown (tabulky, task-listy apod.)
+              remarkPlugins={[remarkGfm]}
+              // Povolit vložené HTML + bezpečná sanitizace se schématem výše
+              rehypePlugins={[[rehypeRaw], [rehypeSanitize, schema]]}
+            >
+              {content}
+            </ReactMarkdown>
+          </div>
+
+          <div style={{ marginTop: "2.4rem", color: "#7b849c", fontSize: "0.98rem" }}>
             {data.author && <span>Autor: {data.author} | </span>}
             {data.date && <span>{data.date}</span>}
           </div>

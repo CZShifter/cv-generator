@@ -258,9 +258,9 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     name: "Ján",
     surname: "Novák",
     title: "Predavač",
-    phone: "+420 605 987 654",
-    email: "jan.novak@email.cz",
-    location: "Praha, Česká republika",
+    phone: "+421 605 987 654",
+    email: "jan.novak@email.sk",
+    location: "Košice, Slovenská republika",
     linkedin: "jan.novak",
     birthyear: "1994",
     photo: "/photo_img/photo7.jpg", // obrázek vlož do složky /public
@@ -272,7 +272,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     showTitle: true,
     showBirthyear: true,
     education: [
-      { level: "Stredoškolské vzdelanie s maturitou", field: "Obchodná akadémia", school: "Obchodní akademie Vinohradská", year: "2015" },
+      { level: "Stredoškolské vzdelanie s maturitou", field: "Obchodná akadémia", school: "Obchodná akadémia, Bratislava", year: "2015" },
     ],
     certifications: [
     ],

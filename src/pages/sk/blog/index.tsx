@@ -12,7 +12,8 @@ type BlogPostMeta = {
   slug: string;
   title: string;
   description: string;
-  date: string;
+  date: string;          // původní text z frontmatteru (pro zobrazení)
+  _ts: number;           // číslo pro bezpečné řazení (timestamp)
   coverImage?: string;
   author?: string;
 };
@@ -21,29 +22,69 @@ type BlogIndexProps = {
   posts: BlogPostMeta[];
 };
 
+// Bezpečný parser pro formáty: "DD.MM.YYYY", "DD.MM.YY", "YYYY-MM-DD", ISO
+function parseFrontmatterDate(input: unknown): number {
+  if (typeof input !== "string" || !input.trim()) return 0;
+
+  const s = input.trim();
+
+  // DD.MM.YYYY nebo DD.MM.YY
+  const dot = /^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/;
+  const m1 = s.match(dot);
+  if (m1) {
+    let [_, d, mo, y] = m1;
+    let year = y.length === 2 ? Number(y) + 2000 : Number(y);
+    const month = Number(mo) - 1; // JS: 0-11
+    const day = Number(d);
+    const dt = new Date(year, month, day).getTime();
+    return Number.isNaN(dt) ? 0 : dt;
+  }
+
+  // YYYY-MM-DD
+  const hyph = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+  const m2 = s.match(hyph);
+  if (m2) {
+    const year = Number(m2[1]);
+    const month = Number(m2[2]) - 1;
+    const day = Number(m2[3]);
+    const dt = new Date(year, month, day).getTime();
+    return Number.isNaN(dt) ? 0 : dt;
+  }
+
+  // Fallback – zkusí nativní parser (ISO apod.)
+  const t = new Date(s).getTime();
+  return Number.isNaN(t) ? 0 : t;
+}
+
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), "src/content/sk/blog/");
-  const filenames = fs.readdirSync(postsDirectory);
+  const postsDirectory = path.join(process.cwd(), "src/content/sk/blog");
+  const filenames = fs.readdirSync(postsDirectory).filter(f => f.endsWith(".md"));
 
   const posts: BlogPostMeta[] = filenames.map(filename => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
 
+    const dateStr = String(data.date ?? "");
+    const ts = parseFrontmatterDate(dateStr);
+
     return {
       slug: filename.replace(/\.md$/, ""),
-      title: data.title,
-      description: data.description,
-      date: data.date,
+      title: data.title ?? filename.replace(/\.md$/, ""),
+      description: data.description ?? "",
+      date: dateStr,
+      _ts: ts,
       coverImage: data.coverImage,
       author: data.author,
     };
   });
 
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  // Řazení: nejnovější vlevo → od nejvyššího timestampu k nejnižšímu
+  posts.sort((a, b) => b._ts - a._ts);
 
   return {
     props: { posts },
+    // revalidate: 60 // volitelné ISR
   };
 }
 
@@ -98,7 +139,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 "@type": "Organization",
                 "name": SITE_NAME_SK,
                 "url": SITE_URL_SK,
-                "logo": { "@type": "ImageObject", "url": `${SITE_URL_SK}/img/logo.png` }
+                "logo": { "@type": "ImageObject", "url": `${SITE_URL_SK}/img/logo_SK_nove_barevny.png` }
               },
               "inLanguage": "sk-SK",
               "blogPost": posts.slice(0, 10).map((p) => ({
@@ -137,7 +178,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <div className={styles.blogWrapper}>
           <div className={styles.blogcard}>
             <h1 className={styles.heading}>Blog</h1>
-            <p className={styles.intro}>Blog slúži ako rozcestník všetkých článkov a návodov na tému životopisov</p>
+            <p className={styles.intro}>Blog slúži ako rozcestník všetkých článkov a návodov na tému práce</p>
             <div className={styles.grid}>
               {posts.map(post => (
                 <article key={post.slug} className={styles.card}>
@@ -145,6 +186,8 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                       src={`${post.coverImage}?v=${SITE_VERSION}`}
                       alt={post.title}
                       className={styles.img}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <small>{post.date}</small>
                     <h2>{post.title}</h2>

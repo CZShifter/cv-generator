@@ -1,10 +1,12 @@
 @use '../scss/variables' as *;
-.blogPostWrapper{
-    width: 100%;
-    background-color: $form-color;
-    min-height: calc(100vh - $header-height - $footer-height);
-    padding: $padding-base;
+
+.blogPostWrapper {
+  width: 100%;
+  background-color: $form-color;
+  min-height: calc(100vh - $header-height - $footer-height);
+  padding: $padding-base;
 }
+
 .blogPost {
   max-width: $max-width;
   margin: 0 auto;
@@ -18,11 +20,21 @@
     font-weight: 700;
     margin-bottom: 1.5rem;
     color: $primary-color;
-    text-align: left;
+    text-align: center;
     line-height: 1.1;
   }
 
   img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: $border-radius;
+    margin-bottom: 2rem;
+    background: $white-color;
+    box-shadow: $shadow;
+    display: block;
+  }
+  picture {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
@@ -38,31 +50,35 @@
     font-size: $p;
     color: $text-color;
     line-height: 1.75;
-    margin-bottom: 1.25rem;
     @media (max-width: 720px) {
-    text-align: justify;
+      text-align: justify;
     }
   }
+  p { margin-top: 1rem; }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: 2rem;
     margin-bottom: 1.2rem;
   }
 
   h2 {
-    margin-top: 2rem;
-    font-size: $h2;
+    margin-top: 1rem;
+    font-size: calc($h2 / 1.35);
     color: $btn-hover-color;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   h3 {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
     font-size: $h3;
     font-weight: 600;
     color: $btn-hover-color;
-    margin-bottom: 0.7rem;
+  }
+  strong{
+    color: $btn-hover-color;
   }
 
   blockquote {
@@ -92,23 +108,105 @@
     margin-bottom: 1.2rem;
     color: #22304b;
   }
+  a{
+    display: inline-flex;
+    color: $form-color;
+    font-weight: 500;
+    padding: $btn-padding;
+    border-radius: $btn-radius;
+    background-color: $btn-hover-color;
+    transition: transform 0.2s ease;
+     &:hover {
+      background-color: $btn-form;
+      text-decoration: none;
+      color: $white-color;
+      transform: translateY(5px);
+    }
+  }
 }
 
-/* Responsivita */
-@media (max-width: 1140px) {
-    .blogPostWrapper{
-        padding: 2rem 2rem;
+/* --- obsah článku renderovaný z Markdownu --- */
+.prose {
+  max-width: $max-width;
+  margin: 0 auto;
+
+  img { max-width: 100%; height: auto; display: block; margin-bottom: 0; margin-top: 1rem; }
+  ul, ol { line-height: 1.7; margin: 0; padding: 1rem 1rem 0 1rem; }
+  hr { border: none; border-top: 0px solid #e2e2e2; }
+
+  /* ZÁKLAD: obal */
+  :global(.two-thirds) {
+    display: grid;
+    gap: $gap2;
+    align-items: start;
+    grid-template-columns: 4fr 3fr;
+  }
+
+  /* Výchozí pořadí: text vlevo, obrázek vpravo */
+  :global(.two-thirds .text)  { order: 1; }
+  :global(.two-thirds .media) { order: 2; }
+
+  /* OBRÁZEK VPRAVO (aliasy image-right / right)
+     → poměr 2fr 1fr, pořadí text|media */
+  :global(.two-thirds.image-right),
+  :global(.two-thirds.right) {
+    grid-template-columns: 4fr 3fr;
+  }
+  :global(.two-thirds.image-right .text),
+  :global(.two-thirds.right .text)  { order: 1; }
+  :global(.two-thirds.image-right .media),
+  :global(.two-thirds.right .media) { order: 2; }
+
+  /* OBRÁZEK VLEVO (aliasy image-left / left)
+     → poměr 1fr 2fr, pořadí media|text */
+  :global(.two-thirds.image-left),
+  :global(.two-thirds.left) {
+    grid-template-columns: 3fr 4fr;
+  }
+  :global(.two-thirds.image-left .text),
+  :global(.two-thirds.left .text)  { order: 2; }
+  :global(.two-thirds.image-left .media),
+  :global(.two-thirds.left .media) { order: 1; }
+
+  /* Styl pro IMG uvnitř media */
+  :global(.two-thirds .media img) {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0 !important;
+    display: block;
+  }
+
+  /* Mobil: jeden sloupec, obrázek vždy nad textem */
+  @media (max-width: 700px) {
+    :global(.two-thirds.image-left) { grid-template-columns: 1fr; }
+    :global(.two-thirds .media) { order: 1; }
+    :global(.two-thirds .text)  { order: 2; }
+  }
+  @media (max-width: 700px) {
+    :global(.two-thirds.image-right) { grid-template-columns: 1fr; }
+    :global(.two-thirds .media) { order: 1; }
+    :global(.two-thirds .text)  { order: 2; }
+  }
+  @media (max-width: 700px) {
+     h1,h2{
+      text-align: center;
+     }
+    p,ul,li,h3,h4{
+      text-align: left;
     }
+  }
+}
+
+/* Responsivita obalu */
+@media (max-width: 1140px) {
+  .blogPostWrapper { padding: 2rem 2rem; }
 }
 @media (max-width: 700px) {
-    .blogPostWrapper{
-        padding: 0;
-    }
-    .blogPost {
+  .blogPostWrapper { padding: 0; }
+  .blogPost {
     padding: 1rem 1rem 2rem 1rem;
     border-radius: 12px;
-    }
-    .blogPost h1 {
-    font-size: 1.45rem;
-    }
+  }
+  .blogPost h1 { font-size: 1.45rem; }
 }

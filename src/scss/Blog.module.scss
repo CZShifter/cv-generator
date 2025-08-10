@@ -39,7 +39,8 @@ width: 100%;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: $gap2;
+  grid-gap: inherit;
+  gap: $gap;
   justify-items: center;
   @media (max-width: 735px) {
     grid-template-columns: repeat(auto-fill, 1fr);

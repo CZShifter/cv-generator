@@ -21,8 +21,8 @@ export default function PriceSection() {
                     <p>Úplne bez registrácie</p>
                     <p>Spĺňa všetky požiadavky HR</p>
                     <p>Životopis je dostupný 24h na úpravu</p>
-                    <p>PDF pripravené ihneď na tlač</p>
                     <p>Jednoduché a rýchle vyplnenie</p>
+                    <p>PDF pripravené ihneď na tlač</p>
                     <p>Žiadne členstvo</p>
                     <Link href="/sk/preview" className={styles.button}>
                         Vytvoriť životopis
