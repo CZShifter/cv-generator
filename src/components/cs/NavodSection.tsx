@@ -7,8 +7,8 @@ export default function NavodSection() {
   return (
     <section className={styles.guideSection}>
       <Head>
-        <link rel="preload" as="image" href={`/img/krok1.webp?v=${SITE_VERSION}`}/>
-        <link rel="preload" as="image" href={`/img/krok1.png?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/navod/krok1.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/navod/krok1.png?v=${SITE_VERSION}`}/>
       </Head>
         <div className={styles.guideWrapper}>
             <h1 className={styles.heading}>Jak vyplnit životopis krok za krokem</h1>

@@ -10,9 +10,9 @@ export default function AISection() {
         <div className={styles.AILeft}>
           <picture>
             <source srcSet={`/img/cartoon_cv1.webp?v=${SITE_VERSION}`} type="image/webp" />
-            <source srcSet={`/img/cartoon_cv1.jpg?v=${SITE_VERSION}`} type="image/jpg" />
+            <source srcSet={`/img/cartoon_cv1.png?v=${SITE_VERSION}`} type="image/png" />
             <img
-              src={`/img/cartoon_cv1.jpg?v=${SITE_VERSION}`}
+              src={`/img/cartoon_cv1.png?v=${SITE_VERSION}`}
               alt="AI maskot mavá do kamery"
               width={368}
               height={530}
