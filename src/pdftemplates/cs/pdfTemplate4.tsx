@@ -1,6 +1,6 @@
 import React from "react";
 import { CvData } from "@/data/CvData";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 
 type Props = {
   data: CvData;
@@ -31,6 +31,9 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                 )}
                 {data.showBirthyear && data.birthyear && (
                   <p>Rok narození: {data.birthyear}<FaRegCalendarAlt /></p>
+                )}
+                {data.showWeb && data.web && (
+                  <p>{data.web}<FaLink /></p>
                 )}
               </div>
               <div className="education" id="skola">

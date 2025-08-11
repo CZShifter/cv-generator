@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/templates/CvTemplate2.module.scss";
 import { CvData } from "@/data/CvData";
 import { montserrat } from "@/styles/fonts";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 
 type Props = {
   data: CvData;
@@ -85,6 +85,9 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             {/* Narozeniny pouze pokud showBirthyear */}
             {data.showBirthyear && data.birthyear && (
               <p><FaRegCalendarAlt />Rok narození: {data.birthyear}</p>
+            )}
+            {data.showWeb && data.web && (
+              <p><FaLink /> {data.web}</p>
             )}
           </div>
 

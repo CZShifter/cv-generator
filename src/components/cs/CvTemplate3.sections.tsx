@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/templates/CvTemplate3.module.scss";
 import { CvData } from "@/data/CvData";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegStar, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegStar, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import ReloadableImage from "@/components/ReloadableImage";
@@ -53,6 +53,9 @@ export function getCvTemplate3Sections(data: CvData & { photoVersion?: number })
       )}
       {data.showBirthyear && data.birthyear && (
         <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+      )}
+      {data.showWeb && data.web && (
+        <p><FaLink /> {data.web}</p>
       )}
     </div>
   );

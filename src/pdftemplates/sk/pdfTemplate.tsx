@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 import { CvData } from "@/data/CvData";
 
 type Props = {
@@ -29,6 +29,9 @@ const CvTemplate: React.FC<Props> = ({ data }) => {
           {/* Narozeniny pouze pokud showBirthyear */}
           {data.showBirthyear && data.birthyear && (
             <p><FaRegCalendarAlt />Rok narodenia: {data.birthyear}</p>
+          )}
+          {data.showWeb && data.web && (
+            <p><FaLink /> {data.web}</p>
           )}
         </div>
         <div className="education">

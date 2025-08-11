@@ -2,7 +2,7 @@ import React from "react";
 import styles from "@/templates/CvTemplate4.module.scss";
 import { CvData } from "@/data/CvData";
 import { playfair } from "@/styles/fonts";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 
 type Props = {
   data: CvData;
@@ -34,6 +34,9 @@ const CvTemplate4: React.FC<Props> = ({ data }) => {
                 {/* LinkedIn pouze pokud showLinkedin */}
                 {data.showBirthyear && data.birthyear && (
                   <p>Rok narození: {data.birthyear}<FaRegCalendarAlt /></p>
+                )}
+                {data.showWeb && data.web && (
+                  <p>{data.web}<FaLink /></p>
                 )}
               </div>
               <div className={styles.rightSection}>

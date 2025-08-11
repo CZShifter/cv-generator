@@ -11,6 +11,7 @@ export const emptyData: CvData = {
   linkedin: "",
   photo: "",
   birthyear: "",
+  web: "",
   education: [],
   certifications: [],
   language: [],
@@ -24,6 +25,7 @@ export const emptyData: CvData = {
   showSummary: false,
   showCertifications: false,
   showBirthyear: false,
+  showWeb: false,
 };
 
 // Pokud by tam bylo něco jako "export default emptyData;", pak by byl váš původní import správný,

@@ -14,7 +14,9 @@ export type CvData = {
   showTitle: boolean;
   showLinkedin: boolean;
   showBirthyear: boolean;
+  showWeb: boolean;
   birthyear: string;
+  web: string;
   education: { level: string; field: string; school: string; year: string }[];
   certifications: { name: string; place: string; year: string }[];
   language: { name: string; level: string }[];

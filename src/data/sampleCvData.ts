@@ -11,6 +11,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   location: "Praha, Česká republika",
   linkedin: "eliska.hrabalova",
   birthyear: "1995",
+  web: "www.mujweb.cz",
   photo: "/photo_img/photo.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,               // ← PŘIDAT
@@ -19,6 +20,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   showCertifications: true,
   showTitle: true,
   showBirthyear: true,
+  showWeb: true,
   education: [
     { level: "Inženýrka", field: "Softwarové inženýrství", school: "České vysoké učení technické v Praze", year: "2021" },
     { level: "Bakalářka", field: "Informatika", school: "Univerzita Karlova, Fakulta matematiky a fyziky", year: "2018" },
@@ -100,6 +102,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   location: "Brno, Česká republika",
   linkedin: "petr.svoboda",
   birthyear: "1986",
+  web: "www.mujweb.cz",
   photo: "/photo_img/photo2.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
@@ -108,6 +111,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   showCertifications: true, // Pro manažera prodeje jsou certifikace relevantní
   showTitle: true,
   showBirthyear: true,
+  showWeb: true,
   education: [
     { level: "Magisterské studium", field: "Ekonomie a management", school: "Vysoká škola ekonomická v Praze", year: "2010" },
     { level: "Bakalářské studium", field: "Podniková ekonomika a management", school: "Masarykova univerzita v Brně", year: "2007" },
@@ -181,6 +185,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   location: "Praha, Česká republika",
   linkedin: "tereza.novakova",
   birthyear: "1998",
+  web: "www.mujweb.cz",
   photo: "/photo_img/photo8.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
@@ -189,6 +194,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   showCertifications: true,
   showTitle: true,
   showBirthyear: true,
+  showWeb: true,
   education: [
     { level: "Středoškolské vzdělání s maturitou", field: "Ekonomické lyceum", school: "Obchodní akademie Vinohradská", year: "2018" },
   ],
@@ -263,6 +269,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   location: "Praha, Česká republika",
   linkedin: "jan.novak",
   birthyear: "1994",
+  web: "www.mujweb.cz",
   photo: "/photo_img/photo4.jpg", // obrázek vlož do složky /public
   showPhoto: true,
   photoVersion: 0,
@@ -271,6 +278,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
   showCertifications: false,
   showTitle: true,
   showBirthyear: true,
+  showWeb: true,
   education: [
     { level: "Středoškolské vzdělání s maturitou", field: "Obchodní akademie", school: "Obchodní akademie Vinohradská", year: "2015" },
   ],

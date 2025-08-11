@@ -122,17 +122,17 @@ body{
   margin-top: 8px;
   text-align: center;
   text-transform: uppercase;
-  color: #bcbcbc;
+  color: #f0f0f0;
 }
 
 .contact {
-  color: #cacaca;
+  color: #f0f0f0;
   margin-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 .contact p {
-  color: #cacaca;
+  color: #f0f0f0;
   font-size: 12px;
   font-weight: 400;
 }
@@ -154,7 +154,7 @@ body{
 }
 
 .education {
-  color: #cacaca;
+  color: #f0f0f0;
   margin-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -169,7 +169,7 @@ body{
   border-bottom: 1px solid rgba(218, 215, 215, 0.4431372549);
 }
 .education p {
-  color: #cacaca;
+  color: #f0f0f0;
   font-size: 12px;
 }
 .education strong {
@@ -189,7 +189,7 @@ body{
 }
 
 .certifikate {
-  color: #cacaca;
+  color: #f0f0f0;
   margin-top: 8px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -205,7 +205,7 @@ body{
   margin-top: 1rem;
 }
 .certifikate p {
-  color: #cacaca;
+  color: #f0f0f0;
   font-size: 12px;
 }
 .certifikate strong {
@@ -228,7 +228,7 @@ body{
   margin-bottom: 8px;
 }
 .languages p {
-  color: #cacaca;
+  color: #f0f0f0;
   font-size: 12px;
 }
 .languages strong {
@@ -338,9 +338,9 @@ body{
   background-color: #f0f4f8;
   color: #333;
   padding: 5px 10px;
-  margin: 4px 4px 0 0;
+  margin: 8px 8px 0 0;
   display: inline-block;
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 4px;
   border: 1px solid rgba(17, 83, 158, 0.2745098039);
 }

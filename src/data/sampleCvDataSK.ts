@@ -11,6 +11,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     location: "Bratislava, Slovenská republika",
     linkedin: "katarina.hruskova",
     birthyear: "1995",
+    web: "www.mojweb.sk",
     photo: "/photo_img/photo3.jpg",
     showPhoto: true,
     photoVersion: 0,
@@ -19,6 +20,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     showCertifications: true,
     showTitle: true,
     showBirthyear: true,
+    showWeb: true,
     education: [
       { level: "Inžinierka", field: "Softvérové inžinierstvo", school: "Slovenská technická univerzita v Bratislave", year: "2021" },
       { level: "Bakalárka", field: "Informatika", school: "Univerzita Komenského v Bratislave, Fakulta matematiky, fyziky a informatiky", year: "2018" },
@@ -100,6 +102,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     location: "Košice, Slovenská republika",
     linkedin: "peter.sloboda",
     birthyear: "1986",
+    web: "www.mojweb.sk",
     photo: "/photo_img/photo6.jpg",
     showPhoto: true,
     photoVersion: 0,
@@ -108,6 +111,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     showCertifications: true,
     showTitle: true,
     showBirthyear: true,
+    showWeb: true,
     education: [
       { level: "Magisterské štúdium", field: "Ekonómia a manažment", school: "Ekonomická univerzita v Bratislave", year: "2014" },
       { level: "Bakalárske štúdium", field: "Podniková ekonomika a manažment", school: "Univerzita Pavla Jozefa Šafárika v Košiciach", year: "2011" },
@@ -181,6 +185,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     location: "Bratislava, Slovenská republika",
     linkedin: "tereza.novakova",
     birthyear: "1998",
+    web: "www.mojweb.sk",
     photo: "/photo_img/photo5.jpg", // obrázok vložte do priečinka /public
     showPhoto: true,
     photoVersion: 0,
@@ -189,6 +194,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     showCertifications: true,
     showTitle: true,
     showBirthyear: true,
+    showWeb: true,
     education: [
     { level: "Stredoškolské vzdelanie s maturitou", field: "Ekonomické lýceum", school: "Obchodná akadémia, Bratislava", year: "2018" },
     ],
@@ -263,6 +269,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     location: "Košice, Slovenská republika",
     linkedin: "jan.novak",
     birthyear: "1994",
+    web: "www.mojweb.sk",
     photo: "/photo_img/photo7.jpg", // obrázek vlož do složky /public
     showPhoto: true,
     photoVersion: 0,
@@ -271,6 +278,7 @@ export const SAMPLE_CV_DATA: Record<string, CvData> = {
     showCertifications: false,
     showTitle: true,
     showBirthyear: true,
+    showWeb: true,
     education: [
       { level: "Stredoškolské vzdelanie s maturitou", field: "Obchodná akadémia", school: "Obchodná akadémia, Bratislava", year: "2015" },
     ],

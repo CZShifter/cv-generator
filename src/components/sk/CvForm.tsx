@@ -431,6 +431,22 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               />
             </div>
             <div className={styles.inputGroup}>
+              <div className={styles.labelRow}>
+                <label>Webová stránka <HelpTooltip text="Odkaz na váš web" /></label>
+                <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
+                  <input type="checkbox" style={{ display: "none" }} checked={!!data.showWeb} onChange={e => onChange({ ...data, showWeb: e.target.checked })} className={styles.switchInput} tabIndex={0} />
+                  <span className={styles.switchTrack + (data.showWeb ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
+                </label>
+              </div>
+              <input
+                className={`${styles.input} ${!data.showWeb ? styles.disabled : ""}`}
+                disabled={!data.showWeb}
+                value={data.web}
+                onChange={e => onChange({ ...data, web: e.target.value })}
+                placeholder="Napr. www.mojweb.sk"
+              />
+            </div>
+            <div className={styles.inputGroup}>
               <label>Adresa <HelpTooltip text="Stačí napísať mesto, v ktorom bývate" /></label>
               <input className={styles.input} value={data.location} onChange={e => onChange({ ...data, location: e.target.value })} />
             </div>

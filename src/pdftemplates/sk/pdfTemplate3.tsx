@@ -1,6 +1,6 @@
 import React from "react";
 import { CvData } from "@/data/CvData";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegStar, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegStar, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineWorkOutline } from "react-icons/md";
 
@@ -44,6 +44,9 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                 {/* Narozeniny pouze pokud showBirthyear */}
                 {data.showBirthyear && data.birthyear && (
                   <p><FaRegCalendarAlt /> Rok narodenia: {data.birthyear}</p>
+                )}
+                {data.showWeb && data.web && (
+                  <p><FaLink /> {data.web}</p>
                 )}
               </div>
               <div className="education" id="skola">

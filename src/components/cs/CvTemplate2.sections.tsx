@@ -1,7 +1,7 @@
 import React from "react";
 import type { CvData } from "../../data/CvData";
 import styles from "@/templates/CvTemplate2.module.scss";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaRegCalendarAlt, FaLink } from "react-icons/fa";
 import ReloadableImage from "@/components/ReloadableImage";
 
 export function getCvTemplate2Sections(data: CvData & { photoVersion?: number }) {
@@ -99,6 +99,9 @@ export function getCvTemplate2Sections(data: CvData & { photoVersion?: number })
       )}
       {data.showBirthyear && data.birthyear && (
         <p><FaRegCalendarAlt /> Rok narození: {data.birthyear}</p>
+      )}
+      {data.showWeb && data.web && (
+        <p><FaLink /> {data.web}</p>
       )}
     </div>
   );
