@@ -1,26 +1,22 @@
 // /pages/api/update-cv.ts
 import { createClient } from '@supabase/supabase-js';
 import { renderCvHtml } from '@/utils/cs/renderCvHtml';
-import { SITE_NAME, PDF_SANDBOX } from "@/config/site";
+import { SITE_NAME } from "@/config/site";
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 
-// Pomocná funkce na ošetření jména
-/* function sanitizeString(str: string): string {
-  return (str || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")       // odstraní diakritiku
-    .replace(/\./g, "_")                   // tečky na _
-    .replace(/\s+/g, "_")                  // mezery na _
-    .replace(/[^a-zA-Z0-9_]/g, "")         // odstraní speciální znaky
-    .trim();
-} */
+function envBool(name: string, fallback = false): boolean {
+  const raw = process.env[name];
+  if (raw == null || raw === "") return fallback; // ← použij fallback, když není nastavena
 
-/* function generatePdfFilename(name: string, surname: string): string {
-  const firstName = sanitizeString(name || "Uzivatel");
-  const lastName = sanitizeString(surname || "Bezejmeny");
-  return `Zivotopis_${firstName}_${lastName}.pdf`;
-} */
+  const v = String(raw).trim().toLowerCase();
+  if (v === "1" || v === "true" || v === "yes" || v === "on") return true;
+  if (v === "0" || v === "false" || v === "no"  || v === "off") return false;
+
+  return fallback; // ← použij fallback i pro neznámé hodnoty
+}
+
+const PDF_SANDBOX = envBool("PDFENDPOINT_SANDBOX", false);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");

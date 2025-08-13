@@ -1,28 +1,23 @@
 import { createClient } from '@supabase/supabase-js';
 import { renderCvHtml } from '@/utils/cs/renderCvHtml';
 import { renderInvoiceHtml } from "@/utils/cs/renderInvoiceHtml";
-import { SITE_NAME, PRICE_CV, PDF_SANDBOX } from "@/config/site";
+import { SITE_NAME, PRICE_CV } from "@/config/site";
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 import crypto from 'crypto';
 
+function envBool(name: string, fallback = false): boolean {
+  const raw = process.env[name];
+  if (raw == null || raw === "") return fallback; // ← použij fallback, když není nastavena
 
-// Pomocná funkce na ošetření jména
-/* function sanitizeString(str: string): string {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")       // odstraní diakritiku
-    .replace(/\./g, "_")                   // tečky na _
-    .replace(/\s+/g, "_")                  // mezery na _
-    .replace(/[^a-zA-Z0-9_]/g, "")         // odstraní speciální znaky
-    .trim();
-} */
+  const v = String(raw).trim().toLowerCase();
+  if (v === "1" || v === "true" || v === "yes" || v === "on") return true;
+  if (v === "0" || v === "false" || v === "no"  || v === "off") return false;
 
-/* function generatePdfFilename(name: string, surname: string): string {
-  const firstName = sanitizeString(name || "Uzivatel");
-  const lastName = sanitizeString(surname || "Bezejmeny");
-  return `Zivotopis_${firstName}_${lastName}.pdf`;
-} */
+  return fallback; // ← použij fallback i pro neznámé hodnoty
+}
+
+const PDF_SANDBOX = envBool("PDFENDPOINT_SANDBOX", false);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
@@ -100,11 +95,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     /* console.log("Odesílám HTML na PDF endpoint..."); */
     const result = await axios.post("https://api.pdfendpoint.com/v1/convert", {
       html,
-      sandbox: true,
+      sandbox: PDF_SANDBOX,
       orientation: "vertical",
       page_width: "794px",
-      page_height: "1122px",
-      no_blank_pages: PDF_SANDBOX,
+      page_height: "1123px", //možná nechat 1122px!
+      no_blank_pages: true,
       margin_top: "0px",
       margin_bottom: "0px",
       margin_left: "0px",
@@ -166,7 +161,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       sandbox: PDF_SANDBOX,
       orientation: "vertical",
       page_width: "794px",
-      page_height: "1122px",
+      page_height: "1123px", //možná nechat 1122px!
       no_blank_pages: true,
       margin_top: "0px",
       margin_bottom: "0px",

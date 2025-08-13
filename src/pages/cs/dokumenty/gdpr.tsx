@@ -115,7 +115,7 @@ export default function Gdpr() {
           <ul>
             <li><strong>Nezbytné cookies</strong> – slouží k zajištění správného fungování webu, např. pro uložení aktuální relace nebo jazykového nastavení.</li>
             <li><strong>Analytické cookies</strong> – pomáhají nám porozumět, jak návštěvníci používají náš web. Například pomocí Google Analytics.</li>
-            <li><strong>Marketingové cookies</strong> – umožňují personalizaci obsahu nebo měření efektivity reklamních kampaní (např. Facebook Pixel, pokud je použit).</li>
+            <li><strong>Marketingové cookies</strong> – umožňují personalizaci obsahu nebo měření efektivity reklamních kampaní (např. Google Ads, Sklik a Facebook Pixel, pokud je použit).</li>
           </ul>
           <h3>Jak cookies spravovat:</h3>
           <p>

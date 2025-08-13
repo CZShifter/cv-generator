@@ -26,8 +26,6 @@ export const SELLER_LEGAL_NOTE_2_SK = "Nie som platiteľ DPH";
 // cena jedné služby
 export const PRICE_CV = 89; // Kč
 export const PRICE_CV_SK = 4; //Euro
-//Testovací režim
-export const PDF_SANDBOX = true;
 // Analytics & marketing tags
 export const GA_MEASUREMENT_ID = "G-XXXXXXX";      // Google Analytics 4
 export const FB_PIXEL_ID = "1234567890";           // Facebook Pixel
