@@ -1,7 +1,6 @@
 // /pages/api/update-cv.ts
 import { createClient } from '@supabase/supabase-js';
 import { renderCvHtml } from '@/utils/cs/renderCvHtml';
-import { SITE_NAME } from "@/config/site";
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 
