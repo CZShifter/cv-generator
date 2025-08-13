@@ -1,21 +1,24 @@
-import type { AppProps } from 'next/app';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { useEffect, useState } from "react";
+import type { AppProps } from "next/app";
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, GA_MEASUREMENT_ID } from '@/config/site';
+import {
+  FAVICON_URL_32,
+  FAVICON_URL_192,
+  APPLE_TOUCH_ICON_URL,
+  GA_MEASUREMENT_ID,
+} from "@/config/site";
 
-import HeaderCs from '@/components/cs/Header';
-import FooterCs from '@/components/cs/Footer';
-import CookieConsentCs from '@/components/cs/CookieConsent';
-import HeaderSk from '@/components/sk/Header';
-import FooterSk from '@/components/sk/Footer';
-import CookieConsentSk from '@/components/sk/CookieConsent';
+import HeaderCs from "@/components/cs/Header";
+import FooterCs from "@/components/cs/Footer";
+import CookieConsentCs from "@/components/cs/CookieConsent";
+import HeaderSk from "@/components/sk/Header";
+import FooterSk from "@/components/sk/Footer";
+import CookieConsentSk from "@/components/sk/CookieConsent";
 
 import "@/styles/globals.scss";
-import '@/scss/main.scss';
-
-const COOKIE_NAME = "cookie_consent_v1";
+import "@/scss/main.scss";
 
 type NextPageWithLayout = NextPage & {
   noLayout?: boolean;
@@ -27,13 +30,19 @@ type AppPropsWithLayout = AppProps & {
 
 // Helper pro určení jazyka z cesty
 function getLangFromPath(pathname: string) {
-  if (pathname.startsWith('/sk')) return 'sk';
-  if (pathname.startsWith('/cs')) return 'cs';
-  return 'cs'; // fallback
+  if (pathname.startsWith("/sk")) return "sk";
+  if (pathname.startsWith("/cs")) return "cs";
+  return "cs"; // fallback
+}
+
+// Přečtení souhlasu z cookie (stejný název jako v CookieConsent)
+function hasAdsConsent() {
+  if (typeof document === "undefined") return false;
+  const m = document.cookie.match(/(?:^|;\s*)cookie_consent_v1=([^;]+)/);
+  return m ? decodeURIComponent(m[1]) === "accepted_all" : false;
 }
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const router = useRouter();
 
   const isSk = router.pathname.startsWith("/sk");
@@ -41,25 +50,21 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Footer = isSk ? FooterSk : FooterCs;
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
+  // SPA pageview: nasadíme listener vždy,
+  // ale hit odešleme jen když (až když) je consent + gtag načten.
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const consent = localStorage.getItem(COOKIE_NAME);
-      setAnalyticsEnabled(consent === "accepted_all");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!analyticsEnabled) return;
     const handleRouteChange = (url: string) => {
-      if (window.gtag && GA_MEASUREMENT_ID) {
-        window.gtag('config', GA_MEASUREMENT_ID, { page_path: url });
+      if (!hasAdsConsent()) return;
+      if (typeof window !== "undefined" && window.gtag && GA_MEASUREMENT_ID) {
+        window.gtag("config", GA_MEASUREMENT_ID, { page_path: url });
       }
     };
+
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [analyticsEnabled, router.events]);
+  }, [router.events]);
 
   // Nastavení <html lang> při načtení i po každé změně routy
   useEffect(() => {
@@ -75,9 +80,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
     // po každé změně routy
     const handleRouteChange = (url: string) => applyLang(url);
-    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 
@@ -90,8 +95,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <Head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href={FAVICON_URL_32} sizes="32x32"/>
-        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180"/>
+        <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
       </Head>
       <Header />

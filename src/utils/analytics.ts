@@ -34,7 +34,20 @@ function ensureGtag() {
   return window.gtag!;
 }
 
-function pushConsent(cmd: any[]) {
+// přesný typ pro Consent Mode příkaz do dataLayer (default/update)
+type ConsentFlag = "granted" | "denied";
+type ConsentCmd = [
+  "consent",
+  "default" | "update",
+  {
+    ad_storage: ConsentFlag;
+    ad_user_data: ConsentFlag;
+    ad_personalization: ConsentFlag;
+    analytics_storage: ConsentFlag;
+  }
+];
+
+function pushConsent(cmd: ConsentCmd) {
   if (!hasWindow()) return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(cmd);
@@ -43,7 +56,8 @@ function pushConsent(cmd: any[]) {
 // Načtení hodnoty souhlasu z cookie (klient)
 function getConsentCookie(): string | null {
   if (!hasWindow()) return null;
-  const m = document.cookie.match(/(?:^|;\s*)cookie_consent_v1=([^;]+)/);
+  const re = new RegExp(`(?:^|;\\s*)${CONSENT_COOKIE}=([^;]+)`);
+  const m = document.cookie.match(re);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
@@ -138,7 +152,7 @@ export function trackAdsConversion(
   currency = "CZK"
 ) {
   if (!hasWindow() || !GOOGLE_ADS_ID) return;
-  if (!isAdsConsentGranted()) return;      // ⟵ bez souhlasu neposílat
+  if (!isAdsConsentGranted()) return;          // ⟵ bez souhlasu neposílat
   if (!window.gadsInitialized) initGoogleAds(); // pro jistotu inicializuj
 
   const gtag = ensureGtag();
