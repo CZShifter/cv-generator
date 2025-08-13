@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         <meta name="language" content="sk" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="sk" />
         <link rel="alternate" href={`${SITE_URL_SK}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL_SK}`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="x-default" />
       </Head>
       <section className={styles.container}>
         <div className={styles.columnLeft}>

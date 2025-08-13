@@ -125,7 +125,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/blog/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/blog/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/`} hrefLang="x-default" />
         {/* Open Graph */}
         <meta property="og:title" content={`Blog o životopisoch a kariére | ${SITE_NAME_SK}`} />
         <meta

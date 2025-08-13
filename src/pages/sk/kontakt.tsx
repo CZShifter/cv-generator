@@ -38,7 +38,7 @@ export default function KontaktPage() {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/kontakt/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/kontakt/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/kontakt/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/kontakt/`} hrefLang="x-default" />
         {/* Structured data - ContactPage */}
         <script
           type="application/ld+json"

@@ -8,8 +8,6 @@ const allowedHostnames = [
   "rychlyzivotopis.sk",
   "localhost",
   "127.0.0.1",
-  "cz.localhost",
-  "sk.localhost",
   ".vercel.app", // wildcard suffix (cokoliv.vercel.app)
 ];
 
@@ -31,26 +29,36 @@ function isAllowed(hostname: string) {
 export function middleware(req: NextRequest) {
   const url = req.nextUrl;
   const { pathname, search } = url;
+  const method = req.method || "GET";
+  const hostname = getRawHost(req);
 
-  // --- hostname normalizace ---
-   const hostname = getRawHost(req);
+  // 0) DEV lokálně: nepoužívat middleware (kvůli HMR)
+  // Lokálně používáš jen http://localhost:3000
+  if (process.env.NODE_ENV === "development" && hostname === "localhost") {
+    return NextResponse.next();
+  }
 
-  // 1) Canonical host: odstraň www. (SEO best practice)
+  // 1) POUZE GET redirectujeme (bezpečnější pro formuláře/prefetch)
+  if (method !== "GET") {
+    return NextResponse.next();
+  }
+
+  // 2) Canonical host: odstraň www. (SEO) – jen mimo dev
   if (hostname.startsWith("www.")) {
     const apex = hostname.slice(4); // bez "www."
-    // povolíme redirect na apex i když "www." varianta není explicitně v allowed (pošleme 301)
     const redirectUrl = new URL(url.toString());
     redirectUrl.hostname = apex;
     // 301 = trvalé přesměrování hostu (kanonizace)
     return NextResponse.redirect(redirectUrl, 301);
   }
 
-  // 2) Bezpečnost: povolit jen známé hosty (po www odstranění)
+  // 3) Bezpečnost: povolit jen známé hosty (po www odstranění)
+  //    (v preview na Vercelu je *.vercel.app povolené suffixem)
   if (!isAllowed(hostname)) {
     return new Response("Nepovolený přístup!", { status: 404 });
   }
 
-  // --- výjimky: neřešit už lokalizované a technické cesty ---
+  // 4) Výjimky: neřešit už lokalizované a technické cesty
   if (
     pathname.startsWith("/cs") ||
     pathname.startsWith("/sk") ||
@@ -67,22 +75,21 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // --- jazyk podle hostu ---
+  // 5) Jazyk podle hostu (produkce + preview)
+  //    .sk → /sk, vše ostatní → /cs (vč. *.vercel.app)
   const isSkHost =
     hostname.endsWith(".sk") ||
-    hostname.startsWith("sk.") ||
-    hostname === "sk.localhost";
-  // čistý localhost a cz.localhost bereme jako CZ (změňte podle potřeby)
+    hostname.startsWith("sk.");
+
   const langPrefix = isSkHost ? "/sk" : "/cs";
 
-  // --- redirect na lokalizovanou cestu (zachovat path, query i hash) ---
+  // 6) Redirect na lokalizovanou cestu (zachovat path, query i hash)
   const newUrl = url.clone();
   newUrl.pathname = `${langPrefix}${pathname}`.replace(/\/{2,}/g, "/");
   newUrl.search = search; // query beze změny
-  // hash přidáme přes string, NextURL typ ho nepředepisuje
   const finalHref = newUrl.toString() + (url.hash ?? "");
 
-  // 308 = trvalé přesměrování cesty (stabilní pro SEO i POST/GET)
+  // V produkci/preview OK i 308; nechávám 308, protože zachová metodu u GET
   return NextResponse.redirect(finalHref, 308);
 }
 

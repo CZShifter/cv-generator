@@ -34,7 +34,7 @@ export default function NavodPage() {
         <link rel="canonical" href={`${SITE_URL}/cs/navod/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/navod/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/navod/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL}/cs/navod/`} hrefLang="x-default" />
 
         {/* Structured data - HowTo */}
         <script

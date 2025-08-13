@@ -19,7 +19,7 @@ export default function ObchodniPodminky() {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/dokumenty/obchodni-podminky/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/obchodni-podminky/`} hrefLang="x-default" />
         {/* Open Graph */}
         <meta property="og:title" content={`Obchodné podmienky | ${SITE_NAME_SK}`} />
         <meta

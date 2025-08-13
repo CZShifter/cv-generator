@@ -44,7 +44,7 @@ export default function Home() {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/`} hrefLang="x-default" />
         {/* Structured data - WebSite (jazyková URL + inLanguage) */}
         <script
           type="application/ld+json"

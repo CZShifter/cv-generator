@@ -42,7 +42,7 @@ export default function CenaPage() {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/cena/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/cena/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/cena/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/cena/`} hrefLang="x-default" />
         {/* Structured data - Product (jazyková URL + inLanguage) */}
         <script
           type="application/ld+json"

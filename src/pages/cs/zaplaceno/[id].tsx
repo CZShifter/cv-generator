@@ -181,7 +181,7 @@ export default function ZaplacenoPage({ data }: Props) {
         {/* Hreflang pro jazykové verze */}
         <link rel="alternate" href={pageUrl} hrefLang="cs-CZ" />
         <link rel="alternate" href={pageUrlSk} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={pageUrl} hrefLang="x-default" />
         {/* Volitelně OG/Twitter metadata pro interní sdílení */}
         <meta property="og:title" content={`Životopis byl úspěšně vytvořen | ${SITE_NAME}`} />
         <meta

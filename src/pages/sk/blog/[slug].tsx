@@ -97,7 +97,7 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/blog/${slug}/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="x-default" />
         {/* OG */}
         <meta property="og:title" content={`${data.title} | Blog | ${SITE_NAME_SK}`} />
         <meta property="og:description" content={data.description} />

@@ -297,7 +297,7 @@ console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
         {/* Hreflang pro jazykové verze */}
         <link rel="alternate" href={editUrl} hrefLang="cs-CZ" />
         <link rel="alternate" href={editUrlSk} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={editUrl} hrefLang="x-default" />
         {/* Volitelné OG/Twitter metadata pro interní sdílení */}
         <meta property="og:title" content={`Úprava životopisu | ${SITE_NAME}`} />
         <meta

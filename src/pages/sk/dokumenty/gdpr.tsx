@@ -19,7 +19,7 @@ export default function Gdpr() {
         <link rel="canonical" href={`${SITE_URL_SK}/sk/dokumenty/gdpr/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/dokumenty/gdpr/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/gdpr/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/dokumenty/gdpr/`} hrefLang="x-default" />
         {/* Open Graph */}
         <meta property="og:title" content={`Zásady ochrany osobných údajov (GDPR) | ${SITE_NAME_SK}`} />
         <meta property="og:description" content="Zásady spracúvania osobných údajov a informácie o ochrane súkromia." />

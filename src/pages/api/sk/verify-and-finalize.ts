@@ -2,6 +2,44 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { absoluteUrl } from "@/utils/baseUrl";
 import { verifyPayment, PaymentPayload } from "@/utils/paymentToken";
 import { getFinalizeMarker, setFinalizeMarker } from "@/utils/paymentIdem";
+import { GOOGLE_ADS, PRICING } from "@/config/site";
+
+function hasAdsConsent(req: NextApiRequest) {
+  const consent = req.cookies?.["cookie_consent_v1"]; // Next API routes parsují cookies automaticky
+  return consent === "accepted_all";
+}
+
+// --- Simple Google Ads server pixel (no DB, no GTM) ---
+function extractConvId(awId?: string) {
+  const m = awId?.match(/AW-(\d+)/i);
+  return m ? m[1] : null; // "AW-123..." -> "123..."
+}
+function adsEnabled() {
+  const v = (process.env.ADS_FIRE ?? "").toLowerCase();
+  return v === "true" || v === "1" || v === "yes";
+}
+async function fireAdsPixel({
+  convId,
+  label,
+  value,
+  currency,
+  orderId,
+}: {
+  convId: string;
+  label: string;
+  value: number;
+  currency: "CZK" | "EUR";
+  orderId?: string; // volitelné (pro deduplikaci/reporting)
+}) {
+  const u = new URL(`https://www.googleadservices.com/pagead/conversion/${convId}/`);
+  u.searchParams.set("label", label);
+  u.searchParams.set("value", String(value));
+  u.searchParams.set("currency_code", currency);
+  if (orderId) u.searchParams.set("order_id", orderId);
+  u.searchParams.set("guid", "ON");
+  u.searchParams.set("script", "0");
+  await fetch(u.toString(), { method: "GET" }).catch(() => {});
+}
 
 const COMGATE_BASE = "https://payments.comgate.cz";
 const MERCHANT = process.env.COMGATE_MERCHANT_SK!;
@@ -124,9 +162,29 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch {
     // ignore
   }
+// 6) Odpálit Google Ads konverzi (SK) – pevná cena/měna ze site.ts
+  try {
+  if (adsEnabled() && hasAdsConsent(req)) {
+    const convId = extractConvId(GOOGLE_ADS.ID);
+    if (convId && GOOGLE_ADS.LABEL_SK) {
+      const orderId = `cg:${transId}${refId ? `|ref:${refId}` : ""}`;
+      await fireAdsPixel({
+        convId,
+        label: GOOGLE_ADS.LABEL_SK,
+        value: PRICING.SK.amount,
+        currency: PRICING.SK.currency,
+        orderId,
+      });
+    }
+  }
+} catch {
+  // best-effort; kdyby pixel selhal, neblokujeme uživatele
+}
 
-  // 6) Zapiš marker
-  try { await setFinalizeMarker(transId, { previewUrl: json.previewUrl }); } catch {}
+// 7) Zapiš marker
+try {
+  await setFinalizeMarker(transId, { previewUrl: json.previewUrl });
+} catch {}
 
-  return res.json({ status: "PAID", previewUrl: json.previewUrl });
+return res.json({ status: "PAID", previewUrl: json.previewUrl });
 }

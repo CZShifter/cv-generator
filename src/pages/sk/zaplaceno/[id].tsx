@@ -185,7 +185,7 @@ export default function ZaplacenoPage({ data }: Props) {
         {/* Hreflang (dynamické ID, absolútne URL) */}
         <link rel="alternate" href={pageUrl} hrefLang="cs-CZ" />
         <link rel="alternate" href={pageUrlSk} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={pageUrlSk} hrefLang="x-default" />
         {/* Open Graph na interné zdieľanie */}
         <meta property="og:title" content={`Životopis bol úspešne vytvorený | ${SITE_NAME_SK}`} />
         <meta

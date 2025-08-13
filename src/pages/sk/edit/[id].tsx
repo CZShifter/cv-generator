@@ -299,7 +299,7 @@ console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
         {/* Hreflang (dynamické ID, absolútne URL) */}
         <link rel="alternate" href={editUrl} hrefLang="cs-CZ" />
         <link rel="alternate" href={editUrlSk} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/`} hrefLang="x-default" />
+        <link rel="alternate" href={editUrlSk} hrefLang="x-default" />
         {/* Open Graph na interné zdieľanie */}
         <meta property="og:title" content={`Úprava životopisu | ${SITE_NAME_SK}`} />
         <meta

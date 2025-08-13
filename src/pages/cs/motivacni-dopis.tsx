@@ -29,7 +29,7 @@ export default function MotivacniDopisPage() {
         <link rel="canonical" href={`${SITE_URL}/cs/motivacni-dopis/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/motivacni-dopis/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/motivacni-dopis/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL}/cs/motivacni-dopis/`} hrefLang="x-default" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

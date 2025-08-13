@@ -296,7 +296,7 @@ export default function Preview() {
         {/* Hreflang (absolutní URL, oboustranně CZ ↔ SK) */}
         <link rel="alternate" href={`${SITE_URL}/cs/preview/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/preview/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL}/cs/preview/`} hrefLang="x-default" />
 
         {/* Structured data - WebApplication */}
         <script

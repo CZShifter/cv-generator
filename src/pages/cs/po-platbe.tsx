@@ -75,7 +75,7 @@ export default function PoPlatbe() {
           setMsg(
             <>
             <span>Platba byla zamítnuta. Můžete ji zopakovat.</span><br></br>
-            <small>Vaše data jsou dočasně uložena. Stačí znovu vybrat šablonu a přejit ke kroku 6: &ldquo;Dokončit&ldquo;.</small>
+            <small>Vaše data jsou dočasně uložena u Vás v prohlížeči. Stačí znovu vybrat šablonu a přejit ke kroku 6: &ldquo;Dokončit&ldquo;.</small>
             </>
           );
           return;
@@ -141,7 +141,7 @@ export default function PoPlatbe() {
         {/* Hreflang pro jazykové verze */}
         <link rel="alternate" href={`${SITE_URL}/cs/po-platbe/`} hrefLang="cs-CZ" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/po-platbe/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL}/`} hrefLang="x-default" />
+        <link rel="alternate" href={`${SITE_URL}/cs/po-platbe/`} hrefLang="x-default" />
         {/* Volitelně OG/Twitter metadata, pokud stránku sdílíte */}
         <meta property="og:title" content={`Platební brána – průběh platby | ${SITE_NAME}`} />
         <meta property="og:description" content="Probíhá zpracování platby. Tato stránka není indexována ve vyhledávačích." />
