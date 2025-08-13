@@ -1,42 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface ReloadableImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
 }
 
 const ReloadableImage: React.FC<ReloadableImageProps> = ({ src, ...imgProps }) => {
-  const [blobUrl, setBlobUrl] = useState(src);
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const lastBlobUrl = useRef<string | null>(null);
 
   useEffect(() => {
-    // Pokud jde o data-URI, nic neposílat na server
-    if (src.startsWith("data:")) {
-      setBlobUrl(src);
+    // data: a blob: nech tak, jak je
+    if (src.startsWith("data:") || src.startsWith("blob:")) {
+      setCurrentSrc(src);
       return;
     }
 
-    let active = true;
-    // Vynutíme fetch mimo cache
-    fetch(src, { cache: "reload" })
-      .then((res) => res.blob())
-      .then((blob) => {
-        if (!active) return;
-        const url = URL.createObjectURL(blob);
-        setBlobUrl(url);
-      })
-      .catch(() => {
-        // Kdyby fetch selhal, zachováme původní src
-        if (active) setBlobUrl(src);
-      });
-    return () => {
-      active = false;
-      // Uvolníme blob URL, až se komponenta odmountuje / src se změní
-      if (blobUrl.startsWith("blob:")) {
-        URL.revokeObjectURL(blobUrl);
-      }
-    };
-  }, [src, blobUrl]);
+    let cancelled = false;
 
-  return <img src={blobUrl} {...imgProps} />;
+    (async () => {
+      try {
+        const res = await fetch(src, { cache: "reload" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+
+        if (cancelled) {
+          URL.revokeObjectURL(url);
+          return;
+        }
+
+        // uklid starého blobu
+        if (lastBlobUrl.current) URL.revokeObjectURL(lastBlobUrl.current);
+        lastBlobUrl.current = url;
+        setCurrentSrc(url);
+      } catch {
+        if (!cancelled) setCurrentSrc(src); // fallback na původní URL
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [src]);
+
+  // finální úklid při unmountu
+  useEffect(() => {
+    return () => {
+      if (lastBlobUrl.current) URL.revokeObjectURL(lastBlobUrl.current);
+    };
+  }, []);
+
+  return <img src={currentSrc} {...imgProps} />;
 };
 
 export default ReloadableImage;
