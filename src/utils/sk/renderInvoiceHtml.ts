@@ -21,7 +21,7 @@ export function renderInvoiceHtml({
 
   return `
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="sk">
 <head>
   <meta charset="UTF-8" />
   <title>Doklad o zaplatení ${invoiceNumber}</title>

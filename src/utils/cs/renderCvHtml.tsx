@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import type { CvData } from "@/data/CvData";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
+import { SITE_NAME } from "@/config/site";
 
 // Mapuj templateId → PDF komponenta (flat verze)
 const pdfComponents: Record<string, (props: { data: CvData }) => JSX.Element> = {
@@ -41,10 +42,15 @@ export function renderCvHtml(cvData: CvData, templateId: string): string {
       <head>
         <meta charset="UTF-8" />
         <title>Životopis</title>
-        <style>${css}</style>
+        <style>
+          ${css}
+        </style>
       </head>
       <body>
         ${htmlContent}
+        <div class="inline-footer" style="position:absolute;left:0;right:0;bottom:0;font-size:9px;color:#505050;text-align:center;padding:10px 0;">
+            Vytvořeno pomocí ${/* eslint-disable-line */ ""}${SITE_NAME}
+        </div>
       </body>
     </html>
   `;

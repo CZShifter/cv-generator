@@ -104,7 +104,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       margin_bottom: "0px",
       margin_left: "0px",
       margin_right: "0px",
-      footer_html: `<div style="font-size:9px; width:100%; color:#505050; text-align:center;">Vytvorené pomocou ${SITE_NAME_SK}</div>`,
       viewport: "794x1123"
     }, {
       headers: {

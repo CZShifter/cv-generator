@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import type { CvData } from "@/data/CvData";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
+import { SITE_NAME_SK } from "@/config/site";
 
 // Mapuj templateId → PDF komponenta (flat verze)
 // Mapuj templateId → PDF komponenta (flat verze)
@@ -38,7 +39,7 @@ export function renderCvHtml(cvData: CvData, templateId: string): string {
 
   return `
     <!DOCTYPE html>
-    <html lang="cs">
+    <html lang="sk">
       <head>
         <meta charset="UTF-8" />
         <title>Životopis</title>
@@ -46,6 +47,9 @@ export function renderCvHtml(cvData: CvData, templateId: string): string {
       </head>
       <body>
         ${htmlContent}
+        <div class="inline-footer" style="position:absolute;left:0;right:0;bottom:0;font-size:9px;color:#505050;text-align:center;padding:10px 0;">
+          Vytvořeno pomocí ${/* eslint-disable-line */ ""}${SITE_NAME_SK}
+        </div>
       </body>
     </html>
   `;

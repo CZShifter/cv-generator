@@ -85,14 +85,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       sandbox: PDF_SANDBOX,
       orientation: "vertical",
       page_width: "794px",
-      page_height: "1123px",
+      page_height: "1122px",
       print_media: "true",
       no_blank_pages: true,
       margin_top: "0px",
       margin_bottom: "0px",
       margin_left: "0px",
       margin_right: "0px",
-      footer_html: `<div style="font-size:9px; width:100%; color:#505050; text-align:center;">Vytvorené pomocou ${SITE_NAME_SK}</div>`,
       viewport: "794x1123"
     }, {
       headers: {

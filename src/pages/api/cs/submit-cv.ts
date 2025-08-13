@@ -98,13 +98,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       sandbox: PDF_SANDBOX,
       orientation: "vertical",
       page_width: "794px",
-      page_height: "1123px", //možná nechat 1122px!
+      page_height: "1122px", //možná nechat 1122px!
       no_blank_pages: true,
       margin_top: "0px",
       margin_bottom: "0px",
       margin_left: "0px",
       margin_right: "0px",
-      footer_html: `<div style="font-size:9px; width:100%; color:#505050; text-align:center;">Vytvořeno pomocí ${SITE_NAME}</div>`,
       viewport: "794x1123"
     }, {
       headers: {
@@ -161,7 +160,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       sandbox: PDF_SANDBOX,
       orientation: "vertical",
       page_width: "794px",
-      page_height: "1123px", //možná nechat 1122px!
+      page_height: "1122px", //možná nechat 1122px!
       no_blank_pages: true,
       margin_top: "0px",
       margin_bottom: "0px",
