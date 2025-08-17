@@ -133,7 +133,7 @@ export default function ZaplacenoPage({ data }: Props) {
       a.click();
       URL.revokeObjectURL(url);
     } catch (error) {
-      //console.error("❌ Chyba při stahování PDF:", error);
+      console.error("❌ Chyba při stahování PDF:", error);
     }
   };
 
@@ -153,7 +153,7 @@ export default function ZaplacenoPage({ data }: Props) {
       a.click();
       URL.revokeObjectURL(url);
     } catch (error) {
-      //console.error("❌ Chyba při stahování faktury:", error);
+      console.error("❌ Chyba při stahování faktury:", error);
     }
   };
 
