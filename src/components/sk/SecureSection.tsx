@@ -6,13 +6,13 @@ import { SITE_VERSION } from "@/config/site";
 export default function SecureSection() {
   return (
     <section className={styles.AI}>
-      <div className={styles.AIWrapper}>
+      <div className={styles.SecureWrapper}>
         <div className={styles.AILeft}>
           <picture>
-            <source srcSet={`/img/cartoon_cv10.webp?v=${SITE_VERSION}`} type="image/webp" />
-            <source srcSet={`/img/cartoon_cv10.png?v=${SITE_VERSION}`} type="image/png" />
+            <source srcSet={`/img/secure2.webp?v=${SITE_VERSION}`} type="image/webp" />
+            <source srcSet={`/img/secure2.png?v=${SITE_VERSION}`} type="image/png" />
             <img
-              src={`/img/cartoon_cv1.png?v=${SITE_VERSION}`}
+              src={`/img/secure2.png?v=${SITE_VERSION}`}
               alt="AI maskot mavá do kamery"
               width={394}
               height={559}
@@ -22,8 +22,8 @@ export default function SecureSection() {
           </picture>
         </div>
         <div className={styles.SecureTitleWrapper}>
-          <h2>Ochrana Vášho súkromia je prioritou!</h2>
-          <p>Na rozdiel od iných aplikácií si v tejto nevytvárate žiadny účet. Nikde sa neregistrujete a Vaše osobné údaje nikdy nepredávame žiadnej tretej strane. Vaše dáta uchovávame iba 24 hodín, aby ste mohli pohodlne upravovať Váš životopis. Potom je všetko nenávratne vymazané.</p>
+          <h2><span>Ochrana vášho súkromia</span> je našou prioritou!</h2>
+          <p>Na rozdiel od iných aplikácií si v našej nevytvárate žiadny účet. Bezpečnosť je u nás na prvom mieste a vaše osobné údaje nikdy nepredávame žiadnej tretej strane. Vaše dáta držíme iba 24 hodín, aby ste mohli pohodlne upravovať váš životopis. Potom je všetko nenávratne zmazané.</p>
         </div>          
       </div>
     </section>

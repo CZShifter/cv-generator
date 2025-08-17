@@ -1,34 +1,83 @@
 @use '../scss/variables' as *;
+
 .narrative {
+  display: flex;
+  background-color: $back-color;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap80;
+  max-width: $max-width;
   background-color: $white-color;
-  padding: $padding-base;
-  color: $text2-color;
-  @media (max-width: 720px) {
-    padding: 2rem 1rem;
+  padding: 64px;
+  @media (max-width: 1024px) {
+    gap: 2rem;
+    padding: 32px;
+  }
+  @media (max-width: 870px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @media (max-width: 700px) {
+    padding: 32px 24px;
   }
 }
- .container {
+.NarrativeLeftWrapper{
   display: flex;
   flex-direction: column;
   gap: $gap;
-  max-width: $max-width;
-  margin: 0 auto;
-  line-height: 1.6;
+  width: 100%;
+  h1{
+    font-size: $h2;
+    color: $secondary-color;
+    text-align: left;
+    margin-bottom: 8px;
+    span{
+      color: $btn-hover-color;
+    }
+    @media (max-width: 700px) {
+      font-size: calc($h2 / 1.1);
+    }
+  }
   h2 {
     font-size: $h2;
     color: $secondary-color;
-    margin-bottom: 0.5rem;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 8px;
+    span{
+      color: $btn-hover-color;
+    }
+    @media (max-width: 700px) {
+      font-size: calc($h2 / 1.5);
+    }
   }
   p {
     font-size: $p;
     text-align: left;
     a{
-      color: $btn-form;
-      font-weight: 500;
+      color: $btn-hover-color;
+      font-weight: 600;
     }
   }
-  strong{
-    color: $btn-hover-color;
+}
+.NarrativeleftImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  border-radius: 8px;
+  picture{
+    width: 100%;
+    height: auto;
   }
+}
+.NarrativeRightWrapper{
+  display: flex;
+  width: 100%;
+  height: auto;
 }

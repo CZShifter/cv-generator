@@ -180,7 +180,7 @@ export default function EditPage({ dataFromDb, templateId, id }: Props) {
     const padT = parseFloat(style.paddingTop || "0");
     const padB = parseFloat(style.paddingBottom || "0");
     const availW = (winW - padL - padR) / 1;
-    const availH = winH - padT - padB - 60 - 60;
+    const availH = winH - padT - padB - 65 - 60;
     const s = Math.min(availW / CV_WIDTH, availH / CV_HEIGHT, 1);
     setScale(s);
     previewRef.current.style.width = `${CV_WIDTH * s}px`;

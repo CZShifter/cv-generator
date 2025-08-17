@@ -3,7 +3,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import Head from "next/head";
-import FeaturesSection from '@/components/cs/FeaturesSection';
+import HookSection from '@/components/cs/HookSection';
+import NarrativeSection2 from '@/components/cs/NarrativeSection2';
+import AISection from '@/components/cs/AISection';
+import StatsSection from '@/components/cs/StatsSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
 import { SITE_URL, SITE_URL_SK, SITE_NAME, SITE_VERSION, FAVICON_URL_32, APPLE_TOUCH_ICON_URL, FAVICON_URL_192, OG_IMAGE } from "@/config/site";
 import styles from "@/scss/Blog.module.scss";
@@ -199,7 +202,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
         <div className={styles.blogWrapper}>
           <div className={styles.blogcard}>
             <h1 className={styles.heading}>Blog</h1>
-            <p className={styles.intro}>Blog slouží jako rozcestník všech článků a návodů na téma práce</p>
+            <p className={styles.intro}>Přečtěte si naše tipy, jak se co nejrychleji dostat na pracovní pohovor vašich snů</p>
             <div className={styles.grid}>
               {posts.map(post => (
                 <article key={post.slug} className={styles.card}>
@@ -223,7 +226,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <div className={styles.blogbutton}>
-                      <Link href={`/cs/blog/${post.slug}`}><p>Čtěte více</p></Link>
+                      <Link href={`/cs/blog/${post.slug}`}><p>číst více</p></Link>
                     </div>
                 </article>
               ))}
@@ -231,7 +234,10 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
           </div>
         </div>
       </section>
-      <FeaturesSection />
+      <HookSection />
+      <NarrativeSection2 />
+      <AISection />
+      <StatsSection />
       <CallToActionSection />
     </>
   );

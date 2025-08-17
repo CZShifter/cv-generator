@@ -6,6 +6,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FaRegCircleXmark } from "react-icons/fa6";
 import { MdErrorOutline } from "react-icons/md";
 import { LuInfo } from "react-icons/lu";
+import SecureSection from '@/components/cs/SecureSection';
 
 type StatusKind = "verifying" | "cancelled" | "error" | "info";
 
@@ -171,6 +172,7 @@ export default function PoPlatbe() {
             </button>
           )}
         </div>
+        <SecureSection />
       </main>
     </>
   );

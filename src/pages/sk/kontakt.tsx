@@ -2,6 +2,8 @@ import Head from "next/head";
 import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
 import KontaktSection from '@/components/sk/KontaktSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
+import AISection from '@/components/sk/AISection';
+import StatsSection from '@/components/sk/StatsSection';
 export default function KontaktPage() {
   return ( 
     <>
@@ -56,6 +58,8 @@ export default function KontaktPage() {
         />
       </Head>
       <KontaktSection />
+      <AISection />
+      <StatsSection />
       <CallToActionSection />
     </>
   );

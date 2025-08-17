@@ -1,19 +1,31 @@
 import styles from '@/scss/NarrativeSection2.module.scss';
+import { SITE_VERSION } from "@/config/site";
 
-export default function NarrativeSection2() {
+export default function NarrativeSection() {
   return (
-    <section className={styles.narrative}>
+    <main className={styles.narrative}>
       <div className={styles.container}>
-        <p>
-          <strong>Vytvoriť životopis svojpomocne často znamená hodiny skúšania</strong>, hľadania vhodného rozloženia, boj s formátovaním a neistotu, či výsledok vôbec zodpovedá tomu, čo personalisti očakávajú. Mnohé šablóny dostupné online navyše postrádajú logiku, nezodpovedajú aktuálnym trendom alebo sú zahltené zbytočnými prvkami, ktoré odvádzajú pozornosť od podstatného.
-        </p>
-        <p>
-          Táto aplikácia ponúka riešenie, ktoré je premyslené do posledného detailu – od výberu typografie až po štruktúru jednotlivých sekcií. Všetko vychádza z reálnej praxe v oblasti HR a je <strong>navrhnuté tak, aby personalista behom niekoľkých sekúnd získal jasnú predstavu</strong> o Vašich zručnostiach, skúsenostiach aj potenciáli.
-        </p>
-        <p>
-          <strong>Aplikácia zjednodušuje celý proces</strong>, bez toho aby zľavila z kvality. Váš čas je cenný – a správne štruktúrovaný životopis môže byť presne to, čo ho premení na skutočnú príležitosť.
-        </p>
+        <div className={styles.NarrativeRightWrapper}>
+            <picture className={styles.NarrativeleftImg}>
+              <source srcSet={`/img/blog/motivacni1.webp?v=${SITE_VERSION}`} type="image/webp" />
+              <source srcSet={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`} type="image/jpg" />
+              <img
+                src={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`}
+                alt="šťastná žena ukazuje prstem"
+                width={600}      // nastav šířku dle reálného obrázku nebo layoutu
+                height={665}     // nastav výšku dle reálného obrázku nebo layoutu
+                className={styles.NarrativeleftImg}  // pokud chceš stylovat ještě obrázek samotný
+                sizes="100%"
+                loading="eager"
+              />
+            </picture>
+        </div>
+        <div className={styles.NarrativeLeftWrapper}>
+          <h2>Motivačný list online <span>úplne zadarmo</span></h2>
+          <p>S našou aplikáciou si motivačný list vytvoríte jednoducho, bez nutnosti hľadania návodov, vzorov alebo zložitého formulovania viet. Stačí vyplniť niekoľko základných údajov a behom pár sekúnd získate profesionálne štruktúrovaný text, ktorý bude pripravený zaujať každého personalistu.</p>
+          <p>Vytvorenie je úplne zadarmo, nevyžaduje registráciu, neobsahuje žiadne reklamy a neukladá vaše dáta. Motivačný list si stiahnete vo formáte DOCX, ihneď pripravený na odoslanie alebo úpravy podľa potreby. Vďaka prehľadnému rozhraniu je celý proces intuitívny a výrazne rýchlejší ako tvorba od základu.</p>
+        </div>
       </div>
-    </section>
+    </main>
   );
 }

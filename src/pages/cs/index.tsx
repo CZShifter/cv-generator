@@ -5,9 +5,11 @@ import HookSection from '@/components/cs/HookSection';
 import SecureSection from '@/components/cs/SecureSection';
 import NarrativeSection from '@/components/cs/NarrativeSection';
 import FeaturesSection from '@/components/cs/FeaturesSection';
-import NarrativeSection2 from '@/components/cs/NarrativeSection2';
+import AISection from '@/components/cs/AISection';
 import StatsSection from '@/components/cs/StatsSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
+import PriceSection from '@/components/cs/PriceSection';
+import PlatMetody from '@/components/PlatMetodySection';
 export default function Home() {
   return ( 
     <>
@@ -55,12 +57,14 @@ export default function Home() {
         />
       </Head>
       <HeroSection />
-      <HookSection />
-      <NarrativeSection />
-      <SecureSection />
       <FeaturesSection />
-      <NarrativeSection2 />
+      <HookSection />
       <StatsSection />
+      <NarrativeSection />
+      <AISection />
+      <PriceSection />
+      <PlatMetody />
+      <SecureSection />
       <CallToActionSection />
     </>
   );

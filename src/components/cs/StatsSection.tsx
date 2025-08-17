@@ -11,18 +11,17 @@ const stats = [
   },
   {
     value: '5 minut',
-    label: 'potřebujete s touto aplikací',
+    label: 'čas, za který to s naší aplikací zvládnete',
   },
   {
     value: '24h',
-    label: 'máte možnost editovat životopis',
+    label: 'máte možnost editovat svůj životopis',
   },
 ];
 
 export default function StatsSection() {
   return (
     <section className={styles.stats}>
-      <h2>Co byste měli vědět!</h2>
       <div className={styles.grid}>
         {stats.map((stat, index) => (
           <div key={index} className={styles.stat}>

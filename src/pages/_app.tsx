@@ -1,3 +1,4 @@
+// pages/_app.tsx
 import type { AppProps } from "next/app";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -17,10 +18,16 @@ import HeaderSk from "@/components/sk/Header";
 import FooterSk from "@/components/sk/Footer";
 import CookieConsentSk from "@/components/sk/CookieConsent";
 
+// ── NOVÉ: speciální varianty headeru a footeru ─────────────────────────────────
+import SpecialHeaderCs from "@/components/cs/SpecialHeader";
+import SpecialHeaderSk from "@/components/sk/SpecialHeader";
+import SpecialFooterCs from "@/components/cs/SpecialFooter";
+import SpecialFooterSk from "@/components/sk/SpecialFooter";
+
 import "@/styles/globals.scss";
 import "@/scss/main.scss";
 
-type NextPageWithLayout = NextPage & {
+export type NextPageWithLayout = NextPage & {
   noLayout?: boolean;
 };
 
@@ -42,12 +49,29 @@ function hasAdsConsent() {
   return m ? decodeURIComponent(m[1]) === "accepted_all" : false;
 }
 
+// ── NOVÉ: seznam segmentů, kde chceme SPECIAL header+footer ───────────────────
+const SPECIAL_SEGMENTS = ["edit", "preview"]; // ← sem můžeš snadno přidávat další stránky
+
+// ── NOVÉ: detekce speciální cesty podle prvního segmentu za /cs|/sk ───────────
+function isSpecialRoute(pathname: string): boolean {
+  // Očekáváme /cs/<segment>/... nebo /sk/<segment>/...
+  // Příklady: /cs/edit/123, /sk/preview, /cs/preview?id=...
+  const m = pathname.match(/^\/(cs|sk)\/([^\/?]+)/i);
+  if (!m) return false;
+  const firstSegment = m[2].toLowerCase();
+  return SPECIAL_SEGMENTS.includes(firstSegment);
+}
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
 
   const isSk = router.pathname.startsWith("/sk");
-  const Header = isSk ? HeaderSk : HeaderCs;
-  const Footer = isSk ? FooterSk : FooterCs;
+  const DefaultHeader = isSk ? HeaderSk : HeaderCs;
+  const SpecialHeader = isSk ? SpecialHeaderSk : SpecialHeaderCs;
+
+  const DefaultFooter = isSk ? FooterSk : FooterCs;
+  const SpecialFooter = isSk ? SpecialFooterSk : SpecialFooterCs;
+
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
   // SPA pageview: nasadíme listener vždy,
@@ -90,6 +114,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     return <Component {...pageProps} />;
   }
 
+  const useSpecialLayout = isSpecialRoute(router.pathname);
+
   return (
     <>
       <Head>
@@ -99,10 +125,13 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
       </Head>
-      <Header />
+
+      {useSpecialLayout ? <SpecialHeader /> : <DefaultHeader />}
+
       <Component {...pageProps} />
+
       <CookieConsent />
-      <Footer />
+      {useSpecialLayout ? <SpecialFooter /> : <DefaultFooter />}
     </>
   );
 }

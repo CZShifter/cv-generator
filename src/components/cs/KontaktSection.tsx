@@ -30,7 +30,7 @@ const FAQ_ITEMS = [
     answer: "Ne, platba se vztahuje jen na jednu šablonu.",
   },
   {
-    question: "Jak dlouho aplikace uchovává Vaše data?",
+    question: "Jak dlouho aplikace uchovává moje data?",
     answer: "24h od zaplacení je musí uchovat kvůli možnosti editace. Poté je maže.",
   },
   {
@@ -78,66 +78,68 @@ export default function ContactSection() {
         <link rel="preload" as="image" href={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`}/>
         <link rel="preload" as="image" href={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}/>
       </Head>
-      <h1 className={styles.heading}>Kontaktujte mě</h1>
-      <p>Potřebujete poradit? Nebo mi chcete napsat zpětnou vazbu? Ozvěte se!</p>
-      <div className={styles.contact_wrapper}>
-        {/* Vrchní sekce */}
-        <div className={styles.left_wrapper}>
-          {/* Sekce O nás */}
-          <div className={styles.oNas}>
-            <h2>Moje motivace</h2>
-            <p>Jsem nezávislý vývojář který věří, že vytvořit profesionální životopis by mělo být jednoduché, rychlé a dostupné pro každého.</p>
-            <p>Zaměřuji se na kvalitu, bezpečnost dat a maximální uživatelský komfort. Tato aplikace vznikla proto, abych odstranil zbytečnou komplikovanost a pomohl Vám získat práci po které touží.</p>
-            <p>Každou šablonu jsem navrhnul tak, aby obsahovala všechny klíčové informace a zároveň byla graficky poutavá a přehledná.</p>
+      <div className={styles.SectionWrapper}>
+        <h1 className={styles.heading}>Kontaktujte nás</h1>
+        <p>Potřebujete poradit? Nebo nám chcete napsat zpětnou vazbu? Ozvěte se!</p>
+        <div className={styles.contact_wrapper}>
+          {/* Vrchní sekce */}
+          <div className={styles.left_wrapper}>
+            {/* Sekce O nás */}
+            <div className={styles.oNas}>
+              <h2>Naše motivace</h2>
+              <p>Věříme, že vytvořit profesionální životopis by mělo být jednoduché, rychlé a dostupné pro každého</p>
+              <p>Zaměřujeme se na kvalitu, bezpečnost dat a maximální uživatelský komfort. Tato aplikace vznikla proto, abychom odstranili zbytečnou komplikovanost a pomohli vám získat práci, po které toužíte.</p>
+              <p>Každou šablonu jsme navrhli tak, aby obsahovala všechny klíčové informace a zároveň byla graficky poutavá a přehledná.</p>
+            </div>
+            <div className={styles.kontaktbox}>
+              <h2>Kontakt</h2>
+              <p>{SELLER_COMPANY}</p>
+              <p>IČO: {SELLER_IC}</p>
+              <p>Ulice: {SELLER_ADDRESS}</p>
+              <p>Město: {SELLER_ADDRESS_CITY}</p>
+              <p>E-mail: <a href={`mailto:${SITE_MAIL}`} className={styles.email} onClick={() => trackGAEvent('click', 'contact', 'email_click')}>{SITE_MAIL}</a></p>
+              <picture>
+                  <source srcSet={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`} type="image/webp" />
+                  <source srcSet={`/img/cartoon_cv7.png?v=${SITE_VERSION}`} type="image/png" />
+                  <img
+                    src={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}
+                    alt="Spokojený muž držící životopis"
+                    width={200}      // nastav šířku dle reálného obrázku nebo layoutu
+                    height={400}     // nastav výšku dle reálného obrázku nebo layoutu
+                    className={styles.kontakt_img}  // pokud chceš stylovat ještě obrázek samotný
+                  />
+              </picture>
+            </div>
           </div>
-          <div className={styles.kontaktbox}>
-            <h2>Kontakt</h2>
-            <p>{SELLER_COMPANY}</p>
-            <p>IČO: {SELLER_IC}</p>
-            <p>Ulice: {SELLER_ADDRESS}</p>
-            <p>Město: {SELLER_ADDRESS_CITY}</p>
-            <p>E-mail: <a href={`mailto:${SITE_MAIL}`} className={styles.email} onClick={() => trackGAEvent('click', 'contact', 'email_click')}>{SITE_MAIL}</a></p>
-            <picture>
-                <source srcSet={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`} type="image/webp" />
-                <source srcSet={`/img/cartoon_cv7.png?v=${SITE_VERSION}`} type="image/png" />
-                <img
-                  src={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}
-                  alt="Spokojený muž držící životopis"
-                  width={200}      // nastav šířku dle reálného obrázku nebo layoutu
-                  height={400}     // nastav výšku dle reálného obrázku nebo layoutu
-                  className={styles.kontakt_img}  // pokud chceš stylovat ještě obrázek samotný
-                />
-            </picture>
-          </div>
-        </div>
-        {/* FAQ akordeon */}
-        <div className={styles.right_wrapper}>
-          <div className={styles.faq}>
-            <h2 className={styles.faqHeading}>Nejčastější dotazy</h2>
-            <div className={styles.faqList}>
-              {FAQ_ITEMS.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`${styles.faqItem} ${openIndex === idx ? styles.open : ""}`}
-                >
-                  <button
-                    type="button"
-                    className={styles.faqQuestion}
-                    onClick={() => handleClick(idx)}
-                    aria-expanded={openIndex === idx}
-                    aria-controls={`faq-answer-${idx}`}
-                  >
-                    {item.question}
-                  </button>
+          {/* FAQ akordeon */}
+          <div className={styles.right_wrapper}>
+            <div className={styles.faq}>
+              <h2 className={styles.faqHeading}>Nejčastější dotazy</h2>
+              <div className={styles.faqList}>
+                {FAQ_ITEMS.map((item, idx) => (
                   <div
-                    className={`${styles.faqAnswer} ${openIndex === idx ? styles.visible : styles.hidden}`}
-                    id={`faq-answer-${idx}`}
-                    tabIndex={-1}
+                    key={idx}
+                    className={`${styles.faqItem} ${openIndex === idx ? styles.open : ""}`}
                   >
-                    {item.answer}
+                    <button
+                      type="button"
+                      className={styles.faqQuestion}
+                      onClick={() => handleClick(idx)}
+                      aria-expanded={openIndex === idx}
+                      aria-controls={`faq-answer-${idx}`}
+                    >
+                      {item.question}
+                    </button>
+                    <div
+                      className={`${styles.faqAnswer} ${openIndex === idx ? styles.visible : styles.hidden}`}
+                      id={`faq-answer-${idx}`}
+                      tabIndex={-1}
+                    >
+                      {item.answer}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

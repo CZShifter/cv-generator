@@ -3,7 +3,8 @@ import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME } from "@/config/site";
 import DopisSection from '@/components/cs/DopisSection';
 import NarrativeSection3 from '@/components/cs/NarrativeSection3';
 import HookSection2 from '@/components/cs/HookSection2';
-import AISection from '@/components/cs/AISection';
+import AISection2 from '@/components/cs/AISection2';
+import StatsSection from '@/components/cs/StatsSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
 export default function MotivacniDopisPage() {
   return ( 
@@ -45,10 +46,11 @@ export default function MotivacniDopisPage() {
           }}
         />
       </Head>
-      <DopisSection />
       <NarrativeSection3 />
+      <DopisSection />
       <HookSection2 />
-      <AISection />
+      <AISection2 />
+      <StatsSection />
       <CallToActionSection />
     </>
   );

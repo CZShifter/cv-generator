@@ -18,14 +18,16 @@ export default function NotFoundPage() {
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
       </Head>
       <section className={styles.container}>
-        <div className={styles.columnLeft}>
-          <span className={styles.big}>404</span>
-        </div>
-        <div className={styles.divider} />
-        <div className={styles.columnRight}>
-          <span className={styles.text}>
-            Omlouváme se, ale stránka nebyla nalezena.
-          </span>
+        <div className={styles.wrapper}>
+          <div className={styles.columnLeft}>
+            <span className={styles.big}>404</span>
+          </div>
+          <div className={styles.divider} />
+          <div className={styles.columnRight}>
+            <span className={styles.text}>
+              Omlouváme se, ale stránka nebyla nalezena.
+            </span>
+          </div>
         </div>
       </section>
     </>

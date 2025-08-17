@@ -3,7 +3,10 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import Head from "next/head";
-import FeaturesSection from '@/components/sk/FeaturesSection';
+import HookSection from '@/components/sk/HookSection';
+import NarrativeSection2 from '@/components/sk/NarrativeSection2';
+import AISection from '@/components/sk/AISection';
+import StatsSection from '@/components/sk/StatsSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, SITE_VERSION, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK } from "@/config/site";
 import styles from "@/scss/Blog.module.scss";
@@ -231,7 +234,10 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
           </div>
         </div>
       </section>
-      <FeaturesSection />
+      <HookSection />
+      <NarrativeSection2 />
+      <AISection />
+      <StatsSection />
       <CallToActionSection />
     </>
   );

@@ -1,20 +1,31 @@
 import styles from '@/scss/NarrativeSection.module.scss';
-import SwiperSection from '@/components/SwiperSection';
+import { SITE_VERSION } from "@/config/site";
 import Link from 'next/link';
 
 export default function NarrativeSection() {
   return (
     <main className={styles.narrative}>
       <div className={styles.container}>
-        <div className={styles.NarrativeLeftWrapper}>
-          <h2>Štruktúrovaný <span><strong>životopis online </strong></span> za pár minút!</h2>
-          <p>Vytvoriť <strong>profesionálny životopis</strong> by nemalo byť zložité ani časovo náročné. Napriek tomu sa mnohí uchádzači denne stretávajú s neprehľadnými editormi, chaotickými šablónami a nutnosťou registrácie do služieb, ktoré sľubujú viac, než dodajú. Táto aplikácia vznikla ako priamy odpoveď na tieto problémy.</p>
-          <p>Aplikácia je navrhnutá tak, aby šetrila Váš čas aj trpezlivosť. <strong>Nevyžaduje žiadnu registráciu</strong>, neukladá Vaše osobné údaje a neobsahuje žiadne predplatné ani skryté poplatky. Platíte raz, používate naplno. <strong>Všetko prebieha bezpečne</strong> vo Vašom prehliadači.</p>
-          <p>Formulár je intuitívny a <strong>doplnený živým náhľadom</strong>. Vďaka tomu presne vidíte, čo vytvárate. Výsledkom je elegantné PDF pripravené na odoslanie.</p>
-          <p>A ak potrebujete aj <Link href='/sk/motivacni-dopis'>motivačný list</Link>, aplikácia ponúka jeho generovanie <strong>úplne zadarmo</strong>. Jednoducho a bez záväzkov.</p>
-        </div>
         <div className={styles.NarrativeRightWrapper}>
-          <SwiperSection />
+            <picture className={styles.NarrativeleftImg}>
+              <source srcSet={`/img/cover3.webp?v=${SITE_VERSION}`} type="image/webp" />
+              <source srcSet={`/img/cover3.jpg?v=${SITE_VERSION}`} type="image/jpg" />
+              <img
+                src={`/img/cover3.jpg?v=${SITE_VERSION}`}
+                alt="šťastná žena ukazuje prstem"
+                width={600}      // nastav šířku dle reálného obrázku nebo layoutu
+                height={665}     // nastav výšku dle reálného obrázku nebo layoutu
+                className={styles.NarrativeleftImg}  // pokud chceš stylovat ještě obrázek samotný
+                sizes="100%"
+                loading="eager"
+              />
+            </picture>
+        </div>
+        <div className={styles.NarrativeLeftWrapper}>
+          <h2>Navrhnuté tak, aby spĺňalo <span>požiadavky HR</span></h2>
+          <p>Naša aplikácia ponúka riešenie, ktoré je premyslené do posledného detailu – od výberu typografie až po štruktúru jednotlivých sekcií. Všetko vychádza z reálnej praxe v oblasti HR nadnárodných korporácií a je navrhnuté tak, aby personalista v priebehu niekoľkých sekúnd získal jasnú predstavu o vašich schopnostiach, skúsenostiach a potenciáli. Váš životopis tak bude spĺňať nároky profesionálov z oblasti HR.</p>
+          <p>Aplikácia zjednodušuje celý proces, bez toho, aby pritom znižovala kvalitu. Váš čas je cenný a správne štruktúrovaný životopis môže byť presne to, čo ho premení na skutočnú príležitosť.</p>
+          <p>A ak potrebujete aj  <Link href='/sk/motivacni-dopis'>motivačný list</Link>, aplikácia ponúka jeho generovanie úplne zadarmo. Jednoducho a bez záväzkov.</p>
         </div>
       </div>
     </main>

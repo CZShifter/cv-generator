@@ -6,6 +6,7 @@ import { trackGAEvent } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
 import Head from "next/head";
+import SecureSection from '@/components/cs/SecureSection';
 
 type CvEntry = {
   id: string;
@@ -85,9 +86,11 @@ export default function ZaplacenoPage({ data }: Props) {
 
   if (!data) {
     return (
-      <div className={styles.wrapper}>
-        <h1 className={styles.title}>Životopis nebyl nalezen</h1>
-        <p className={styles.message}>Záznam neexistuje nebo došlo k chybě.</p>
+      <div className={styles.Errorwrapper}>
+        <div className={styles.wrapper}>
+          <h1 className={styles.title}>Životopis nebyl nalezen!</h1>
+          <p className={styles.message}>Záznam neexistuje, nebo došlo k chybě.</p>
+        </div>
       </div>
     );
   }
@@ -192,76 +195,79 @@ export default function ZaplacenoPage({ data }: Props) {
       </Head>
       <section className={styles.ZaplacenoWrapper}>
         <div className={styles.wrapper}>
-          <h1 className={styles.title}>🎉 Váš životopis byl úspěšně vytvořen!</h1>
-          <button
-            className={styles.link}
-            id="cvbtn"
-            onClick={() => {
-              trackGAEvent("click", "download", "download_cv_pdf");
-              downloadPdf();
-            }}
-          >
-            <FaRegFilePdf /> Stáhnout životopis (PDF)
-          </button>
-          {invoice_url ? (
+          <div className={styles.cardwrapper}>
+            <h1 className={styles.title}>🎉 Váš životopis byl úspěšně vytvořen!</h1>
             <button
               className={styles.link}
-              id="invoicebtn"
+              id="cvbtn"
               onClick={() => {
-                trackGAEvent("click", "download", "download_cv_invoice");
-                downloadInvoice();
+                trackGAEvent("click", "download", "download_cv_pdf");
+                downloadPdf();
               }}
             >
-              <FaFileInvoice /> Doklad o zaplacení
+              <FaRegFilePdf /> Stáhnout životopis (PDF)
             </button>
-          ) : (
-            <p className={styles.note}>Doklad zatím není k dispozici.</p>
-          )}
-          <div className={styles.edit}>
-            {!isExpired ? (
-              <a className={styles.link} id="editbtn" href={`/cs/edit/${id}`}>
-                <FaEdit /> Upravit životopis
-              </a>
-            ) : (
-              <p className={styles.expired}>⏰ Uběhlo 24h - možnost úpravy vypršela.</p>
-            )}
-          </div>
-          {!isExpired && (
-            <p
-              className={styles.editbtn}
-              onClick={() => {
-                trackGAEvent("click", "edit", "uprava_cv");
-              }}
-            >
-              {`${SITE_URL}/cs/edit/${id}`}
-            </p>
-          )}
-          {!isExpired && (
-            <div className={styles.copylinkwrapper}>
-              <p className={styles.editbtnremind}>
-                Tento odkaz si uložte, abyste se mohli vrátit k případné editaci!
-              </p>
+            {invoice_url ? (
               <button
-                type="button"
-                className={styles.copyButton}
-                onClick={handleCopy}
-                title="Zkopírovat odkaz"
+                className={styles.link}
+                id="invoicebtn"
+                onClick={() => {
+                  trackGAEvent("click", "download", "download_cv_invoice");
+                  downloadInvoice();
+                }}
               >
-                <FaCopy style={{ marginRight: 4 }} />
-                {copied ? "Zkopírováno!" : "Kopírovat"}
+                <FaFileInvoice /> Doklad o zaplacení
               </button>
-            </div>
-          )}
-          <p className={styles.expiry}>
-            {isClient && remainingMs > 0 && (
-              <>
-                Do vypršení možnosti úpravy zbývá:
-                <br />
-                <strong>{formatCountdown(remainingMs)}</strong>
-              </>
+            ) : (
+              <p className={styles.note}>Doklad zatím není k dispozici.</p>
             )}
-          </p>
+            <div className={styles.edit}>
+              {!isExpired ? (
+                <a className={styles.link} id="editbtn" href={`/cs/edit/${id}`}>
+                  <FaEdit /> Upravit životopis
+                </a>
+              ) : (
+                <p className={styles.expired}>⏰ Uběhlo 24h - možnost úpravy vypršela.</p>
+              )}
+            </div>
+            {!isExpired && (
+              <p
+                className={styles.editbtn}
+                onClick={() => {
+                  trackGAEvent("click", "edit", "uprava_cv");
+                }}
+              >
+                {`${SITE_URL}/cs/edit/${id}`}
+              </p>
+            )}
+            {!isExpired && (
+              <div className={styles.copylinkwrapper}>
+                <p className={styles.editbtnremind}>
+                  Tento odkaz si uložte, abyste se mohli vrátit k případné editaci!
+                </p>
+                <button
+                  type="button"
+                  className={styles.copyButton}
+                  onClick={handleCopy}
+                  title="Zkopírovat odkaz"
+                >
+                  <FaCopy style={{ marginRight: 4 }} />
+                  {copied ? "Zkopírováno!" : "Kopírovat"}
+                </button>
+              </div>
+            )}
+            <p className={styles.expiry}>
+              {isClient && remainingMs > 0 && (
+                <>
+                  Do vypršení možnosti úpravy zbývá:
+                  <br />
+                  <strong>{formatCountdown(remainingMs)}</strong>
+                </>
+              )}
+            </p>
+          </div>
         </div>
+        <SecureSection />
       </section>
     </>
   );

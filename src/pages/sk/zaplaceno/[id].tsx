@@ -5,6 +5,7 @@ import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, FAVICON_URL_32, FAVIC
 import { trackGAEvent } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
+import SecureSection from '@/components/sk/SecureSection';
 import Head from "next/head";
 
 type CvEntry = {
@@ -280,6 +281,7 @@ export default function ZaplacenoPage({ data }: Props) {
             )}
           </p>
         </div>
+        <SecureSection />
       </section>
     </>
   );

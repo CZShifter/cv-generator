@@ -1,45 +1,65 @@
 @use '../scss/variables' as *;
 
 .cta {
-  background-color: $btn-hover-color;
-  color: $form-color;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: $back-color;
   text-align: center;
-  padding: $padding-base;
-  .container {
-    max-width: $max-width;
-    margin: 0 auto;
-  }
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 24px;
+  max-width: $max-width;
+  background-color: $btn-hover-color;
+  padding: 64px;
   h2 {
     font-size: $h2;
-    margin-bottom: 1rem;
-  }
-  @media (max-width: 700px) {
-    h2{
-      font-size: 1.5rem;
-    }
+    color: $white-color;
   }
   p {
     font-size: $p;
-    margin-bottom: 2rem;
+    color: $white-color;
+    margin-bottom: 8px
   }
-  .button {
-    display: inline-block;
-    background-color: $form-color;
-    color: $btn-hover-color;
-    font-weight: bold;
-    padding: $btn-padding;
-    border-radius: $btn-radius;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-    &:hover {
-      background-color: $btn-form;
-      color: $white-color;
-      transform: translateY(5px);
+  @media (max-width: 1024px) {
+    padding: 32px;
+  }
+  @media (max-width: 700px) {
+    padding: 32px 24px;
+    h2{
+      font-size: calc($h2 / 1.5);
     }
   }
 }
-@media (max-width: 720px) {
-    .cta{
-        padding: 2rem 1rem;
-    }
+.button {
+  display: block;
+  padding: 10px 20px;
+  background-color: $white-color;
+  color: $btn-hover-color;
+  border-radius: $btn-radius;
+  font-size: $h4;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  &:hover {
+    text-decoration: none;
+    color: $white-color;
+    background-color: $btn-form;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    transform: translateY(5px);
+  }
+  @media (max-width: 1024px) {
+    font-size: calc($h4 / 1.1);
+  }
+  @media (max-width: 700px) {
+    font-size: calc($h4 / 1.2);
+  }
 }

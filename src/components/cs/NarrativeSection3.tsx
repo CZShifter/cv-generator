@@ -1,26 +1,31 @@
 import styles from '@/scss/NarrativeSection2.module.scss';
-import Link from 'next/link';
+import { SITE_VERSION } from "@/config/site";
 
-export default function NarrativeSection3() {
+export default function NarrativeSection() {
   return (
-    <section className={styles.narrative}>
+    <main className={styles.narrative}>
       <div className={styles.container}>
-        <p>
-          <strong>Tato aplikace nabízí jednoduchý a efektivní způsob, jak vytvořit kvalitní motivační dopis</strong> bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během několika vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout personalisty i náborové systémy.
-        </p>
-
-        <p>
-          Generátor je <strong>zcela zdarma</strong>, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá žádná data. <strong>Motivační dopis si stáhnete ve formátu .docx</strong>, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od nuly.
-        </p>
-
-        <p>
-          <strong>Motivační dopis je ideálním doplňkem k profesionálnímu životopisu</strong>. Pomáhá lépe vysvětlit, proč se o pozici ucházíte, a dává příležitost ukázat Vaši motivaci i přínos pro firmu. S touto aplikací vytvoříte kvalitní motivační dopis během několika minut – bez stresu a s jistotou, že výsledek odpovídá současným náborovým standardům.
-        </p>
-
-        <p>
-          <strong>Doporučujeme začít u životopisu</strong> – <Link href='/cs/preview'><strong>vytvořte si nejprve profesionální životopis</strong></Link>, který bude tvořit pevný základ celé žádosti. Spolu s motivačním dopisem pak získáte kompletní a přesvědčivou prezentaci Vašich zkušeností i motivace.
-        </p>
+        <div className={styles.NarrativeRightWrapper}>
+            <picture className={styles.NarrativeleftImg}>
+              <source srcSet={`/img/blog/motivacni1.webp?v=${SITE_VERSION}`} type="image/webp" />
+              <source srcSet={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`} type="image/jpg" />
+              <img
+                src={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`}
+                alt="šťastná žena ukazuje prstem"
+                width={600}      // nastav šířku dle reálného obrázku nebo layoutu
+                height={665}     // nastav výšku dle reálného obrázku nebo layoutu
+                className={styles.NarrativeleftImg}  // pokud chceš stylovat ještě obrázek samotný
+                sizes="100%"
+                loading="eager"
+              />
+            </picture>
+        </div>
+        <div className={styles.NarrativeLeftWrapper}>
+          <h1>Motivační dopis online <span>úplně zdarma</span></h1>
+          <p>S naší aplikací si motivační dopis vytvoříte jednoduše, bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během pár vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout každého personalistu.</p>
+          <p>Vytvoření je úplně zdarma, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá vaše data. Motivační dopis si stáhnete ve formátu DOCX, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od základu.</p>
+        </div>
       </div>
-    </section>
+    </main>
   );
 }

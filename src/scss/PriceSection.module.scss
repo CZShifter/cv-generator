@@ -1,82 +1,150 @@
 @use '../scss/variables' as *;
 .container{
     display: flex;
+    background-color: $back-color;
+    justify-content: center;
+    align-items: center;
+}
+.MainWrapper{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: $max-width;
     gap: $gap;
-    padding: $padding-base;
-    padding-bottom: 0;
+    padding-top: 64px;
     color: $text-color;
     background-color: $white-color;  
-    h1{
+    h2{
         font-size: $h2;
+        color: $btn-hover-color;
     }
-}
-@media (max-width: 700px) {
-    .container{
-        padding: 1rem 1rem;
+    > p{
+        font-size: $p;
+        color: $text-color;
+        margin-bottom: 8px;
+    }
+     @media (max-width: 1024px) {
+        padding: 32px;
+    }
+    @media (max-width: 870px) {
+        
+    }
+    @media (max-width: 700px) {
+        padding: 32px 24px;
         padding-bottom: 0;
+        h2{
+        font-size: calc($h2 / 1.5);
+        }
+        > p{
+        text-align: center;
+        }
     }
-}
-.container > p{
-    max-width: calc($max-width / 1.2);
-    font-size: $p;
-    color: $text-color;
-    margin-bottom: 1rem;
 }
 .price_wrapper{
-    display: grid;
-    grid-template-columns: calc(794px / 2) minmax(calc(794px / 2), calc(1140px - (794px / 2)));
-    gap: $gap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: $gap32;
     max-width: $max-width;
     height: auto;
+    padding: 64px;
+    padding-top: 0;
+    padding-bottom: 16px;
     background-color: $white-color;
-    @media (max-width: 1139px) {
-    grid-template-columns: 1fr;
+    @media (max-width: 1024px) {
+        padding: 0;
     }
-   @media (max-width: 700px) {
-    width: 100%;
+    @media (max-width: 700px) {
+        flex-direction: column;
+        padding-bottom: 0;
     }
 }
 .price_card{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: calc(1123px / 2);
-    gap: 5rem;
+    justify-content: space-between;
+    width: 90%;
+    height: 100%;
+    min-height: 390px;
+    gap: 2rem;
     border-radius: $border-radius;
-    background-color: $primary-color;
-    box-shadow: $shadow;
-    padding: calc($main-padding + 1rem);
-    @media (max-width: 700px) {
-    padding: calc($main-padding / 2);
-    height: auto;
+    background-color: $white-color;
+    border: 2px solid #dddddd;
+    padding: 32px;
+    @media (max-width: 1024px) {
+        width: 100%;
+    &:first-of-type{
+        display: none;
+        }
     }
-   
+    @media (max-width: 700px) {
+        width: 100%;
+    &:first-of-type{
+        display: none;
+        }
+    }
 }
 .price_section{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $white-color;
+    gap: $gap;
+    color: $text-color;
     line-height: 1.5;
     p {
-        color: $white-color;
-        font-size: $p_small;
+        color: $text-color;
+        font-size: $p;
         margin-bottom: 0;
     }
     h2{
         position: relative;
+        color: $text-color;
+        font-size: 24px;
+    }
+}
+.price_card2{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    gap: 2rem;
+    border-radius: $border-radius;
+    background-color: $btn-hover-color;
+    box-shadow: $shadow;
+    padding: 32px;
+}
+.price_section2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+    color: $white-color;
+    line-height: 1.5;
+    p {
+        color: $white-color;
+        font-size: $p;
+        margin-bottom: 0;
+    }
+    h2{
+        font-size: 24px;
+        color: $white-color;
+    }
+    h3{
+        position: relative;
         color: $form-color;
-        font-size: 3.5rem;
+        font-size: 30px;
         &::after{
             position: absolute;
             content: "Kč";
-            font-size: 1.5rem;
+            font-size: 16px;
             color: $form-color;
             top: 0;
         }
@@ -87,21 +155,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: $gap;
     color: $white-color;
     line-height: 1.5;
     p {
         color: $white-color;
-        font-size: $p_small;
+        font-size: $p;
         margin-bottom: 0;
     }
     h2{
+        font-size: 24px;
+        color: $white-color;
+    }
+    h3{
         position: relative;
         color: $form-color;
-        font-size: 3.5rem;
+        font-size: 30px;
         &::after{
             position: absolute;
             content: "€";
-            font-size: 1.5rem;
+            font-size: 16px;
             color: $form-color;
             top: 0;
         }
@@ -111,12 +184,11 @@
     display: inline-block;
     position: absolute;
     height: 2px;
-    width: calc(100% - 6rem);
-    top: 12rem;
+    width: calc(100% - 64px);
+    top: 8.5rem;
     background-color: $bar-color;
     @media (max-width: 700px) {
-        left: 3rem;
-        top: 9.5rem;
+        top: 8rem;
     }
 }
 .price_bar2{
@@ -131,15 +203,17 @@
     justify-content: center;
     align-items: center;
     gap: $gap_list;
-    text-align: center;
+    
     p{
-    color: $text3-color;
-    font-size: $p_small;
+        width: 100%;
+        padding-left: 16px;
+        color: $text-color;
+        font-size: $p_small;
     }
     .button{
         color: $white-color;
         width: auto;
-        padding: $btn-padding;
+        padding: 12px 12px;
         font-weight: 600;
         background-color: $btn-hover-color;
         border-radius: $btn-radius;
@@ -148,6 +222,41 @@
         margin-top: 2rem;
         transition: transform 0.2s ease;
         &:hover {
+            background-color: $btn-form;
+            transform: translateY(5px);
+        }
+        @media (max-width: 708px) {
+            font-size: 0.965rem;
+        }
+    }
+}
+.price_list2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $gap_list;
+   
+    p{
+        width: 100%;
+        padding-left: 16px;
+        color: $white-color;
+        font-size: $p;
+        text-align: left;
+    }
+    .button{
+        color: $btn-hover-color;
+        width: auto;
+        padding: $btn-padding;
+        font-weight: 600;
+        background-color: $white-color;
+        border-radius: $btn-radius;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 2rem;
+        transition: transform 0.2s ease;
+        &:hover {
+            color: $white-color;
             background-color: $btn-form;
             transform: translateY(5px);
         }

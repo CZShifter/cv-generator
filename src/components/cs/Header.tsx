@@ -9,7 +9,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 const MENU_ITEMS = [
   { label: "Domů", href: "/cs" },
   { label: "Motivační dopis", href: "/cs/motivacni-dopis" },
-  { label: "Cena", href: "/cs/cena" },
+  { label: "Cena", href: "/cs/#cena" },
   { label: "Blog", href: "/cs/blog" },
   { label: "Návod", href: "/cs/navod" },
   { label: "Kontakt", href: "/cs/kontakt" },
@@ -37,7 +37,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/cs">
-          <Image className={styles.logo} src={`/img/logo_nove_bile.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
+          <Image className={styles.logo} src={`/img/logo_nove_barevny.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>
           <button

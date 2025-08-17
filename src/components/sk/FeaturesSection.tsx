@@ -1,33 +1,33 @@
 import styles from '@/scss/FeaturesSection.module.scss';
-import { FaRegClock, FaFileAlt, FaLock, FaCheckCircle } from 'react-icons/fa';
+import { FaRegClock, FaFileAlt, FaCheckCircle } from 'react-icons/fa';
+import { FiLock } from "react-icons/fi";
 
 const features = [
   {
     icon: <FaFileAlt />,
-    title: 'Okamžité PDF',
-    description: 'Stiahnite si životopis v PDF ihneď po vyplnení.',
+    title: 'Formát PDF',
+    description: 'Stiahnite si životopis v PDF ihneď po vyplnení',
   },
   {
     icon: <FaRegClock />,
     title: 'Do 5 minút',
-    description: 'Vytvorenie životopisu je rýchle a jednoduché.',
+    description: 'Vytvorenie životopisu je rýchle a jednoduché',
   },
   {
-    icon: <FaLock />,
+    icon: <FiLock />,
     title: 'Bez registrácie',
-    description: 'Nemusíte si vytvárať účet. Stačí vyplniť a stiahnuť.',
+    description: 'Nemusíte si vytvárať účet. Stačí vyplniť a stiahnuť',
   },
   {
     icon: <FaCheckCircle />,
     title: 'Moderné šablóny',
-    description: 'Na výber máte z viacerých profesionálnych šablón.',
+    description: 'Na výber máte z niekoľkých profesionálnych šablón',
   },
 ];
 
 export default function FeaturesSection() {
   return (
     <section className={styles.features}>
-      <h2>Prečo práve táto online aplikácia?</h2>
       <div className={styles.grid}>
         {features.map((item, index) => (
           <div key={index} className={styles.tile}>

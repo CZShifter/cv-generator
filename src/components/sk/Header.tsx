@@ -9,7 +9,7 @@ import LanguageSelector from "@/components/LanguageSelector";
 const MENU_ITEMS = [
   { label: "Domov", href: "/sk" },
   { label: "Motivačný list", href: "/sk/motivacni-dopis" },
-  { label: "Cena", href: "/sk/cena" },
+  { label: "Cena", href: "/sk/#cena" },
   { label: "Blog", href: "/sk/blog" },
   { label: "Návod", href: "/sk/navod" },
   { label: "Kontakt", href: "/sk/kontakt" },
@@ -37,13 +37,13 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/sk">
-          <Image className={styles.logo} src={`/img/logo_SK_nove_bile.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
+          <Image className={styles.logo} src={`/img/logo_SK_nove_barevny.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>
           <button
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Zavřít menu" : "Otevřít menu"}
+            aria-label={menuOpen ? "Zavrieť menu" : "Otvoriť menu"}
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>

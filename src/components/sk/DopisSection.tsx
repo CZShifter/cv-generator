@@ -83,17 +83,21 @@ export default function DopisSection() {
 
   return (
     <section className={styles.dopis}>
-      <h1 className={styles.heading}>Motivačný list online
-      </h1>
-      <p>Vytvorte si bezplatne motivačný list, ktorým zapôsobíte na svojho budúceho zamestnávateľa</p>
       <div className={styles.dopis_wrapper}>
+        <div className={styles.right_wrapper}>
+          <div className={styles.dopis_navod_SK}>
+            <p>Aby ste dosiahli najlepší výsledok, napíšte o akú pozíciu sa uchádzate, v akej spoločnosti a aké sú vaše predošlé skúsenosti.</p>
+            <p>Odporúčame tiež napísať svoje meno a priezvisko, relevantné záľuby, zručnosti, dĺžku praxe, či motiváciu, prečo túto prácu chcete robiť.</p>
+            <p>Čím viac informácií o sebe uvediete do poľa na generovanie motivačného listu, tým presnejšie bude text odrážať vašu osobnosť, skúsenosti aj ciele. Aplikácia tak vytvorí list, ktorý bude jedinečný a presvedčivý. Vaše slová sú kľúčom k tomu, aby výsledok zaujal už na prvý pohľad.</p>
+            <p>&quot;Volám sa Ján Novák, uchádzam sa o pozíciu predajcu automobilov v spoločnosti Auto X. Mám 10 rokov praxe ako predajca v Auto Y. Vo voľnom čase jazdím autocross.&quot;</p>
+          </div>
+        </div>
         <div className={styles.left_wrapper}>
           <div className={styles.dopis_form}>
-            <h2>Generátor motivačného listu</h2>
             <textarea
               className={styles.dopis_textarea}
               rows={23}
-              placeholder="Napíšte svoje meno, o akú pozíciu sa uchádzate, prípadne v akej spoločnosti, aké máte relevantné skúsenosti a záujmy v odbore atď..."
+              placeholder="Napíšte vaše meno, o akú pozíciu sa uchádzate, poprípade u akej spoločnosti, aké máte relevantné skúsenosti, aké sú vaše záujmy v odbore…"
               value={text}
               onChange={e => {
                 setText(e.target.value);
@@ -147,14 +151,6 @@ export default function DopisSection() {
                 >×</button>
               </div>
             )}
-          </div>
-        </div>
-        <div className={styles.right_wrapper}>
-          <div className={styles.dopis_navod}>
-            <h2>Ako použiť generátor</h2>
-            <p>Pre maximálnu kvalitu generovaného textu napíšte o akú pozíciu sa uchádzate, ideálne v akej spoločnosti a aké máte predchádzajúce skúsenosti.</p>
-            <p>Odporúčam uviesť aj svoje meno a priezvisko, prípadne relevantné záľuby a zručnosti. Môžete tiež spomenúť roky praxe, svoju motiváciu a dôvod, prečo chcete túto prácu vykonávať.</p>
-            <p><strong>PRÍKLAD:</strong> &quot;Volám sa Peter Kováč, uchádzam sa o pozíciu predajcu automobilov v spoločnosti Auto ESA. Mám 10 rokov praxe ako predajca v AAA Auto. Vo voľnom čase jazdím autokros.&quot;</p>
           </div>
         </div>
       </div>

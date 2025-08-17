@@ -1,42 +1,51 @@
 @use '../scss/variables' as *;
 
 .AI {
-  position: relative !important;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: $gap2;
+  background-color: $back-color;
+  justify-content: center;
   align-items: center;
-  padding: $padding-base;
-  padding-top: 0;
-  background: $white-color;
-  text-align: center;
-  @media (max-width: 700px) {
-     padding: 2rem 1rem; 
-     padding-top: 0;
-  }
-
 }
 .AIWrapper{
   position: relative;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap80;
   width: 100%;
   max-width: $max-width;
-  background-color: $btn-hover-color;
-  padding: $main-padding;
-  box-shadow: $shadow;
-  border-radius: $border-radius;
-  @media (max-width: 980px) {
-    grid-template-columns: 270px 1fr;
+  background-color: $third-color;
+  padding: 64px;
+  @media (max-width: 1024px) {
+    gap: 2rem;
+    padding: 32px;
+  }
+  @media (max-width: 870px) {
+    grid-template-columns: 1fr;
   }
   @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    padding: 32px 24px;
   }
 }
 .AILeft{
   display: flex;
   width: 100%;
+  height: auto;
+  justify-content: center;
+  @media (max-width: 870px) {
+    picture{
+      width: 80%;
+      height: auto;
+    }
+  }
+  @media (max-width: 700px) {
+    picture{
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 .AILeftColumn{
   display: flex;
@@ -48,154 +57,92 @@
 .AITitleWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: $form-color;
   gap: $gap;
   width: 100%;
   height: auto;
-  padding: 0 $main-padding;
-  border-radius: 0 0.8rem 0.8rem 0;
-  text-align: left;
+  justify-content: center;
+  align-items: center;
+  h2{
+    margin-bottom: 8px;
+  }
+  span{
+    color: $btn-hover-color;
+  }
   @media (max-width: 700px) {
-     padding: 0;
-     position: relative; 
-     h2{
-      text-align: left;
-      max-width: 15ch;
-     }
-     p{
-     text-align: left;
+    h2{
+     font-size: calc($h2 / 1.5);
     }
   }
-   @media (max-width: 580px) {
-      h2{
-      max-width: 10ch;
-      text-align: left;
-      }
-     }
-  @media (max-width: 440px) {
-      h2{
-        font-size: 1.5rem;
-        max-width: 100%;
-      }
-     }
 }
 .AIleftImg{
-  position: absolute;
-  bottom: -20px;
-  left: 3rem;
+  width: 100%;
   height: auto;
-  width: 280px;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
-  border-radius: 0.8rem 0 0 0.8rem;
-  @media (max-width: 980px) {
-    left: 2rem;
-   }
-   @media (max-width: 700px) {
-    left: inherit;
-    right: 1.5rem;
-    top: -4.7rem;
-    bottom:inherit;
-    width: 200px;
-    z-index: 10;
-   }
-   @media (max-width: 580px) {
-    top: -2.2rem;
-   }
-    @media (max-width: 460px) {
-    right: 1rem;
-    left: inherit;
-    top: -1rem;
-    bottom: inherit;
-    width: 180px;
-   }
-    @media (max-width: 440px) {
-    display: none;
-   }
+}
+.SecureWrapper{
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap80;
+  width: 100%;
+  max-width: $max-width;
+  background-color: $third-color;
+  padding: 64px;
+  @media (max-width: 1024px) {
+    gap: 2rem;
+    padding: 32px;
+  }
+  @media (max-width: 870px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @media (max-width: 700px) {
+    
+    padding: 32px 24px;
+  }
 }
 .SecureTitleWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  color: $form-color;
   gap: $gap;
   width: 100%;
   height: auto;
-  padding: 0 $main-padding;
-  border-radius: 0 0.8rem 0.8rem 0;
-  text-align: left;
-  @media (max-width: 700px) {
-     padding: 0;
-     position: relative; 
-     h2{
-      text-align: left;
-      max-width: 18ch;
-     }
-     p{
-     text-align: left;
-    }
+  justify-content: center;
+  align-items: center;
+  h2{
+    margin-bottom: 8px;
   }
-   @media (max-width: 600px) {
-      h2{
-      max-width: 16ch;
-      text-align: left;
-      }
+  span{
+    color: $btn-hover-color;
+  }
+  @media (max-width: 700px) {
+     h2{
+      font-size: calc($h2 / 1.5);
      }
-      @media (max-width: 540px) {
-      h2{
-      max-width: 14ch;
-      }
-     }
-  @media (max-width: 460px) {
-      h2{
-        font-size: 1.5rem;
-        max-width: 100%;
-        text-align: center;
-      }
-     }
+  }
 }
 .SecureleftImg{
-  position: absolute;
-  bottom: 0px;
-  left: 3rem;
+  width: 100%;
   height: auto;
-  width: 250px;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
   border-radius: 0.8rem 0 0 0.8rem;
-   @media (max-width: 1120px) {
-    max-width: 220px;
-    left: 4rem;
-   }
-  @media (max-width: 980px) {
-    left: 3rem;
-   }
-   @media (max-width: 800px) {
-    max-width: 280px;
-    left: 2rem;
-   }
-   @media (max-width: 700px) {
-    left: inherit;
-    right: 1.5rem;
-    top: -6rem;
-    bottom:inherit;
-    width: 160px;
-    z-index: 10;
-   }
-    @media (max-width: 540px) {
-    right: 1rem;
-    left: inherit;
-    top: -1.7rem;
-    bottom: inherit;
-    width: 140px;
-    
-   }
-    @media (max-width: 460px) {
-    display: none;
-   }
+  @media (max-width: 870px) {
+    picture{
+      width: 80%;
+      height: auto;
+    }
+  }
+  @media (max-width: 700px) {
+    picture{
+      width: 100%;
+      height: auto;
+    }
+  }
 }

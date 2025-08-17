@@ -7,12 +7,17 @@ export default function AISection() {
   return (
     <section className={styles.AI}>
       <div className={styles.AIWrapper}>
+        <div className={styles.AITitleWrapper}>
+          <h2>Vyplňujte rychleji díky <span>umělé inteligenci</span></h2>
+          <p>Naše aplikace využívá umělou inteligenci k tomu, aby vám co nejvíce usnadnila tvorbu životopisu. Nástroj vám nabídne návrh textu podle vašeho stručného popisu. Pomůže s pracovními zkušenostmi, dovednostmi, osobním profilem i motivačním dopisem.</p>
+          <p>Návrhy můžete poté libovolně upravit, nebo použít jako inspiraci. Vše probíhá automaticky, bez nutnosti přihlášení, nebo registrace.</p>
+        </div>
         <div className={styles.AILeft}>
           <picture>
-            <source srcSet={`/img/cartoon_cv1.webp?v=${SITE_VERSION}`} type="image/webp" />
-            <source srcSet={`/img/cartoon_cv1.png?v=${SITE_VERSION}`} type="image/png" />
+            <source srcSet={`/img/Ai.webp?v=${SITE_VERSION}`} type="image/webp" />
+            <source srcSet={`/img/Ai.png?v=${SITE_VERSION}`} type="image/png" />
             <img
-              src={`/img/cartoon_cv1.png?v=${SITE_VERSION}`}
+              src={`/img/Ai.png?v=${SITE_VERSION}`}
               alt="AI maskot mavá do kamery"
               width={368}
               height={530}
@@ -20,10 +25,6 @@ export default function AISection() {
               loading="lazy"
             />
           </picture>
-        </div>
-        <div className={styles.AITitleWrapper}>
-          <h2>Poháněno pomocí AI technologie</h2>
-          <p>Díky integrované AI technologii můžete svůj životopis snadno vylepšovat přímo ve formuláři. Umělá inteligence za Vás vytvoří správnou formulaci textů a pomůže vytvořit profesionální CV rychle a bez zdlouhavého přemýšlení.</p>
         </div>          
       </div>
     </section>

@@ -3,76 +3,52 @@
 .stats {
   display: flex;
   flex-direction: column;
-  gap: $gap2;
-  padding: $padding-base;
-  background-color: $form-color;
-  text-align: center;
-   @media (max-width: 720px) {
-    padding: 2rem 1rem;
-  }
-  h2 {
-    font-size: $h2;
-    color: $secondary-color;
+  background-color: $back-color;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  display: flex;
+  flex-direction: row;
+  gap: $gap80;
+  width: 100%;
+  max-width: $max-width;
+  background-color: $white-color;
+  padding: 32px 64px;
+  @media (max-width: 1024px) {
+    gap: $gap2;
+    padding: 32px;
   }
   @media (max-width: 700px) {
-    h2{
-      font-size: 1.5rem;
-    }
+    gap: 24px;
+    flex-direction: column;
+    padding: 36px 24px;
   }
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $gap2;
-  max-width: $max-width;
-  margin: 0 auto;
-  @media (max-width: 735px) {
-    gap: $gap;
-  }
-}
-@media only screen and (max-width: 1170px){
-.grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-}
-@media only screen and (max-width: 700px){
-    .grid {
-    grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media only screen and (max-width: 350px){
-    .grid {
-    grid-template-columns: 1fr;
-    }
-  }
 .stat {
-  background: $gradient;
-  border-radius: $border-radius;
-  padding: $main-padding;
-  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
   transition: transform 0.2s ease;
   &:hover {
     transform: translateY(-5px);
   }
   @media (max-width: 700px) {
-    padding: 1.5rem 1rem;
-    .value{
-      font-size: 1.3rem;
-      margin-top: 0;
-    }
-    .label{
-      font-size: $p_small;
-    }
+    padding: 0;
+    gap: 0;
   }
 }
 .value {
-  font-size: $h2;
-  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
   color: $btn-hover-color;
-  margin-bottom: 0.5rem;
+  text-align: center;
 }
 .label {
   font-size: $p;
   color: $text2-color;
+  font-weight: 300;
+  text-align: center;
 }

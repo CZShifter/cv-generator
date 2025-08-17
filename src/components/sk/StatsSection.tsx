@@ -7,22 +7,21 @@ const stats = [
   },
   {
     value: '2 hodiny',
-    label: 'bežne trvá vytvoriť životopis',
+    label: 'trvá bežne vytvorenie životopisu',
   },
   {
     value: '5 minút',
-    label: 'potrebujete s touto aplikáciou',
+    label: 'čas, za ktorý to zvládnete s našou aplikáciou',
   },
   {
     value: '24h',
-    label: 'máte možnosť upraviť životopis',
+    label: 'máte možnosť editovať svoj životopis',
   },
 ];
 
 export default function StatsSection() {
   return (
     <section className={styles.stats}>
-      <h2>Čo by ste mali vedieť!</h2>
       <div className={styles.grid}>
         {stats.map((stat, index) => (
           <div key={index} className={styles.stat}>
