@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME, PRICE_CV, SELLER_COMPANY, SELLER_ADDRESS } from "@/config/site";
 import HeroSection from '@/components/cs/HeroSection';
 import HookSection from '@/components/cs/HookSection';
 import SecureSection from '@/components/cs/SecureSection';
@@ -40,19 +40,58 @@ export default function Home() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": SITE_NAME,
-              "url": `${SITE_URL}/cs/`,
-              "inLanguage": "cs-CZ",
-              "description": "Vytvořte moderní životopis online – vytvořte si profesionální CV během pár minut. Okamžité PDF, bez registrace, výběr moderních šablon.",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": `${SITE_URL}/cs/?q={search_term_string}`,
-                "query-input": "required name=search_term_string"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": SITE_NAME,
+                "url": `${SITE_URL}/cs/`,
+                "inLanguage": "cs-CZ",
+                "description": "Vytvořte moderní životopis online – profesionální PDF během pár minut. Bez registrace, výběr moderních šablon."
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#org`,
+                "name": SITE_NAME,
+                "legalName": `${SELLER_COMPANY}`,
+                "url": `${SITE_URL}/cs/`,
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": `${SITE_URL}/img/logo_nove_barevny.png`
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": `${SELLER_ADDRESS}`,
+                  "addressLocality": "Jíloviště",
+                  "postalCode": "252 02",
+                  "addressCountry": "CZ"
+                },
+                "areaServed": "CZ",
+                "sameAs": [
+                ]
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "Online tvorba životopisu",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "url": `${SITE_URL}/cs/`,
+                "inLanguage": "cs-CZ",
+                "description": "Webová aplikace pro rychlou tvorbu moderního životopisu. Bez registrace, PDF ihned.",
+                "image": OG_IMAGE,
+                "brand": { "@id": `${SITE_URL}/#org` },
+                "isAccessibleForFree": false,
+                "offers": {
+                  "@type": "Offer",
+                  "url": `${SITE_URL}/cs/`,
+                  "price": Number(PRICE_CV).toFixed(2),
+                  "priceCurrency": "CZK",
+                  "availability": "https://schema.org/InStock"
+                }
               }
-            })
+            ])
           }}
         />
       </Head>

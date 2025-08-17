@@ -24,9 +24,9 @@ export async function askChatGPT(
     return completion.choices[0]?.message?.content?.trim();
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.error("ChatGPT API error:", error.message);
+      //console.error("ChatGPT API error:", error.message);
     } else {
-      console.error("Unknown ChatGPT API error:", error);
+      //console.error("Unknown ChatGPT API error:", error);
     }
     throw new Error("Chyba při komunikaci s ChatGPT API.");
   }

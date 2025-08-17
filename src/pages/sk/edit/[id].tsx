@@ -224,7 +224,7 @@ React.useEffect(() => {
     return () => clearTimeout(t);
   }, []);
   const templateConfig = ALL_CV_TEMPLATES.find(t => t.id === selectedTemplateId);
-console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
+//console.log('Paddingy do hooku:', {resumePadding, leftPadding, rightPadding});
   // --- Měřící (off-screen) wrapper pro přesné měření výšek sekcí!
   // Tady renderujeme všechny sekce s refy a stejnými styly jako budou v náhledu,
   // ALE je to mimo hlavní layout a invisible!

@@ -883,7 +883,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
                   const json = await res.json();
                 
                   // ZDE SI VYPÍŠEŠ CO PŘIŠLO Z API:
-                  console.log("Odpověď z API /api/cs/generate-exp-points:", json);
+                  //console.log("Odpověď z API /api/cs/generate-exp-points:", json);
                 
                   if (json.points && Array.isArray(json.points)) {
                     setExpForm(f => ({

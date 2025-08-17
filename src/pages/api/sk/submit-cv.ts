@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
       if (photoError) {
-        console.error("Chyba při nahrávání fotky:", photoError);
+        //console.error("Chyba při nahrávání fotky:", photoError);
         return res.status(500).json({ error: photoError });
       }
 
@@ -81,7 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .select("order_number");
 
     if (error) {
-      console.error("Chyba při INSERT do DB:", error);
+      //console.error("Chyba při INSERT do DB:", error);
       return res.status(500).json({ error });
     }
 
@@ -114,7 +114,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const pdfUrl = result.data?.data?.url;
     if (!pdfUrl) {
-      console.error("PDF endpoint nevrátil URL.");
+      //console.error("PDF endpoint nevrátil URL.");
       return res.status(500).json({ error: "PDF endpoint nevrátil URL." });
     }
 
@@ -134,7 +134,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
     if (pdfUploadError) {
-      console.error("Chyba při nahrávání PDF:", pdfUploadError);
+      //console.error("Chyba při nahrávání PDF:", pdfUploadError);
       return res.status(500).json({ error: pdfUploadError });
     }
 
@@ -177,7 +177,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const invUrl = invRes.data?.data?.url;                             // ← ZMĚNA
     if (!invUrl) {
-      console.error("Invoice endpoint nevrátil URL.");
+      //console.error("Invoice endpoint nevrátil URL.");
       return res.status(500).json({ error: "Invoice endpoint nevrátil URL." });
     }
 
@@ -194,7 +194,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
     if (invUploadError) {
-      console.error("Chyba při nahrávání faktury:", invUploadError);
+      //console.error("Chyba při nahrávání faktury:", invUploadError);
       return res.status(500).json({ error: invUploadError });
     }
 
@@ -214,7 +214,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (err: unknown) {
-  console.error("Globální chyba v /api/sk/submit-cv:", err);
+  //console.error("Globální chyba v /api/sk/submit-cv:", err);
   if (err instanceof Error) {
     res.status(500).json({ error: err.message || "Unknown server error" });
   } else {

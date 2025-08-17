@@ -900,7 +900,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                   const json = await res.json();
                 
                   // ZDE SI VYPÍŠEŠ CO PŘIŠLO Z API:
-                  console.log("Odpověď z API /api/sk/generate-exp-points:", json);
+                  //console.log("Odpověď z API /api/sk/generate-exp-points:", json);
                 
                   if (json.points && Array.isArray(json.points)) {
                     setExpForm(f => ({
@@ -987,8 +987,8 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               className={styles.save}
               onClick={async () => {
                 trackGAEvent('click', 'edit', 'ulozit_zmeny_v_zivotopisu_sk');
-                console.log('Photo data odesílaná do databáze:', data.photo ? 'Přítomno (délka Base64: ' + data.photo.length + ')' : 'Chybí');
-                console.log('Celý datový objekt odesílaný do databáze:', data); // Zde můžete zkontrolovat celý objekt
+                //console.log('Photo data odesílaná do databáze:', data.photo ? 'Přítomno (délka Base64: ' + data.photo.length + ')' : 'Chybí');
+                //console.log('Celý datový objekt odesílaný do databáze:', data); // Zde můžete zkontrolovat celý objekt
                 if (isEditMode) {
                   try {
                     setIsProcessing(true);

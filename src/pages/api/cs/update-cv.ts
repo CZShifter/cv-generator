@@ -50,7 +50,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
       if (photoError) {
-        console.error("Chyba při nahrávání fotky:", photoError);
+        //console.error("Chyba při nahrávání fotky:", photoError);
         return res.status(500).json({ error: photoError });
       }
 
@@ -69,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .eq("id", id);
 
     if (updateError) {
-      console.error("Chyba při UPDATE v DB:", updateError);
+      //console.error("Chyba při UPDATE v DB:", updateError);
       return res.status(500).json({ error: updateError });
     }
 
@@ -101,7 +101,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const pdfUrl = result.data?.data?.url;
     if (!pdfUrl) {
-      console.error("PDF endpoint nevrátil URL.");
+      //console.error("PDF endpoint nevrátil URL.");
       return res.status(500).json({ error: "PDF endpoint nevrátil URL." });
     }
 
@@ -122,7 +122,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
     if (pdfUploadError) {
-      console.error("Chyba při nahrávání PDF:", pdfUploadError);
+      //console.error("Chyba při nahrávání PDF:", pdfUploadError);
       return res.status(500).json({ error: pdfUploadError });
     }
 
@@ -141,7 +141,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
   } catch (err: unknown) {
-  console.error("Globální chyba v /api/cs/update-cv:", err);
+  //console.error("Globální chyba v /api/cs/update-cv:", err);
   if (err instanceof Error) {
     res.status(500).json({ error: err.message || "Unknown server error" });
   } else {

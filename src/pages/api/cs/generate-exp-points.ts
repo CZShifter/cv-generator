@@ -25,7 +25,7 @@ Napiš 4 až 6 odrážek, které by shrnuly hlavní pracovní náplň člověka 
       { role: "user", content: prompt }
     ]);
 
-    console.log("Výstup askChatGPT:", aiPoints);
+    //console.log("Výstup askChatGPT:", aiPoints);
 
     let points: string[] = [];
 

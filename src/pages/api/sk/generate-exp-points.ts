@@ -25,7 +25,7 @@ Napíš 4 až 6 odrážok, ktoré by zhrnuli hlavnú pracovnú náplň človeka 
       { role: "user", content: prompt }
     ]);
 
-    console.log("Výstup askChatGPT:", aiPoints);
+    //console.log("Výstup askChatGPT:", aiPoints);
 
     let points: string[] = [];
 

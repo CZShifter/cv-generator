@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, SELLER_COMPANY, SELLER_ADDRESS, PRICE_CV_SK } from "@/config/site";
 import HeroSection from '@/components/sk/HeroSection';
 import HookSection from '@/components/sk/HookSection';
 import SecureSection from '@/components/sk/SecureSection';
@@ -49,24 +49,61 @@ export default function Home() {
         <link rel="alternate" href={`${SITE_URL_SK}/sk/`} hrefLang="x-default" />
         {/* Structured data - WebSite (jazyková URL + inLanguage) */}
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": SITE_NAME_SK,
               "url": `${SITE_URL_SK}/sk/`,
               "inLanguage": "sk-SK",
-              "description":
-                "Vytvorte moderný životopis online – profesionálne CV za pár minút. Okamžité PDF, bez registrácie, výber moderných šablón.",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": `${SITE_URL_SK}/sk/?q={search_term_string}`,
-                "query-input": "required name=search_term_string"
+              "description": "Vytvorte moderný životopis online – profesionálne PDF za pár minút. Bez registrácie, výber moderných šablón."
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": `${SITE_URL_SK}/#org`,
+              "name": SITE_NAME_SK,
+              "legalName": `${SELLER_COMPANY}`,
+              "url": `${SITE_URL_SK}/sk/`,
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${SITE_URL_SK}/img/logo_nove_barevny.png`
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": `${SELLER_ADDRESS}`,
+                "addressLocality": "Jíloviště",
+                "postalCode": "252 02",
+                "addressCountry": "CZ"
+              },
+              "areaServed": "SK",
+              "sameAs": []
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Online tvorba životopisov",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web",
+              "url": `${SITE_URL_SK}/sk/`,
+              "inLanguage": "sk-SK",
+              "description": "Webová aplikácia na rýchlu tvorbu moderného životopisu. Bez registrácie, PDF ihneď.",
+              "image": OG_IMAGE_SK,
+              "brand": { "@id": `${SITE_URL_SK}/#org` },
+              "isAccessibleForFree": false,
+              "offers": {
+                "@type": "Offer",
+                "url": `${SITE_URL_SK}/sk/`,
+                "price": Number(PRICE_CV_SK).toFixed(2),
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
               }
-            })
-          }}
-        />
+            }
+          ])
+        }}
+      />
       </Head>
       <HeroSection />
       <FeaturesSection />

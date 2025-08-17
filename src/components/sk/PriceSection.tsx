@@ -41,8 +41,8 @@ export default function PriceSection() {
             <div className={styles.price_list2}>
               <p>Bez registrácie</p>
               <p>Spĺňa požiadavky HR</p>
-              <p>Editácia až do 24h</p>
-              <p>Jednoduché a vyplnenie</p>
+              <p>Editácia až 24h</p>
+              <p>Jednoduché vyplnenie</p>
               <p>PDF pripravené ihneď na tlač</p>
               <p>Žiadne členstvo</p>
               <Link href="/sk/preview" className={styles.button}>
