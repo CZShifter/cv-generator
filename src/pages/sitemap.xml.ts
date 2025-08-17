@@ -7,8 +7,6 @@ import path from "path";
 // Bez jazykového prefixu; /cs a /sk se doplní níže
 const STATIC_PATHS = [
   "/",
-  "/preview",
-  "/cena",
   "/blog",
   "/navod",
   "/kontakt",

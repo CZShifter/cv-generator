@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!summary) return res.status(400).json({ error: "Chýba popis pracovnej pozície v summary." });
 
   try {
-    const prompt = `Napíš opis v rozsahu 30 až 60 slov, ktorý vystihuje človeka na pozícii "${summary}" do sekcie "O mne" v životopise. Píš v prvej osobe a zameraj sa najmä na motiváciu.`;
+    const prompt = `Napíš popis človeka v rozsahu 30 až 60 slov, ktorý sa opisuje takto: "${summary}", do sekcie "O mne" v životopise. Píš v prvej osobe a vystihni najmä jeho motiváciu.`;
 
     const aiSummary = await askChatGPT([
       { role: "system", content: "Si HR špecialista, ktorý pomáha s tvorbou životopisov v slovenčine." },

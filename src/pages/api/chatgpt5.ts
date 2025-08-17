@@ -12,7 +12,7 @@ export type ChatGPTMessage = {
 
 export async function askChatGPT(
   messages: ChatGPTMessage[],
-  model: string = "gpt-4.1-mini"
+  model: string = "gpt-5-mini"
 ): Promise<string | undefined> {
   try {
     const completion = await openai.chat.completions.create({
