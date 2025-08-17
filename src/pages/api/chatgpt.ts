@@ -18,7 +18,7 @@ export async function askChatGPT(
     const completion = await openai.chat.completions.create({
       model,
       messages,
-      max_tokens: 6000,
+      max_tokens: 600,
       temperature: 0.7,
     });
     return completion.choices[0]?.message?.content?.trim();
