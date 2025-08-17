@@ -2,6 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { askChatGPT } from "@/pages/api/chatgpt5";
 
+function getErrorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (typeof err === "object" && err !== null && "message" in err) {
+    const msg = (err as { message?: unknown }).message;
+    if (typeof msg === "string") return msg;
+  }
+  return "Chyba pri komunikácii s AI.";
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
   res.setHeader("Pragma", "no-cache");
@@ -28,8 +37,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ]);
 
     res.status(200).json({ motivation: aiMotivation });
-  } catch (e: any) {
-    console.error("Chyba API generate-motivation:", e?.message || e);
-    res.status(500).json({ error: e?.message || "Chyba pri komunikácii s AI." });
+  } catch (e: unknown) {
+    const msg = getErrorMessage(e);
+    // zaloguj aj neznáme štruktúry
+    //console.error("Chyba API generate-motivation:", e);
+    res.status(500).json({ error: msg });
   }
 }

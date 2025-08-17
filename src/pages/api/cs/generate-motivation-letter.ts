@@ -2,6 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { askChatGPT } from "@/pages/api/chatgpt5";
 
+function getErrorMessage(err: unknown): string {
+  if (err instanceof Error) return err.message;
+  if (typeof err === "object" && err !== null && "message" in err) {
+    const msg = (err as { message?: unknown }).message;
+    if (typeof msg === "string") return msg;
+  }
+  return "Chyba při komunikaci s AI.";
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
   res.setHeader("Pragma", "no-cache");
@@ -14,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const prompt =
-      `Napiš přirozený motivační dopis o délce cca 300-400 slov, určený k žádosti o práci. ` +
+      `Napiš přirozený motivační dopis o délce cca 300–400 slov, určený k žádosti o práci. ` +
       `Vycházej z těchto informací: "${motivation}". ` +
       `Piš v první osobě, dbej na osobní motivaci i přínos pro firmu. ` +
       `Využij veškeré uživatelem zadané informace. ` +
@@ -28,8 +37,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     ]);
 
     res.status(200).json({ motivation: aiMotivation });
-  } catch (e: any) {
-    console.error("API generate-motivation error:", e?.message || e);
-    res.status(500).json({ error: e?.message || "Chyba při komunikaci s AI." });
+  } catch (e: unknown) {
+    //console.error("API generate-motivation error:", e);
+    res.status(500).json({ error: getErrorMessage(e) });
   }
 }

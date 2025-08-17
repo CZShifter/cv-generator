@@ -8,6 +8,18 @@ export type ChatGPTMessage = {
   content: string;
 };
 
+type APIErrorLike = {
+  status?: number;
+  message?: string;
+  error?: unknown;
+};
+
+function isAPIErrorLike(e: unknown): e is APIErrorLike {
+  return typeof e === "object" && e !== null && (
+    "message" in e || "status" in e || "error" in e
+  );
+}
+
 export async function askChatGPT(
   messages: ChatGPTMessage[],
   model: string = "gpt-5-mini"
@@ -22,7 +34,7 @@ export async function askChatGPT(
     });
 
     return response.output_text?.trim();
-  } catch (error: any) {
+  } catch (error: unknown) {
     // volitelný fallback na 4.1-mini, pokud nemáš přístup k 5-mini
     if (model !== "gpt-4.1-mini") {
       try {
@@ -33,9 +45,22 @@ export async function askChatGPT(
           temperature: 0.7,
         });
         return fallback.output_text?.trim();
-      } catch {}
+      } catch (fallbackErr: unknown) {
+        // zaloguj i selhání fallbacku
+        if (isAPIErrorLike(fallbackErr)) {
+          //console.error("OpenAI fallback API error:", fallbackErr.status, fallbackErr.message, fallbackErr.error);
+        } else {
+          //console.error("Unknown fallback error:", fallbackErr);
+        }
+      }
     }
-    console.error("OpenAI API error:", error?.status, error?.message, error?.error);
-    throw new Error(error?.message || "Chyba při komunikaci s ChatGPT API.");
+
+    if (isAPIErrorLike(error)) {
+      //console.error("OpenAI API error:", error.status, error.message, error.error);
+      throw new Error(error.message || "Chyba při komunikaci s ChatGPT API.");
+    }
+
+    //console.error("Unknown OpenAI API error:", error);
+    throw new Error("Chyba při komunikaci s ChatGPT API.");
   }
 }
