@@ -58,6 +58,9 @@ a {
     text-decoration: underline;
   }
 }
+[id] {
+  scroll-margin-top: $header-height; // výška sticky headeru
+}
 @media (max-width: 1079px) {
   body.no-scroll {
     overflow: hidden;
