@@ -75,6 +75,9 @@
     background-color: $white-color;
     border: 2px solid #dddddd;
     padding: 32px;
+    &:first-of-type{
+        display: none; //možnost přidat 3 kartu - momentálně vypnuto
+        }
     @media (max-width: 1024px) {
         width: 100%;
     &:first-of-type{
