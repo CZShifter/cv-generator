@@ -226,7 +226,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <div className={styles.blogbutton}>
-                      <Link href={`/cs/blog/${post.slug}`}><p>číst více</p></Link>
+                      <Link href={`/cs/blog/${post.slug}`}><p>Číst více</p></Link>
                     </div>
                 </article>
               ))}

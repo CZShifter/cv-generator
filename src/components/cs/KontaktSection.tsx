@@ -7,11 +7,11 @@ import styles from "@/scss/KontaktSection.module.scss";
 const FAQ_ITEMS = [
   {
     question: "Jak rychle získám hotový životopis?",
-    answer: "Životopis si můžete stáhnout ihned po vyplnění formuláře a jeho zaplacení",
+    answer: "Životopis si můžete stáhnout ihned po vyplnění formuláře a jeho zaplacení.",
   },
   {
     question: "Mohu svůj životopis později upravit?",
-    answer: "Ano, po zaplacení Vám poběží 24h. doba, po kterou můžete CV editovat",
+    answer: "Ano, po zaplacení máte 24 hodin na úpravu CV.",
   },
   {
     question: "Jak probíhá platba?",
@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "Co když mám problém se stažením PDF?",
-    answer: "Stačí mi napsat e-mail a vše obratem vyřešíme.",
+    answer: "Stačí nám napsat e-mail a vše obratem vyřešíme.",
   },
   {
     question: "Co když mám životopis na více stránek?",
@@ -31,19 +31,19 @@ const FAQ_ITEMS = [
   },
   {
     question: "Jak dlouho aplikace uchovává moje data?",
-    answer: "24h od zaplacení je musí uchovat kvůli možnosti editace. Poté je maže.",
+    answer: "24 hodin od zaplacení je musí uchovat kvůli možnosti editace. Poté je maže.",
   },
   {
     question: "Jaké údaje musím vyplnit?",
-    answer: "Vyplňujete jen relevatní údaje pro HR. Vše je přehledně rozděleno ve formuláři.",
+    answer: "Vyplňujete jen relevantní údaje pro HR. Vše je přehledně rozděleno ve formuláři.",
   },
   {
     question: "Dostanu doklad o zaplacení?",
-    answer: "Ano, po úhradě se Vám spolu s životopisem vygeneruje i doklad o zaplacení.",
+    answer: "Ano, po úhradě se vám spolu s životopisem vygeneruje i doklad o zaplacení.",
   },
   {
     question: "Jak vám mohu poslat zpětnou vazbu nebo návrh?",
-    answer: "Zpětnou vazbu rád přijmu na e-mail. Každý podnět mi pomůže aplikaci zlepšit.",
+    answer: "Zpětnou vazbu rádi přijmeme e-mailem. Každý podnět nám pomůže aplikaci zlepšit.",
   },
 ];
 

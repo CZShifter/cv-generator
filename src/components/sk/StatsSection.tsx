@@ -2,7 +2,7 @@ import styles from '@/scss/StatsSection.module.scss';
 
 const stats = [
   {
-    value: '380 000+',
+    value: '162 000+',
     label: 'ľudí na Slovensku hľadá prácu každý mesiac',
   },
   {
@@ -14,7 +14,7 @@ const stats = [
     label: 'čas, za ktorý to zvládnete s našou aplikáciou',
   },
   {
-    value: '24h',
+    value: '24 hodin',
     label: 'máte možnosť editovať svoj životopis',
   },
 ];

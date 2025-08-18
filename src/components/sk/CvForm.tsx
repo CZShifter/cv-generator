@@ -990,7 +990,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
           <h2>{PRICE_CV_SK}</h2>
           <p>*Cena za vytvorenie jedného životopisu</p>
         </div>
-        <div className={styles.price_bar}></div>
+        <div className={styles.price_barSK}></div>
         <div className={styles.price_list}>
           <p>100 % bez reklám</p>
           <p>Úplne bez registrácie</p>

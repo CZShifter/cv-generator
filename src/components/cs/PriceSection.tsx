@@ -23,7 +23,7 @@ export default function PriceSection() {
             </div>
             <div className={styles.price_bar}></div>
             <div className={styles.price_list}>
-              <p>Formát DocX</p>
+              <p>Formát DOCX</p>
               <p>Bez registrace</p>
               <p>Žádné členství</p>
               <p>Neomezené úpravy</p>
@@ -41,7 +41,7 @@ export default function PriceSection() {
             <div className={styles.price_list2}>
               <p>Bez registrace</p>
               <p>Splňuje požadavky HR</p>
-              <p>24h možnost editace</p>
+              <p>24 hodin možnost editace</p>
               <p>Snadné a rychlé vyplnění</p>
               <p>PDF připraveno ihned k tisku</p>
               <p>Žádné členství</p>
@@ -57,7 +57,7 @@ export default function PriceSection() {
             </div>
             <div className={styles.price_bar}></div>
             <div className={styles.price_list}>
-              <p>Formát DocX</p>
+              <p>Formát DOCX</p>
               <p>Bez registrace</p>
               <p>Žádné členství</p>
               <p>Neomezené úpravy</p>

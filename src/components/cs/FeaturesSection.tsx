@@ -5,7 +5,7 @@ import { FiLock } from "react-icons/fi";
 const features = [
   {
     icon: <FaRegFilePdf />,
-    title: 'Okamžité PDF',
+    title: 'Formát PDF',
     description: 'Stáhněte si životopis v PDF ihned po vyplnění',
   },
   {

@@ -89,7 +89,7 @@ export default function DopisSection() {
             <h2>Jak použít generátor</h2>
             <p>Abyste dosáhli nejlepšího výsledku, napište o jakou pozici se ucházíte, v jaké společnosti a jaké jsou vaše předešlé zkušenosti.</p>
             <p>Doporučujeme také napsat své jméno a příjmení, relevantní záliby, dovednosti, délku praxe, či motivaci, proč tuto práci chcete dělat.</p>
-            <p>Čím více informací o sobě do pole pro generování motivačního dopisu uvedete, tím přesněji bude text odrážet Vaši osobnost, zkušenosti i cíle. Aplikace tak vytvoří dopis, který bude jedinečný a přesvědčivý. Vaše slova jsou klíčem k tomu, aby výsledek zaujal už na první pohled.</p>
+            <p>Čím více informací o sobě do pole pro generování motivačního dopisu uvedete, tím přesněji bude text odrážet vaši osobnost, zkušenosti i cíle. Aplikace tak vytvoří dopis, který bude jedinečný a přesvědčivý. Vaše slova jsou klíčem k tomu, aby výsledek zaujal už na první pohled.</p>
             <p>&quot;Jmenuji se Jan Novák, ucházím se o pozici prodejce automobilů ve společnosti Auto X. Mám 10 let praxe jako prodejce v Auto Y. Ve volném čase jezdím autocross.&quot;</p>
           </div>
         </div>

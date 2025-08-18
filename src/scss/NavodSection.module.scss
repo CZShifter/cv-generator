@@ -13,6 +13,8 @@
   border-left: 5px solid $btn-hover-color;
   padding: 2rem;
   width: 70%;
+  height: max-content;
+  align-self: center;
   gap: 8px;
   justify-content: center;
   font-style: italic;
@@ -41,7 +43,7 @@
   p:nth-of-type(5) {
     strong{
       color: red;
-      font-size: $p;
+      font-size: $p_small;
     }
   }
   @media (max-width: 950px) {

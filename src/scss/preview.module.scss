@@ -287,7 +287,7 @@
   background: #fff;
   border-radius: $border-radius;
   box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.116);
-  padding: $main-padding;
+  padding: 24px;
   width: 100%;
   height: 100%;
   flex-grow: 1;
@@ -319,7 +319,7 @@
 }
 
 .card > *:last-child {
-  margin-top: auto;
+  /* margin-top: auto; */
   align-self: flex-end;
 }
 @media (max-width: 970px) {
@@ -334,7 +334,7 @@
 }
 @media (max-width: 700px){
   .card {
-    padding: calc($main-padding / 2);
+    padding: 1rem;
   }
 }
 .card2 {
@@ -383,9 +383,9 @@
 // ---- Nastavení formuláře v cvform.tsx - formTitle, rowGrid, inputGroup, input, disabled ----
 .formTitle {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 600;
   color: $text-color;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
   letter-spacing: .4px;
   display: flex;
 }
@@ -423,13 +423,11 @@
 }
 // ---- Nastavení přepínačů ----
 .sectionSwitch {
-  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   label {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
     span {
       font-size: 0.9rem;
       color: $text-color;
@@ -480,10 +478,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
 // ---- photoUpload ----
 .photoUpload {
   width: auto;
-  margin-top: .9rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 .photoBtn {
   background: $btn-hover-color;
@@ -553,7 +551,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   background: $form-color;
   border-radius: 1.1rem;
   padding: 0.9rem 1rem;
-  margin-bottom: 1.3rem;
+  /* margin-bottom: 1rem; */
   align-items: flex-end;
   justify-content: space-between;
   box-shadow: 0 1px 5px #f4f6fa;
@@ -673,7 +671,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   border: none;
   padding: 1.5rem 1rem;
   font-weight: 700;
-  font-size: calc($h2 /1.5);
+  font-size: 1.25rem;
   text-transform: uppercase;
   cursor: pointer;
   transition: background .18s;
@@ -728,7 +726,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
 .labelRow {
   display: flex;
   align-items: center;
-  margin-bottom: .12rem;
+  margin-bottom: .3rem;
   font-size: 0.85rem;
 }
 .suggestedSkills {
@@ -744,7 +742,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   border: 1.5px solid #e2e3ee;
   background: #f0f4f8;
   color: #233048;
-  border-radius: 1.5rem;
+  border-radius: $border-radius;
   padding: 0.4rem 1.1rem 0.4rem 0.7rem;
   font-size: 0.85rem;
   font-weight: 500;
@@ -776,10 +774,11 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.7rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 1.5rem;
   padding: 0 1rem;
+  font-size: 0.85rem;
   border: 1px solid var(--color-border);
-  border-radius: $border-radius;
   background-color: $form-color;
 }
 .CheckboxContainer{
@@ -799,7 +798,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   border-radius: $border-radius;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease;
-  font-size: 0.85em !important;
+  font-size: 0.9em !important;
   color: var(--color-text);
   &:hover {
     background-color: $btn-hover-color;
@@ -811,10 +810,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 1.2rem;
-    height: 1.2rem;
-    border: 2px solid $btn-hover-color;
-    border-radius: 6px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid $btn-hover-color;
+    border-radius: 4px;
     background-color: none;
     display: inline-block;
     position: relative;
@@ -862,10 +861,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   border-radius: 0.8rem 0.8rem 0 0;
   background-color: $primary-color;
   box-shadow: $shadow;
-  padding: $main-padding;
+  padding: 24px;
   @media (max-width: 720px) {
-    padding-left: calc($main-padding / 2);
-    padding-right: calc($main-padding / 2);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   @media (max-width: 530px){
     background-color: $price-color;
@@ -886,18 +885,13 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   h2{
     position: relative;
     color: $form-color;
-    font-size: 3.5rem;
+    font-size: 3rem;
     &::after{
       position: absolute;
       content: "Kč";
       font-size: 1.5rem;
       color: $form-color;
       top: 0;
-    }
-  }
-  @media (max-width: 530px){
-    h2::after{
-      top: 2.2rem;
     }
   }
 }
@@ -925,24 +919,27 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
       top: 0;
     }
   }
-  @media (max-width: 530px){
-    h2::after{
-      top: 2.2rem;
-    }
-  }
 }
 .price_bar{
   display: inline-block;
   position: absolute;
   height: 2px;
   width: calc(100% - 6rem);
-  top: 9.4rem;
+  top: 7.4rem;
   background-color: $bar-color;
   @media (max-width: 720px) {
     left: 3rem;
   }
-  @media (max-width: 530px) {
-    top: 9.2rem;
+}
+.price_barSK{
+  display: inline-block;
+  position: absolute;
+  height: 2px;
+  width: calc(100% - 6rem);
+  top: 8rem;
+  background-color: $bar-color;
+  @media (max-width: 720px) {
+    left: 3rem;
   }
 }
 .price_list{
@@ -969,7 +966,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   color: $white-color;
   width: auto;
   padding: 1.5rem 1rem;
-  font-size: calc($h2 / 1.5);
+  font-size: 1.25rem;
   font-weight: 600;
   background-color: $btn-hover-color;
   border-radius: 0;
