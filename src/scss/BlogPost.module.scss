@@ -30,7 +30,7 @@
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    object-position: top;
+    object-position: middle;
     border-radius: $border-radius;
     background: $white-color;
     display: block;
@@ -40,6 +40,7 @@
     max-height: 400px;
     margin-bottom: 1rem;
     object-fit: cover;
+    object-position: center;
     border-radius: $border-radius;
     background: $white-color;
     display: block;
@@ -65,6 +66,9 @@
     padding-left: 2rem;
     margin-bottom: 1.2rem;
   }
+  p{
+    margin-bottom: 8px;
+  }
 
   h2 {
     margin-top: 1.5rem;
@@ -83,6 +87,7 @@
   }
   strong{
     color: $btn-hover-color;
+    font-weight: 500;
   }
 
   blockquote {
@@ -144,7 +149,6 @@
     align-items: start;
     grid-template-columns: 4fr 4fr;
   }
-
   /* Výchozí pořadí: text vlevo, obrázek vpravo */
   :global(.two-thirds .text)  { order: 1; }
   :global(.two-thirds .media) { order: 2; }

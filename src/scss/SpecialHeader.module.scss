@@ -21,7 +21,10 @@
 
 .logo {
   width: auto;
-  height: 32px;
+  height: 34px;
+  @media (max-width: 700px) {
+    height: 30px;
+  }
 }
 .nav {
   position: relative;

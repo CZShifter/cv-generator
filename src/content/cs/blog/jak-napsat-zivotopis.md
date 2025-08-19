@@ -8,16 +8,16 @@ author: "JanCV"
 pairId: "post-0002"
 ---
 
-<p>Chcete získat vysněnou práci? První krok je napsat životopis, který zaujme na první pohled. Správně sestavené CV může rozhodnout, zda vás personalista pozve na pohovor, nebo vás přeskočí. V tomto návodu se naučíte <strong>přesnou strukturu</strong>, <strong>formulace</strong> i <strong>postup krok za krokem</strong>, jak vytvořit životopis, který je <strong>čitelný</strong>, <strong>měřitelný</strong> a <strong>optimalizovaný pro ATS</strong> (systémy na zpracování životopisů).</p>
+<p>Chcete získat vysněnou práci? První krok je napsat životopis, který zaujme hned. Správně sestavené CV může rozhodnout, zda vás personalista pozve na pohovor, nebo vás přeskočí. V tomto návodu se naučíte přesnou strukturu, formulace i postup krok za krokem, <strong>jak vytvořit životopis, který je čitelný</strong>, měřitelný a optimalizovaný pro ATS (systémy na zpracování životopisů).</p>
 
 ## 1. Struktura životopisu
 
 <div class="two-thirds image-left">
   <div class="text">
-    <p><strong>Dobře strukturované CV</strong> šetří čas personalistovi a zvyšuje šanci na pohovor. Základní kostra by měla obsahovat:</p>
+    <p><strong>Dobře strukturované CV</strong> šetří čas personalistovi a zvyšuje šanci, že vás pozve na pohovor. Základní kostra by měla obsahovat:</p>
     <ul>
       <li><strong>Kontaktní údaje</strong> – jméno, telefon, e‑mail (profesionální!),<br/> město/region, odkaz na <strong>LinkedIn</strong> či <strong>portfolio</strong>.</li>
-      <li><strong>Sekce o Vás</strong> – 2 až 4 věty, kdo jste, v čem jste silní a co hledáte.</li>
+      <li><strong>Sekce o vás</strong> – 2 až 4 věty, kdo jste, v čem jste silní a co hledáte.</li>
       <li><strong>Pracovní zkušenosti</strong> – popis pozice, <strong>odpovědnosti</strong> a hlavně <strong>měřitelné výsledky</strong>.</li>
       <li><strong>Vzdělání</strong> – škola, obor, roky, klíčové práce či ocenění.</li>
       <li><strong>Dovednosti</strong> – <strong>hard skills</strong> (nástroje, technologie) a <strong>soft skills</strong> (spolupráce, komunikace).</li>
@@ -40,9 +40,9 @@ pairId: "post-0002"
 
 <p>V hlavičce uveďte <strong>celé jméno</strong>, <strong>telefon</strong>, <strong>profesionální e‑mail</strong> (např. jmeno.prijmeni@email.cz), také přidejte <strong>LinkedIn</strong>. Adresa stačí na úrovni města (ochrana soukromí). Zvažte přidání <strong>job titulu</strong> pod jméno (např. „Product Manager | SaaS | B2B“), aby hned z textu bylo patrné, co nabízíte.</p>
 
-### Sekce o Vás
+### Sekce o vás
 
-<p>Krátký odstavec (2–4 věty) zodpovídá tři otázky: <strong>Kdo jste</strong>, <strong>v čem jste nejlepší</strong>, <strong>co chcete dělat dál</strong>. Pište konkrétně: „<strong>Projektový manažer</strong> s 6 lety praxe v <strong>e‑commerce</strong>, vedl týmy 5–12 lidí, zkrátil <strong>time‑to‑market</strong> o 30 %. Hledám roli se zaměřením na <strong>optimalizaci procesů</strong> a <strong>škálování</strong> týmů.“</p>
+<p>Krátký odstavec (2–4 věty) zodpovídá tři otázky: <strong>Kdo jste</strong>, <strong>v čem jste nejlepší</strong>, <strong>co chcete dělat dál</strong>. Pište konkrétně: &quot;Projektový manažer se 6 lety praxe v e‑commerce. Vedl jsem týmy 5 – 12 lidí a zkrátil jsem time‑to‑market o 30 %. Hledám roli se zaměřením na optimalizaci procesů a škálování týmů.&quot;</p>
 
 ---
 
@@ -50,14 +50,14 @@ pairId: "post-0002"
 
 <div class="two-thirds image-right">
   <div class="text">
-    <p>Text stavte na <strong>konkrétních výsledcích</strong> a jasné logice. Pomůže vám metoda <strong>STAR</strong> / <strong>CAR</strong>:</p>
+    <p>Text stavte na konkrétních výsledcích a jasné logice. Pomůže vám metoda <strong>STAR</strong> / <strong>CAR</strong>:</p>
     <ul>
       <li><strong>S</strong>ituation / <strong>C</strong>ontext – v jakém prostředí jste pracovali.</li>
       <li><strong>T</strong>ask – co bylo cílem / vaším úkolem.</li>
       <li><strong>A</strong>ction – jaké <strong>konkrétní kroky</strong> jste provedli.</li>
       <li><strong>R</strong>esult – <strong>měřitelný výsledek</strong> (%, Kč, čas, počet).</li>
     </ul>
-    <p>Příklad formulace: „<strong>Zavedl</strong> jsem nový <strong>reporting</strong> v Lookeru, který <strong>zkrátil</strong> přípravu podkladů pro vedení z 2 dnů na 4 hodiny a <strong>zvýšil</strong> přesnost dat o 15 %.“ Každý bod začněte <strong>silným slovesem</strong> (vedl, navrhl, zavedl, optimalizoval, vyjednal, zautomatizoval).</p>
+    <p>Příklad formulace: &quot;<strong>Zavedl jsem nový reporting v Lookeru, který zkrátil přípravu podkladů pro vedení z 2 dnů na 4 hodiny a zvýšil přesnost dat o 15 %.</strong>&quot; Každý bod začněte silným slovesem (vedl, navrhl, zavedl, optimalizoval, vyjednal, zautomatizoval).</p>
   </div>
   <div class="media">
     <picture>
@@ -70,11 +70,11 @@ pairId: "post-0002"
 
 ### Klíčová slova a ATS
 
-<p>Mnohé firmy používají <strong>ATS</strong> (Applicant Tracking System). Proto převeďte požadavky z inzerátu do <strong>klíčových slov</strong> v CV. Pokud inzerát zmiňuje „<strong>CRM</strong>“, „<strong>Salesforce</strong>“, „<strong>reporting</strong>“, „<strong>stakeholder management</strong>“, použijte stejné výrazy v <strong>profilu</strong>, <strong>zkušenostech</strong> a <strong>dovednostech</strong>. Držte se ale pravdy – <strong>neuvádějte</strong> technologie, které neovládáte.</p>
+<p>Mnohé firmy používají <strong>ATS</strong> (Applicant Tracking System). Proto převeďte požadavky z inzerátu do <strong>klíčových slov</strong> v CV. Pokud inzerát zmiňuje &quot;<strong>CRM</strong>&quot;, &quot;<strong>Salesforce</strong>&quot;, &quot;<strong>reporting</strong>&quot;, &quot;<strong>stakeholder management</strong>&quot;, použijte stejné výrazy v <strong>profilu</strong>, <strong>zkušenostech</strong> a <strong>dovednostech</strong>. Držte se ale pravdy – <strong>neuvádějte</strong> technologie, které neovládáte.</p>
 
 ### Délka a formátování
 
-<p>Ideální délka je <strong>1–2 strany</strong>. Zvolte čitelný font (např. Inter, Roboto, Source Sans), velikost <strong>10,5–12 pt</strong>. Zachovejte <strong>konzistentní</strong> odsazení, nadpisy, odrážky a mezery. Vytvářejte <strong>krátké odstavce</strong> a <strong>přehledné seznamy</strong>. Soubor posílejte jako <strong>PDF</strong>, pojmenovaný „<strong>Jmeno_Prijmeni_CV.pdf</strong>“.</p>
+<p>Ideální délka je <strong>1–2 strany</strong>. Zvolte čitelný font (např. Inter, Roboto, Source Sans), velikost <strong>10,5–12 pt</strong>. Zachovejte <strong>konzistentní</strong> odsazení, nadpisy, odrážky a mezery. Vytvářejte <strong>krátké odstavce</strong> a <strong>přehledné seznamy</strong>. Soubor posílejte jako <strong>PDF</strong>, pojmenovaný &quot;<strong>Jmeno_Prijmeni_zivotopis.pdf</strong>&quot;.</p>
 
 ---
 
@@ -88,7 +88,7 @@ pairId: "post-0002"
   <li><strong>Zautomatizoval</strong> jsem reporting v <strong>Power BI</strong>; přehledy pro vedení k dispozici <strong>denně</strong> namísto týdně.</li>
 </ul>
 
-<p>Vyhýbejte se vágním formulacím („pomáhal jsem“) a nahrazujte je <strong>měřitelnými</strong> výsledky. Každá odrážka by měla nést <strong>akci</strong> + <strong>nástroj</strong> + <strong>výsledek</strong>.</p>
+<p>Vyhýbejte se vágním formulacím (&quot;pomáhal jsem&quot;) a nahrazujte je <strong>měřitelnými</strong> výsledky. Každá odrážka by měla nést <strong>akci</strong> + <strong>nástroj</strong> + <strong>výsledek</strong>.</p>
 
 ---
 
@@ -101,7 +101,7 @@ pairId: "post-0002"
       <li><strong>Hard skills</strong> – Excel/Sheets (pokroč.), SQL (zákl.), Power BI (pokroč.), Figma (zákl.), Python (zákl.).</li>
       <li><strong>Soft skills</strong> – komunikace, týmová spolupráce, facilitace, prezentační dovednosti, time‑management.</li>
     </ul>
-    <p>Preferujte dovednosti, které jsou <strong>relevantní</strong> k pozici. Pokud cílíte na marketing, uveďte <strong>GA4</strong>, <strong>Meta Ads</strong>, <strong>SEO</strong>, <strong>copywriting</strong>, ne obecné „kreativita“ bez důkazu.</p>
+    <p>Preferujte dovednosti, které jsou <strong>relevantní</strong> k pozici. Pokud cílíte na marketing, uveďte <strong>GA4</strong>, <strong>Meta Ads</strong>, <strong>SEO</strong>, <strong>copywriting</strong>, ne obecné &quot;kreativita&quot; bez důkazu.</p>
   </div>
   <div class="media">
     <picture>
@@ -130,7 +130,7 @@ pairId: "post-0002"
 
 <div class="two-thirds image-right">
   <div class="text">
-    <p>Vezměte si inzerát a vyznačte <strong>3–5 klíčových požadavků</strong>. Každý požadavek promítněte do <strong>profilu</strong>, <strong>zkušeností</strong> i <strong>dovedností</strong>. Příklad: inzerát vyžaduje „SQL, Power BI, stakeholder management“. Doplníte věty typu „<strong>Zautomatizoval</strong> jsem reporting v <strong>Power BI</strong> s napojením na <strong>SQL</strong> databázi; pravidelná prezentace výsledků <strong>stakeholderům</strong> napříč odděleními.“</p>
+    <p>Vezměte si inzerát a vyznačte <strong>3–5 klíčových požadavků</strong>. Každý požadavek promítněte do <strong>profilu</strong>, <strong>zkušeností</strong> i <strong>dovedností</strong>. Příklad: inzerát vyžaduje „SQL, Power BI, stakeholder management&quot;. Doplníte věty typu &quot;<strong>Zautomatizoval</strong> jsem reporting v <strong>Power BI</strong> s napojením na <strong>SQL</strong> databázi; pravidelná prezentace výsledků <strong>stakeholderům</strong> napříč odděleními.&quot;</p>
     <p>Na míru přizpůsobte i <strong>pořadí sekcí</strong>: pokud je klíčová analytika, dejte <strong>projekty a dovednosti</strong> výš než vzdělání.</p>
   </div>
   <div class="media">
@@ -168,7 +168,7 @@ pairId: "post-0002"
       <li><strong>Příliš grafiky</strong> – hezké, ale nečitelné; držte se <strong>čistoty</strong>.</li>
       <li><strong>Špatný formát</strong> – posílejte <strong>PDF</strong> a rozumnou velikost souboru.</li>
     </ul>
-    <p><strong>Tip:</strong> Po dopsání si CV vytiskněte do PDF a zkontrolujte do 10 vteřin, co „naskočí“: <strong>role</strong>, <strong>klíčové dovednosti</strong>, <strong>výsledky</strong>.</p>
+    <p><strong>Tip:</strong> Po dopsání si CV vytiskněte do PDF a zkontrolujte do 10 vteřin, co &quot;naskočí&quot;: <strong>role</strong>, <strong>klíčové dovednosti</strong>, <strong>výsledky</strong>.</p>
   </div>
   <div class="media">
     <picture>
@@ -192,7 +192,7 @@ pairId: "post-0002"
   <li><strong>Doplňte vzdělání</strong>, <strong>certifikace</strong> a <strong>projekty</strong>.</li>
   <li><strong>Optimalizujte pro ATS</strong> – propojte klíčová slova z inzerátu s CV.</li>
   <li><strong>Zkraťte a vyčistěte</strong> – odstranění balastu, sjednocení stylu.</li>
-  <li><strong>Uložte jako PDF</strong> – název souboru „Jmeno_Prijmeni_CV.pdf“.</li>
+  <li><strong>Uložte jako PDF</strong> – název souboru &quot;Jmeno_Prijmeni_zivotopis.pdf&quot;.</li>
   <li><strong>Projděte jazykovou korekturou</strong> – pravopis, interpunkce, diakritika.</li>
 </ol>
 
@@ -209,12 +209,12 @@ pairId: "post-0002"
 
 ---
 
-## 11. Jak využít online generátor životopisů?
+## 11. Jak využít aplikaci na online tvorbu životopisu?
 
 <p>Generátor životopisů dokáže urychlit celý proces: vyberete <strong>moderní šablonu</strong>, vyplníte data a <strong>stáhnete PDF</strong>. I když používáte generátor, pořád platí zásady výše: <strong>měřitelné výsledky</strong>, <strong>klíčová slova</strong>, <strong>čisté formátování</strong> a <strong>přizpůsobení</strong> konkrétní pozici.</p>
 <br/>
 <a href="/cs/preview">
-  Vyzkoušejte náš generátor životopisů a za 5 minut budete mít hotovo!
+  Vyzkoušejte náší aplikaci a za 5 minut budete mít hotovo!
 </a>
 
 ---
