@@ -35,7 +35,7 @@ const recommendedSkills = [
   "Komunikatívnosť",
   "Odolnosť voči stresu",
   "Samostatnosť",
-  "Ochota učiť sa novým veciam",
+  "Ochota učiť sa nové veci",
   "Zodpovednosť",
   "Flexibilita",
   "Tímová spolupráca",
@@ -50,7 +50,7 @@ const languageLevels: string[] = [
   "B2",
   "C1",
   "C2",
-  "Rodený hovorca",
+  "Rodený hovoriaci",
 ];
 
 const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, isEditMode = false, id }) => {
@@ -378,16 +378,16 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
           <div className={styles.formTitle}>Kontaktné údaje</div>
           <div className={styles.rowGrid}>
             <div className={styles.inputGroup}>
-              <label>Meno <HelpTooltip text="Ak máte titul pred menom, uveďte ho sem" /></label>
+              <label>Meno: <HelpTooltip text="Ak máte titul pred menom, uveďte ho sem" /></label>
               <input className={styles.input} value={data.name} onChange={e => onChange({ ...data, name: e.target.value })} />
             </div>
             <div className={styles.inputGroup}>
-              <label>Priezvisko <HelpTooltip text="Ak máte titul za priezviskom, uveďte ho sem" /></label>
+              <label>Priezvisko: <HelpTooltip text="Ak máte titul za priezviskom, uveďte ho sem" /></label>
               <input className={styles.input} value={data.surname} onChange={e => onChange({ ...data, surname: e.target.value })} />
             </div>
             <div className={styles.inputGroup}>
               <div className={styles.labelRow}>
-                <label>Pracovné zameranie <HelpTooltip text="Uveďte, čím sa živíte, napr. Architekt" /></label>
+                <label>Pracovné zameranie: <HelpTooltip text="Uveďte, čím sa živíte, napr. architekt" /></label>
                 <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                   <input type="checkbox" style={{ display: "none" }} checked={!!data.showTitle} onChange={e => onChange({ ...data, showTitle: e.target.checked })} className={styles.switchInput} tabIndex={0} />
                   <span className={styles.switchTrack + (data.showTitle ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -398,20 +398,20 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                 disabled={!data.showTitle}
                 value={data.title}
                 onChange={e => onChange({ ...data, title: e.target.value })}
-                placeholder="napr. Architekt"
+                placeholder="Napr. architekt"
               />
             </div>
             <div className={styles.inputGroup}>
-              <label>Telefón</label>
+              <label>Telefón:</label>
               <input className={styles.input} value={data.phone} onChange={e => onChange({ ...data, phone: e.target.value })} />
             </div>
             <div className={styles.inputGroup}>
-              <label>E-mail</label>
+              <label>E-mail:</label>
               <input className={styles.input} value={data.email} onChange={e => onChange({ ...data, email: e.target.value })} />
             </div>
             <div className={styles.inputGroup}>
               <div className={styles.labelRow}>
-                <label>LinkedIn <HelpTooltip text="Napíšte svoje používateľské meno za in/" /></label>
+                <label>LinkedIn: <HelpTooltip text="Napíšte svoje používateľské meno za in/" /></label>
                 <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                   <input type="checkbox" style={{ display: "none" }} checked={!!data.showLinkedin} onChange={e => onChange({ ...data, showLinkedin: e.target.checked })} className={styles.switchInput} tabIndex={0} />
                   <span className={styles.switchTrack + (data.showLinkedin ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -427,7 +427,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
             </div>
             <div className={styles.inputGroup}>
               <div className={styles.labelRow}>
-                <label>Rok narodenia <HelpTooltip text="Rok narodenia je voliteľný" /></label>
+                <label>Rok narodenia: <HelpTooltip text="Rok narodenia je voliteľný" /></label>
                 <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                   <input type="checkbox" style={{ display: "none" }} checked={!!data.showBirthyear} onChange={e => onChange({ ...data, showBirthyear: e.target.checked })} className={styles.switchInput} tabIndex={0} />
                   <span className={styles.switchTrack + (data.showBirthyear ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -438,12 +438,12 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                 disabled={!data.showBirthyear}
                 value={data.birthyear}
                 onChange={e => onChange({ ...data, birthyear: e.target.value })}
-                placeholder="Např. 1991"
+                placeholder="Napr. 1991"
               />
             </div>
             <div className={styles.inputGroup}>
               <div className={styles.labelRow}>
-                <label>Webová stránka <HelpTooltip text="Odkaz na váš web" /></label>
+                <label>Webová stránka: <HelpTooltip text="Odkaz na váš web" /></label>
                 <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                   <input type="checkbox" style={{ display: "none" }} checked={!!data.showWeb} onChange={e => onChange({ ...data, showWeb: e.target.checked })} className={styles.switchInput} tabIndex={0} />
                   <span className={styles.switchTrack + (data.showWeb ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -458,13 +458,13 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               />
             </div>
             <div className={styles.inputGroup}>
-              <label>Adresa <HelpTooltip text="Stačí napísať mesto, v ktorom bývate" /></label>
+              <label>Adresa: <HelpTooltip text="Stačí napísať mesto, v ktorom bývate" /></label>
               <input className={styles.input} value={data.location} onChange={e => onChange({ ...data, location: e.target.value })} />
             </div>
           </div>
           <div className={styles.sectionSwitch}>
             <label className={styles.labelRow}>
-              <span>O mne <HelpTooltip text="Napíšte o sebe krátky text, ktorý vás vystihuje" /></span>
+              <span>O mne: <HelpTooltip text="Napíšte o sebe krátky text, ktorý vás vystihuje" /></span>
               <span className={styles.switchWrap} style={{ cursor: "pointer" }}>
                 <input type="checkbox" style={{ display: "none" }} checked={!!data.showSummary} onChange={e => onChange({ ...data, showSummary: e.target.checked })} />
                 <span className={styles.switchTrack + (data.showSummary ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -523,12 +523,12 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               disabled={!data.showSummary}
               value={data.summary}
               onChange={e => onChange({ ...data, summary: e.target.value })}
-              placeholder="Napíšte o sebe, alebo sa opíšte pár slovami a vygenerujte text pomocou AI..."
+              placeholder="Napíšte o sebe, alebo napíšte niečo o sebe a vygenerujte text pomocou AI."
             />
           </div>
           <div className={styles.sectionSwitch}>
             <label className={styles.labelRow}>
-              <span>Pridať fotku <HelpTooltip text="Fotka musí mať maximálne rozmery 1024 × 1024 px a veľkosť 2 MB" /></span>
+              <span>Pridať fotku: <HelpTooltip text="Fotka musí mať maximálne rozmery 1024 × 1024 px a maximálnu veľkosť 1 MB" /></span>
               <span className={styles.switchWrap} style={{ cursor: "pointer" }}>
                 <input type="checkbox" style={{ display: "none" }} checked={!!data.showPhoto} onChange={e => onChange({ ...data, showPhoto: e.target.checked })} />
                 <span className={styles.switchTrack + (data.showPhoto ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
@@ -593,7 +593,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               />
             </div>
             <div className={styles.addBoxCol}>
-              <label className={styles.inlineLabel} htmlFor="school-input">Názov školy: <HelpTooltip text="Názov školy" /></label>
+              <label className={styles.inlineLabel} htmlFor="school-input">Názov školy:</label>
               <input
                 id="school-input"
                 className={styles.input}
@@ -603,7 +603,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               />
             </div>
             <div className={styles.addBoxCol}>
-              <label className={styles.inlineLabel} htmlFor="year-input">Rok: <HelpTooltip text="Rok ukončenia" /></label>
+              <label className={styles.inlineLabel} htmlFor="year-input">Rok ukončenia:</label>
               <input
                 id="year-input"
                 className={styles.input}
@@ -663,7 +663,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
           </div>
           <div className={styles.addBox}>
             <div className={styles.addBoxCol}>
-              <label className={styles.inlineLabel} htmlFor="cert-name">Názov kurzu: <HelpTooltip text="Názov kurzu" /></label>
+              <label className={styles.inlineLabel} htmlFor="cert-name">Názov kurzu:</label>
               <input
                 id="cert-name"
                 className={`${styles.input} ${!data.showCertifications ? styles.disabled : ""}`}
@@ -674,7 +674,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               />
             </div>
             <div className={styles.addBoxCol}>
-              <label className={styles.inlineLabel} htmlFor="cert-place">Inštitúcia: <HelpTooltip text="Názov organizácie, ktorá kurz organizovala" /></label>
+              <label className={styles.inlineLabel} htmlFor="cert-place">Organizátor / organizácia: <HelpTooltip text="Názov organizácie, ktorá kurz organizovala" /></label>
               <input
                 id="cert-place"
                 className={`${styles.input} ${!data.showCertifications ? styles.disabled : ""}`}
@@ -685,7 +685,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               />
             </div>
             <div className={styles.addBoxCol}>
-              <label className={styles.inlineLabel} htmlFor="cert-year">Rok ukončenia: <HelpTooltip text="Rok ukončenia kurzu" /></label>
+              <label className={styles.inlineLabel} htmlFor="cert-year">Rok ukončenia:</label>
               <input
                 id="cert-year"
                 className={`${styles.input} ${!data.showCertifications ? styles.disabled : ""}`}
@@ -872,7 +872,7 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
             </div>
             <div style={{ margin: "1rem 0 0.5rem 0" }}>
               <div style={{ display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap", gap: "8px", marginBottom: "4px" }}>
-              <b>Body (popis pracovní pozice): <HelpTooltip text="Napíšte, čo bola Vaša pracovná náplň, alebo vygenerujte pomocou AI." /></b>
+              <b>Popis pracovnej pozície : <HelpTooltip text="Napíšte, čo bola vaša pracovná náplň alebo vygenerujte pomocou AI." /></b>
               <button
                 type="button"
                 disabled={isExpGenerating}

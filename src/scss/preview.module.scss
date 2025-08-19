@@ -538,6 +538,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   box-shadow: 0 1px 5px #f4f6fa;
   strong{
     font-size: 0.9em;
+    font-weight: 500;
   }
   @media (max-width: 490px) {
     strong{
