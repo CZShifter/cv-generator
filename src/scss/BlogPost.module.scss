@@ -148,6 +148,9 @@
     justify-content: start;
     align-items: start;
     grid-template-columns: 4fr 4fr;
+    @media (max-width: 700px) {
+      gap: 24px;
+    }
   }
   /* Výchozí pořadí: text vlevo, obrázek vpravo */
   :global(.two-thirds .text)  { order: 1; }

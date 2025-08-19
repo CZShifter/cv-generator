@@ -98,7 +98,7 @@ export default function ContactSection() {
               <p>Ulica: {SELLER_ADDRESS}</p>
               <p>Mesto: {SELLER_ADDRESS_CITY}</p>
               <p>E-mail: <a href={`mailto:${SITE_MAIL}`} className={styles.email} onClick={() => trackGAEvent('click', 'contact', 'email_click_sk')}>{SITE_MAIL}</a></p>
-              <picture>
+              {/* <picture>
                   <source srcSet={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`} type="image/webp" />
                   <source srcSet={`/img/cartoon_cv7.png?v=${SITE_VERSION}`} type="image/png" />
                   <img
@@ -108,7 +108,7 @@ export default function ContactSection() {
                     height={400}     // nastav výšku dle reálného obrázku nebo layoutu
                     className={styles.kontakt_img}  // pokud chceš stylovat ještě obrázek samotný
                   />
-              </picture>
+              </picture> */}
             </div>
           </div>
           {/* FAQ akordeon */}
