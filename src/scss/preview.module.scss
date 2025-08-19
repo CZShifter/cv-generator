@@ -297,7 +297,6 @@
   flex-direction: column;
   overflow-y: auto;
   box-sizing: border-box;
-
   &::-webkit-scrollbar {
     width: 15px;
   }
@@ -319,8 +318,10 @@
 }
 
 .card > *:last-child {
-  /* margin-top: auto; */
   align-self: flex-end;
+}
+.card .sectionSwitch + .sectionSwitch {
+  margin-top: 0.5rem; //odsazení řádku fotka
 }
 @media (max-width: 970px) {
   .card {

@@ -452,12 +452,12 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
             </div>
           </div>
           <div className={styles.sectionSwitch}>
-            <label className={styles.labelRow}>
-              <span>O mně: <HelpTooltip text="Napište o sobě krátký text, který Vás vystihne" /></span>
-              <span className={styles.switchWrap} style={{ cursor: "pointer" }}>
+            <div className={styles.labelRow}>
+              <label>O mně: <HelpTooltip text="Napište o sobě krátký text, který Vás vystihne" /></label>
+              <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                 <input type="checkbox" style={{ display: "none" }} checked={!!data.showSummary} onChange={e => onChange({ ...data, showSummary: e.target.checked })} />
                 <span className={styles.switchTrack + (data.showSummary ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
-              </span>
+              </label>
               <button
                 type="button"
                 disabled={!data.showSummary || isGenerating}
@@ -495,7 +495,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
                 >
                 {isGenerating ? <>Generuji{dots}</> : "Generovat"}
               </button>
-            </label>
+            </div>
             {error && (
               <div className={styles.errorPopup}>
                 {error}
@@ -516,13 +516,13 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
             />
           </div>
           <div className={styles.sectionSwitch}>
-            <label className={styles.labelRow}>
-              <span>Přidat fotku: <HelpTooltip text="Fotka musí mít maximální rozměr 1024 x 1024 px a velikost 1 MB" /></span>
-              <span className={styles.switchWrap} style={{ cursor: "pointer" }}>
+            <div className={styles.labelRow}>
+              <label>Přidat fotku: <HelpTooltip text="Fotka musí mít maximální rozměr 1024 x 1024 px a velikost 1 MB" /></label>
+              <label className={styles.switchWrap} style={{ cursor: "pointer" }}>
                 <input type="checkbox" style={{ display: "none" }} checked={!!data.showPhoto} onChange={e => onChange({ ...data, showPhoto: e.target.checked })} />
                 <span className={styles.switchTrack + (data.showPhoto ? ` ${styles.switchOn}` : ` ${styles.switchOff}`)} />
-              </span>
-            </label>
+              </label>
+            </div>
             <label className={styles.photoUpload}>
               <span className={`${styles.photoBtn} ${!data.showPhoto ? styles.disabled : ''} ${!data.showPhoto ? styles.photoBtnOff : ''}`}>
                 <FaCamera />
