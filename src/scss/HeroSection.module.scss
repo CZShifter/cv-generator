@@ -8,7 +8,7 @@
    background-color: $back-color;
    @media (max-width: 700px) {
     background-color: $white-color;
-  }
+   }
 }
 .HeroWrapper{
    display: flex;
@@ -37,6 +37,19 @@
    @media (max-width: 700px) {
      padding: 32px 24px;
      padding-bottom: 0;
+   }
+   @media (max-width: 500px) {
+     padding: 0;
+     height: calc(100vh - $header-height);
+     justify-content: flex-end;
+     background-image: url("/img/zena-cv.png?v=1");
+     object-fit: scale-down;
+     background-position: top;
+     background-size: contain;
+     background-position-y: -44px;
+     background-repeat: no-repeat;
+      background-origin: content-box;
+      background-clip: content-box;
    }
 }
 .HeroLeft{
@@ -106,6 +119,38 @@
    @media (max-width: 735px) {
       width: 100%;
    }
+   @media (max-width: 500px) {
+      position: relative;
+      margin-top: auto;
+      padding: 24px 24px 24px 24px; 
+      --bulge-diam: 350%;
+      overflow: hidden; 
+       &::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 0; 
+          transform: translateX(-50%);
+          width: var(--bulge-diam);
+          height: var(--bulge-diam);
+          background: $white-color;
+          border-radius: 50%;
+          z-index: -1;                          
+          pointer-events: none;
+      }
+   }
+   p:last-of-type{
+      display: none;
+      @media (max-width: 500px) {
+         display: flex;
+      }
+   }
+   p:nth-of-type(2){
+      display: flex;
+      @media (max-width: 500px) {
+         display: none;
+      }
+   }
    h1{
    font-size: $h1;
    font-weight: 700;
@@ -150,6 +195,10 @@
       @media (max-width: 734px) {
          font-size: 1rem;
       }
+      @media (max-width: 500px) {
+         text-align: center;
+         margin-bottom: 8px;
+      }
    }
    
 }
@@ -161,6 +210,9 @@
    margin-top: 2rem;
    @media (max-width: 735px) {
       justify-content: center;
+   }
+   @media (max-width: 500px) {
+      margin-top: 1rem;
    }
 }
 .cta {

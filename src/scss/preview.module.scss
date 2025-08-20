@@ -545,6 +545,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   @media (max-width: 700px) {
     padding: 0;
     background-color: $white-color;
+    box-shadow: none;
   }
   @media (max-width: 490px) {
     strong{
@@ -565,6 +566,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
    @media (max-width: 700px) {
     padding: 0;
     background-color: $white-color;
+    box-shadow: none;
   }
 }
 .addBox3 {
@@ -580,6 +582,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
    @media (max-width: 700px) {
     padding: 0;
     background-color: $white-color;
+    box-shadow: none;
   }
 }
 .addBox4 {
@@ -595,6 +598,7 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
    @media (max-width: 700px) {
     padding: 0;
     background-color: $white-color;
+    box-shadow: none;
   }
 }
 @media (max-width: 1580px) {

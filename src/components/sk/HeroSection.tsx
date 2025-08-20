@@ -45,6 +45,7 @@ export default function HeroSection() {
           <p>Najrýchlejšia cesta k pohovoru</p>
           <h1>Vytvorte si <span>životopis</span><br></br><span>online</span> jednoducho<br/> a rýchlo</h1>
           <p>Zaujmite personalistu moderným štruktúrovaným životopisom a vyniknite medzi všednými CV, ktorých denne vidia stovky. Vďaka našej aplikácii vytvoríte profesionálny životopis bez stresu už za pár minút!</p>
+          <p>Vďaka našej aplikácii vytvoríte profesionálny životopis bez stresu už za pár minút!</p>
           <div className={styles.LinkWrapper}>
             <div>
               <Link href="/sk/preview" className={styles.cta}>Vybrať šablónu</Link>
