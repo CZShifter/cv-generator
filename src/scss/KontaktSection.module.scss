@@ -6,6 +6,9 @@
   justify-content: center;
   align-items: center;
   background: $back-color;
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 
 }
 .SectionWrapper{

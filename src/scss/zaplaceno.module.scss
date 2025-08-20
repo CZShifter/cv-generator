@@ -8,6 +8,9 @@
   width: 100%;
   min-height: calc(100vh - $header-height - $footer-height);
   background-color: $back-color;
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .Errorwrapper{
   display: flex;

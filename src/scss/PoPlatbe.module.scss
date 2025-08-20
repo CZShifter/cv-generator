@@ -8,6 +8,9 @@
     justify-content: flex-start;
     background: $back-color;
     min-height: calc(100vh - $header-height - $footer-height);
+    @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .Wrapper {
   display: flex;

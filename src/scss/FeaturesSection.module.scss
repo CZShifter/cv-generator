@@ -7,6 +7,9 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .grid {
   display: flex;

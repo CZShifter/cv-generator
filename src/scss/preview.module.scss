@@ -330,7 +330,6 @@
     height: auto;
     overflow-y: auto;
     border-radius: $border-radius;
-    padding: calc($main-padding / 2);
   }
 }
 @media (max-width: 700px){
@@ -541,6 +540,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
     font-size: 0.9em;
     font-weight: 500;
   }
+  @media (max-width: 700px) {
+    padding: 0;
+    background-color: $white-color;
+  }
   @media (max-width: 490px) {
     strong{
       font-size: $p_small;
@@ -557,6 +560,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   align-items: flex-end;
   justify-content: space-between;
   box-shadow: 0 1px 5px #f4f6fa;
+   @media (max-width: 700px) {
+    padding: 0;
+    background-color: $white-color;
+  }
 }
 .addBox3 {
   display: flex;
@@ -568,6 +575,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   align-items: flex-end;
   justify-content: space-between;
   box-shadow: 0 1px 5px #f4f6fa;
+   @media (max-width: 700px) {
+    padding: 0;
+    background-color: $white-color;
+  }
 }
 .addBox4 {
   display: flex;
@@ -579,6 +590,10 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   align-items: flex-end;
   justify-content: space-between;
   box-shadow: 0 1px 5px #f4f6fa;
+   @media (max-width: 700px) {
+    padding: 0;
+    background-color: $white-color;
+  }
 }
 @media (max-width: 1580px) {
   .addBox3{
@@ -782,6 +797,11 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   font-size: 0.85rem;
   border: 1px solid var(--color-border);
   background-color: $form-color;
+   @media (max-width: 700px) {
+    padding: 0;
+    margin-top: 1rem;
+    background-color: $white-color;
+  }
 }
 .CheckboxContainer{
   display: flex;
@@ -789,6 +809,9 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   background-color: $form-color;
   border-radius: $border-radius;
   margin-bottom: 1rem;
+   @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .checkboxLabel {
   display: flex;

@@ -7,6 +7,9 @@
   justify-content: center;
   background: $back-color;
   font-family: inherit;
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .wrapper{
   display: flex;

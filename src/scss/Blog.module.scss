@@ -5,6 +5,9 @@
   background-color: $back-color;
   justify-content: center;
   align-items: center;
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 .blogWrapper {
   display: flex;

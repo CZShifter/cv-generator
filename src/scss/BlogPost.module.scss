@@ -8,6 +8,9 @@
   width: 100%;
   background-color: $back-color;
   min-height: calc(100vh - $header-height - $footer-height);
+  @media (max-width: 700px) {
+    background-color: $white-color;
+  }
 }
 
 .blogPost {
