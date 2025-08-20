@@ -40,16 +40,18 @@
    }
    @media (max-width: 500px) {
      padding: 0;
-     height: calc(100vh - $header-height);
+     min-height: calc(100vh - $header-height);
      justify-content: flex-end;
      background-image: url("/img/zena-cv.jpg?v=3");
-     object-fit: scale-down;
      background-position: top;
      background-size: contain;
      background-position-y: -44px;
      background-repeat: no-repeat;
       background-origin: content-box;
       background-clip: content-box;
+      @supports (height: 100dvh) {
+         min-height: calc(100dvh - $header-height);
+      }
    }
 }
 .HeroLeft{
