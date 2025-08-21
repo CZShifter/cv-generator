@@ -2,7 +2,7 @@
 import type { AppProps } from "next/app";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
+import React, { useEffect } from "react"; // ← přidán import React kvůli ErrorBoundary
 import { useRouter } from "next/router";
 import {
   FAVICON_URL_32,
@@ -54,13 +54,115 @@ const SPECIAL_SEGMENTS = ["edit", "preview"]; // ← sem můžeš snadno přidá
 
 // ── NOVÉ: detekce speciální cesty podle prvního segmentu za /cs|/sk ───────────
 function isSpecialRoute(pathname: string): boolean {
-  // Očekáváme /cs/<segment>/... nebo /sk/<segment>/...
-  // Příklady: /cs/edit/123, /sk/preview, /cs/preview?id=...
   const m = pathname.match(/^\/(cs|sk)\/([^\/?]+)/i);
   if (!m) return false;
   const firstSegment = m[2].toLowerCase();
   return SPECIAL_SEGMENTS.includes(firstSegment);
 }
+
+/* --------------------------- NOVÉ: LOGOVÁNÍ CHYB --------------------------- */
+
+// Uprav dle potřeby (true = loguj vždy; prod = jen v produkci)
+const LOG_ENABLED = process.env.NODE_ENV === "production";
+const RELEASE = (process.env.NEXT_PUBLIC_APP_VERSION ?? "dev").slice(0, 7);
+
+function hashLite(str: string) {
+  let h = 0, i = 0;
+  while (i < str.length) h = (h << 5) - h + str.charCodeAt(i++) | 0;
+  return ("h" + (h >>> 0).toString(16)).slice(0, 12);
+}
+
+function throttleSameError(dedupKey: string, ttlMs = 5 * 60_000) {
+  try {
+    const key = "__err_seen__";
+    const raw = localStorage.getItem(key);
+    const map = raw ? JSON.parse(raw) as Record<string, number> : {};
+    const now = Date.now();
+    for (const k of Object.keys(map)) if (now - map[k] > ttlMs) delete map[k];
+    if (map[dedupKey] && now - map[dedupKey] < ttlMs) return true; // už reportováno nedávno
+    map[dedupKey] = now;
+    localStorage.setItem(key, JSON.stringify(map));
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+function useGlobalErrorLogging() {
+  useEffect(() => {
+    if (!LOG_ENABLED) return;
+
+    const send = (payload: any) => {
+      const body = JSON.stringify(payload);
+      // preferuj sendBeacon (odešle i při unload), fallback fetch
+      (navigator.sendBeacon && navigator.sendBeacon("/api/log-error", body)) ||
+        fetch("/api/log-error", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          keepalive: true,
+          body,
+        }).catch(() => {});
+    };
+
+    const onError = (event: ErrorEvent) => {
+      try {
+        const msg = event?.message ?? "Unknown error";
+        const st  = event?.error?.stack ?? undefined;
+        const url = location.href;
+        const dedupKey = hashLite(`${msg}|${st?.slice(0,300) ?? ""}|${url}`);
+        if (throttleSameError(dedupKey)) return;
+        send({ message: msg, stack: st, url, dedupKey, release: RELEASE });
+      } catch { /* ignore */ }
+    };
+
+    const onRejection = (event: PromiseRejectionEvent) => {
+      try {
+        const r = event?.reason;
+        const msg = typeof r?.message === "string" ? r.message : String(r ?? "Unhandled rejection");
+        const st  = typeof r?.stack === "string" ? r.stack : undefined;
+        const url = location.href;
+        const dedupKey = hashLite(`${msg}|${st?.slice(0,300) ?? ""}|${url}`);
+        if (throttleSameError(dedupKey)) return;
+        send({ message: msg, stack: st, url, dedupKey, release: RELEASE });
+      } catch { /* ignore */ }
+    };
+
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onRejection);
+    return () => {
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onRejection);
+    };
+  }, []);
+}
+
+// Jednoduchý ErrorBoundary pro render chyby
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() { return { hasError: true }; }
+
+  componentDidCatch(error: any, info: any) {
+    if (!LOG_ENABLED) return;
+    const payload = {
+      message: error?.message ?? "Render error",
+      stack: error?.stack,
+      extra: { componentStack: info?.componentStack?.slice(0, 2000) },
+      url: typeof window !== "undefined" ? window.location.href : undefined,
+      release: RELEASE,
+    };
+    const body = JSON.stringify(payload);
+    (navigator.sendBeacon && navigator.sendBeacon("/api/log-error", body)) ||
+      fetch("/api/log-error", { method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true, body })
+        .catch(() => {});
+  }
+
+  render() {
+    if (this.state.hasError) return null; // případně zde vlastní fallback UI
+    return this.props.children;
+  }
+}
+
+/* ------------------------- KONEC: LOGOVÁNÍ CHYB --------------------------- */
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
@@ -79,8 +181,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (!hasAdsConsent()) return;
-      if (typeof window !== "undefined" && window.gtag && GA_MEASUREMENT_ID) {
-        window.gtag("config", GA_MEASUREMENT_ID, { page_path: url });
+      if (typeof window !== "undefined" && (window as any).gtag && GA_MEASUREMENT_ID) {
+        (window as any).gtag("config", GA_MEASUREMENT_ID, { page_path: url });
       }
     };
 
@@ -110,8 +212,15 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     };
   }, [router.events]);
 
+  // ← Aktivuj globální zachytávání chyb
+  useGlobalErrorLogging();
+
   if (Component.noLayout) {
-    return <Component {...pageProps} />;
+    return (
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
+    );
   }
 
   const useSpecialLayout = isSpecialRoute(router.pathname);
@@ -128,7 +237,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
       {useSpecialLayout ? <SpecialHeader /> : <DefaultHeader />}
 
-      <Component {...pageProps} />
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
 
       <CookieConsent />
       {useSpecialLayout ? <SpecialFooter /> : <DefaultFooter />}
