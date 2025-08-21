@@ -42,7 +42,16 @@
      padding: 0;
      min-height: calc(100vh - $header-height);
      justify-content: flex-end;
-     background-image: url("/img/zena-cv.jpg?v=5");
+     background-image: url("/img/zena-cv.jpg?v=6");
+      background-image: -webkit-image-set(
+        url("/img/zena-cv.webp?v=6") type("image/webp"),
+        url("/img/zena-cv.jpg?v=6")  type("image/jpeg")
+      );
+
+      background-image: image-set(
+        url("/img/zena-cv.webp?v=6") type("image/webp"),
+        url("/img/zena-cv.jpg?v=6")  type("image/jpeg")
+      );
      background-position: top;
      background-size: contain;
      background-position-y: -44px;
