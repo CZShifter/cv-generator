@@ -209,77 +209,79 @@ export default function ZaplacenoPage({ data }: Props) {
       </Head>
       <section className={styles.ZaplacenoWrapper}>
         <div className={styles.wrapper}>
-          <h1 className={styles.title}>🎉 Váš životopis bol úspešne vytvorený!</h1>
-          <button
-            className={styles.link}
-            id="cvbtn"
-            onClick={() => {
-              trackGAEvent("click", "download", "download_cv_pdf_sk");
-              downloadPdf();
-            }}
-          >
-            <FaRegFilePdf /> Stiahnuť životopis (PDF)
-          </button>
-          {invoice_url ? (
+          <div className={styles.cardwrapper}>
+            <h1 className={styles.title}>🎉 Váš životopis bol úspešne vytvorený!</h1>
             <button
               className={styles.link}
-              id="invoicebtn"
+              id="cvbtn"
               onClick={() => {
-                trackGAEvent("click", "download", "download_cv_invoice_sk");
-                downloadInvoice();
+                trackGAEvent("click", "download", "download_cv_pdf_sk");
+                downloadPdf();
               }}
             >
-              <FaFileInvoice /> Doklad o zaplatení
+              <FaRegFilePdf /> Stiahnuť životopis (PDF)
             </button>
-          ) : (
-            <p className={styles.note}>Doklad zatiaľ nie je k dispozícii.</p>
-          )}
-          <div className={styles.edit}>
-            {!isExpired ? (
-              <a className={styles.link} id="editbtn" href={`/sk/edit/${id}`}>
-                <FaEdit /> Upraviť životopis
-              </a>
-            ) : (
-              <p className={styles.expired}>
-                ⏰ Ubehlo 24h – možnosť úpravy vypršala.
-              </p>
-            )}
-          </div>
-          {!isExpired && (
-            <p
-              className={styles.editbtn}
-              onClick={() => {
-                trackGAEvent("click", "edit", "uprava_cv_sk");
-              }}
-            >
-              {`${SITE_URL_SK}/sk/edit/${id}`}
-            </p>
-          )}
-          {!isExpired && (
-            <div className={styles.copylinkwrapper}>
-              <p className={styles.editbtnremind}>
-                Tento odkaz si uložte, aby ste sa mohli vrátiť k prípadnej úprave!
-              </p>
+            {invoice_url ? (
               <button
-                type="button"
-                className={styles.copyButton}
-                onClick={handleCopy}
-                title="Skopírovať odkaz"
+                className={styles.link}
+                id="invoicebtn"
+                onClick={() => {
+                  trackGAEvent("click", "download", "download_cv_invoice_sk");
+                  downloadInvoice();
+                }}
               >
-                <FaCopy style={{ marginRight: 4 }} />
-                {copied ? "Skopírované!" : "Skopírovať"}
+                <FaFileInvoice /> Doklad o zaplatení
               </button>
-            </div>
-          )}
-          <p className={styles.expiry}>
-            {isClient && remainingMs > 0 && (
-              <>
-                Do vypršania možnosti úpravy zostáva:
-                <br />
-                <strong>{formatCountdown(remainingMs)}</strong>
-              </>
+            ) : (
+              <p className={styles.note}>Doklad zatiaľ nie je k dispozícii.</p>
             )}
-          </p>
+            <div className={styles.edit}>
+              {!isExpired ? (
+                <a className={styles.link} id="editbtn" href={`/sk/edit/${id}`}>
+                  <FaEdit /> Upraviť životopis
+                </a>
+              ) : (
+                <p className={styles.expired}>
+                  ⏰ Ubehlo 24h – možnosť úpravy vypršala.
+                </p>
+              )}
+            </div>
+            {!isExpired && (
+              <p
+                className={styles.editbtn}
+                onClick={() => {
+                  trackGAEvent("click", "edit", "uprava_cv_sk");
+                }}
+              >
+                {`${SITE_URL_SK}/sk/edit/${id}`}
+              </p>
+            )}
+            {!isExpired && (
+              <div className={styles.copylinkwrapper}>
+                <p className={styles.editbtnremind}>
+                  Tento odkaz si uložte, aby ste sa mohli vrátiť k prípadnej úprave!
+                </p>
+                <button
+                  type="button"
+                  className={styles.copyButton}
+                  onClick={handleCopy}
+                  title="Skopírovať odkaz"
+                >
+                  <FaCopy style={{ marginRight: 4 }} />
+                  {copied ? "Skopírované!" : "Skopírovať"}
+                </button>
+              </div>
+            )}
+            <p className={styles.expiry}>
+              {isClient && remainingMs > 0 && (
+                <>
+                  Do vypršania možnosti úpravy zostáva:
+                  <br />
+                  <strong>{formatCountdown(remainingMs)}</strong>
+                </>
+              )}
+            </p>
+          </div>
         </div>
         <SecureSection />
       </section>
