@@ -611,7 +611,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               <span>
                 <b>{e.level}</b> – {e.field}, {e.school}, {e.year}
               </span>
-              <span>
+              <span className={styles.OtherformButtons}>
                 <button onClick={() => handleEditEdu(i)}><FaEdit /></button>
                 <button onClick={() => handleDeleteEdu(i)}><FaTrash /></button>
               </span>
@@ -694,7 +694,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               <span>
                 <b>{cert.name}</b> – {cert.place}, {cert.year}
               </span>
-              <span>
+              <span className={styles.OtherformButtons}>
                 <button onClick={() => handleEditCert(i)} disabled={!data.showCertifications}><FaEdit /></button>
                 <button onClick={() => handleDeleteCert(i)} disabled={!data.showCertifications}><FaTrash /></button>
               </span>
@@ -757,7 +757,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               <span>
                 <b>{lang.name}</b> ({lang.level})
               </span>
-              <span>
+              <span className={styles.OtherformButtons}>
                 <button onClick={() => handleEditLanguage(i)}><FaEdit /></button>
                 <button onClick={() => handleDeleteLanguage(i)}><FaTrash /></button>
               </span>
@@ -824,7 +824,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
           {data.skills.map((skill, i) => (
             <div className={styles.recordRow} key={i}>
               <span>{skill}</span>
-              <span>
+              <span className={styles.OtherformButtons}>
                 <button onClick={() => handleEditSkill(i)}><FaEdit /></button>
                 <button onClick={() => handleDeleteSkill(i)}><FaTrash /></button>
               </span>
@@ -955,7 +955,7 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
                   ))}
                 </ul>
               </span>
-              <span>
+              <span className={styles.ExpformButtons}>
                 <button onClick={() => handleEditExp(i)}><FaEdit /></button>
                 <button onClick={() => handleDeleteExp(i)}><FaTrash /></button>
               </span>

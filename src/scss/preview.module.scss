@@ -719,11 +719,16 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
   color: #273353;
   box-shadow: 0 1px 4px #f4f5f8;
 }
+.ExpformButtons{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-left: 1rem;
+}
 .recordRow button {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 0.5rem;
   font-size: 1.16rem;
   color: $btn-hover-color;
    svg{
@@ -737,7 +742,12 @@ input[type="checkbox"]:not(:checked) + .switchTrack::before {
 .recordRow button:hover {
   opacity: .75;
 }
-
+.OtherformButtons{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-left: 1rem;
+}
 // ---- Tlačítka formuláře - formButtons, labelRow, skills ----
 .formButtons {
   display: flex;
