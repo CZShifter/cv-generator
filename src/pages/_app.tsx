@@ -226,11 +226,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (!hasAdsConsent()) return;
-      if (typeof window !== "undefined" && (window as any).gtag && GA_MEASUREMENT_ID) {
-        (window as any).gtag("config", GA_MEASUREMENT_ID, { page_path: url });
+      if (typeof window !== "undefined" && window.gtag && GA_MEASUREMENT_ID) {
+        window.gtag("config", GA_MEASUREMENT_ID, { page_path: url });
       }
     };
-
+  
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
