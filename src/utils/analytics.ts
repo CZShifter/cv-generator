@@ -1,56 +1,64 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+// src/utils/analytics.ts
 import { GA_MEASUREMENT_ID, SKLIK_ID, GOOGLE_ADS_ID } from "@/config/site";
-
-// ──────────────────────────────────────────────────────────────────────────────
-// Rozšíření window
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-    gtagInitialized?: boolean;
-    skw?: (...args: any[]) => void;
-    sklikInitialized?: boolean;
-    gadsInitialized?: boolean;
-    dataLayer?: any[];
-  }
-}
-/* eslint-enable @typescript-eslint/no-explicit-any */
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Helpers
 const CONSENT_COOKIE = "cookie_consent_v1";
 
-function hasWindow() {
+function hasWindow(): boolean {
   return typeof window !== "undefined";
 }
 
-function ensureGtag() {
+/**
+ * Zajistí, že je k dispozici window.gtag (proxy přes dataLayer),
+ * a vrátí typovaný odkaz na funkci gtag. Neprovádí žádný network load.
+ */
+function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
+
+  // dataLayer musí existovat dříve, než začneme volat gtag proxy
   window.dataLayer = window.dataLayer || [];
+
   if (typeof window.gtag !== "function") {
-    window.gtag = (...args: unknown[]) => {
-      window.dataLayer!.push(args);
+    // Proxy: posílá argumenty do dataLayer (viz standardní snippet Google)
+    const proxy = (...args: unknown[]) => {
+      // dataLayer očekává položky typu "unknown"
+      window.dataLayer!.push(args as unknown);
     };
+    window.gtag = proxy as Window["gtag"];
   }
   return window.gtag!;
 }
 
 // přesný typ pro Consent Mode příkaz do dataLayer (default/update)
 type ConsentFlag = "granted" | "denied";
-type ConsentCmd = [
-  "consent",
-  "default" | "update",
-  {
-    ad_storage: ConsentFlag;
-    ad_user_data: ConsentFlag;
-    ad_personalization: ConsentFlag;
-    analytics_storage: ConsentFlag;
-  }
-];
+type ConsentCmd =
+  | [
+      "consent",
+      "default",
+      {
+        ad_storage: ConsentFlag;
+        ad_user_data: ConsentFlag;
+        ad_personalization: ConsentFlag;
+        analytics_storage: ConsentFlag;
+      }
+    ]
+  | [
+      "consent",
+      "update",
+      {
+        ad_storage: ConsentFlag;
+        ad_user_data: ConsentFlag;
+        ad_personalization: ConsentFlag;
+        analytics_storage: ConsentFlag;
+      }
+    ];
 
-function pushConsent(cmd: ConsentCmd) {
+function pushConsent(cmd: ConsentCmd): void {
   if (!hasWindow()) return;
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(cmd);
+  // dataLayer má typ unknown[] → pushujeme jako unknown
+  window.dataLayer.push(cmd as unknown);
 }
 
 // Načtení hodnoty souhlasu z cookie (klient)
@@ -62,13 +70,13 @@ function getConsentCookie(): string | null {
 }
 
 // True, pokud uživatel povolil marketing (náš banner zapisuje "accepted_all")
-function isAdsConsentGranted() {
+function isAdsConsentGranted(): boolean {
   return getConsentCookie() === "accepted_all";
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Consent Mode v2
-export function setConsentDefaults() {
+export function setConsentDefaults(): void {
   pushConsent([
     "consent",
     "default",
@@ -81,7 +89,7 @@ export function setConsentDefaults() {
   ]);
 }
 
-export function updateConsentGranted() {
+export function updateConsentGranted(): void {
   pushConsent([
     "consent",
     "update",
@@ -94,7 +102,7 @@ export function updateConsentGranted() {
   ]);
 }
 
-export function updateConsentRevoked() {
+export function updateConsentRevoked(): void {
   pushConsent([
     "consent",
     "update",
@@ -109,10 +117,11 @@ export function updateConsentRevoked() {
 
 // ──────────────────────────────────────────────────────────────────────────────
 // GA4 – hlavní init (provedeme jen při uděleném souhlasu)
-export function initGoogleAnalytics() {
+export function initGoogleAnalytics(): void {
   if (!GA_MEASUREMENT_ID || !hasWindow() || window.gtagInitialized) return;
   if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu GA nespouštíme
 
+  // Načti gtag.js jen pokud ještě není vložen
   if (
     !document.querySelector(
       `script[src*="googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`
@@ -135,7 +144,7 @@ export function initGoogleAnalytics() {
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Google Ads – remarketing / konverze (jen při souhlasu)
-export function initGoogleAds() {
+export function initGoogleAds(): void {
   if (!GOOGLE_ADS_ID || !hasWindow() || window.gadsInitialized) return;
   if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu nespouštíme
 
@@ -150,9 +159,9 @@ export function trackAdsConversion(
   label: string,
   value = 0,
   currency = "CZK"
-) {
+): void {
   if (!hasWindow() || !GOOGLE_ADS_ID) return;
-  if (!isAdsConsentGranted()) return;          // ⟵ bez souhlasu neposílat
+  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu neposílat
   if (!window.gadsInitialized) initGoogleAds(); // pro jistotu inicializuj
 
   const gtag = ensureGtag();
@@ -172,10 +181,10 @@ export function trackGAEvent(
   category: string,
   label: string,
   value?: number
-) {
+): void {
   if (!hasWindow()) return;
-  if (!isAdsConsentGranted()) return;   // ⟵ bez souhlasu vůbec nepushuj
-  if (!window.gtagInitialized) return;  // ⟵ jistota, že GA je načtené
+  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu vůbec nepushuj
+  if (!window.gtagInitialized) return; // ⟵ jistota, že GA je načtené
 
   const gtag = ensureGtag();
   if (!gtag) return;
@@ -189,23 +198,26 @@ export function trackGAEvent(
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Sklik (pouštět jen při souhlasu)
-export function initSklik() {
+export function initSklik(): void {
   if (!SKLIK_ID || !hasWindow() || window.sklikInitialized) return;
   if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu nespouštět
 
-  if (!document.querySelector(`script[src="https://c.seznam.cz/js/rc.js"]`)) {
+  const SRC = "https://c.seznam.cz/js/rc.js";
+
+  const attachAndInit = () => {
+    if (typeof window.skw === "function") {
+      window.skw("rt", SKLIK_ID);
+      window.sklikInitialized = true;
+    }
+  };
+
+  if (!document.querySelector(`script[src="${SRC}"]`)) {
     const script = document.createElement("script");
-    script.src = "https://c.seznam.cz/js/rc.js";
+    script.src = SRC;
     script.async = true;
-    script.onload = () => {
-      if (window.skw) {
-        window.skw("rt", SKLIK_ID);
-        window.sklikInitialized = true;
-      }
-    };
+    script.onload = attachAndInit;
     document.head.appendChild(script);
-  } else if (window.skw) {
-    window.skw("rt", SKLIK_ID);
-    window.sklikInitialized = true;
+  } else {
+    attachAndInit();
   }
 }
