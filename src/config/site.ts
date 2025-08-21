@@ -33,8 +33,8 @@ export const SKLIK_ID = "123456";                  // Sklik (Seznam.cz)
 export const GOOGLE_ADS_ID = "AW-XXXXXXX";         // Google Ads Remarketing
 export const GOOGLE_ADS = {
   ID: GOOGLE_ADS_ID,          // celé "AW-..." z Google Ads
-  LABEL_CZ: "AbCdEfGhIjkLmNoP", // přesný Conversion Label z gTag
-  LABEL_SK: "ZyXwVuTsRqPoNmL",  // přesný Conversion Label z gTag
+  LABEL_CZ: "AbCdEfGhIjkLmNoP", // přesný Conversion Label z gTag!
+  LABEL_SK: "ZyXwVuTsRqPoNmL",  // přesný Conversion Label z gTag!
 };
 export const PRICING = {
   CZ: { amount: PRICE_CV,  currency: "CZK" as const },
