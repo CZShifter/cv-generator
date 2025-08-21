@@ -60,15 +60,14 @@ function isSpecialRoute(pathname: string): boolean {
   return SPECIAL_SEGMENTS.includes(firstSegment);
 }
 
-/* --------------------------- NOVÉ: LOGOVÁNÍ CHYB --------------------------- */
+/* --------------------------- LOGOVÁNÍ CHYB ---------------------------------- */
 
-// Uprav dle potřeby (true = loguj vždy; prod = jen v produkci)
 const LOG_ENABLED = process.env.NODE_ENV === "production";
 const RELEASE = (process.env.NEXT_PUBLIC_APP_VERSION ?? "dev").slice(0, 7);
 
 function hashLite(str: string) {
-  let h = 0, i = 0;
-  while (i < str.length) h = (h << 5) - h + str.charCodeAt(i++) | 0;
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
   return ("h" + (h >>> 0).toString(16)).slice(0, 12);
 }
 
@@ -76,10 +75,10 @@ function throttleSameError(dedupKey: string, ttlMs = 5 * 60_000) {
   try {
     const key = "__err_seen__";
     const raw = localStorage.getItem(key);
-    const map = raw ? JSON.parse(raw) as Record<string, number> : {};
+    const map = raw ? (JSON.parse(raw) as Record<string, number>) : {};
     const now = Date.now();
     for (const k of Object.keys(map)) if (now - map[k] > ttlMs) delete map[k];
-    if (map[dedupKey] && now - map[dedupKey] < ttlMs) return true; // už reportováno nedávno
+    if (map[dedupKey] && now - map[dedupKey] < ttlMs) return true;
     map[dedupKey] = now;
     localStorage.setItem(key, JSON.stringify(map));
     return false;
@@ -92,39 +91,63 @@ function useGlobalErrorLogging() {
   useEffect(() => {
     if (!LOG_ENABLED) return;
 
-    const send = (payload: any) => {
+    const send = (payload: Record<string, unknown>) => {
       const body = JSON.stringify(payload);
-      // preferuj sendBeacon (odešle i při unload), fallback fetch
-      (navigator.sendBeacon && navigator.sendBeacon("/api/log-error", body)) ||
-        fetch("/api/log-error", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          keepalive: true,
-          body,
-        }).catch(() => {});
+      try {
+        if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+          const ok = navigator.sendBeacon("/api/log-error", body);
+          if (!ok) {
+            void fetch("/api/log-error", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              keepalive: true,
+              body,
+            });
+          }
+        } else {
+          void fetch("/api/log-error", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            body,
+          });
+        }
+      } catch {
+        // ignore – logování nesmí shodit UI
+      }
     };
 
-    const onError = (event: ErrorEvent) => {
+    const onError = (event: ErrorEvent): void => {
       try {
         const msg = event?.message ?? "Unknown error";
-        const st  = event?.error?.stack ?? undefined;
-        const url = location.href;
-        const dedupKey = hashLite(`${msg}|${st?.slice(0,300) ?? ""}|${url}`);
+        const st = event?.error?.stack ?? undefined;
+        const url = typeof window !== "undefined" ? window.location.href : undefined;
+        const dedupKey = hashLite(`${msg}|${st?.slice(0, 300) ?? ""}|${url ?? ""}`);
         if (throttleSameError(dedupKey)) return;
         send({ message: msg, stack: st, url, dedupKey, release: RELEASE });
-      } catch { /* ignore */ }
+      } catch {
+        // ignore
+      }
     };
 
-    const onRejection = (event: PromiseRejectionEvent) => {
+    const onRejection = (event: PromiseRejectionEvent): void => {
       try {
-        const r = event?.reason;
-        const msg = typeof r?.message === "string" ? r.message : String(r ?? "Unhandled rejection");
-        const st  = typeof r?.stack === "string" ? r.stack : undefined;
-        const url = location.href;
-        const dedupKey = hashLite(`${msg}|${st?.slice(0,300) ?? ""}|${url}`);
+        const r = event?.reason as { message?: unknown; stack?: unknown } | unknown;
+        const msg =
+          r && typeof (r as { message?: unknown }).message === "string"
+            ? ((r as { message: string }).message)
+            : String((r as unknown) ?? "Unhandled rejection");
+        const st =
+          r && typeof (r as { stack?: unknown }).stack === "string"
+            ? ((r as { stack: string }).stack)
+            : undefined;
+        const url = typeof window !== "undefined" ? window.location.href : undefined;
+        const dedupKey = hashLite(`${msg}|${st?.slice(0, 300) ?? ""}|${url ?? ""}`);
         if (throttleSameError(dedupKey)) return;
         send({ message: msg, stack: st, url, dedupKey, release: RELEASE });
-      } catch { /* ignore */ }
+      } catch {
+        // ignore
+      }
     };
 
     window.addEventListener("error", onError);
@@ -136,14 +159,17 @@ function useGlobalErrorLogging() {
   }, []);
 }
 
-// Jednoduchý ErrorBoundary pro render chyby
+// React ErrorBoundary pro render chyby
 class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean }> {
   state = { hasError: false };
-  static getDerivedStateFromError() { return { hasError: true }; }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
 
-  componentDidCatch(error: any, info: any) {
+  componentDidCatch(error: Error, info: React.ErrorInfo): void {
     if (!LOG_ENABLED) return;
-    const payload = {
+
+    const payload: Record<string, unknown> = {
       message: error?.message ?? "Render error",
       stack: error?.stack,
       extra: { componentStack: info?.componentStack?.slice(0, 2000) },
@@ -151,18 +177,37 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { has
       release: RELEASE,
     };
     const body = JSON.stringify(payload);
-    (navigator.sendBeacon && navigator.sendBeacon("/api/log-error", body)) ||
-      fetch("/api/log-error", { method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true, body })
-        .catch(() => {});
+
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+        const ok = navigator.sendBeacon("/api/log-error", body);
+        if (!ok) {
+          void fetch("/api/log-error", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            keepalive: true,
+            body,
+          });
+        }
+      } else {
+        void fetch("/api/log-error", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          keepalive: true,
+          body,
+        });
+      }
+    } catch {
+      // ignore
+    }
   }
 
   render() {
-    if (this.state.hasError) return null; // případně zde vlastní fallback UI
+    if (this.state.hasError) return null; // případně fallback UI
     return this.props.children;
   }
 }
-
-/* ------------------------- KONEC: LOGOVÁNÍ CHYB --------------------------- */
+/* ------------------------- KONEC: LOGOVÁNÍ CHYB ---------------------------- */
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
