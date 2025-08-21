@@ -216,6 +216,8 @@ body{
   margin-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 .languages h3 {
   font-size: 14px;
