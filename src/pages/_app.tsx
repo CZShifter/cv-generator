@@ -8,7 +8,6 @@ import {
   FAVICON_URL_32,
   FAVICON_URL_192,
   APPLE_TOUCH_ICON_URL,
-  GA_MEASUREMENT_ID,
 } from "@/config/site";
 
 import HeaderCs from "@/components/cs/Header";
