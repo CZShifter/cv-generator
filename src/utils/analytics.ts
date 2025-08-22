@@ -120,7 +120,6 @@ export function initGoogleAnalytics(): void {
   sendPageView();
 
   // 4) SPA page_view řeší _app.tsx (routeChangeComplete)
-  // bindSpaPageviews();  // ⬅️ vypnuto
   window.gtagInitialized = true;
 }
 
@@ -139,37 +138,6 @@ function sendPageView(): void {
     page_path: path,
     page_title: title,
   });
-}
-
-function bindSpaPageviews(): void {
-  if (spaBound || !hasWindow()) return;
-  spaBound = true;
-
-  // Preferovaný: Next.js router, je-li dostupný v runtime
-  const w = window as unknown as {
-    next?: { router?: { events?: { on?: (e: string, cb: (url?: unknown) => void) => void } } };
-  };
-  const events = w.next?.router?.events;
-  if (events?.on) {
-    events.on("routeChangeComplete", () => sendPageView());
-    return;
-  }
-
-  // Fallback: patch History API
-  const origPush = history.pushState.bind(history);
-  const origReplace = history.replaceState.bind(history);
-
-  history.pushState = (...args) => {
-    const ret = origPush(...args);
-    queueMicrotask(sendPageView);
-    return ret;
-  };
-  history.replaceState = (...args) => {
-    const ret = origReplace(...args);
-    queueMicrotask(sendPageView);
-    return ret;
-  };
-  window.addEventListener("popstate", () => queueMicrotask(sendPageView));
 }
 // Přidejte do /utils/analytics.ts (třeba pod trackEvent)
 export function trackGAEvent(
