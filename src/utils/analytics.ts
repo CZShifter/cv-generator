@@ -1,223 +1,197 @@
-// src/utils/analytics.ts
-import { GA_MEASUREMENT_ID, SKLIK_ID, GOOGLE_ADS_ID } from "@/config/site";
+// /utils/analytics.ts
+// GA4 + Consent Mode v2 + cross-domain linker + SPA page_view
+// Voláno z CookieConsent.tsx: setConsentDefaults, updateConsentGranted, updateConsentRevoked, initGoogleAnalytics
+// Re-exportuje initSklik / initGoogleAds z adsPixel.ts
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Helpers
-const CONSENT_COOKIE = "cookie_consent_v1";
+import { initSklik, initGoogleAds } from "./adsPixel";
+export { initSklik, initGoogleAds };
 
+// ——— Config ———
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-MDV0NDEVYR";
+const CROSS_DOMAIN: string[] = [
+  "rychlyzivotopis.cz",
+  "www.rychlyzivotopis.cz",
+  "rychlyzivotopis.sk",
+  "www.rychlyzivotopis.sk",
+];
+
+// ——— Interní stav ———
+let gaLoaded = false;
+let spaBound = false;
+
+// ——— Helpers ———
 function hasWindow(): boolean {
   return typeof window !== "undefined";
 }
+function hasDocument(): boolean {
+  return typeof document !== "undefined";
+}
+function loadScriptOnce(src: string, id: string): void {
+  if (!hasDocument()) return;
+  const existing = document.getElementById(id) as HTMLScriptElement | null;
+  if (existing) return;
+  const s = document.createElement("script");
+  s.id = id;
+  s.async = true;
+  s.src = src;
+  document.head.appendChild(s);
+}
 
-/**
- * Zajistí, že je k dispozici window.gtag (proxy přes dataLayer),
- * a vrátí typovaný odkaz na funkci gtag. Neprovádí žádný network load.
- */
 function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
 
-  // dataLayer musí existovat dříve, než začneme volat gtag proxy
-  window.dataLayer = window.dataLayer || [];
+  if (!Array.isArray(window.dataLayer)) {
+    window.dataLayer = [];
+  }
 
   if (typeof window.gtag !== "function") {
-    // Proxy: posílá argumenty do dataLayer (viz standardní snippet Google)
-    const proxy = (...args: unknown[]) => {
-      // dataLayer očekává položky typu "unknown"
-      window.dataLayer!.push(args as unknown);
-    };
-    window.gtag = proxy as Window["gtag"];
+    const proxy = ((...args: unknown[]) => {
+      // ukládáme volání do dataLayer; gtag.js si je přečte po načtení
+      window.dataLayer!.push(args);
+    }) as unknown as Window["gtag"];
+
+    window.gtag = proxy;
   }
+
   return window.gtag!;
 }
 
-// přesný typ pro Consent Mode příkaz do dataLayer (default/update)
-type ConsentFlag = "granted" | "denied";
-type ConsentCmd =
-  | [
-      "consent",
-      "default",
-      {
-        ad_storage: ConsentFlag;
-        ad_user_data: ConsentFlag;
-        ad_personalization: ConsentFlag;
-        analytics_storage: ConsentFlag;
-      }
-    ]
-  | [
-      "consent",
-      "update",
-      {
-        ad_storage: ConsentFlag;
-        ad_user_data: ConsentFlag;
-        ad_personalization: ConsentFlag;
-        analytics_storage: ConsentFlag;
-      }
-    ];
-
-function pushConsent(cmd: ConsentCmd): void {
-  if (!hasWindow()) return;
-  window.dataLayer = window.dataLayer || [];
-  // dataLayer má typ unknown[] → pushujeme jako unknown
-  window.dataLayer.push(cmd as unknown);
-}
-
-// Načtení hodnoty souhlasu z cookie (klient)
-function getConsentCookie(): string | null {
-  if (!hasWindow()) return null;
-  const re = new RegExp(`(?:^|;\\s*)${CONSENT_COOKIE}=([^;]+)`);
-  const m = document.cookie.match(re);
-  return m ? decodeURIComponent(m[1]) : null;
-}
-
-// True, pokud uživatel povolil marketing (náš banner zapisuje "accepted_all")
-function isAdsConsentGranted(): boolean {
-  return getConsentCookie() === "accepted_all";
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// Consent Mode v2
+// ——— Consent Mode v2 ———
 export function setConsentDefaults(): void {
-  pushConsent([
-    "consent",
-    "default",
-    {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "denied",
-    },
-  ]);
+  if (!hasWindow()) return;
+  const gtag = ensureGtag();
+  if (!gtag) return;
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
 }
 
 export function updateConsentGranted(): void {
-  pushConsent([
-    "consent",
-    "update",
-    {
-      ad_storage: "granted",
-      ad_user_data: "granted",
-      ad_personalization: "granted",
-      analytics_storage: "granted",
-    },
-  ]);
+  if (!hasWindow()) return;
+  const gtag = ensureGtag();
+  if (!gtag) return;
+
+  gtag("consent", "update", {
+    ad_storage: "granted",
+    analytics_storage: "granted",
+    ad_user_data: "granted",
+    ad_personalization: "granted",
+  });
 }
 
 export function updateConsentRevoked(): void {
-  pushConsent([
-    "consent",
-    "update",
-    {
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      ad_personalization: "denied",
-      analytics_storage: "denied",
-    },
-  ]);
+  if (!hasWindow()) return;
+  const gtag = ensureGtag();
+  if (!gtag) return;
+
+  gtag("consent", "update", {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
 }
 
-// ──────────────────────────────────────────────────────────────────────────────
-// GA4 – hlavní init (provedeme jen při uděleném souhlasu)
+// ——— GA4 init ———
 export function initGoogleAnalytics(): void {
-  if (!GA_MEASUREMENT_ID || !hasWindow() || window.gtagInitialized) return;
-  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu GA nespouštíme
+  if (!hasWindow() || !hasDocument() || gaLoaded) return;
+  if (!GA_ID) return;
 
-  // Načti gtag.js jen pokud ještě není vložen
-  if (
-    !document.querySelector(
-      `script[src*="googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`
-    )
-  ) {
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    script.async = true;
-    document.head.appendChild(script);
-  }
+  gaLoaded = true;
 
+  // 1) Loader
+  loadScriptOnce(
+    `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`,
+    "ga4-loader"
+  );
+
+  // 2) Bootstrap + základní config
   const gtag = ensureGtag();
   if (!gtag) return;
 
   gtag("js", new Date());
-  gtag("config", GA_MEASUREMENT_ID);
+  gtag("config", GA_ID, {
+    send_page_view: false,          // SPA: page_view si posíláme sami
+    linker: { domains: CROSS_DOMAIN }, // cross-domain
+  });
 
+  // 3) První page_view po inicializaci
+  sendPageView();
+
+  // 4) SPA navigace
+  bindSpaPageviews();
   window.gtagInitialized = true;
 }
 
-// ──────────────────────────────────────────────────────────────────────────────
-// Google Ads – remarketing / konverze (jen při souhlasu)
-export function initGoogleAds(): void {
-  if (!GOOGLE_ADS_ID || !hasWindow() || window.gadsInitialized) return;
-  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu nespouštíme
-
-  const gtag = ensureGtag();
+// ——— Pageviews ———
+function sendPageView(): void {
+  if (!hasWindow()) return;
+  const gtag = window.gtag;
   if (!gtag) return;
 
-  gtag("config", GOOGLE_ADS_ID);
-  window.gadsInitialized = true;
-}
+  const href = window.location.href;
+  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const title = typeof document !== "undefined" ? document.title : "";
 
-export function trackAdsConversion(
-  label: string,
-  value = 0,
-  currency = "CZK"
-): void {
-  if (!hasWindow() || !GOOGLE_ADS_ID) return;
-  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu neposílat
-  if (!window.gadsInitialized) initGoogleAds(); // pro jistotu inicializuj
-
-  const gtag = ensureGtag();
-  if (!gtag) return;
-
-  gtag("event", "conversion", {
-    send_to: `${GOOGLE_ADS_ID}/${label}`,
-    value,
-    currency,
+  gtag("event", "page_view", {
+    page_location: href,
+    page_path: path,
+    page_title: title,
   });
 }
 
-// ──────────────────────────────────────────────────────────────────────────────
-/** GA4 event helper – posílat jen při souhlasu a po initu */
+function bindSpaPageviews(): void {
+  if (spaBound || !hasWindow()) return;
+  spaBound = true;
+
+  // Preferovaný: Next.js router, je-li dostupný v runtime
+  const w = window as unknown as {
+    next?: { router?: { events?: { on?: (e: string, cb: (url?: unknown) => void) => void } } };
+  };
+  const events = w.next?.router?.events;
+  if (events?.on) {
+    events.on("routeChangeComplete", () => sendPageView());
+    return;
+  }
+
+  // Fallback: patch History API
+  const origPush = history.pushState.bind(history);
+  const origReplace = history.replaceState.bind(history);
+
+  history.pushState = (...args) => {
+    const ret = origPush(...args);
+    queueMicrotask(sendPageView);
+    return ret;
+  };
+  history.replaceState = (...args) => {
+    const ret = origReplace(...args);
+    queueMicrotask(sendPageView);
+    return ret;
+  };
+  window.addEventListener("popstate", () => queueMicrotask(sendPageView));
+}
+// Přidejte do /utils/analytics.ts (třeba pod trackEvent)
 export function trackGAEvent(
-  action: string,
   category: string,
-  label: string,
+  action: string,
+  label?: string,
   value?: number
 ): void {
-  if (!hasWindow()) return;
-  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu vůbec nepushuj
-  if (!window.gtagInitialized) return; // ⟵ jistota, že GA je načtené
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
 
-  const gtag = ensureGtag();
-  if (!gtag) return;
+  // V GA4 je klíčové "jméno události". Vezmeme ho z `action` (smysluplnější než "click").
+  const eventName = action || category || "event";
 
-  gtag("event", action, {
-    event_category: category,
-    event_label: label,
-    value,
-  });
-}
-
-// ──────────────────────────────────────────────────────────────────────────────
-// Sklik (pouštět jen při souhlasu)
-export function initSklik(): void {
-  if (!SKLIK_ID || !hasWindow() || window.sklikInitialized) return;
-  if (!isAdsConsentGranted()) return; // ⟵ bez souhlasu nespouštět
-
-  const SRC = "https://c.seznam.cz/js/rc.js";
-
-  const attachAndInit = () => {
-    if (typeof window.skw === "function") {
-      window.skw("rt", SKLIK_ID);
-      window.sklikInitialized = true;
-    }
+  const params: Record<string, unknown> = {
+    category,           // UA-styl pro kompatibilitu (volitelné)
+    label,              // UA-styl pro kompatibilitu (volitelné)
   };
+  if (typeof value === "number") params.value = value;
 
-  if (!document.querySelector(`script[src="${SRC}"]`)) {
-    const script = document.createElement("script");
-    script.src = SRC;
-    script.async = true;
-    script.onload = attachAndInit;
-    document.head.appendChild(script);
-  } else {
-    attachAndInit();
-  }
+  window.gtag("event", eventName, params);
 }
+
