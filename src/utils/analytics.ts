@@ -17,7 +17,6 @@ const CROSS_DOMAIN: string[] = [
 
 // ——— Interní stav ———
 let gaLoaded = false;
-let spaBound = false;
 
 // ——— Helpers ———
 function hasWindow(): boolean {
@@ -96,6 +95,7 @@ export function updateConsentRevoked(): void {
   });
 }
 
+// ——— GA4 init ———
 export function initGoogleAnalytics(): void {
   if (!hasWindow() || !hasDocument() || gaLoaded || !GA_ID) return;
   gaLoaded = true;
@@ -112,7 +112,7 @@ export function initGoogleAnalytics(): void {
 
   gtag("js", new Date());
   gtag("config", GA_ID, {
-    send_page_view: false,              // SPA: page_view si posíláme sami v _app.tsx
+    send_page_view: false,              // SPA: page_view posílá _app.tsx
     linker: { domains: CROSS_DOMAIN },  // cross-domain
   });
 
@@ -139,7 +139,8 @@ function sendPageView(): void {
     page_title: title,
   });
 }
-// Přidejte do /utils/analytics.ts (třeba pod trackEvent)
+
+// ——— UA-kompatibilní helper pro vlastní eventy ———
 export function trackGAEvent(
   category: string,
   action: string,
@@ -148,15 +149,10 @@ export function trackGAEvent(
 ): void {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
 
-  // V GA4 je klíčové "jméno události". Vezmeme ho z `action` (smysluplnější než "click").
   const eventName = action || category || "event";
-
-  const params: Record<string, unknown> = {
-    category,           // UA-styl pro kompatibilitu (volitelné)
-    label,              // UA-styl pro kompatibilitu (volitelné)
-  };
+  const params: Record<string, unknown> = { category };
+  if (label) params.label = label;
   if (typeof value === "number") params.value = value;
 
   window.gtag("event", eventName, params);
 }
-
