@@ -12,8 +12,8 @@ export default function PriceSection() {
         <div className={styles.price_wrapper}>
           <div className={styles.price_card}>
             <div className={styles.price_section}>
-              <h2>Motivačný list</h2>
-              <h3>Zdarma</h3>
+              <h2>Motivačný list2</h2>
+              <h3>Zdarma2</h3>
             </div>
             <div className={styles.price_bar}></div>
             <div className={styles.price_list}>

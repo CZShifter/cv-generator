@@ -27,7 +27,7 @@ export const SELLER_LEGAL_NOTE_2_SK = "Nie som platiteľ DPH";
 export const PRICE_CV = 89; // Kč
 export const PRICE_CV_SK = 4; //Euro
 // Analytics & marketing tags
-export const GA_MEASUREMENT_ID = "G-XXXXXXX";      // Google Analytics 4
+export const GA_MEASUREMENT_ID = "G-MDV0NDEVYR";    // Google Analytics 4
 export const FB_PIXEL_ID = "1234567890";           // Facebook Pixel
 export const SKLIK_ID = "123456";                  // Sklik (Seznam.cz)
 export const GOOGLE_ADS_ID = "AW-XXXXXXX";         // Google Ads Remarketing
