@@ -8,6 +8,7 @@ import {
   updateConsentRevoked,
 } from "@/utils/analytics";
 import styles from "@/scss/CookieConsent.module.scss";
+import { preloadGaLoader } from "@/utils/analytics";
 
 const COOKIE_NAME = "cookie_consent_v1";
 const ONE_YEAR = 60 * 60 * 24 * 365;
@@ -57,6 +58,7 @@ const CookieConsent: React.FC = () => {
     // 0) Založ gtag/dataLayer a nastav Consent Mode default (denied)
     ensureGtag();
     setConsentDefaults();
+    preloadGaLoader();
 
     // 1) Načti uložený stav (LS preferován, cookie fallback)
     const ls = typeof window !== "undefined" ? localStorage.getItem(COOKIE_NAME) : null;

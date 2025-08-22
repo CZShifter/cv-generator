@@ -17,7 +17,7 @@ import HeaderSk from "@/components/sk/Header";
 import FooterSk from "@/components/sk/Footer";
 import CookieConsentSk from "@/components/sk/CookieConsent";
 
-import { initGoogleAnalytics } from "@/utils/analytics";
+import { initGoogleAnalytics, preloadGaLoader } from "@/utils/analytics";
 
 // ── NOVÉ: speciální varianty headeru a footeru ─────────────────────────────────
 import SpecialHeaderCs from "@/components/cs/SpecialHeader";
@@ -222,31 +222,17 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
-  // SPA pageview: nasadíme listener vždy,
-  // ale hit odešleme jen když (až když) je consent + gtag načten.
+  // 1) ⬇⬇⬇ Přidej tento hook hodně vysoko (hned po definicích), ať se loader načte co nejdřív
+  useEffect(() => {
+    preloadGaLoader();
+  }, []);
+
+  // 2) Fallback init po mountu, pokud už je souhlas udělen
   useEffect(() => {
     if (hasAdsConsent()) {
-      initGoogleAnalytics(); // idempotentní – uvnitř si hlídá, že se nespustí dvakrát
+      initGoogleAnalytics();
     }
   }, []);
-  
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      if (!hasAdsConsent()) return;
-      if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-    
-      const u = new URL(url, window.location.origin);
-    
-      window.gtag("event", "page_view", {
-        page_location: u.href,
-        page_path: u.pathname + u.search + u.hash,
-        page_title: document.title,
-      });
-    };
-  
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => router.events.off("routeChangeComplete", handleRouteChange);
-  }, [router.events]);
 
   // Nastavení <html lang> při načtení i po každé změně routy
   useEffect(() => {

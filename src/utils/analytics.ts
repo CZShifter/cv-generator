@@ -156,3 +156,21 @@ export function trackGAEvent(
 
   window.gtag("event", eventName, params);
 }
+export function preloadGaLoader(): void {
+  // ✔ SSR/ESLint-safe: nepoběží na serveru
+  if (!hasWindow() || !hasDocument()) return;
+
+  const id = "ga4-loader";
+  let el = document.getElementById(id) as HTMLScriptElement | null;
+
+  if (!el) {
+    el = document.createElement("script");
+    el.id = id;
+    el.async = true;
+    el.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`;
+    (document.head || document.getElementsByTagName("head")[0]).appendChild(el);
+  }
+
+  // ✔ založí proxy gtag/dataLayer – nevadí, že návratovou hodnotu nepoužijeme
+  ensureGtag();
+}
