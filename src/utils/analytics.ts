@@ -96,11 +96,8 @@ export function updateConsentRevoked(): void {
   });
 }
 
-// ——— GA4 init ———
 export function initGoogleAnalytics(): void {
-  if (!hasWindow() || !hasDocument() || gaLoaded) return;
-  if (!GA_ID) return;
-
+  if (!hasWindow() || !hasDocument() || gaLoaded || !GA_ID) return;
   gaLoaded = true;
 
   // 1) Loader
@@ -109,21 +106,21 @@ export function initGoogleAnalytics(): void {
     "ga4-loader"
   );
 
-  // 2) Bootstrap + základní config
+  // 2) Bootstrap + config
   const gtag = ensureGtag();
   if (!gtag) return;
 
   gtag("js", new Date());
   gtag("config", GA_ID, {
-    send_page_view: false,          // SPA: page_view si posíláme sami
-    linker: { domains: CROSS_DOMAIN }, // cross-domain
+    send_page_view: false,              // SPA: page_view si posíláme sami v _app.tsx
+    linker: { domains: CROSS_DOMAIN },  // cross-domain
   });
 
-  // 3) První page_view po inicializaci
+  // 3) První page_view po inicializaci (aktuální URL)
   sendPageView();
 
-  // 4) SPA navigace
-  bindSpaPageviews();
+  // 4) SPA page_view řeší _app.tsx (routeChangeComplete)
+  // bindSpaPageviews();  // ⬅️ vypnuto
   window.gtagInitialized = true;
 }
 

@@ -36,10 +36,9 @@ declare global {
     // ——— VAŠE stávající pole (ponecháno) ———
     gtag?: {
       (command: "js", date: Date): void;
-      (command: "config", targetId: string, params?: GtagConfig): void;
-      (command: "event", eventName: string, params?: GtagEventParams): void;
-      // Rozšíření o Consent Mode (bezpečně volitelné)
-      (command: "consent", action: GtagConsentAction, params: GtagConsentParams): void;
+      (command: "config", targetId: string, params?: Record<string, unknown>): void;
+      (command: "event", eventName: string, params?: Record<string, unknown>): void;
+      (command: "consent", action: "default" | "update", params: Record<string, string>): void;
     };
     dataLayer?: unknown[];
 
