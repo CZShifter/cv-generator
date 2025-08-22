@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import styles from "@/scss//LoadingModal.module.scss";
+import styles from "@/scss/LoadingModal.module.scss";
 
 type Props = {
   open: boolean;
@@ -15,24 +15,42 @@ export default function LoadingModal({
   sublabel = "Prosím počkajte, za okamih budete presmerovaní.",
   blockEscape = true,
 }: Props) {
+  // Zablokuj scroll stránky, když je modal otevřený
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [open]);
 
+  // Zablokuj klávesu Escape (aby nešlo modal zavřít)
   useEffect(() => {
     if (!open || !blockEscape) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); } };
-    window.addEventListener("keydown", onKey, { capture: true });
-    return () => window.removeEventListener("keydown", onKey, { capture: true } as any);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    // Pozn.: true == { capture: true }
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
   }, [open, blockEscape]);
 
   if (!open) return null;
 
   return ReactDOM.createPortal(
-    <div className={styles.backdrop} aria-live="assertive" aria-busy="true" aria-modal="true" role="dialog">
+    <div
+      className={styles.backdrop}
+      aria-live="assertive"
+      aria-busy="true"
+      aria-modal="true"
+      role="dialog"
+    >
       <div className={styles.modal} role="document">
         <div className={styles.spinner} aria-hidden="true" />
         <div className={styles.texts}>

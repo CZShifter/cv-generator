@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { trackGAEvent } from "@/utils/analytics";
-import { SITE_MAIL, SELLER_COMPANY, SELLER_IC, SELLER_ADDRESS, SELLER_ADDRESS_CITY, SITE_VERSION } from "@/config/site";
+import { SITE_MAIL, SELLER_COMPANY, SELLER_IC, SELLER_ADDRESS, SELLER_ADDRESS_CITY, /* SITE_VERSION */ } from "@/config/site";
 import styles from "@/scss/KontaktSection.module.scss";
 
 const FAQ_ITEMS = [
