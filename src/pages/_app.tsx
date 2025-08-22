@@ -226,15 +226,19 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (!hasAdsConsent()) return;
-      if (typeof window !== "undefined" && window.gtag && GA_MEASUREMENT_ID) {
-        window.gtag("config", GA_MEASUREMENT_ID, { page_path: url });
-      }
+      if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+    
+      const u = new URL(url, window.location.origin);
+    
+      window.gtag("event", "page_view", {
+        page_location: u.href,
+        page_path: u.pathname + u.search + u.hash,
+        page_title: document.title,
+      });
     };
   
     router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
   }, [router.events]);
 
   // Nastavení <html lang> při načtení i po každé změně routy
@@ -261,12 +265,16 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useGlobalErrorLogging();
 
   if (Component.noLayout) {
-    return (
+  return (
+    <>
       <ErrorBoundary>
         <Component {...pageProps} />
       </ErrorBoundary>
-    );
-  }
+      {/* ✅ CookieConsent musí být i tady, jinak se GA nikdy neinicializuje */}
+      <CookieConsent />
+    </>
+  );
+}
 
   const useSpecialLayout = isSpecialRoute(router.pathname);
 
