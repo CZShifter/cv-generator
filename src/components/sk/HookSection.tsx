@@ -17,7 +17,7 @@ export default function HookSection() {
             <source srcSet={`/img/cover5.jpg?v=${SITE_VERSION}`} type="image/jpg" />
               <img
                 src={`/img/cover5.jpg?v=${SITE_VERSION}`}
-                alt="Muž vytváří životopis"
+                alt="Muž a žena si podávajú ruky"
                 width={544}      // nastav šířku dle reálného obrázku nebo layoutu
                 height={360}     // nastav výšku dle reálného obrázku nebo layoutu
                 className={styles.HookleftImg}  // pokud chceš stylovat ještě obrázek samotný

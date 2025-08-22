@@ -8,6 +8,7 @@ import ImageCropModal from "@/components/ImageCropModal";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
 import ReloadableImage from "@/components/ReloadableImage";
 import { trackGAEvent } from "@/utils/analytics";
+import LoadingModal from "@/components/sk/LoadingModal";
 
 export type CvFormProps = {
   data: CvData;
@@ -59,6 +60,22 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
   /* const [agree, setAgree] = useState(false); */
   const [isProcessing, setIsProcessing] = useState(false);
   const [expiredModalOpen, setExpiredModalOpen] = useState(false);
+
+  //Spinner funkce
+      useEffect(() => {
+      const start = () => setIsProcessing(true);
+      const done = () => setIsProcessing(false);
+  
+      router.events.on("routeChangeStart", start);
+      router.events.on("routeChangeError", done);
+      router.events.on("routeChangeComplete", done);
+  
+      return () => {
+        router.events.off("routeChangeStart", start);
+        router.events.off("routeChangeError", done);
+        router.events.off("routeChangeComplete", done);
+      };
+    }, [router.events]);
 
   // State pro Image Cropping Modal
   const [isCropModalOpen, setIsCropModalOpen] = useState(false);
@@ -987,8 +1004,6 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
               className={styles.save}
               onClick={async () => {
                 trackGAEvent('click', 'edit', 'ulozit_zmeny_v_zivotopisu_sk');
-                //console.log('Photo data odesílaná do databáze:', data.photo ? 'Přítomno (délka Base64: ' + data.photo.length + ')' : 'Chybí');
-                //console.log('Celý datový objekt odesílaný do databáze:', data); // Zde můžete zkontrolovat celý objekt
                 if (isEditMode) {
                   try {
                     setIsProcessing(true);
@@ -1017,16 +1032,17 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
                         templateId: selectedTemplate,
                       }),
                     });
-                    const json = await res.json();
+                    const json = await res.json();   
                     if (json.previewUrl) {
+                      // Nech modal otevřený – zavře se po dokončení navigace (viz router.events efekt)
                       router.push(json.previewUrl);
                     } else {
+                      setIsProcessing(false);
                       alert("Niečo sa pokazilo.");
                     }
                   } catch {
-                    alert("Došlo k chybe pri spracovaní.");
-                  } finally {
                     setIsProcessing(false);
+                    alert("Došlo k chybe pri spracovaní.");
                   }
                 } else {
                   setStep(6);
@@ -1048,6 +1064,11 @@ const CvForm_edit: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, 
           </div>
         </div>
       )}
+      <LoadingModal
+          open={isProcessing}
+          label="Ukladám…"
+          sublabel="Prosím počkajte, za okamih budete presmerovaní."
+      />
     </div>
   );
 };

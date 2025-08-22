@@ -12,7 +12,7 @@ export default function NarrativeSection() {
               <source srcSet={`/img/cover3.jpg?v=${SITE_VERSION}`} type="image/jpg" />
               <img
                 src={`/img/cover3.jpg?v=${SITE_VERSION}`}
-                alt="šťastná žena ukazuje prstem"
+                alt="Skupina lidí se kouká do notebooku"
                 width={600}      // nastav šířku dle reálného obrázku nebo layoutu
                 height={665}     // nastav výšku dle reálného obrázku nebo layoutu
                 className={styles.NarrativeleftImg}  // pokud chceš stylovat ještě obrázek samotný

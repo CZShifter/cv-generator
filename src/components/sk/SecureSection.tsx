@@ -13,7 +13,7 @@ export default function SecureSection() {
             <source srcSet={`/img/secure2.png?v=${SITE_VERSION}`} type="image/png" />
             <img
               src={`/img/secure2.png?v=${SITE_VERSION}`}
-              alt="AI maskot mavá do kamery"
+              alt="Vektorový obrázok zámku"
               width={394}
               height={559}
               className={styles.SecureleftImg}

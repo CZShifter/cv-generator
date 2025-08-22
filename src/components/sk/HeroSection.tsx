@@ -19,7 +19,7 @@ export default function HeroSection() {
             <source srcSet={`/img/laptop.png?v=${SITE_VERSION}`} type="image/png" />
             <img
               src={`/img/laptop.png?v=${SITE_VERSION}`}
-              alt="šťastná žena ukazuje prstem"
+              alt="Obrázok notebooku a mobilu so zobrazeným životopisom"
               width={600}      // nastav šířku dle reálného obrázku nebo layoutu
               height={665}     // nastav výšku dle reálného obrázku nebo layoutu
               className={styles.HeroleftImg}  // pokud chceš stylovat ještě obrázek samotný
@@ -32,7 +32,7 @@ export default function HeroSection() {
             <source srcSet={`/img/cartoon_cv8.png?v=${SITE_VERSION}`} type="image/png" />
             <img
               src={`/img/cartoon_cv8.png?v=${SITE_VERSION}`}
-              alt="šťastná žena ukazuje prstem"
+              alt="Muž drží životopis"
               width={600}      // nastav šířku dle reálného obrázku nebo layoutu
               height={665}     // nastav výšku dle reálného obrázku nebo layoutu
               className={styles.HeroleftImg2}  // pokud chceš stylovat ještě obrázek samotný

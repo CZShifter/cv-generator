@@ -75,8 +75,8 @@ export default function ContactSection() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
         />
-        <link rel="preload" as="image" href={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`}/>
-        <link rel="preload" as="image" href={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}/>
+        {/* <link rel="preload" as="image" href={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`}/>
+        <link rel="preload" as="image" href={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}/> */}
       </Head>
       <div className={styles.SectionWrapper}>
         <h1 className={styles.heading}>Kontaktujte nás</h1>
@@ -103,7 +103,7 @@ export default function ContactSection() {
                   <source srcSet={`/img/cartoon_cv7.png?v=${SITE_VERSION}`} type="image/png" />
                   <img
                     src={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}
-                    alt="Spokojený muž držící životopis"
+                    alt="Muž sedí a mává na kameru"
                     width={200}      // nastav šířku dle reálného obrázku nebo layoutu
                     height={400}     // nastav výšku dle reálného obrázku nebo layoutu
                     className={styles.kontakt_img}  // pokud chceš stylovat ještě obrázek samotný

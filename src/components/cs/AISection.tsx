@@ -18,7 +18,7 @@ export default function AISection() {
             <source srcSet={`/img/Ai.png?v=${SITE_VERSION}`} type="image/png" />
             <img
               src={`/img/Ai.png?v=${SITE_VERSION}`}
-              alt="AI maskot mavá do kamery"
+              alt="vektorový obrázek čipu s nápisem AI"
               width={368}
               height={530}
               className={styles.AIleftImg}

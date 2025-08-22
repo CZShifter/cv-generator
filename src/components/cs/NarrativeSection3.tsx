@@ -11,7 +11,7 @@ export default function NarrativeSection() {
               <source srcSet={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`} type="image/jpg" />
               <img
                 src={`/img/blog/motivacni1.jpg?v=${SITE_VERSION}`}
-                alt="šťastná žena ukazuje prstem"
+                alt="Žena sedí na židli a čte motivační dopis"
                 width={600}      // nastav šířku dle reálného obrázku nebo layoutu
                 height={665}     // nastav výšku dle reálného obrázku nebo layoutu
                 className={styles.NarrativeleftImg}  // pokud chceš stylovat ještě obrázek samotný
