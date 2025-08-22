@@ -74,7 +74,7 @@ function pushGtag(...args: unknown[]): void {
 function watchGtagGetReady(): void {
   try {
     // voláme přes pushGtag, aby se požadavek zařadil do fronty i před dojezdem loaderu
-    pushGtag("get", GA_ID, "client_id", (_cid: unknown) => {
+    pushGtag("get", GA_ID, "client_id", () => {
       gaGetReady = true;
     });
   } catch {
