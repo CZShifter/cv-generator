@@ -1,14 +1,13 @@
 // /utils/analytics.ts
 // GA4 + Consent Mode v2 + cross-domain linker + SPA page_view
-// Voláno z CookieConsent.tsx: setConsentDefaults, updateConsentGranted, updateConsentRevoked, initGoogleAnalytics
-// Pokud měříš přes tento gtag kód, měj v GTM GA4 tagy pauznuté (ať se nic nezdvojuje).
+// Pokud měříš přes tento kód, měj GA4 tagy v GTM pauznuté.
 
 export { initSklik, initGoogleAds } from "./adsPixel";
 
 // ——— Config ———
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-MDV0NDEVYR";
 const GA_DEBUG = process.env.NEXT_PUBLIC_GA_DEBUG === "1";
-const GA_FORCE_MP = process.env.NEXT_PUBLIC_GA_FORCE_MP === "1"; // volitelný přepínač: vynutit Measurement Protocol
+const GA_FORCE_MP = process.env.NEXT_PUBLIC_GA_FORCE_MP === "1";
 
 const CROSS_DOMAIN: string[] = [
   "rychlyzivotopis.cz",
@@ -19,11 +18,12 @@ const CROSS_DOMAIN: string[] = [
 
 // ——— Interní stav ———
 let gaLoaded = false;
-// opravdová připravenost gtag.js – nastavíme po onload skriptu
+// skutečná připravenost: buď po <script onload>, nebo po úspěšném gtag('get',...)
 let gaScriptReady = false;
+let gaGetReady = false;
 
 function isGtagReady(): boolean {
-  return hasWindow() && typeof window.gtag === "function" && gaScriptReady;
+  return hasWindow() && typeof window.gtag === "function" && (gaScriptReady || gaGetReady);
 }
 
 // ——— Helpers ———
@@ -48,10 +48,7 @@ function loadScriptOnce(src: string, id: string): HTMLScriptElement | null {
 /** Vytvoří proxy gtag (push do dataLayer), dokud nepřijede loader. */
 function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
-
-  if (!Array.isArray(window.dataLayer)) {
-    window.dataLayer = [];
-  }
+  if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
   if (typeof window.gtag !== "function") {
     const proxy = ((...args: unknown[]) => {
       if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
@@ -73,7 +70,19 @@ function pushGtag(...args: unknown[]): void {
   }
 }
 
-// ——— Measurement Protocol fallback (když gtag ještě „nepálí“) ———
+/** Druhý “ready” signál: gtag('get', GA_ID, 'client_id', cb) → cb se zavolá až když je knihovna plně připravena. */
+function watchGtagGetReady(): void {
+  try {
+    // voláme přes pushGtag, aby se požadavek zařadil do fronty i před dojezdem loaderu
+    pushGtag("get", GA_ID, "client_id", (_cid: unknown) => {
+      gaGetReady = true;
+    });
+  } catch {
+    // ignore
+  }
+}
+
+// ——— Measurement Protocol fallback ———
 const GA_MP_ENDPOINT = "https://www.google-analytics.com/g/collect";
 
 function hasConsentAccepted(): boolean {
@@ -134,16 +143,13 @@ function mpSend(eventName: string, extra: Record<string, unknown> = {}): void {
   params.set("dl", window.location.href);
   params.set("dt", document.title);
 
-  // extra parametry jako ep.*
   for (const [k, v] of Object.entries(extra)) {
     if (v == null) continue;
     params.set(`ep.${k}`, String(v));
   }
   if (GA_DEBUG) params.set("ep.debug_mode", "1");
 
-  // Posíláme STRING (kvůli TS/ESLint kompatibilitě)
   const body = params.toString();
-
   const ok =
     typeof navigator !== "undefined" &&
     typeof navigator.sendBeacon === "function" &&
@@ -169,7 +175,6 @@ export function setConsentDefaults(): void {
     ad_personalization: "denied",
   });
 }
-
 export function updateConsentGranted(): void {
   if (!hasWindow()) return;
   ensureGtag();
@@ -180,7 +185,6 @@ export function updateConsentGranted(): void {
     ad_personalization: "granted",
   });
 }
-
 export function updateConsentRevoked(): void {
   if (!hasWindow()) return;
   ensureGtag();
@@ -202,8 +206,6 @@ export function initGoogleAnalytics(): void {
     `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`,
     "ga4-loader"
   );
-
-  // Jakmile se skript dočte, víme, že gtag může posílat
   if (el) {
     el.addEventListener("load", () => {
       gaScriptReady = true;
@@ -212,6 +214,9 @@ export function initGoogleAnalytics(): void {
 
   // 2) Bootstrap + config
   ensureGtag();
+  // nastartuj “get client_id” watcher hned (callback proběhne až po plném initu)
+  watchGtagGetReady();
+
   pushGtag("js", new Date());
   pushGtag("config", GA_ID, {
     send_page_view: false, // SPA PV posílá _app.tsx
@@ -222,7 +227,7 @@ export function initGoogleAnalytics(): void {
   // 3) První page_view po inicializaci (aktuální URL)
   sendPageView();
 
-  // 4) Flag pro případ, že ho používáš jinde v UI (neřídíme se jím pro odesílání)
+  // 4) Nepoužíváme pro odesílání, jen kompatibilita s UI
   window.gtagInitialized = true;
 }
 
@@ -242,12 +247,11 @@ function sendPageView(): void {
       ...(GA_DEBUG ? { debug_mode: true } : {}),
     });
   } else {
-    // Fallback (když gtag ještě není „ready“ nebo je vynucen MP)
     mpSend("page_view");
   }
 }
 
-// ——— Helper pro vlastní eventy ———
+// ——— Vlastní eventy ———
 export function trackGAEvent(
   category: string,
   action: string,
@@ -267,7 +271,6 @@ export function trackGAEvent(
   if (!GA_FORCE_MP && isGtagReady()) {
     pushGtag("event", eventName, params);
   } else {
-    // Fallback – neztratí se kliky před skutečným ready
     mpSend(eventName, params);
   }
 }
@@ -286,11 +289,11 @@ export function preloadGaLoader(): void {
     el.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`;
     (document.head || document.getElementsByTagName("head")[0]).appendChild(el);
   }
-  // „ready“ až po dočtení skriptu
   el.addEventListener("load", () => {
     gaScriptReady = true;
   });
 
-  // Proxy gtag/dataLayer – ať consent default/update zapisují i bez dojetého loaderu
   ensureGtag();
+  // spustíme i “get” watcher – ať chytíme plný init i když onload proběhl dřív
+  watchGtagGetReady();
 }
