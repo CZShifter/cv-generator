@@ -52,16 +52,21 @@ export function initGoogleAds(): void {
   if (!Array.isArray(window.dataLayer)) {
     window.dataLayer = [];
   }
+
   if (typeof window.gtag !== "function") {
-    const proxy = ((...args: unknown[]) => {
+    const proxy: NonNullable<Window["gtag"]> = ((...args: unknown[]) => {
       window.dataLayer!.push(args);
-    }) as unknown as Window["gtag"];
+    }) as unknown as NonNullable<Window["gtag"]>;
+
     window.gtag = proxy;
-    window.gtag("js", new Date());
+
+    // ✅ proxy je NonNullable<Window["gtag"]>, takže volání je typově správné
+    proxy("js", new Date());
   }
 
-  // 3) Ads config
-  window.gtag("config", ADS_ID);
+  // 3) Ads config – tady už si vezmeme jistou referenci
+  const gtag = window.gtag as NonNullable<Window["gtag"]>;
+  gtag("config", ADS_ID);
 
   window.gadsInitialized = true;
 }
