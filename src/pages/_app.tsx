@@ -17,6 +17,8 @@ import HeaderSk from "@/components/sk/Header";
 import FooterSk from "@/components/sk/Footer";
 import CookieConsentSk from "@/components/sk/CookieConsent";
 
+import { initGoogleAnalytics } from "@/utils/analytics";
+
 // ── NOVÉ: speciální varianty headeru a footeru ─────────────────────────────────
 import SpecialHeaderCs from "@/components/cs/SpecialHeader";
 import SpecialHeaderSk from "@/components/sk/SpecialHeader";
@@ -222,6 +224,12 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   // SPA pageview: nasadíme listener vždy,
   // ale hit odešleme jen když (až když) je consent + gtag načten.
+  useEffect(() => {
+    if (hasAdsConsent()) {
+      initGoogleAnalytics(); // idempotentní – uvnitř si hlídá, že se nespustí dvakrát
+    }
+  }, []);
+  
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (!hasAdsConsent()) return;
