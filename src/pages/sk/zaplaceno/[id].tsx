@@ -1,8 +1,9 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaRegFilePdf, FaFileInvoice, FaCopy } from "react-icons/fa";
-import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, GOOGLE_ADS, PRICING } from "@/config/site";
 import { trackGAEvent } from "@/utils/analytics";
+import { trackAdsConversion } from "@/utils/adsPixel";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
 import SecureSection from '@/components/sk/SecureSection';
@@ -167,6 +168,28 @@ export default function ZaplacenoPage({ data }: Props) {
       setCopied(false);
     }
   };
+  //Posílá konverzi na Google Ads
+  useEffect(() => {
+    if (!id) return;
+
+    // posílat jen se souhlasem
+    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
+
+    // deduplikace – pošli pro dané id jen jednou (i při opakovaných návratech)
+    const key = `ads_conv_sent:${id}`;
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, new Date().toISOString());
+
+    // SK stránka → SK label + EUR cena/měna z configu
+    const sendTo = `${GOOGLE_ADS.ID}/${GOOGLE_ADS.LABEL_SK}`;
+    const { amount, currency } = PRICING.SK;
+
+    trackAdsConversion(sendTo, {
+      value: amount,
+      currency,
+      transaction_id: id, // pomůže Ads deduplikovat i na své straně
+    });
+  }, [id]);
 
   return (
     <>

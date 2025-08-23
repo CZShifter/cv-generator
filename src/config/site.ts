@@ -7,7 +7,7 @@ export const SITE_NAME = "RychlýŽivotopis.cz";
 export const SITE_MAIL = "rychlyzivotopis@gmail.com";
 // Základní nastavení webu SK Verze
 export const SITE_URL_SK = "https://rychlyzivotopis.sk";
-export const OG_IMAGE_SK = `${SITE_URL}/img/og-cvgen-sk.png?v=${SITE_VERSION}`;
+export const OG_IMAGE_SK = `${SITE_URL_SK}/img/og-cvgen-sk.png?v=${SITE_VERSION}`;
 export const SITE_NAME_SK = "RýchlyŽivotopis.sk";
 export const SITE_MAIL_SK = "rychlyzivotopis@gmail.com";
 // Meta icony
@@ -30,11 +30,11 @@ export const PRICE_CV_SK = 4; //Euro
 export const GA_MEASUREMENT_ID = "G-MDV0NDEVYR";    // Google Analytics 4
 export const FB_PIXEL_ID = "1234567890";           // Facebook Pixel
 export const SKLIK_ID = "123456";                  // Sklik (Seznam.cz)
-export const GOOGLE_ADS_ID = "AW-XXXXXXX";         // Google Ads Remarketing
+export const GOOGLE_ADS_ID = "AW-946651889";         // Google Ads Remarketing
 export const GOOGLE_ADS = {
   ID: GOOGLE_ADS_ID,          // celé "AW-..." z Google Ads
-  LABEL_CZ: "AbCdEfGhIjkLmNoP", // přesný Conversion Label z gTag!
-  LABEL_SK: "ZyXwVuTsRqPoNmL",  // přesný Conversion Label z gTag!
+  LABEL_CZ: "ZucBCN_VnIwbEPGFs8MD", // přesný Conversion Label z gTag!
+  LABEL_SK: "Tb2gCOLVnIwbEPGFs8MD",  // přesný Conversion Label z gTag!
 };
 export const PRICING = {
   CZ: { amount: PRICE_CV,  currency: "CZK" as const },
