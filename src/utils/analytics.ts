@@ -48,20 +48,21 @@ function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
   if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
   if (typeof window.gtag !== "function") {
-    const proxy = ((...args: any[]) => {
+    // proxy jen shromažďuje argumenty do dataLayer
+    const proxy = ((...args: unknown[]) => {
       if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
       window.dataLayer.push(args);
-    }) as Window["gtag"];
+    }) as unknown as Window["gtag"];
     window.gtag = proxy;
   }
   return window.gtag ?? null;
 }
 
-/** Volně typované volání gtag (vyhne se konfliktu s přesným unionem v global.d.ts). */
-function pushGtag(...args: any[]): void {
+/** Bezpečné volání gtag – nezkoušíme union, aby TS nehlásil chyby při různých signaturách. */
+function pushGtag(...args: unknown[]): void {
   if (!hasWindow()) return;
   if (typeof window.gtag === "function") {
-    (window.gtag as any)(...args);
+    (window.gtag as (...a: unknown[]) => void)(...args);
   } else {
     if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
     window.dataLayer.push(args);
@@ -78,6 +79,7 @@ function watchGtagGetReady(): void {
     // ignore
   }
 }
+
 
 /* --------------------------- MEASUREMENT PROTOCOL -------------------------- */
 
@@ -226,7 +228,7 @@ export function initGoogleAnalytics(): void {
   });
 
   try {
-    (window as any).gtagInitialized = true;
+    (window as Window).gtagInitialized = true;
   } catch {
     /* noop */
   }
