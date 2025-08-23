@@ -23,6 +23,8 @@ import SpecialHeaderSk from "@/components/sk/SpecialHeader";
 import SpecialFooterCs from "@/components/cs/SpecialFooter";
 import SpecialFooterSk from "@/components/sk/SpecialFooter";
 
+import { trackPageView } from "@/utils/analytics";
+
 import "@/styles/globals.scss";
 import "@/scss/main.scss";
 
@@ -213,7 +215,19 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
-  // Nastavení <html lang> při načtení i po každé změně routy
+   // NOVÉ: Volání trackPageView při každé změně routy
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      trackPageView(url);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
+  // NOVÉ: Nastavení <html lang> při načtení i po každé změně routy
   useEffect(() => {
     const applyLang = (url: string) => {
       const lang = getLangFromPath(new URL(url, window.location.origin).pathname);
@@ -237,18 +251,18 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   useGlobalErrorLogging();
 
   if (Component.noLayout) {
-  return (
-    <>
-      <ErrorBoundary>
-        <Component {...pageProps} />
-      </ErrorBoundary>
-      {/* ✅ CookieConsent musí být i tady, jinak se GA nikdy neinicializuje */}
-      <CookieConsent />
-    </>
-  );
-}
+    return (
+      <>
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
+        <CookieConsent />
+      </>
+    );
+  }
 
   const useSpecialLayout = isSpecialRoute(router.pathname);
+
 
   return (
     <>

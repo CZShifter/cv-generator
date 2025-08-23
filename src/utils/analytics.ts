@@ -225,25 +225,40 @@ export function initGoogleAnalytics(): void {
   });
 
   // 3) První page_view po inicializaci (aktuální URL)
-  sendPageView();
+  // Kód pro odeslání page_view přesunutý sem
+  const href = window.location.href;
+  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  const pageTitle = hasDocument() ? document.title : "";
+
+  if (!GA_FORCE_MP && isGtagReady()) {
+    pushGtag("event", "page_view", {
+      page_location: href,
+      page_path: path,
+      page_title: pageTitle,
+      ...(GA_DEBUG ? { debug_mode: true } : {}),
+    });
+  } else {
+    mpSend("page_view");
+  }
 
   // 4) Nepoužíváme pro odesílání, jen kompatibilita s UI
   window.gtagInitialized = true;
 }
 
 // ——— Pageviews ———
-function sendPageView(): void {
+// NOVÉ: Exportovaná funkce pro trackování zobrazení stránek v SPA
+export function trackPageView(url: string, title?: string): void {
   if (!hasWindow()) return;
 
   const href = window.location.href;
   const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-  const title = hasDocument() ? document.title : "";
+  const pageTitle = hasDocument() ? document.title : "";
 
   if (!GA_FORCE_MP && isGtagReady()) {
     pushGtag("event", "page_view", {
       page_location: href,
       page_path: path,
-      page_title: title,
+      page_title: pageTitle,
       ...(GA_DEBUG ? { debug_mode: true } : {}),
     });
   } else {
