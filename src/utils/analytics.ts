@@ -20,9 +20,23 @@ const CROSS_DOMAIN: string[] = [
 /* -------------------------------- INTERNAL --------------------------------- */
 
 let gaLoaded = false;
-let gaScriptReady = false;
-let gaGetReady = false;
+let gaScriptReady = false; // <script> dojel (onload)
+let gaGetReady = false;    // gtag('get', ...) callback proběhl (knihovna je živá)
 
+// fronta callbacků, které se mají spustit, až je GA připravené
+const readyQueue: Array<() => void> = [];
+function whenGaReady(cb: () => void) {
+  if (gaScriptReady || gaGetReady) cb();
+  else readyQueue.push(cb);
+}
+function notifyReady() {
+  const q = readyQueue.splice(0);
+  for (const cb of q) {
+    try { cb(); } catch { /* ignore */ }
+  }
+}
+
+/** Jsme skutečně připraveni posílat přes gtag (ne jen do proxy)? */
 function isGtagReady(): boolean {
   return hasWindow() && typeof window.gtag === "function" && (gaScriptReady || gaGetReady);
 }
@@ -44,6 +58,7 @@ function loadScriptOnce(src: string, id: string): HTMLScriptElement | null {
   return s;
 }
 
+/** Vytvoří proxy gtag (push do dataLayer), dokud nepřijede loader. */
 function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
   if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
@@ -57,6 +72,7 @@ function ensureGtag(): Window["gtag"] | null {
   return window.gtag ?? null;
 }
 
+/** Forward na gtag, bez union typového zacyklení. */
 function pushGtag(...args: unknown[]): void {
   if (!hasWindow()) return;
   if (typeof window.gtag === "function") {
@@ -67,10 +83,12 @@ function pushGtag(...args: unknown[]): void {
   }
 }
 
+/** Ready signál přes undocumented "get" – zavolá se, až když je GA klient hotový. */
 function watchGtagGetReady(): void {
   try {
     window.gtag?.("get", GA_ID, "client_id", () => {
       gaGetReady = true;
+      notifyReady();
     });
   } catch {
     // ignore
@@ -208,15 +226,22 @@ export function initGoogleAnalytics(onReady?: () => void): void {
     `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`,
     "ga4-loader"
   );
+
   if (el) {
+    // standardní ready z <script> onload
     el.addEventListener("load", () => {
       gaScriptReady = true;
-      if (onReady) onReady();
+      notifyReady();
     });
   }
 
+  // pokud už byl loader ready (preload dřív), zavolej onReady hned
+  if (gaScriptReady || gaGetReady) {
+    notifyReady();
+  }
+
   ensureGtag();
-  watchGtagGetReady();
+  watchGtagGetReady(); // až dojede knihovna, zvedne gaGetReady a zavolá notifyReady()
 
   pushGtag("js", new Date());
   pushGtag("config", GA_ID, {
@@ -225,6 +250,8 @@ export function initGoogleAnalytics(onReady?: () => void): void {
     ...(GA_DEBUG ? { debug_mode: true } : {}),
   });
 
+  if (onReady) whenGaReady(onReady);
+
   (window as Window).gtagInitialized = true;
 }
 
@@ -232,6 +259,7 @@ export function initGoogleAnalytics(onReady?: () => void): void {
 
 export function trackPageView(url: string, title?: string): void {
   if (!hasWindow()) return;
+
   const u = new URL(url, window.location.origin);
   const href = u.href;
   const path = u.pathname + u.search + u.hash;
@@ -277,6 +305,7 @@ export function trackGAEvent(
 
 export function preloadGaLoader(): void {
   if (!hasWindow() || !hasDocument() || !GA_ID) return;
+
   const id = "ga4-loader";
   let el = document.getElementById(id) as HTMLScriptElement | null;
 
@@ -290,6 +319,7 @@ export function preloadGaLoader(): void {
 
   el.addEventListener("load", () => {
     gaScriptReady = true;
+    notifyReady();
   });
 
   ensureGtag();

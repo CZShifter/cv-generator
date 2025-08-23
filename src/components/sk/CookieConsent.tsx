@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   initGoogleAnalytics,
   initSklik,
@@ -13,6 +13,7 @@ import styles from "@/scss/CookieConsent.module.scss";
 
 const COOKIE_NAME = "cookie_consent_v1";
 const ONE_YEAR = 60 * 60 * 24 * 365;
+const FIRST_PV_FALLBACK_MS = 1500;
 
 type CookieState = "unset" | "accepted_all" | "essential_only";
 
@@ -34,6 +35,7 @@ function getCookie(name: string) {
   return item ? decodeURIComponent(item) : null;
 }
 
+/** Zajistí existenci dataLayer a proxy gtag, aby šly volat consent/gtag dřív, než se stáhne loader. */
 function ensureGtag(): boolean {
   if (typeof window === "undefined") return false;
   window.dataLayer = window.dataLayer || [];
@@ -48,27 +50,50 @@ function ensureGtag(): boolean {
 const CookieConsent: React.FC = () => {
   const [state, setState] = useState<CookieState>("unset");
   const [show, setShow] = useState(false);
+  const firstPvSent = useRef(false);
+
+  /** Spustí GA init a zajistí první PV přes onReady + fallback */
+  const startAnalyticsWithFirstPV = () => {
+    ensureGtag();
+    updateConsentGranted();
+
+    // onReady: odešleme PV až když je loader hotový
+    initGoogleAnalytics(() => {
+      if (!firstPvSent.current) {
+        trackPageView(window.location.href);
+        firstPvSent.current = true;
+      }
+    });
+
+    // fallback: kdyby onReady nepřišel (třeba kvůli preloaderu/edge-case), pošleme PV po timeoutu
+    window.setTimeout(() => {
+      if (!firstPvSent.current) {
+        trackPageView(window.location.href);
+        firstPvSent.current = true;
+      }
+    }, FIRST_PV_FALLBACK_MS);
+
+    // marketingové pixely (nezávisle na GA ready)
+    initSklik();
+    initGoogleAds();
+  };
 
   useEffect(() => {
+    // 0) připrav gtag + Consent default a předehřej loader
     ensureGtag();
     setConsentDefaults();
     preloadGaLoader();
 
+    // 1) načti uložený stav souhlasu
     const ls = typeof window !== "undefined" ? localStorage.getItem(COOKIE_NAME) : null;
     const ck = getCookie(COOKIE_NAME);
     const consent = (ls ?? ck) as CookieState | null;
 
     if (consent === "accepted_all") {
       setState("accepted_all");
-      ensureGtag();
-      updateConsentGranted();
+      startAnalyticsWithFirstPV();
 
-      initGoogleAnalytics(() => {
-        trackPageView(window.location.href);
-      });
-      initSklik();
-      initGoogleAds();
-
+      // sync persistencí
       if (!ls) localStorage.setItem(COOKIE_NAME, "accepted_all");
       if (!ck) setCookie(COOKIE_NAME, "accepted_all");
 
@@ -83,6 +108,7 @@ const CookieConsent: React.FC = () => {
 
       setShow(false);
     } else {
+      // 2) zobraz popup jen pokud není rozhodnuto
       const timer = setTimeout(() => setShow(true), 1000);
       return () => clearTimeout(timer);
     }
@@ -93,15 +119,7 @@ const CookieConsent: React.FC = () => {
     setCookie(COOKIE_NAME, "accepted_all");
     setState("accepted_all");
 
-    ensureGtag();
-    updateConsentGranted();
-
-    initGoogleAnalytics(() => {
-      trackPageView(window.location.href);
-    });
-    initSklik();
-    initGoogleAds();
-
+    startAnalyticsWithFirstPV();
     setShow(false);
   };
 
