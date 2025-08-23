@@ -17,8 +17,6 @@ import HeaderSk from "@/components/sk/Header";
 import FooterSk from "@/components/sk/Footer";
 import CookieConsentSk from "@/components/sk/CookieConsent";
 
-import { initGoogleAnalytics, preloadGaLoader } from "@/utils/analytics";
-
 // ── NOVÉ: speciální varianty headeru a footeru ─────────────────────────────────
 import SpecialHeaderCs from "@/components/cs/SpecialHeader";
 import SpecialHeaderSk from "@/components/sk/SpecialHeader";
@@ -41,13 +39,6 @@ function getLangFromPath(pathname: string) {
   if (pathname.startsWith("/sk")) return "sk";
   if (pathname.startsWith("/cs")) return "cs";
   return "cs"; // fallback
-}
-
-// Přečtení souhlasu z cookie (stejný název jako v CookieConsent)
-function hasAdsConsent() {
-  if (typeof document === "undefined") return false;
-  const m = document.cookie.match(/(?:^|;\s*)cookie_consent_v1=([^;]+)/);
-  return m ? decodeURIComponent(m[1]) === "accepted_all" : false;
 }
 
 // ── NOVÉ: seznam segmentů, kde chceme SPECIAL header+footer ───────────────────
@@ -221,18 +212,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const SpecialFooter = isSk ? SpecialFooterSk : SpecialFooterCs;
 
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
-
-  // 1) ⬇⬇⬇ Přidej tento hook hodně vysoko (hned po definicích), ať se loader načte co nejdřív
-  useEffect(() => {
-    preloadGaLoader();
-  }, []);
-
-  // 2) Fallback init po mountu, pokud už je souhlas udělen
-  useEffect(() => {
-    if (hasAdsConsent()) {
-      initGoogleAnalytics();
-    }
-  }, []);
 
   // Nastavení <html lang> při načtení i po každé změně routy
   useEffect(() => {
