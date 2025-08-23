@@ -1,13 +1,23 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
 import { FaEdit, FaRegFilePdf, FaFileInvoice, FaCopy } from "react-icons/fa";
-import { SITE_URL, SITE_URL_SK, SITE_NAME, OG_IMAGE, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, GOOGLE_ADS, PRICING } from "@/config/site";
+import {
+  SITE_URL,
+  SITE_URL_SK,
+  SITE_NAME,
+  OG_IMAGE,
+  FAVICON_URL_32,
+  FAVICON_URL_192,
+  APPLE_TOUCH_ICON_URL,
+  GOOGLE_ADS,
+  PRICING,
+} from "@/config/site";
 import { trackGAEvent } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import { trackAdsConversion } from "@/utils/adsPixel";
 import styles from "@/scss/zaplaceno.module.scss";
 import Head from "next/head";
-import SecureSection from '@/components/cs/SecureSection';
+import SecureSection from "@/components/cs/SecureSection";
 
 type CvEntry = {
   id: string;
@@ -46,7 +56,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   };
 };
 
-
 // Generuje bezpečný název souboru
 function generateFilename(name?: string, surname?: string): string {
   const sanitize = (str: string) =>
@@ -65,12 +74,15 @@ function generateFilename(name?: string, surname?: string): string {
 }
 
 export default function ZaplacenoPage({ data }: Props) {
-  // Unconditional hook calls
+  // ——— stavy (hooks musí být vždy volané) ———
   const [remainingMs, setRemainingMs] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Effect to update countdown
+  // Bezpečné ID pro hooky (může být undefined při prvním renderu nebo když data nejsou)
+  const entryId = data?.id;
+
+  // Countdown efekt — hook je vždy zaregistrovaný
   useEffect(() => {
     if (!data) return;
 
@@ -86,6 +98,30 @@ export default function ZaplacenoPage({ data }: Props) {
     return () => clearInterval(interval);
   }, [data]);
 
+  // Odeslání Google Ads konverze (pouze jednou pro dané entryId, a jen po souhlasu)
+  useEffect(() => {
+    if (!entryId) return;
+
+    // posílej jen se souhlasem
+    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
+
+    // deduplikace – pošli pro dané id jen jednou (i když se uživatel často vrací)
+    const key = `ads_conv_sent:${entryId}`;
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, new Date().toISOString());
+
+    // CZ stránka → použij CZ label + CZ cenu/měnu
+    const sendTo = `${GOOGLE_ADS.ID}/${GOOGLE_ADS.LABEL_CZ}`;
+    const { amount, currency } = PRICING.CZ;
+
+    trackAdsConversion(sendTo, {
+      value: amount,
+      currency,
+      transaction_id: entryId, // pomůže Ads deduplikovat
+    });
+  }, [entryId]);
+
+  // ——— early return až po registraci všech hooků ———
   if (!data) {
     return (
       <div className={styles.Errorwrapper}>
@@ -97,10 +133,11 @@ export default function ZaplacenoPage({ data }: Props) {
     );
   }
 
+  // Dál už můžeš pracovat s konkrétními daty
   const { id, pdf_url, invoice_url, expires_at, cv_json } = data;
   const isExpired = Date.now() > new Date(expires_at).getTime();
 
-  const pageUrl   = `${SITE_URL}/cs/zaplaceno/${id}/`;
+  const pageUrl = `${SITE_URL}/cs/zaplaceno/${id}/`;
   const pageUrlSk = `${SITE_URL_SK}/sk/zaplaceno/${id}/`;
 
   const name = cv_json?.name;
@@ -127,7 +164,9 @@ export default function ZaplacenoPage({ data }: Props) {
   // Funkce pro programové stažení PDF
   const downloadPdf = async () => {
     try {
-      const res = await fetch(`/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}`);
+      const res = await fetch(
+        `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}`
+      );
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
 
@@ -145,7 +184,11 @@ export default function ZaplacenoPage({ data }: Props) {
   // Funkce pro programové stažení faktury
   const downloadInvoice = async () => {
     try {
-      const res = await fetch(`/api/download-invoice?path=${encodeURIComponent(invoicePath)}&filename=Doklad_${id}.pdf`);
+      const res = await fetch(
+        `/api/download-invoice?path=${encodeURIComponent(
+          invoicePath
+        )}&filename=Doklad_${id}.pdf`
+      );
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -169,28 +212,6 @@ export default function ZaplacenoPage({ data }: Props) {
       setCopied(false);
     }
   };
-  //Odešle konverzy do Google Ads
-  useEffect(() => {
-    if (!id) return;
-
-    // posílej jen se souhlasem
-    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
-
-    // deduplikace – pošli pro dané id jen jednou (i když se uživatel často vrací)
-    const key = `ads_conv_sent:${id}`;
-    if (localStorage.getItem(key)) return;
-    localStorage.setItem(key, new Date().toISOString());
-
-    // CZ stránka → použij CZ label + CZ cenu/měnu
-    const sendTo = `${GOOGLE_ADS.ID}/${GOOGLE_ADS.LABEL_CZ}`;
-    const { amount, currency } = PRICING.CZ;
-
-    trackAdsConversion(sendTo, {
-      value: amount,
-      currency,
-      transaction_id: id, // pomůže Ads deduplikovat
-    });
-  }, [id]);
 
   return (
     <>
@@ -200,7 +221,8 @@ export default function ZaplacenoPage({ data }: Props) {
         <meta name="googlebot" content="noindex, nofollow" />
         <meta
           name="description"
-          content="Váš životopis byl úspěšně vytvořen a je připraven ke stažení."/>
+          content="Váš životopis byl úspěšně vytvořen a je připraven ke stažení."
+        />
         {/* Favikony */}
         <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
@@ -210,10 +232,14 @@ export default function ZaplacenoPage({ data }: Props) {
         <link rel="alternate" href={pageUrlSk} hrefLang="sk-SK" />
         <link rel="alternate" href={pageUrl} hrefLang="x-default" />
         {/* Volitelně OG/Twitter metadata pro interní sdílení */}
-        <meta property="og:title" content={`Životopis byl úspěšně vytvořen | ${SITE_NAME}`} />
+        <meta
+          property="og:title"
+          content={`Životopis byl úspěšně vytvořen | ${SITE_NAME}`}
+        />
         <meta
           property="og:description"
-          content="Váš životopis byl úspěšně vytvořen a je připraven ke stažení."/>
+          content="Váš životopis byl úspěšně vytvořen a je připraven ke stažení."
+        />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:alt" content="Potvrzení o úspěšném vytvoření životopisu" />
       </Head>
