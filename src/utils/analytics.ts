@@ -250,9 +250,9 @@ export function initGoogleAnalytics(): void {
 export function trackPageView(url: string, title?: string): void {
   if (!hasWindow()) return;
 
-  const href = window.location.href;
-  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-  const pageTitle = hasDocument() ? document.title : "";
+  const href = new URL(url, window.location.origin).href;
+  const path = new URL(url, window.location.origin).pathname;
+  const pageTitle = title || (hasDocument() ? document.title : "");
 
   if (!GA_FORCE_MP && isGtagReady()) {
     pushGtag("event", "page_view", {

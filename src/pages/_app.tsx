@@ -23,7 +23,7 @@ import SpecialHeaderSk from "@/components/sk/SpecialHeader";
 import SpecialFooterCs from "@/components/cs/SpecialFooter";
 import SpecialFooterSk from "@/components/sk/SpecialFooter";
 
-import { trackPageView } from "@/utils/analytics";
+import { initGoogleAnalytics, trackPageView } from "@/utils/analytics";
 
 import "@/styles/globals.scss";
 import "@/scss/main.scss";
