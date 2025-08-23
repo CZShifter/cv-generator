@@ -48,7 +48,6 @@ function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
   if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
   if (typeof window.gtag !== "function") {
-    // proxy jen shromažďuje argumenty do dataLayer
     const proxy = ((...args: unknown[]) => {
       if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
       window.dataLayer.push(args);
@@ -58,7 +57,6 @@ function ensureGtag(): Window["gtag"] | null {
   return window.gtag ?? null;
 }
 
-/** Bezpečné volání gtag – nezkoušíme union, aby TS nehlásil chyby při různých signaturách. */
 function pushGtag(...args: unknown[]): void {
   if (!hasWindow()) return;
   if (typeof window.gtag === "function") {
@@ -69,7 +67,6 @@ function pushGtag(...args: unknown[]): void {
   }
 }
 
-/** Signál připravenosti (využívá undocumented "get"). */
 function watchGtagGetReady(): void {
   try {
     window.gtag?.("get", GA_ID, "client_id", () => {
@@ -79,7 +76,6 @@ function watchGtagGetReady(): void {
     // ignore
   }
 }
-
 
 /* --------------------------- MEASUREMENT PROTOCOL -------------------------- */
 
@@ -203,7 +199,8 @@ export function updateConsentRevoked(): void {
 
 /* ---------------------------------- GA INIT -------------------------------- */
 
-export function initGoogleAnalytics(): void {
+/** Přidá GA loader a volitelný callback po načtení */
+export function initGoogleAnalytics(onReady?: () => void): void {
   if (!hasWindow() || !hasDocument() || gaLoaded || !GA_ID) return;
   gaLoaded = true;
 
@@ -214,6 +211,7 @@ export function initGoogleAnalytics(): void {
   if (el) {
     el.addEventListener("load", () => {
       gaScriptReady = true;
+      if (onReady) onReady();
     });
   }
 
@@ -227,11 +225,7 @@ export function initGoogleAnalytics(): void {
     ...(GA_DEBUG ? { debug_mode: true } : {}),
   });
 
-  try {
-    (window as Window).gtagInitialized = true;
-  } catch {
-    /* noop */
-  }
+  (window as Window).gtagInitialized = true;
 }
 
 /* -------------------------------- PAGEVIEWS -------------------------------- */
