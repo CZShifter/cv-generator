@@ -8,7 +8,7 @@ import {
   updateConsentRevoked,
 } from "@/utils/analytics";
 import styles from "@/scss/CookieConsent.module.scss";
-import { preloadGaLoader } from "@/utils/analytics";
+import { preloadGaLoader, trackPageView } from "@/utils/analytics";
 
 const COOKIE_NAME = "cookie_consent_v1";
 const ONE_YEAR = 60 * 60 * 24 * 365;
@@ -72,14 +72,18 @@ const CookieConsent: React.FC = () => {
       ensureGtag();
       updateConsentGranted();
 
-      // ② potom inicializace měření (config + náš ruční page_view v appce)
+      // ② potom inicializace měření (config) a HNED ruční page_view
       initGoogleAnalytics();
       initSklik();
       initGoogleAds();
+      trackPageView(window.location.href); // ⬅️ NOVÉ: probouzí GA bez nutnosti refresh
 
       // sync uložených hodnot
       if (!ls) localStorage.setItem(COOKIE_NAME, "accepted_all");
       if (!ck) setCookie(COOKIE_NAME, "accepted_all");
+
+      // už nic nezobrazuj
+      setShow(false);
     } else if (consent === "essential_only") {
       setState("essential_only");
 
@@ -88,11 +92,13 @@ const CookieConsent: React.FC = () => {
 
       if (!ls) localStorage.setItem(COOKIE_NAME, "essential_only");
       if (!ck) setCookie(COOKIE_NAME, "essential_only");
-    }
 
-    // 2) Zobraz popup jen pokud není rozhodnuto
-    const timer = setTimeout(() => setShow(true), 1000);
-    return () => clearTimeout(timer);
+      setShow(false);
+    } else {
+      // 2) Zobraz popup jen pokud není rozhodnuto
+      const timer = setTimeout(() => setShow(true), 1000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const acceptAll = () => {
@@ -107,6 +113,11 @@ const CookieConsent: React.FC = () => {
     initGoogleAnalytics();
     initSklik();
     initGoogleAds();
+
+    // ⬅️ NOVÉ: ruční PV hned po souhlasu (bez změny routy)
+    trackPageView(window.location.href);
+
+    setShow(false);
   };
 
   const acceptEssential = () => {
@@ -116,6 +127,8 @@ const CookieConsent: React.FC = () => {
 
     ensureGtag();
     updateConsentRevoked();
+
+    setShow(false);
   };
 
   if (!show || state !== "unset") return null;

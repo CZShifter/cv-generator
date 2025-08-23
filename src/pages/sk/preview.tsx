@@ -413,7 +413,7 @@ export default function Preview() {
                 <button
                   className={stylesPreview.startButton}
                   onClick={() => {
-                    trackGAEvent('click', 'zvolena_sablona', selectedTemplateId);
+                    trackGAEvent('click', 'zvolena_sablona', String(selectedTemplateId));
                     setCvData(emptyData);
                     setStarted(true);
                   }}>

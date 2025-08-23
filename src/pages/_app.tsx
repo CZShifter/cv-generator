@@ -215,6 +215,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const CookieConsent = isSk ? CookieConsentSk : CookieConsentCs;
 
+  useEffect(() => {
+    // po prvním mountu pošli PV na aktuální URL
+    trackPageView(window.location.href);
+  }, []);
+
    // NOVÉ: Volání trackPageView při každé změně routy
   useEffect(() => {
     const handleRouteChange = (url: string) => {

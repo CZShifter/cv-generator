@@ -4,7 +4,8 @@
 
 export { initSklik, initGoogleAds } from "./adsPixel";
 
-// ——— Config ———
+/* ---------------------------------- CONFIG --------------------------------- */
+
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-MDV0NDEVYR";
 const GA_DEBUG = process.env.NEXT_PUBLIC_GA_DEBUG === "1";
 const GA_FORCE_MP = process.env.NEXT_PUBLIC_GA_FORCE_MP === "1";
@@ -16,9 +17,9 @@ const CROSS_DOMAIN: string[] = [
   "www.rychlyzivotopis.sk",
 ];
 
-// ——— Interní stav ———
+/* -------------------------------- INTERNAL --------------------------------- */
+
 let gaLoaded = false;
-// skutečná připravenost: buď po <script onload>, nebo po úspěšném gtag('get',...)
 let gaScriptReady = false;
 let gaGetReady = false;
 
@@ -26,13 +27,11 @@ function isGtagReady(): boolean {
   return hasWindow() && typeof window.gtag === "function" && (gaScriptReady || gaGetReady);
 }
 
-// ——— Helpers ———
-function hasWindow(): boolean {
-  return typeof window !== "undefined";
-}
-function hasDocument(): boolean {
-  return typeof document !== "undefined";
-}
+/* -------------------------------- HELPERS ---------------------------------- */
+
+function hasWindow(): boolean { return typeof window !== "undefined"; }
+function hasDocument(): boolean { return typeof document !== "undefined"; }
+
 function loadScriptOnce(src: string, id: string): HTMLScriptElement | null {
   if (!hasDocument()) return null;
   const existing = document.getElementById(id) as HTMLScriptElement | null;
@@ -45,36 +44,34 @@ function loadScriptOnce(src: string, id: string): HTMLScriptElement | null {
   return s;
 }
 
-/** Vytvoří proxy gtag (push do dataLayer), dokud nepřijede loader. */
 function ensureGtag(): Window["gtag"] | null {
   if (!hasWindow()) return null;
   if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
   if (typeof window.gtag !== "function") {
-    const proxy = ((...args: unknown[]) => {
+    const proxy = ((...args: any[]) => {
       if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
       window.dataLayer.push(args);
-    }) as unknown as Window["gtag"];
+    }) as Window["gtag"];
     window.gtag = proxy;
   }
   return window.gtag ?? null;
 }
 
-/** Bezpečné volání gtag bez typových kolizí (funguje i bez loaderu). */
-function pushGtag(...args: unknown[]): void {
+/** Volně typované volání gtag (vyhne se konfliktu s přesným unionem v global.d.ts). */
+function pushGtag(...args: any[]): void {
   if (!hasWindow()) return;
   if (typeof window.gtag === "function") {
-    (window.gtag as unknown as (...a: unknown[]) => void)(...args);
+    (window.gtag as any)(...args);
   } else {
     if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
     window.dataLayer.push(args);
   }
 }
 
-/** Druhý “ready” signál: gtag('get', GA_ID, 'client_id', cb) → cb se zavolá až když je knihovna plně připravena. */
+/** Signál připravenosti (využívá undocumented "get"). */
 function watchGtagGetReady(): void {
   try {
-    // voláme přes pushGtag, aby se požadavek zařadil do fronty i před dojezdem loaderu
-    pushGtag("get", GA_ID, "client_id", () => {
+    window.gtag?.("get", GA_ID, "client_id", () => {
       gaGetReady = true;
     });
   } catch {
@@ -82,7 +79,8 @@ function watchGtagGetReady(): void {
   }
 }
 
-// ——— Measurement Protocol fallback ———
+/* --------------------------- MEASUREMENT PROTOCOL -------------------------- */
+
 const GA_MP_ENDPOINT = "https://www.google-analytics.com/g/collect";
 
 function hasConsentAccepted(): boolean {
@@ -94,6 +92,7 @@ function hasConsentAccepted(): boolean {
     return false;
   }
 }
+
 function getOrCreateCid(): string {
   try {
     const k = "_ga_cid_v1";
@@ -106,10 +105,11 @@ function getOrCreateCid(): string {
     return `${Date.now()}.${Math.floor(Math.random() * 1e6)}`;
   }
 }
+
 function getOrCreateSid(): string {
   try {
     const k = "_ga_sid_v1";
-    const ttlMs = 30 * 60 * 1000; // 30 min
+    const ttlMs = 30 * 60 * 1000;
     const now = Date.now();
     const raw = window.localStorage.getItem(k);
     if (raw) {
@@ -127,7 +127,6 @@ function getOrCreateSid(): string {
   }
 }
 
-/** Odeslání eventu přímo do GA4 (fallback), jen pokud je souhlas. */
 function mpSend(eventName: string, extra: Record<string, unknown> = {}): void {
   if (!hasWindow() || !hasDocument() || !GA_ID || !hasConsentAccepted()) return;
 
@@ -160,11 +159,13 @@ function mpSend(eventName: string, extra: Record<string, unknown> = {}): void {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
+      keepalive: true,
     });
   }
 }
 
-// ——— Consent Mode v2 ———
+/* ------------------------------ CONSENT MODE ------------------------------- */
+
 export function setConsentDefaults(): void {
   if (!hasWindow()) return;
   ensureGtag();
@@ -175,6 +176,7 @@ export function setConsentDefaults(): void {
     ad_personalization: "denied",
   });
 }
+
 export function updateConsentGranted(): void {
   if (!hasWindow()) return;
   ensureGtag();
@@ -185,6 +187,7 @@ export function updateConsentGranted(): void {
     ad_personalization: "granted",
   });
 }
+
 export function updateConsentRevoked(): void {
   if (!hasWindow()) return;
   ensureGtag();
@@ -196,12 +199,12 @@ export function updateConsentRevoked(): void {
   });
 }
 
-// ——— GA4 init ———
+/* ---------------------------------- GA INIT -------------------------------- */
+
 export function initGoogleAnalytics(): void {
   if (!hasWindow() || !hasDocument() || gaLoaded || !GA_ID) return;
   gaLoaded = true;
 
-  // 1) Loader
   const el = loadScriptOnce(
     `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`,
     "ga4-loader"
@@ -212,46 +215,30 @@ export function initGoogleAnalytics(): void {
     });
   }
 
-  // 2) Bootstrap + config
   ensureGtag();
-  // nastartuj “get client_id” watcher hned (callback proběhne až po plném initu)
   watchGtagGetReady();
 
   pushGtag("js", new Date());
   pushGtag("config", GA_ID, {
-    send_page_view: false, // SPA PV posílá _app.tsx
+    send_page_view: false,
     linker: { domains: CROSS_DOMAIN },
     ...(GA_DEBUG ? { debug_mode: true } : {}),
   });
 
-  // 3) První page_view po inicializaci (aktuální URL)
-  // Kód pro odeslání page_view přesunutý sem
-  const href = window.location.href;
-  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-  const pageTitle = hasDocument() ? document.title : "";
-
-  if (!GA_FORCE_MP && isGtagReady()) {
-    pushGtag("event", "page_view", {
-      page_location: href,
-      page_path: path,
-      page_title: pageTitle,
-      ...(GA_DEBUG ? { debug_mode: true } : {}),
-    });
-  } else {
-    mpSend("page_view");
+  try {
+    (window as any).gtagInitialized = true;
+  } catch {
+    /* noop */
   }
-
-  // 4) Nepoužíváme pro odesílání, jen kompatibilita s UI
-  window.gtagInitialized = true;
 }
 
-// ——— Pageviews ———
-// NOVÉ: Exportovaná funkce pro trackování zobrazení stránek v SPA
+/* -------------------------------- PAGEVIEWS -------------------------------- */
+
 export function trackPageView(url: string, title?: string): void {
   if (!hasWindow()) return;
-
-  const href = new URL(url, window.location.origin).href;
-  const path = new URL(url, window.location.origin).pathname;
+  const u = new URL(url, window.location.origin);
+  const href = u.href;
+  const path = u.pathname + u.search + u.hash;
   const pageTitle = title || (hasDocument() ? document.title : "");
 
   if (!GA_FORCE_MP && isGtagReady()) {
@@ -266,7 +253,8 @@ export function trackPageView(url: string, title?: string): void {
   }
 }
 
-// ——— Vlastní eventy ———
+/* --------------------------------- EVENTS ---------------------------------- */
+
 export function trackGAEvent(
   category: string,
   action: string,
@@ -274,7 +262,6 @@ export function trackGAEvent(
   value?: number
 ): void {
   if (!hasWindow()) return;
-
   const eventName = action || category || "event";
   const params: Record<string, unknown> = {
     event_category: category,
@@ -290,10 +277,10 @@ export function trackGAEvent(
   }
 }
 
-// ——— Early loader pro validátory/Preview (bez configu) ———
-export function preloadGaLoader(): void {
-  if (!hasWindow() || !hasDocument()) return;
+/* ------------------------------ EARLY PRELOAD ------------------------------ */
 
+export function preloadGaLoader(): void {
+  if (!hasWindow() || !hasDocument() || !GA_ID) return;
   const id = "ga4-loader";
   let el = document.getElementById(id) as HTMLScriptElement | null;
 
@@ -304,11 +291,11 @@ export function preloadGaLoader(): void {
     el.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_ID)}`;
     (document.head || document.getElementsByTagName("head")[0]).appendChild(el);
   }
+
   el.addEventListener("load", () => {
     gaScriptReady = true;
   });
 
   ensureGtag();
-  // spustíme i “get” watcher – ať chytíme plný init i když onload proběhl dřív
   watchGtagGetReady();
 }

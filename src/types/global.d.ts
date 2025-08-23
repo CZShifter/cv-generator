@@ -1,4 +1,3 @@
-// types/global.d.ts
 export {};
 
 declare global {
@@ -29,17 +28,19 @@ declare global {
     [key: string]: unknown;
   }
 
-  // Minimální superset pro parametry eventů (bez any)
+  // Minimální superset pro parametry eventů
   type GtagEventParams = Record<string, unknown>;
 
   interface Window {
-    // ——— VAŠE stávající pole (ponecháno) ———
     gtag?: {
       (command: "js", date: Date): void;
       (command: "config", targetId: string, params?: Record<string, unknown>): void;
       (command: "event", eventName: string, params?: Record<string, unknown>): void;
-      (command: "consent", action: "default" | "update", params: Record<string, string>): void;
+      (command: "consent", action: GtagConsentAction, params: GtagConsentParams): void;
+      // undocumented, ale používané pro zjištění připravenosti klienta
+      (command: "get", targetId: string, fieldName: string, callback: (value: unknown) => void): void;
     };
+
     dataLayer?: unknown[];
 
     gtagInitialized?: boolean;
