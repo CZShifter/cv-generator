@@ -35,14 +35,15 @@ function getCookie(name: string) {
   return item ? decodeURIComponent(item) : null;
 }
 
-/** Zajistí existenci dataLayer a proxy gtag, aby šly volat consent/gtag dřív, než se stáhne loader. */
+/** Kompatibilní proxy gtag – pushuje `arguments` (ne pole), aby loader vyzvedl frontu. */
 function ensureGtag(): boolean {
   if (typeof window === "undefined") return false;
   window.dataLayer = window.dataLayer || [];
   if (typeof window.gtag !== "function") {
-    window.gtag = ((...args: unknown[]) => {
-      window.dataLayer!.push(args as unknown);
-    }) as unknown as Window["gtag"];
+    window.gtag = function gtagProxy(this: unknown): void {
+      // eslint-disable-next-line prefer-rest-params
+      (window.dataLayer as unknown[]).push(arguments as unknown);
+    } as unknown as Window["gtag"];
   }
   return true;
 }
@@ -52,28 +53,30 @@ const CookieConsent: React.FC = () => {
   const [show, setShow] = useState(false);
   const firstPvSent = useRef(false);
 
-  /** Spustí GA init a zajistí první PV přes onReady + fallback */
+  const sendFirstPVOnce = () => {
+    if (!firstPvSent.current) {
+      trackPageView(window.location.href); // pokud gtag není ready, odešle se přes MP
+      firstPvSent.current = true;
+    }
+  };
+
+  /** Spustí GA init a zajistí první PV: hned (MP), po onReady i s pojistkou. */
   const startAnalyticsWithFirstPV = () => {
     ensureGtag();
     updateConsentGranted();
 
-    // onReady: odešleme PV až když je loader hotový
+    // 1) HNED po souhlasu (MP fallback – bez čekání na loader)
+    sendFirstPVOnce();
+
+    // 2) Až dojede loader, zkus to znovu (už se nepošle podruhé)
     initGoogleAnalytics(() => {
-      if (!firstPvSent.current) {
-        trackPageView(window.location.href);
-        firstPvSent.current = true;
-      }
+      sendFirstPVOnce();
     });
 
-    // fallback: kdyby onReady nepřišel (třeba kvůli preloaderu/edge-case), pošleme PV po timeoutu
-    window.setTimeout(() => {
-      if (!firstPvSent.current) {
-        trackPageView(window.location.href);
-        firstPvSent.current = true;
-      }
-    }, FIRST_PV_FALLBACK_MS);
+    // 3) Pojistka, kdyby callback nepřišel (např. preloader/adblock edge case)
+    window.setTimeout(sendFirstPVOnce, FIRST_PV_FALLBACK_MS);
 
-    // marketingové pixely (nezávisle na GA ready)
+    // 4) Marketingové pixely
     initSklik();
     initGoogleAds();
   };
