@@ -60,14 +60,14 @@ function loadScriptOnce(src: string, id: string): HTMLScriptElement | null {
 
 /** Vytvoří proxy gtag (push do dataLayer), dokud nepřijede loader. */
 function ensureGtag(): Window["gtag"] | null {
-  if (!hasWindow()) return null;
-  if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
+  if (typeof window === "undefined") return null;
+  window.dataLayer = window.dataLayer || [];
   if (typeof window.gtag !== "function") {
-    const proxy = ((...args: unknown[]) => {
-      if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
-      window.dataLayer.push(args);
-    }) as unknown as Window["gtag"];
-    window.gtag = proxy;
+    // DŮLEŽITÉ: používej 'arguments' (IArguments), ne pole – gtag loader s tím umí počítat 100% spolehlivě
+    window.gtag = function gtagProxy(this: unknown): void {
+      // eslint-disable-next-line prefer-rest-params
+      (window.dataLayer as unknown[]).push(arguments as unknown);
+    } as unknown as Window["gtag"];
   }
   return window.gtag ?? null;
 }
