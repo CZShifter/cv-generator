@@ -12,7 +12,7 @@ import {
   GOOGLE_ADS,
   PRICING,
 } from "@/config/site";
-import { trackGAEvent } from "@/utils/analytics";
+import { trackGAEvent, trackGaPurchase } from "@/utils/analytics";
 import { trackAdsConversion } from "@/utils/adsPixel";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -51,9 +51,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     return { props: { data: null } };
   }
 
-  return {
-    props: { data },
-  };
+  return { props: { data } };
 };
 
 // Generuje bezpečný názov súboru
@@ -117,6 +115,33 @@ export default function ZaplacenoPage({ data }: Props) {
       value: amount,
       currency,
       transaction_id: entryId, // pomáha Ads s deduplikáciou
+    });
+  }, [entryId]);
+
+  // GA4 purchase — len raz na entryId a len so súhlasom
+  useEffect(() => {
+    if (!entryId) return;
+    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
+
+    const key = `ga4_purchase_sent:${entryId}`;
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, new Date().toISOString());
+
+    const { amount, currency } = PRICING.SK;
+
+    // Odporúčané parametre GA4 purchase
+    trackGaPurchase({
+      transaction_id: entryId,
+      value: amount,
+      currency,
+      items: [
+        {
+          item_id: "cv_pdf_SK",
+          item_name: "Životopis PDF",
+          price: amount,
+          quantity: 1,
+        },
+      ],
     });
   }, [entryId]);
 

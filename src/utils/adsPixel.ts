@@ -8,6 +8,7 @@ const ADS_ID =
   process.env.NEXT_PUBLIC_ADS_ID ||
   process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ||
   ""; // např. "AW-1234567890"
+
 const ADS_DEBUG = process.env.NEXT_PUBLIC_GA_DEBUG === "1";
 
 function hasWindow(): boolean { return typeof window !== "undefined"; }
@@ -64,8 +65,8 @@ export function initGoogleAds(): void {
   gadsLoaded = true;
 
   // Nepřidávej nový loader, pokud už je nějaký gtag loader v DOM
-  const hasAnyGtagLoader = [...document.scripts].some(s =>
-    typeof s.src === "string" && s.src.includes("googletagmanager.com/gtag/js")
+  const hasAnyGtagLoader = Array.from(document.scripts).some(
+    (s) => typeof s.src === "string" && s.src.includes("googletagmanager.com/gtag/js")
   );
 
   if (!hasAnyGtagLoader) {
@@ -78,14 +79,18 @@ export function initGoogleAds(): void {
 
   ensureGtag();
 
-  // Ads config – conversion linker + EC povolené (pošleme jen když dodáš data)
+  // Ads config – conversion linker + Enhanced Conversions povolené
   pushGtag("config", ADS_ID, {
     conversion_linker: true,
     allow_enhanced_conversions: true,
     ...(ADS_DEBUG ? { debug_mode: true } : {}),
   });
 
-  try { (window as Window).gadsInitialized = true; } catch { /* noop */ }
+  try {
+    (window as Window).gadsInitialized = true;
+  } catch {
+    /* noop */
+  }
 }
 
 /** Odeslání konverze Google Ads.
@@ -124,7 +129,6 @@ export function trackAdsRemarketing(params: Record<string, unknown> = {}): void 
 }
 
 /* ---------------------- ENHANCED CONVERSIONS (volitelné) -------------------- */
-
 /** EC – email (gtag sám bezpečně zhashuje). Volat jen se souhlasem. */
 export function setEnhancedConversionEmail(email: string): void {
   if (!hasWindow() || !ADS_ID || !email) return;
@@ -132,7 +136,7 @@ export function setEnhancedConversionEmail(email: string): void {
   pushGtag("set", "user_data", { email });
 }
 
-/** EC – rozšířená data (gtag sám hashuje). */
+/** EC – rozšířená data (gtag sám hashuje). Volat jen se souhlasem. */
 export function setEnhancedConversionData(data: {
   email?: string;
   phone_number?: string;

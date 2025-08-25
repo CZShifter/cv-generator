@@ -78,8 +78,9 @@ function pushGtag(...args: unknown[]): void {
   if (typeof window.gtag === "function") {
     (window.gtag as (...a: unknown[]) => void)(...args);
   } else {
-    if (!Array.isArray(window.dataLayer)) window.dataLayer = [];
-    window.dataLayer.push(args);
+    // ✅ zajisti proxy a použij ji – ta pushuje `arguments`
+    const g = ensureGtag();
+    (g as (...a: unknown[]) => void)(...args);
   }
 }
 
@@ -176,6 +177,7 @@ function mpSend(eventName: string, extra: Record<string, unknown> = {}): void {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
       keepalive: true,
+      mode: "no-cors",         // ⬅️ přidej
     });
   }
 }
@@ -324,4 +326,38 @@ export function preloadGaLoader(): void {
 
   ensureGtag();
   watchGtagGetReady();
+}
+export type GaPurchaseParams = {
+  transaction_id: string;
+  value: number;
+  currency: "CZK" | "EUR";
+  coupon?: string;
+  items?: Array<{
+    item_id?: string;
+    item_name?: string;
+    price?: number;
+    quantity?: number;
+  }>;
+};
+
+export function trackGaPurchase(p: GaPurchaseParams): void {
+  if (typeof window === "undefined") return;
+
+  const payload: Record<string, unknown> = {
+    transaction_id: p.transaction_id,
+    value: p.value,
+    currency: p.currency,
+    ...(p.coupon ? { coupon: p.coupon } : {}),
+    ...(p.items ? { items: p.items } : {}),
+  };
+
+  (window as any).dataLayer = (window as any).dataLayer || [];
+  if (typeof (window as any).gtag !== "function") {
+    (window as any).gtag = function () {
+      // eslint-disable-next-line prefer-rest-params
+      (window as any).dataLayer.push(arguments);
+    };
+  }
+
+  (window as any).gtag("event", "purchase", payload);
 }

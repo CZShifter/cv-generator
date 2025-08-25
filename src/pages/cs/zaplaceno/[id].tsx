@@ -12,7 +12,7 @@ import {
   GOOGLE_ADS,
   PRICING,
 } from "@/config/site";
-import { trackGAEvent } from "@/utils/analytics";
+import { trackGAEvent, trackGaPurchase } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import { trackAdsConversion } from "@/utils/adsPixel";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -51,9 +51,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     return { props: { data: null } };
   }
 
-  return {
-    props: { data },
-  };
+  return { props: { data } };
 };
 
 // Generuje bezpečný název souboru
@@ -98,26 +96,50 @@ export default function ZaplacenoPage({ data }: Props) {
     return () => clearInterval(interval);
   }, [data]);
 
-  // Odeslání Google Ads konverze (pouze jednou pro dané entryId, a jen po souhlasu)
+  // Google Ads konverze — jen se souhlasem a jen jednou na konkrétní entryId
   useEffect(() => {
     if (!entryId) return;
-
-    // posílej jen se souhlasem
     if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
 
-    // deduplikace – pošli pro dané id jen jednou (i když se uživatel často vrací)
     const key = `ads_conv_sent:${entryId}`;
     if (localStorage.getItem(key)) return;
     localStorage.setItem(key, new Date().toISOString());
 
-    // CZ stránka → použij CZ label + CZ cenu/měnu
+    // CZ stránka → CZ label + CZ cena/měna
     const sendTo = `${GOOGLE_ADS.ID}/${GOOGLE_ADS.LABEL_CZ}`;
     const { amount, currency } = PRICING.CZ;
 
     trackAdsConversion(sendTo, {
       value: amount,
       currency,
-      transaction_id: entryId, // pomůže Ads deduplikovat
+      transaction_id: entryId,
+    });
+  }, [entryId]);
+
+  // GA4 purchase — jen se souhlasem a jen jednou na konkrétní entryId
+  useEffect(() => {
+    if (!entryId) return;
+    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
+
+    const key = `ga4_purchase_sent:${entryId}`;
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, new Date().toISOString());
+
+    const { amount, currency } = PRICING.CZ;
+
+    // Minimální doporučené parametry GA4 purchase (můžeš přidat items dle potřeby)
+    trackGaPurchase({
+      transaction_id: entryId,
+      value: amount,
+      currency,
+      items: [
+        {
+          item_id: "cv_pdf_CZ",
+          item_name: "Životopis PDF",
+          price: amount,
+          quantity: 1,
+        },
+      ],
     });
   }, [entryId]);
 
@@ -231,11 +253,8 @@ export default function ZaplacenoPage({ data }: Props) {
         <link rel="alternate" href={pageUrl} hrefLang="cs-CZ" />
         <link rel="alternate" href={pageUrlSk} hrefLang="sk-SK" />
         <link rel="alternate" href={pageUrl} hrefLang="x-default" />
-        {/* Volitelně OG/Twitter metadata pro interní sdílení */}
-        <meta
-          property="og:title"
-          content={`Životopis byl úspěšně vytvořen | ${SITE_NAME}`}
-        />
+        {/* OG/Twitter metadata pro interní sdílení */}
+        <meta property="og:title" content={`Životopis byl úspěšně vytvořen | ${SITE_NAME}`} />
         <meta
           property="og:description"
           content="Váš životopis byl úspěšně vytvořen a je připraven ke stažení."
@@ -243,10 +262,12 @@ export default function ZaplacenoPage({ data }: Props) {
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:alt" content="Potvrzení o úspěšném vytvoření životopisu" />
       </Head>
+
       <section className={styles.ZaplacenoWrapper}>
         <div className={styles.wrapper}>
           <div className={styles.cardwrapper}>
             <h1 className={styles.title}>🎉 Váš životopis byl úspěšně vytvořen!</h1>
+
             <button
               className={styles.link}
               id="cvbtn"
@@ -257,6 +278,7 @@ export default function ZaplacenoPage({ data }: Props) {
             >
               <FaRegFilePdf /> Stáhnout životopis (PDF)
             </button>
+
             {invoice_url ? (
               <button
                 className={styles.link}
@@ -271,6 +293,7 @@ export default function ZaplacenoPage({ data }: Props) {
             ) : (
               <p className={styles.note}>Doklad zatím není k dispozici.</p>
             )}
+
             <div className={styles.edit}>
               {!isExpired ? (
                 <a className={styles.link} id="editbtn" href={`/cs/edit/${id}`}>
@@ -280,6 +303,7 @@ export default function ZaplacenoPage({ data }: Props) {
                 <p className={styles.expired}>⏰ Uběhlo 24h - možnost úpravy vypršela.</p>
               )}
             </div>
+
             {!isExpired && (
               <p
                 className={styles.editbtn}
@@ -290,6 +314,7 @@ export default function ZaplacenoPage({ data }: Props) {
                 {`${SITE_URL}/cs/edit/${id}`}
               </p>
             )}
+
             {!isExpired && (
               <div className={styles.copylinkwrapper}>
                 <p className={styles.editbtnremind}>
@@ -306,6 +331,7 @@ export default function ZaplacenoPage({ data }: Props) {
                 </button>
               </div>
             )}
+
             <p className={styles.expiry}>
               {isClient && remainingMs > 0 && (
                 <>
@@ -317,6 +343,7 @@ export default function ZaplacenoPage({ data }: Props) {
             </p>
           </div>
         </div>
+
         <SecureSection />
       </section>
     </>
