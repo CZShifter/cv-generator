@@ -341,23 +341,20 @@ export type GaPurchaseParams = {
 };
 
 export function trackGaPurchase(p: GaPurchaseParams): void {
-  if (typeof window === "undefined") return;
+  if (!hasWindow()) return;
+
+  // zajistí proxy gtag -> pushuje `arguments` do dataLayer; loader si je vyzvedne
+  ensureGtag();
 
   const payload: Record<string, unknown> = {
     transaction_id: p.transaction_id,
     value: p.value,
     currency: p.currency,
     ...(p.coupon ? { coupon: p.coupon } : {}),
-    ...(p.items ? { items: p.items } : {}),
+    ...(p.items && p.items.length ? { items: p.items } : {}),
+    ...(GA_DEBUG ? { debug_mode: true } : {}),
   };
 
-  (window as any).dataLayer = (window as any).dataLayer || [];
-  if (typeof (window as any).gtag !== "function") {
-    (window as any).gtag = function () {
-      // eslint-disable-next-line prefer-rest-params
-      (window as any).dataLayer.push(arguments);
-    };
-  }
-
-  (window as any).gtag("event", "purchase", payload);
+  // posíláme vždy přes gtag (queued), abychom neztratili položky v MP fallbacku
+  pushGtag("event", "purchase", payload);
 }
