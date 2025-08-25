@@ -14,16 +14,16 @@ import styles from "@/scss/CookieConsent.module.scss";
 const COOKIE_NAME = "cookie_consent_v1";
 const ONE_YEAR = 60 * 60 * 24 * 365;
 const FIRST_PV_FALLBACK_MS = 1500;
+const FIRST_PV_SESSION_KEY = "ga:first_pv_sent";
 
 type CookieState = "unset" | "accepted_all" | "essential_only";
 
-// ——— helpers ———
+/* -------------------------------- HELPERS ---------------------------------- */
+
 function setCookie(name: string, value: string, maxAge = ONE_YEAR) {
   if (typeof document === "undefined") return;
-  const secure = location.protocol === "https:" ? "; Secure" : "";
-  document.cookie = `${name}=${encodeURIComponent(
-    value
-  )}; Path=/; Max-Age=${maxAge}; SameSite=Lax${secure}`;
+  const secure = typeof location !== "undefined" && location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; Max-Age=${maxAge}; SameSite=Lax${secure}`;
 }
 
 function getCookie(name: string) {
@@ -48,15 +48,38 @@ function ensureGtag(): boolean {
   return true;
 }
 
+/* ------------------------------ COMPONENT ---------------------------------- */
+
 const CookieConsent: React.FC = () => {
   const [state, setState] = useState<CookieState>("unset");
   const [show, setShow] = useState(false);
+
+  // „jednou a dost“ v rámci aktuální session (zabrání duplicitám při remountech / hot‑reloadu)
   const firstPvSent = useRef(false);
+  const fallbackTimer = useRef<number | null>(null);
 
   const sendFirstPVOnce = () => {
-    if (!firstPvSent.current) {
-      trackPageView(window.location.href); // pokud gtag není ready, odešle se přes MP
-      firstPvSent.current = true;
+    if (firstPvSent.current) return;
+
+    // pojistka přes sessionStorage v rámci jedné session
+    try {
+      if (typeof sessionStorage !== "undefined" && sessionStorage.getItem(FIRST_PV_SESSION_KEY) === "1") {
+        firstPvSent.current = true;
+        return;
+      }
+    } catch {
+      /* ignore */
+    }
+
+    trackPageView(window.location.href); // pokud gtag není ready, odešle se přes MP
+    firstPvSent.current = true;
+
+    try {
+      if (typeof sessionStorage !== "undefined") {
+        sessionStorage.setItem(FIRST_PV_SESSION_KEY, "1");
+      }
+    } catch {
+      /* ignore */
     }
   };
 
@@ -65,7 +88,7 @@ const CookieConsent: React.FC = () => {
     ensureGtag();
     updateConsentGranted();
 
-    // 1) HNED po souhlasu (MP fallback – bez čekání na loader)
+    // 1) HNED po souhlasu (MP fallback / nebo gtag, když je ready)
     sendFirstPVOnce();
 
     // 2) Až dojede loader, zkus to znovu (už se nepošle podruhé)
@@ -73,13 +96,23 @@ const CookieConsent: React.FC = () => {
       sendFirstPVOnce();
     });
 
-    // 3) Pojistka, kdyby callback nepřišel (např. preloader/adblock edge case)
-    window.setTimeout(sendFirstPVOnce, FIRST_PV_FALLBACK_MS);
+    // 3) Fallback pojistka (např. adblock edge case)
+    fallbackTimer.current = window.setTimeout(sendFirstPVOnce, FIRST_PV_FALLBACK_MS);
 
     // 4) Marketingové pixely
     initSklik();
     initGoogleAds();
   };
+
+  // zruš fallback timeout při unmountu
+  useEffect(() => {
+    return () => {
+      if (fallbackTimer.current) {
+        clearTimeout(fallbackTimer.current);
+        fallbackTimer.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     // 0) připrav gtag + Consent default a předehřej loader
