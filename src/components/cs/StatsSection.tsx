@@ -3,19 +3,19 @@ import styles from '@/scss/StatsSection.module.scss';
 const stats = [
   {
     value: '380 000+',
-    label: 'ľudí na Slovensku hľadá prácu každý mesiac',
+    label: 'lidí v česku hledá práci každý měsíc',
   },
   {
     value: '2 hodiny',
-    label: 'trvá bežne vytvorenie životopisu',
+    label: 'bežně trvá vytvoření životopisu',
   },
   {
     value: '5 minut',
-    label: 'čas, za ktorý to zvládnete s našou aplikáciou',
+    label: 'čas, za který to s naší aplikací zvládnete',
   },
   {
     value: '24 hodin',
-    label: 'máte možnosť editovať svoj životopis',
+    label: 'máte možnost editovat svůj životopis',
   },
 ];
 
