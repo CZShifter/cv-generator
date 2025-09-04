@@ -48,9 +48,6 @@ export function renderCvHtml(cvData: CvData, templateId: string): string {
       </head>
       <body>
         ${htmlContent}
-        <div class="inline-footer" style="position:absolute;left:0;right:0;bottom:0;font-size:9px;color:#505050;text-align:center;padding:10px 0;">
-            Vytvořeno pomocí ${/* eslint-disable-line */ ""}${SITE_NAME}
-        </div>
       </body>
     </html>
   `;
