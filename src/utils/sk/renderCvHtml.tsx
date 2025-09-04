@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import type { CvData } from "@/data/CvData";
 import { ALL_CV_TEMPLATES } from "@/utils/cvTemplatesConfig";
-import { SITE_NAME_SK } from "@/config/site";
 
 // Mapuj templateId → PDF komponenta (flat verze)
 // Mapuj templateId → PDF komponenta (flat verze)
