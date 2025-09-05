@@ -2,15 +2,15 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { absoluteUrl } from "@/utils/baseUrl";
 import { verifyPayment, PaymentPayload } from "@/utils/paymentToken";
 import { getFinalizeMarker, setFinalizeMarker } from "@/utils/paymentIdem";
-import { GOOGLE_ADS, PRICING } from "@/config/site";
+/* import { GOOGLE_ADS, PRICING } from "@/config/site"; */
 
-function hasAdsConsent(req: NextApiRequest) {
+/* function hasAdsConsent(req: NextApiRequest) {
   const consent = req.cookies?.["cookie_consent_v1"]; // Next API routes parsují cookies automaticky
   return consent === "accepted_all";
-}
+} */
 
 // --- Simple Google Ads server pixel (no DB, no GTM) ---
-function extractConvId(awId?: string) {
+/* function extractConvId(awId?: string) {
   const m = awId?.match(/AW-(\d+)/i);
   return m ? m[1] : null; // "AW-123..." -> "123..."
 }
@@ -39,7 +39,7 @@ async function fireAdsPixel({
   u.searchParams.set("guid", "ON");
   u.searchParams.set("script", "0");
   await fetch(u.toString(), { method: "GET" }).catch(() => {});
-}
+} */
 
 const COMGATE_BASE = "https://payments.comgate.cz";
 const MERCHANT = process.env.COMGATE_MERCHANT_SK!;
@@ -163,7 +163,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // ignore
   }
 // 6) Odpálit Google Ads konverzi (SK) – pevná cena/měna ze site.ts
-  try {
+/*   try {
   if (adsEnabled() && hasAdsConsent(req)) {
     const convId = extractConvId(GOOGLE_ADS.ID);
     if (convId && GOOGLE_ADS.LABEL_SK) {
@@ -178,8 +178,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   }
 } catch {
-  // best-effort; kdyby pixel selhal, neblokujeme uživatele
-}
+  
+} */
 
 // 7) Zapiš marker
 try {

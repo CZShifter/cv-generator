@@ -131,11 +131,11 @@ export default function ZaplacenoPage({ data }: Props) {
     trackGaPurchase({
       transaction_id: entryId,
       value: amount,
-      currency,
+      currency: currency || "CZK",
       items: [
         {
           item_id: "cv_pdf_CZ",
-          item_name: "Životopis PDF",
+          item_name: "Životopis_CZ",
           price: amount,
           quantity: 1,
         },
