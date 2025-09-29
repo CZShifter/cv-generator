@@ -27,6 +27,7 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             <div className="summary">{data.summary}</div>
           </div>
         )}
+        {data.experience.length > 0 && ( 
         <div className="section">
           <div className="section-title2">PRACOVNÉ SKÚSENOSTI</div>
           {data.experience.map((exp, i) => (
@@ -42,7 +43,9 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
               </ul>
             </div>
           ))}
-        </div>          
+        </div>
+        )} 
+        {data.skills.length > 0 && (          
         <div className="section" id="skill_container">
           <div className="section-title">ZRUČNOSTI</div>
           <ul className="skillsList">
@@ -51,6 +54,7 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             ))}
           </ul>
         </div>
+        )}
       </div>
       {/* PRAVÝ SLOUPEC - FOTKA, OSOBNÍ ÚDAJE, VZDĚLÁNÍ */}
       <div className="right">
@@ -78,6 +82,7 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             <p><FaLink /> {data.web}</p>
           )}
         </div>
+        {data.education.length > 0 && (
         <div className="rightSection">
           <h3>VZDELANIE</h3>
           {data.education.map((e, i) => (
@@ -89,6 +94,7 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             </div>
           ))}
         </div>
+        )}
         {data.showCertifications && data.certifications.length > 0 && (
         <div className="rightSection">
             <h3>KURZY & CERTIFIKÁTY</h3>

@@ -96,6 +96,27 @@ function watchGtagGetReady(): void {
   }
 }
 
+function beaconPost(url: string, data: unknown): void {
+  try {
+    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    const ok = typeof navigator !== "undefined" && "sendBeacon" in navigator
+      ? navigator.sendBeacon(url, blob)
+      : false;
+
+    if (!ok) {
+      void fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+        keepalive: true,
+        credentials: "same-origin",
+      });
+    }
+  } catch {
+    // ignore
+  }
+}
+
 /* --------------------------- MEASUREMENT PROTOCOL -------------------------- */
 
 const GA_MP_ENDPOINT = "https://www.google-analytics.com/g/collect";
@@ -357,4 +378,27 @@ export function trackGaPurchase(p: GaPurchaseParams): void {
 
   // posíláme vždy přes gtag (queued), abychom neztratili položky v MP fallbacku
   pushGtag("event", "purchase", payload);
+}
+
+export function trackGaPurchaseBeacon(p: GaPurchaseParams): void {
+  if (typeof window === "undefined") return;
+
+  // použijeme stejné helpery, které už máte:
+  const cid = getOrCreateCid();   // vaše existující funkce
+  const sid = getOrCreateSid();   // vaše existující funkce (číslo/string)
+
+  const body = {
+    cid,
+    sid,
+    transaction_id: p.transaction_id,
+    value: p.value,
+    currency: p.currency,
+    items: p.items ?? [
+      { item_id: "cv_pdf_CZ", item_name: "Životopis_CZ", price: p.value, quantity: 1 },
+    ],
+    dl: window.location.href,
+    dt: document.title,
+  };
+
+  beaconPost("/api/ga-purchase", body);
 }

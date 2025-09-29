@@ -12,7 +12,7 @@ import {
   GOOGLE_ADS,
   PRICING,
 } from "@/config/site";
-import { trackGAEvent, trackGaPurchase } from "@/utils/analytics";
+import { trackGAEvent, trackGaPurchase, trackGaPurchaseBeacon } from "@/utils/analytics";
 import { createClient } from "@supabase/supabase-js";
 import { trackAdsConversion } from "@/utils/adsPixel";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -118,30 +118,36 @@ export default function ZaplacenoPage({ data }: Props) {
 
   // GA4 purchase — jen se souhlasem a jen jednou na konkrétní entryId
   useEffect(() => {
-    if (!entryId) return;
-    if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
+  if (!entryId) return;
+  if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
 
-    const key = `ga4_purchase_sent:${entryId}`;
-    if (localStorage.getItem(key)) return;
-    localStorage.setItem(key, new Date().toISOString());
+  const key = `ga4_purchase_sent:${entryId}`;
+  if (localStorage.getItem(key)) return;
+  localStorage.setItem(key, new Date().toISOString());
 
-    const { amount, currency } = PRICING.CZ;
+  const { amount, currency } = PRICING.CZ;
 
-    // Minimální doporučené parametry GA4 purchase (můžeš přidat items dle potřeby)
-    trackGaPurchase({
-      transaction_id: entryId,
-      value: amount,
-      currency: currency || "CZK",
-      items: [
-        {
-          item_id: "cv_pdf_CZ",
-          item_name: "Životopis_CZ",
-          price: amount,
-          quantity: 1,
-        },
-      ],
-    });
-  }, [entryId]);
+  // 1) gtag – standardní cesta (zůstává)
+  trackGaPurchase({
+    transaction_id: entryId,
+    value: amount,
+    currency: currency || "CZK",
+    items: [
+      { item_id: "cv_pdf_CZ", item_name: "Životopis_CZ", price: amount, quantity: 1 },
+    ],
+  });
+
+  // 2) beacon → server → GA4 MP (nové)
+  trackGaPurchaseBeacon({
+    transaction_id: entryId,
+    value: amount,
+    currency: currency || "CZK",
+    items: [
+      { item_id: "cv_pdf_CZ", item_name: "Životopis_CZ", price: amount, quantity: 1 },
+    ],
+  });
+}, [entryId]);
+
 
   // ——— early return až po registraci všech hooků ———
   if (!data) {

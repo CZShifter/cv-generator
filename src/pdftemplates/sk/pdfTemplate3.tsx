@@ -49,6 +49,7 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                   <p><FaLink /> {data.web}</p>
                 )}
               </div>
+              {data.education.length > 0 && (
               <div className="education" id="skola">
                 <h3>VZDELANIE</h3>
                 {data.education.map((e, i) => (
@@ -60,6 +61,7 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                   </div>
                 ))}
               </div>
+              )}
               {data.showCertifications && data.certifications.length > 0 && (
                 <div className="certifikate" id="certifikaty">
                     <h3>KURZY & CERTIFIKÁTY</h3>
@@ -93,25 +95,28 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                 <div className="summary">{data.summary}</div>
               </div>
             )}
+            {data.experience.length > 0 && (
             <div className="experience">
               <div className="section-title"><MdOutlineWorkOutline />PRACOVNÉ SKÚSENOSTI</div>
-                {data.experience.map((exp, i) => (
-                
-                <div className="experience-entry" key={i}>
-                  <span className="company"> {exp.date_od} - {exp.date_do} </span>
-                  <div className="expirience_columns">
-                    <strong>{exp.position}</strong>
-                    <span className="company"> {exp.company}</span>
-                    <ul>
-                      {exp.points.map((point, idx) => (
-                        <li key={idx}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
+              {data.experience.map((exp, i) => (
+              
+              <div className="experience-entry" key={i}>
+                <span className="company"> {exp.date_od} - {exp.date_do} </span>
+                <div className="expirience_columns">
+                  <strong>{exp.position}</strong>
+                  <span className="company"> {exp.company}</span>
+                  <ul>
+                    {exp.points.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
-                ))}
               </div>
-              <div className="skills" id="skill_container">
+              ))}
+            </div>
+            )}
+            {data.skills.length > 0 && (
+            <div className="skills" id="skill_container">
               <div className="section-title"><FaRegStar />ZRUČNOSTI</div>
               <ul className="skillsList">
                 {data.skills.map((skill, i) => (
@@ -119,6 +124,7 @@ const pdfTemplate3: React.FC<Props> = ({ data }) => {
                 ))}
               </ul>
             </div> 
+            )}
           </div>
       </div>
     </>

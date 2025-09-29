@@ -27,30 +27,34 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             <div className="summary">{data.summary}</div>
           </div>
         )}
-        <div className="section">
-          <div className="section-title2">PRACOVNÍ ZKUŠENOSTI</div>
-          {data.experience.map((exp, i) => (
-            <div className="experience-entry" key={i}>
-              <strong>{exp.position}</strong>
-              <span className="company">
-                {exp.company} | {exp.date_od} - {exp.date_do}
-              </span>
-              <ul>
-                {exp.points.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>          
-        <div className="section" id="skill_container">
-          <div className="section-title">DOVEDNOSTI</div>
-          <ul className="skillsList">
-            {data.skills.map((skill, i) => (
-              <li key={i}>{skill}</li>
+        {data.experience.length > 0 && ( 
+          <div className="section">
+            <div className="section-title2">PRACOVNÍ ZKUŠENOSTI</div>
+            {data.experience.map((exp, i) => (
+              <div className="experience-entry" key={i}>
+                <strong>{exp.position}</strong>
+                <span className="company">
+                  {exp.company} | {exp.date_od} - {exp.date_do}
+                </span>
+                <ul>
+                  {exp.points.map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
-        </div>
+          </div>
+        )}
+        {data.skills.length > 0 && (          
+          <div className="section" id="skill_container">
+            <div className="section-title">DOVEDNOSTI</div>
+            <ul className="skillsList">
+              {data.skills.map((skill, i) => (
+                <li key={i}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       {/* PRAVÝ SLOUPEC - FOTKA, OSOBNÍ ÚDAJE, VZDĚLÁNÍ */}
       <div className="right">
@@ -78,17 +82,19 @@ const CvTemplate2: React.FC<Props> = ({ data }) => {
             <p><FaLink /> {data.web}</p>
           )}
         </div>
-        <div className="rightSection">
-          <h3>VZDĚLÁNÍ</h3>
-          {data.education.map((e, i) => (
-            <div key={i} className="educationEntry">
-              <strong>{e.level}</strong><br />
-              <em>{e.field}</em><br />
-              {e.school}<br />
-              {e.year}
-            </div>
-          ))}
-        </div>
+        {data.education.length > 0 && (
+          <div className="rightSection">
+            <h3>VZDĚLÁNÍ</h3>
+            {data.education.map((e, i) => (
+              <div key={i} className="educationEntry">
+                <strong>{e.level}</strong><br />
+                <em>{e.field}</em><br />
+                {e.school}<br />
+                {e.year}
+              </div>
+            ))}
+          </div>
+         )}
         {data.showCertifications && data.certifications.length > 0 && (
         <div className="rightSection">
             <h3>KURZY & CERTIFIKÁTY</h3>

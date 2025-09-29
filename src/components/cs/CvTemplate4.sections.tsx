@@ -112,9 +112,11 @@ export function getCvTemplate4Sections(data: CvData & { photoVersion?: number })
   // Jméno + pozice
   right.push(
     <div className={styles.nameSection} key="name">
+      {data.name.length > 0 && (
       <div className={styles.name}>
         {data.name} <br /><strong>{data.surname}</strong>
       </div>
+      )}
       <div>
         {data.showTitle && data.title && (
           <div className={styles.position_title}>{data.title}</div>

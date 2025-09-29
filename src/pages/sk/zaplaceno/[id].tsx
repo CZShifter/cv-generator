@@ -12,7 +12,7 @@ import {
   GOOGLE_ADS,
   PRICING,
 } from "@/config/site";
-import { trackGAEvent, trackGaPurchase } from "@/utils/analytics";
+import { trackGAEvent, trackGaPurchase, trackGaPurchaseBeacon } from "@/utils/analytics";
 import { trackAdsConversion } from "@/utils/adsPixel";
 import { createClient } from "@supabase/supabase-js";
 import styles from "@/scss/zaplaceno.module.scss";
@@ -122,25 +122,30 @@ export default function ZaplacenoPage({ data }: Props) {
   useEffect(() => {
     if (!entryId) return;
     if (!document.cookie.includes("cookie_consent_v1=accepted_all")) return;
-
+  
     const key = `ga4_purchase_sent:${entryId}`;
     if (localStorage.getItem(key)) return;
     localStorage.setItem(key, new Date().toISOString());
-
-    const { amount, currency } = PRICING.SK;
-
-    // Odporúčané parametre GA4 purchase
+  
+    const { amount, currency } = PRICING.CZ;
+  
+    // 1) gtag – standardní cesta (zůstává)
     trackGaPurchase({
       transaction_id: entryId,
       value: amount,
       currency: currency || "EUR",
       items: [
-        {
-          item_id: "cv_pdf_SK",
-          item_name: "Životopis_SK",
-          price: amount,
-          quantity: 1,
-        },
+        { item_id: "cv_pdf_SK", item_name: "Životopis_SK", price: amount, quantity: 1 },
+      ],
+    });
+  
+    // 2) beacon → server → GA4 MP (nové)
+    trackGaPurchaseBeacon({
+      transaction_id: entryId,
+      value: amount,
+      currency: currency || "EUR",
+      items: [
+        { item_id: "cv_pdf_SK", item_name: "Životopis_SK", price: amount, quantity: 1 },
       ],
     });
   }, [entryId]);

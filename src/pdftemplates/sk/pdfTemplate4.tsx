@@ -36,6 +36,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                   <p>{data.web}<FaLink /></p>
                 )}
               </div>
+              {data.education.length > 0 && (
               <div className="education" id="skola">
                 <h3>VZDELANIE</h3>
                 {data.education.map((e, i) => (
@@ -47,6 +48,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                   </div>
                 ))}
               </div>
+              )}
               {data.showCertifications && data.certifications.length > 0 && (
                 <div className="certifikaty" id="certifikaty">
                   <h3>KURZY & CERTIFIKÁTY</h3>
@@ -69,6 +71,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                   ))}
                 </div>
               )}
+              {data.skills.length > 0 && (
               <div className="skillsWrapp" id="skill_container">
                 <h3>ZRUČNOSTI</h3>
                 <ul className="skillsList">
@@ -77,13 +80,16 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                   ))}
                 </ul>
               </div>
+              )}
           </div>
           {/* PRAVÝ SLOUPEC - FOTKA, OSOBNÍ ÚDAJE, VZDĚLÁNÍ */}
           <div className="right">
             <div className="nameSection">
+              {data.name.length > 0 && (
               <div className="name">
                 {data.name} <br /><strong>{data.surname}</strong>
               </div>
+              )}
               {data.showTitle && data.title && (
                 <div className="position_title">{data.title}</div>
               )}
@@ -94,6 +100,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                 <div className="summary">{data.summary}</div>
               </div>
             )}
+            {data.experience.length > 0 && (
             <div className="experienceWrapper">
               <div className="section-title">PRACOVNÉ SKÚSENOSTI</div>
               {data.experience.map((exp, i) => (
@@ -111,6 +118,7 @@ const CvTemplate4Flat: React.FC<Props> = ({ data }) => {
                 </div>
               ))}
             </div>
+            )}
           </div>
       </div>
     </> 
