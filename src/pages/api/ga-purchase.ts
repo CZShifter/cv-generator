@@ -3,13 +3,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 const MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID!; // např. "G-XXXXXXX"
 const API_SECRET = process.env.GA4_API_SECRET!;         // vytvořte v GA4 Admin → Data streams → Measurement Protocol API secrets
 
+// … nahoře beze změn …
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
   try {
     const { cid, sid, transaction_id, value, currency, items, dl, dt } = req.body ?? {};
 
-    // Minimální payload pro MP (official):
     const payload = {
       client_id: String(cid || `${Date.now()}.${Math.floor(Math.random() * 1e6)}`),
       non_personalized_ads: false,
@@ -41,9 +42,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify(payload),
     });
 
-    // GA vrací 204/2xx bez těla – pošleme 204 dál
     return res.status(resp.ok ? 204 : resp.status).end();
-  } catch (e) {
+  } catch {
     return res.status(500).json({ error: "mp_failed" });
   }
 }
