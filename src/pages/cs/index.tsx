@@ -14,11 +14,11 @@ export default function Home() {
   return ( 
     <>
       <Head>
-        <title>{`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`}</title>
+        <title>{`Vytvořte moderní životopis online snadno a rychle do 5 minut | ${SITE_NAME}`}</title>
         <meta name="description" content="Vytvořte si moderní a profesionální životopis během pár minut. Jednoduše, bez registrace, okamžitě v PDF. Vyberte si šablonu a získejte náskok na trhu práce!" />
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`} />
+        <meta property="og:title" content={`Vytvořte moderní životopis online snadno a rychle do 5 minut | ${SITE_NAME}`} />
         <meta property="og:description" content="Vytvořte si moderní životopis rychle a jednoduše. Výběr šablon, bez registrace, PDF ihned." />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:alt" content="Ukázka moderního životopisu z aplikace" />
