@@ -37,7 +37,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/sk">
-          <Image className={styles.logo} src={`/img/logo_SK_nove_barevny.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
+          <Image className={styles.logo} src={`/img/logo_SK_nove_barevny.png?v=${SITE_VERSION}`} alt="Vytvorte moderný životopis online – Profesionálne CV za 5 minút | RýchlyŽivotopis.sk" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>
           <button
