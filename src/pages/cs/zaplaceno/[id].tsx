@@ -24,6 +24,7 @@ type CvEntry = {
   pdf_url: string;
   invoice_url: string | null;
   expires_at: string;
+  pdf_generated_at?: string | null;
   cv_json: {
     name?: string;
     surname?: string;
@@ -43,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const id = context.params?.id as string;
   const { data, error } = await supabase
     .from("cv_entries")
-    .select("id, pdf_url, invoice_url, expires_at, cv_json")
+    .select("id, pdf_url, invoice_url, expires_at, pdf_generated_at, cv_json")
     .eq("id", id)
     .single();
 
@@ -162,7 +163,7 @@ export default function ZaplacenoPage({ data }: Props) {
   }
 
   // Dál už můžeš pracovat s konkrétními daty
-  const { id, pdf_url, invoice_url, expires_at, cv_json } = data;
+  const { id, pdf_url, invoice_url, expires_at, pdf_generated_at, cv_json } = data;
   const isExpired = Date.now() > new Date(expires_at).getTime();
 
   const pageUrl = `${SITE_URL}/cs/zaplaceno/${id}/`;
@@ -193,7 +194,7 @@ export default function ZaplacenoPage({ data }: Props) {
   const downloadPdf = async () => {
     try {
       const res = await fetch(
-        `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}`
+        `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}&v=${encodeURIComponent(pdf_generated_at || "")}`
       );
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);

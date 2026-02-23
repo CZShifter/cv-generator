@@ -33,7 +33,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { templateId, data } = req.body as RequestBody;
   if (!templateId || !data) {
-    return res.status(400).json({ error: "Missing templateId or data" });
+    return res.status(409).json({
+      error: "Stará verzia stránky. Obnovte stránku a skúste to znovu.",
+      code: "STALE_CLIENT",
+    });
   }
 
   const BASE   = getBaseUrl(req);

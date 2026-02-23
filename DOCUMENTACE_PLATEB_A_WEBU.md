@@ -160,6 +160,11 @@ Pokud se uživatel nevrátil (zavření okna, problém s redirectem), platba byl
 5) **Editace běží od `paid_at`**  
    - `expires_at` se nastavuje až ve webhooku.
 
+6) **Ošetření starého klienta (cache)**  
+   - Pokud klient pošle pouze `templateId` bez `data`, server vrátí `code: STALE_CLIENT`.  
+   - Frontend zobrazí hlášku a provede automatický reload stránky.  
+   - Tím se minimalizuje potřeba hard refreshu u uživatelů, kteří mají v cache starý JS.
+
 ---
 
 ## 6) Změněné / nové soubory (orientačně)
@@ -205,4 +210,3 @@ Return URL (fallback):
 - Frontend nikdy nespouští generování PDF.
 - Všechny kritické operace (paid → pdf) jsou řízeny webhookem.
 - Lze přidat dedikovaný admin endpoint pro „regeneraci PDF po zaplacení“ (pokud potřeba).
-

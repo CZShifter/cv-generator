@@ -1057,6 +1057,11 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               }));
               window.location.href = j.redirectUrl; // přesměrování na Comgate
             } else {
+              if (j?.code === "STALE_CLIENT") {
+                alert(j.error || "Prosím obnovte stránku a zkuste to znovu.");
+                window.location.reload();
+                return;
+              }
               alert(j.error || "Něco se pokazilo při zakládání platby.");
             }
           } catch {
