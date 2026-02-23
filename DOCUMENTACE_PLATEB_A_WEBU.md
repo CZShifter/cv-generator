@@ -165,6 +165,11 @@ Pokud se uživatel nevrátil (zavření okna, problém s redirectem), platba byl
    - Frontend zobrazí hlášku a provede automatický reload stránky.  
    - Tím se minimalizuje potřeba hard refreshu u uživatelů, kteří mají v cache starý JS.
 
+7) **iOS/Safari spolehlivější návrat + download**  
+   - `/po-platbe` nyní umí fallback přes `refId` z URL, když je `localStorage` prázdný.  
+   - Download PDF/faktury je přes `window.open(...)` (iOS-friendly).  
+   - Na iOS může mít soubor jiný název (OS někdy ignoruje `Content-Disposition`), ale download je spolehlivější.
+
 ---
 
 ## 6) Změněné / nové soubory (orientačně)

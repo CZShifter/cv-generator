@@ -77,6 +77,7 @@ export default function ZaplacenoPage({ data }: Props) {
   const [remainingMs, setRemainingMs] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [copied, setCopied] = useState(false);
+  const downloadLockRef = useRef(false);
 
   // Bezpečné ID pro hooky (může být undefined při prvním renderu nebo když data nejsou)
   const entryId = data?.id;
@@ -192,29 +193,43 @@ export default function ZaplacenoPage({ data }: Props) {
 
   // Funkce pro programové stažení PDF
   const downloadPdf = async () => {
+    if (downloadLockRef.current) return;
+    downloadLockRef.current = true;
     try {
       const url = `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}&v=${encodeURIComponent(pdf_generated_at || "")}`;
-      const win = window.open(url, "_blank", "noopener,noreferrer");
-      if (!win) {
-        window.location.href = url;
-      }
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.click();
     } catch (error) {
       console.error("❌ Chyba při stahování PDF:", error);
+    } finally {
+      setTimeout(() => {
+        downloadLockRef.current = false;
+      }, 1200);
     }
   };
 
   // Funkce pro programové stažení faktury
   const downloadInvoice = async () => {
+    if (downloadLockRef.current) return;
+    downloadLockRef.current = true;
     try {
       const url = `/api/download-invoice?path=${encodeURIComponent(
         invoicePath
       )}&filename=Doklad_${id}.pdf`;
-      const win = window.open(url, "_blank", "noopener,noreferrer");
-      if (!win) {
-        window.location.href = url;
-      }
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.click();
     } catch (error) {
       console.error("❌ Chyba při stahování faktury:", error);
+    } finally {
+      setTimeout(() => {
+        downloadLockRef.current = false;
+      }, 1200);
     }
   };
 
