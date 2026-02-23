@@ -193,18 +193,11 @@ export default function ZaplacenoPage({ data }: Props) {
   // Funkce pro programové stažení PDF
   const downloadPdf = async () => {
     try {
-      const res = await fetch(
-        `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}&v=${encodeURIComponent(pdf_generated_at || "")}`
-      );
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      a.click();
-
-      URL.revokeObjectURL(url);
+      const url = `/api/download-pdf?path=${encodeURIComponent(pdfPath)}&filename=${filename}&v=${encodeURIComponent(pdf_generated_at || "")}`;
+      const win = window.open(url, "_blank", "noopener,noreferrer");
+      if (!win) {
+        window.location.href = url;
+      }
     } catch (error) {
       console.error("❌ Chyba při stahování PDF:", error);
     }
@@ -213,19 +206,13 @@ export default function ZaplacenoPage({ data }: Props) {
   // Funkce pro programové stažení faktury
   const downloadInvoice = async () => {
     try {
-      const res = await fetch(
-        `/api/download-invoice?path=${encodeURIComponent(
-          invoicePath
-        )}&filename=Doklad_${id}.pdf`
-      );
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `Doklad_o_zaplaceni_${id}.pdf`;
-      a.click();
-
-      URL.revokeObjectURL(url);
+      const url = `/api/download-invoice?path=${encodeURIComponent(
+        invoicePath
+      )}&filename=Doklad_${id}.pdf`;
+      const win = window.open(url, "_blank", "noopener,noreferrer");
+      if (!win) {
+        window.location.href = url;
+      }
     } catch (error) {
       console.error("❌ Chyba při stahování faktury:", error);
     }

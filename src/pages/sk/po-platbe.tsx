@@ -25,6 +25,8 @@ export default function PoPlatbe() {
     let t: ReturnType<typeof setTimeout> | null = null;
 
     const paymentRaw = localStorage.getItem("cv_payment");
+    const qs = new URLSearchParams(window.location.search);
+    const refIdFromUrl = qs.get("refId") ?? undefined;
 
     if (!paymentRaw) {
       setStatus("error");
@@ -33,7 +35,7 @@ export default function PoPlatbe() {
     }
     const payment = JSON.parse(paymentRaw);
     const cvId: string | undefined = payment?.cvId;
-    const refId: string | undefined = payment?.refId;
+    const refId: string | undefined = payment?.refId ?? refIdFromUrl;
 
     if (!cvId && !refId) {
       setStatus("error");
