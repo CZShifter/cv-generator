@@ -5,6 +5,7 @@ import { renderInvoiceHtml as renderInvoiceHtmlCs } from "@/utils/cs/renderInvoi
 import { renderCvHtml as renderCvHtmlSk } from "@/utils/sk/renderCvHtml";
 import { renderInvoiceHtml as renderInvoiceHtmlSk } from "@/utils/sk/renderInvoiceHtml";
 import { SITE_NAME, SITE_NAME_SK } from "@/config/site";
+import type { CvData } from "@/data/CvData";
 
 type Locale = "cs" | "sk";
 
@@ -83,7 +84,11 @@ export async function generateCvArtifacts(cvId: string, locale: Locale) {
     return { pdfUrl: row.pdf_url ?? null, invoiceUrl: row.invoice_url ?? null, status: "skipped" };
   }
 
-  const normalized = await ensurePhotoUploaded(supabase, cvId, row.cv_json as Record<string, unknown>);
+  const normalized = (await ensurePhotoUploaded(
+    supabase,
+    cvId,
+    row.cv_json as Record<string, unknown>
+  )) as CvData;
 
   const renderCvHtml = locale === "sk" ? renderCvHtmlSk : renderCvHtmlCs;
   const renderInvoiceHtml = locale === "sk" ? renderInvoiceHtmlSk : renderInvoiceHtmlCs;
