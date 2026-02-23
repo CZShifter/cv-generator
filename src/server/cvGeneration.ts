@@ -134,6 +134,7 @@ export async function generateCvArtifacts(cvId: string, locale: Locale) {
     .from("pdfs")
     .upload(pdfPath, pdfFile.data, {
       contentType: "application/pdf",
+      cacheControl: "0",
       upsert: true,
     });
 
@@ -182,6 +183,7 @@ export async function generateCvArtifacts(cvId: string, locale: Locale) {
     .from("invoices")
     .upload(invPath, invFile.data, {
       contentType: "application/pdf",
+      cacheControl: "0",
       upsert: true,
     });
 

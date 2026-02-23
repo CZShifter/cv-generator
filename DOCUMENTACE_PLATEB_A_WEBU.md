@@ -170,6 +170,11 @@ Pokud se uživatel nevrátil (zavření okna, problém s redirectem), platba byl
    - Download PDF/faktury je přes `window.open(...)` (iOS-friendly).  
    - Na iOS může mít soubor jiný název (OS někdy ignoruje `Content-Disposition`), ale download je spolehlivější.
 
+8) **Patch: zamezení dvojitého downloadu + fix build**  
+   - Přidán `downloadLockRef` (ochrana proti dvojitému spuštění stahování).  
+   - Download PDF/faktury upraven na `<a>` click s `target="_blank"` (méně dvojitých tabů).  
+   - Doplněn `useRef` import v `/zaplaceno` (CZ/SK) – fix kompilace.
+
 ---
 
 ## 6) Změněné / nové soubory (orientačně)

@@ -118,6 +118,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .from("pdfs")
       .upload(pdfPath, pdfFile.data, {
         contentType: "application/pdf",
+        cacheControl: "0",
         upsert: true,
       });
 
