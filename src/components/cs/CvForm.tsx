@@ -1041,19 +1041,19 @@ const CvForm: React.FC<CvFormProps> = ({ data, onChange, selectedTemplate, onCan
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
-                templateId: selectedTemplate
+                templateId: selectedTemplate,
+                data,
               }),
             });
             const j = await r.json();
           
-            if (j.redirectUrl && j.transId && j.refId && j.paymentToken) {
+            if (j.redirectUrl && j.transId && j.refId && j.cvId) {
               // POZOR: cv_draft teď NEMAŽEME – smaže se až po úspěchu na /cs/po-platbe
               localStorage.setItem("cv_payment", JSON.stringify({
-                data,
+                cvId: j.cvId,
                 templateId: selectedTemplate,
                 transId: j.transId,
                 refId: j.refId,
-                paymentToken: j.paymentToken,
               }));
               window.location.href = j.redirectUrl; // přesměrování na Comgate
             } else {

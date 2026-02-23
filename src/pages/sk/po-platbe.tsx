@@ -25,52 +25,37 @@ export default function PoPlatbe() {
     let t: ReturnType<typeof setTimeout> | null = null;
 
     const paymentRaw = localStorage.getItem("cv_payment");
-    const draftRaw = localStorage.getItem("cv_draft");
 
     if (!paymentRaw) {
       setStatus("error");
       setMsg("Chýbajú údaje platby. Vráťte sa k objednávke.");
       return;
     }
-    if (!draftRaw) {
-      setStatus("error");
-      setMsg("Chýba rozpracovaný návrh (draft). Vráťte sa k objednávke.");
-      return;
-    }
-
     const payment = JSON.parse(paymentRaw);
-    const draft = JSON.parse(draftRaw);
-
-    const transId: string | undefined = payment?.transId;
+    const cvId: string | undefined = payment?.cvId;
     const refId: string | undefined = payment?.refId;
-    const paymentToken: unknown = payment?.paymentToken;
-    const templateId: string | undefined =
-      payment?.paymentToken?.payload?.templateId ?? payment?.templateId;
 
-    const data = draft?.data ?? draft;
-
-    if (!transId || !refId || !paymentToken || !templateId || !data) {
+    if (!cvId && !refId) {
       setStatus("error");
-      setMsg("Chýbajú potrebné dáta (platba/šablóna/formulár). Vráťte sa k objednávke.");
+      setMsg("Chýba identifikátor platby. Vráťte sa k objednávke.");
       return;
     }
 
     const tick = async () => {
       if (cancelled) return;
       try {
-        const r = await fetch("/api/sk/verify-and-finalize", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ transId, refId, data, templateId, paymentToken }),
-        });
+        const params = new URLSearchParams();
+        if (cvId) params.set("id", cvId);
+        if (refId) params.set("refId", refId);
+        const r = await fetch(`/api/sk/payment-status?${params.toString()}`);
         const j = await r.json();
 
-        if (j.status === "PENDING") {
+        if (j.status === "PENDING" || j.status === "CREATED") {
           if (!cancelled) t = setTimeout(tick, 1500);
           return;
         }
 
-        if (j.status === "CANCELLED") {
+        if (j.status === "CANCELLED" || j.status === "FAILED") {
           try { localStorage.removeItem("cv_payment"); } catch {}
           setStatus("cancelled");
           setMsg(
@@ -80,6 +65,13 @@ export default function PoPlatbe() {
               <small>Vaše údaje sú dočasne uložené u vás v prehliadači. Stačí znovu vybrať šablónu a prejsť na krok 6: &ldquo;Dokončiť&ldquo;.</small>
             </>
           );
+          return;
+        }
+
+        if (j.status === "PAID" && j.pdfStatus !== "ready") {
+          setStatus("info");
+          setMsg("Platba prijatá, pripravujeme PDF. Chvíľku strpenia...");
+          if (!cancelled) t = setTimeout(tick, 1500);
           return;
         }
 

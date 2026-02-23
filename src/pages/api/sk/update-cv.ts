@@ -133,6 +133,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     await supabase.from("cv_entries").update({
       pdf_url: finalPdfUrl,
+      pdf_status: "ready",
+      pdf_generated_at: new Date().toISOString(),
     }).eq("id", id);
 
     res.status(200).json({

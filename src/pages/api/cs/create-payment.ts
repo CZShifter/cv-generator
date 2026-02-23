@@ -2,18 +2,22 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import crypto from "crypto";
 import { getBaseUrl } from "@/utils/baseUrl";
-import { signPayment } from "@/utils/paymentToken";
+import { createClient } from "@supabase/supabase-js";
 
 const COMGATE_BASE = "https://payments.comgate.cz";
 const MERCHANT = process.env.COMGATE_MERCHANT!;
 const SECRET   = process.env.COMGATE_SECRET!;
 const TEST     = (process.env.COMGATE_TEST ?? "true") === "true";
 const PRICE_CV_CZK = Number(process.env.PRICE_CV_CZK ?? "0"); // např. 89
+const SUPABASE_URL = process.env.SUPABASE_URL!;
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
 if (!MERCHANT) throw new Error("Missing env: COMGATE_MERCHANT");
 if (!SECRET) throw new Error("Missing env: COMGATE_SECRET");
+if (!SUPABASE_URL) throw new Error("Missing env: SUPABASE_URL");
+if (!SUPABASE_SERVICE_ROLE_KEY) throw new Error("Missing env: SUPABASE_SERVICE_ROLE_KEY");
 
-type RequestBody = { templateId: string };
+type RequestBody = { templateId: string; data: Record<string, unknown> };
 type ComgateCreateOk  = { code: 0; redirect: string; transId: string };
 type ComgateCreateErr = { code: number; message?: string };
 
@@ -27,7 +31,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ error: "Missing or invalid PRICE_CV_CZK" });
   }
 
-  const { templateId } = req.body as RequestBody;
+  const { templateId, data } = req.body as RequestBody;
+  if (!templateId || !data) {
+    return res.status(400).json({ error: "Missing templateId or data" });
+  }
 
   const BASE   = getBaseUrl(req);
   const refId  = crypto.randomUUID();
@@ -103,19 +110,64 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const cg = (await r.json()) as ComgateCreateOk | ComgateCreateErr;
 
   if ("code" in cg && cg.code === 0 && "redirect" in cg && "transId" in cg) {
-    const paymentToken = signPayment({
-      refId,
-      transId: cg.transId,
-      amount,
-      curr: "CZK",
-      templateId,
+    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
+      auth: { persistSession: false },
     });
+
+    const id = crypto.randomUUID();
+    const now = new Date();
+    const expiresAt = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+
+    let normalized = { ...data };
+    const photo = (normalized as Record<string, unknown>)?.photo;
+    if (typeof photo === "string" && photo.startsWith("data:image")) {
+      const base64 = photo.split(",")[1];
+      const binary = Buffer.from(base64, "base64");
+      const ext = photo.match(/^data:image\/(png|jpeg|jpg)/)?.[1] || "png";
+      const photoPath = `photos/${id}.${ext}`;
+
+      const { error: photoError } = await supabase.storage
+        .from("photos")
+        .upload(photoPath, binary, {
+          contentType: `image/${ext}`,
+          upsert: true,
+        });
+
+      if (photoError) {
+        return res.status(500).json({ error: photoError.message });
+      }
+
+      const { data: photoPublic } = supabase.storage.from("photos").getPublicUrl(photoPath);
+      normalized = { ...(normalized as Record<string, unknown>), photo: photoPublic.publicUrl };
+    }
+
+    const { error: insertError } = await supabase
+      .from("cv_entries")
+      .insert([
+        {
+          id,
+          cv_json: normalized,
+          template_id: templateId,
+          paid: false,
+          amount: PRICE_CV_CZK,
+          expires_at: expiresAt.toISOString(),
+          comgate_ref_id: refId,
+          comgate_trans_id: cg.transId,
+          payment_tx_id: cg.transId,
+          payment_status: "created",
+          pdf_status: "not_started",
+        },
+      ]);
+
+    if (insertError) {
+      return res.status(500).json({ error: insertError.message });
+    }
 
     return res.json({
       redirectUrl: cg.redirect,
       transId: cg.transId,
       refId,
-      paymentToken,
+      cvId: id,
     });
   }
 
