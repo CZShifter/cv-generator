@@ -52,7 +52,7 @@ export default function KontaktPage() {
               "name": `Kontakt - ${SITE_NAME_SK}`,
               "inLanguage": "sk-SK",
               "description":
-                "Máte otázku k životopisu, platbe alebo technický problém? Kontaktujte nás e-mailom na info@cvgen.cz, zvyčajne odpovieme do 24 hodín."
+                "Máte otázku k životopisu, platbe alebo technický problém? Kontaktujte nás e-mailom na rychlyzivotopis@gmail.com, zvyčajne odpovieme do 24 hodín."
             })
           }}
         />

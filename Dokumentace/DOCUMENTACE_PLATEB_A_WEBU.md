@@ -175,6 +175,10 @@ Pokud se uživatel nevrátil (zavření okna, problém s redirectem), platba byl
    - Download PDF/faktury upraven na `<a>` click s `target="_blank"` (méně dvojitých tabů).  
    - Doplněn `useRef` import v `/zaplaceno` (CZ/SK) – fix kompilace.
 
+9) **Patch: cacheControl pro PDF/Invoice**  
+   - Upload PDF a faktur nyní používá `cacheControl: "0"` (Supabase Storage).  
+   - Minimalizuje to situace, kdy se po přegenerování stahuje stará verze.
+
 ---
 
 ## 6) Změněné / nové soubory (orientačně)

@@ -129,7 +129,7 @@ export default function ZaplacenoPage({ data }: Props) {
     if (localStorage.getItem(key)) return;
     localStorage.setItem(key, new Date().toISOString());
   
-    const { amount, currency } = PRICING.CZ;
+    const { amount, currency } = PRICING.SK;
   
     // 1) gtag – standardní cesta (zůstává)
     trackGaPurchase({

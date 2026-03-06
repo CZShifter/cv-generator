@@ -10,9 +10,9 @@ export default function NotFoundPage() {
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
         <meta name="language" content="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="sk" />
-        <link rel="alternate" href={`${SITE_URL_SK}/cs`} hrefLang="cs" />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk`} hrefLang="x-default" />
+        <link rel="alternate" href={`https://rychlyzivotopis.cz/cs/404`} hrefLang="cs-CZ" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/404`} hrefLang="sk-SK" />
+        <link rel="alternate" href={`${SITE_URL_SK}/sk/404`} hrefLang="x-default" />
       </Head>
       <section className={styles.container}>
         <div className={styles.columnLeft}>

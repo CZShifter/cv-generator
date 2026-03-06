@@ -58,7 +58,24 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { props: { data, content, slug } };
+  // Najdi spárovaný SK článek podle pairId (pokud existuje)
+  const pairId = typeof data.pairId === "string" ? data.pairId.trim() : "";
+  let altSlugSk: string | null = null;
+  if (pairId) {
+    const skDir = path.join(process.cwd(), "src/content/sk/blog");
+    const skFiles = fs.readdirSync(skDir).filter((f) => f.endsWith(".md"));
+    for (const f of skFiles) {
+      const full = path.join(skDir, f);
+      const raw = fs.readFileSync(full, "utf8");
+      const fm = matter(raw).data as { pairId?: string };
+      if (typeof fm.pairId === "string" && fm.pairId.trim() === pairId) {
+        altSlugSk = f.replace(/\.md$/, "");
+        break;
+      }
+    }
+  }
+
+  return { props: { data, content, slug, altSlugSk } };
 };
 
 type BlogPostProps = {
@@ -69,12 +86,14 @@ type BlogPostProps = {
     coverImage?: string;
     coverImageWebp?: string;
     author?: string;
+    pairId?: string;
   };
   content: string;
   slug: string;
+  altSlugSk?: string | null;
 };
 
-export default function BlogPost({ data, content, slug }: BlogPostProps) {
+export default function BlogPost({ data, content, slug, altSlugSk }: BlogPostProps) {
   return (
     <>
       <Head>
@@ -88,7 +107,9 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
         {/* Canonical + hreflang */}
         <link rel="canonical" href={`${SITE_URL}/cs/blog/${slug}/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="cs-CZ" />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="sk-SK" />
+        {altSlugSk && (
+          <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${altSlugSk}/`} hrefLang="sk-SK" />
+        )}
         <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="x-default" />
         {/* OG (article) */}
         <meta property="og:title" content={`${data.title} | Blog | ${SITE_NAME}`} />

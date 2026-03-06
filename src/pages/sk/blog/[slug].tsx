@@ -66,7 +66,24 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return { props: { data, content, slug } };
+  // Najdi spárovaný CZ článek podle pairId (pokud existuje)
+  const pairId = typeof data.pairId === "string" ? data.pairId.trim() : "";
+  let altSlugCs: string | null = null;
+  if (pairId) {
+    const csDir = path.join(process.cwd(), "src/content/cs/blog");
+    const csFiles = fs.readdirSync(csDir).filter((f) => f.endsWith(".md"));
+    for (const f of csFiles) {
+      const full = path.join(csDir, f);
+      const raw = fs.readFileSync(full, "utf8");
+      const fm = matter(raw).data as { pairId?: string };
+      if (typeof fm.pairId === "string" && fm.pairId.trim() === pairId) {
+        altSlugCs = f.replace(/\.md$/, "");
+        break;
+      }
+    }
+  }
+
+  return { props: { data, content, slug, altSlugCs } };
 };
 
 type BlogPostProps = {
@@ -77,12 +94,14 @@ type BlogPostProps = {
     coverImage?: string;
     coverImageWebp?: string;
     author?: string;
+    pairId?: string;
   };
   content: string;
   slug: string;
+  altSlugCs?: string | null;
 };
 
-export default function BlogPost({ data, content, slug }: BlogPostProps) {
+export default function BlogPost({ data, content, slug, altSlugCs }: BlogPostProps) {
   return (
     <>
       <Head>
@@ -95,7 +114,9 @@ export default function BlogPost({ data, content, slug }: BlogPostProps) {
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
         {/* Canonical + hreflang */}
         <link rel="canonical" href={`${SITE_URL_SK}/sk/blog/${slug}/`} />
-        <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="cs-CZ" />
+        {altSlugCs && (
+          <link rel="alternate" href={`${SITE_URL}/cs/blog/${altSlugCs}/`} hrefLang="cs-CZ" />
+        )}
         <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="sk-SK" />
         <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="x-default" />
         {/* OG */}

@@ -11,7 +11,7 @@ export default function KontaktPage() {
         <title>{`Kontakt – Podpora a dotazy ke generátoru životopisů | ${SITE_NAME}`}</title>
         <meta
           name="description"
-          content="Máte otázku nebo potřebujete poradit? Kontaktujte tým CvGen.cz. Rádi pomůžeme s tvorbou životopisu, platbou nebo technickými dotazy. Odpovídáme většinou do 24 hodin."/>
+          content="Máte otázku nebo potřebujete poradit? Kontaktujte tým Rychlýživotopis.cz. Rádi pomůžeme s tvorbou životopisu, platbou nebo technickými dotazy. Odpovídáme většinou do 24 hodin."/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
         <meta
@@ -52,7 +52,7 @@ export default function KontaktPage() {
               "url": `${SITE_URL}/cs/kontakt/`,
               "name": `Kontakt - ${SITE_NAME}`,
               "inLanguage": "cs-CZ",
-              "description": "Máte otázku k životopisu, platbě nebo technický problém? Kontaktujte nás přes e-mail info@cvgen.cz, odpovídáme do 24 hodin."
+              "description": "Máte otázku k životopisu, platbě nebo technický problém? Kontaktujte nás přes e-mail rychlyzivotopis@gmail.com, odpovídáme do 24 hodin."
             })
           }}
         />

@@ -1,0 +1,22 @@
+﻿# Diff (git diff)
+
+## Souhrn
+ DOCUMENTACE_PLATEB_A_WEBU.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+## Plný diff
+diff --git a/DOCUMENTACE_PLATEB_A_WEBU.md b/DOCUMENTACE_PLATEB_A_WEBU.md
+index 940ad1c..46ed740 100644
+--- a/DOCUMENTACE_PLATEB_A_WEBU.md
++++ b/DOCUMENTACE_PLATEB_A_WEBU.md
+@@ -175,6 +175,10 @@ Pokud se uživatel nevrátil (zavření okna, problém s redirectem), platba byl
+    - Download PDF/faktury upraven na `<a>` click s `target="_blank"` (méně dvojitých tabů).  
+    - Doplněn `useRef` import v `/zaplaceno` (CZ/SK) – fix kompilace.
+ 
++9) **Patch: cacheControl pro PDF/Invoice**  
++   - Upload PDF a faktur nyní používá `cacheControl: "0"` (Supabase Storage).  
++   - Minimalizuje to situace, kdy se po přegenerování stahuje stará verze.
++
+ ---
+ 
+ ## 6) Změněné / nové soubory (orientačně)
