@@ -20,7 +20,13 @@ const nextConfig: NextConfig = {
     return [
       // ✅ Sitemapy a robots: krátká cache (rychlá aktualizace pro SEO)
       {
-        source: "/sitemap:rest*.xml",
+        source: "/sitemap.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
+      {
+        source: "/sitemap-:rest*.xml",
         headers: [
           { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
         ],
