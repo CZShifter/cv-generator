@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
-import { getProfessionSlugs } from "@/data/professions";
+import { getProfessionBaseSlugs, toProfessionUrlSlug } from "@/data/professions";
 
 type Lang = "cs" | "sk";
 
@@ -74,12 +74,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const baseCz = isCz ? primaryBase : alternateBase;
   const baseSk = isCz ? alternateBase : primaryBase;
 
-  const slugs = getProfessionSlugs();
+  const baseSlugs = getProfessionBaseSlugs();
   const rows: string[] = [];
 
-  for (const slug of slugs) {
-    const csHref = `${baseCz}/cs/profese/${slug}`;
-    const skHref = `${baseSk}/sk/profese/${slug}`;
+  for (const baseSlug of baseSlugs) {
+    const csHref = `${baseCz}/cs/profese/${toProfessionUrlSlug(baseSlug, "cs")}`;
+    const skHref = `${baseSk}/sk/profese/${toProfessionUrlSlug(baseSlug, "sk")}`;
     const loc = isCz ? csHref : skHref;
     rows.push(urlNode(loc, [{ lang: "cs", href: csHref }, { lang: "sk", href: skHref }]));
   }

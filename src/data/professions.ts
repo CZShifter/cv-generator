@@ -49,7 +49,7 @@ export type ProfessionContent = {
     education: string[];
     skills: string[];
   };
-  related: { slug: string; name: string }[];
+  related: { slug: string; urlSlug: string; name: string }[];
   faqs: { question: string; answer: string }[];
 };
 
@@ -476,8 +476,50 @@ export function toProfessionUrlSlug(baseSlug: string) {
   return `zivotopis-${baseSlug}`;
 }
 
-export function fromProfessionUrlSlug(urlSlug: string) {
-  return urlSlug.replace(/^zivotopis-/, "");
+const SK_SLUGS: Record<string, string> = {
+  ridic: "vodic",
+  "ridic-kamionu": "vodic-kamionu",
+  kuryr: "kurier",
+  "montazni-pracovnik": "montazny-pracovnik",
+  delnik: "robotnik",
+  svarec: "zvarac",
+  zednik: "murar",
+  cisnik: "casnik",
+  recepcni: "recepcny",
+  uklizecka: "upratovacka",
+  "bezpecnostni-pracovnik": "bezpecnostny-pracovnik",
+  prodavac: "predavac",
+  prodavacka: "predavacka",
+  pokladni: "pokladnik",
+  "administrativni-pracovnik": "administrativny-pracovnik",
+  ucetni: "uctovnik",
+  "obchodni-zastupce": "obchodny-zastupca",
+  "mistr-vyroby": "majster-vyroby",
+  "tester-softwaru": "tester-softveru",
+  "ucitel-materske-skoly": "ucitel-materskej-skoly",
+  "lektor-jazyku": "lektor-jazykov",
+  "zdravotni-sestra": "zdravotna-sestra",
+  pecovatelka: "opatrovatelka",
+};
+
+const SK_SLUGS_REVERSE = Object.fromEntries(
+  Object.entries(SK_SLUGS).map(([base, sk]) => [sk, base])
+);
+
+export function toProfessionUrlSlug(baseSlug: string, locale: Locale) {
+  if (locale === "sk") {
+    const mapped = SK_SLUGS[baseSlug] ?? baseSlug;
+    return `zivotopis-${mapped}`;
+  }
+  return `zivotopis-${baseSlug}`;
+}
+
+export function fromProfessionUrlSlug(urlSlug: string, locale: Locale) {
+  const raw = urlSlug.replace(/^zivotopis-/, "");
+  if (locale === "sk") {
+    return SK_SLUGS_REVERSE[raw] ?? raw;
+  }
+  return raw;
 }
 
 export function getProfessionSeeds(locale: Locale): ProfessionSeed[] {
@@ -487,8 +529,12 @@ export function getProfessionSeeds(locale: Locale): ProfessionSeed[] {
   }));
 }
 
-export function getProfessionSlugs(): string[] {
-  return BASE_PROFESSIONS.map((p) => toProfessionUrlSlug(p.slug));
+export function getProfessionBaseSlugs(): string[] {
+  return BASE_PROFESSIONS.map((p) => p.slug);
+}
+
+export function getProfessionSlugs(locale: Locale): string[] {
+  return BASE_PROFESSIONS.map((p) => toProfessionUrlSlug(p.slug, locale));
 }
 
 export function getProfessionBySlug(locale: Locale, slug: string): ProfessionSeed | null {
@@ -498,7 +544,7 @@ export function getProfessionBySlug(locale: Locale, slug: string): ProfessionSee
 }
 
 export function buildProfessionContent(locale: Locale, slug: string): ProfessionContent | null {
-  const normalized = fromProfessionUrlSlug(slug);
+  const normalized = fromProfessionUrlSlug(slug, locale);
   const seed = getProfessionBySlug(locale, normalized);
   if (!seed) return null;
 
@@ -619,7 +665,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
 
   return {
     slug: seed.slug,
-    urlSlug: toProfessionUrlSlug(seed.slug),
+    urlSlug: toProfessionUrlSlug(seed.slug, locale),
     name: seed.name,
     category: seed.category,
     title: ui.title(seed.name),
@@ -688,5 +734,9 @@ export function getRelatedProfessions(
   const list = getProfessionSeeds(locale)
     .filter((p) => p.category === category && p.slug !== slug)
     .slice(0, limit);
-  return list.map((p) => ({ slug: p.slug, name: p.name }));
+  return list.map((p) => ({
+    slug: p.slug,
+    urlSlug: toProfessionUrlSlug(p.slug, locale),
+    name: p.name,
+  }));
 }

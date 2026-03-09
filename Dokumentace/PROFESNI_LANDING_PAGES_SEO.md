@@ -148,6 +148,10 @@ Používá se:
 /sk/profese/zivotopis-<slug>
 ```
 
+Poznámka pro SK:
+- Slovenské slugy mohou být **lokalizované** (např. `uklizecka` → `upratovacka`).
+- Mapování je v `src/data/professions.ts` v objektu `SK_SLUGS`.
+
 Starý formát bez prefixu se přesměruje (301):
 ```
 /cs/profese/<slug>  → /cs/profese/zivotopis-<slug>

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import styles from "@/scss/Profession.module.scss";
-import { buildProfessionContent, getProfessionSlugs, ProfessionContent } from "@/data/professions";
+import { buildProfessionContent, fromProfessionUrlSlug, getProfessionSlugs, ProfessionContent, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK } from "@/config/site";
 import ProfessionPreviewFrame from "@/components/ProfessionPreviewFrame";
 import { buildProfessionPreviewData } from "@/data/professionPreviewData";
@@ -12,7 +12,7 @@ type PageProps = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = getProfessionSlugs();
+  const slugs = getProfessionSlugs("sk");
   return {
     paths: slugs.map((slug) => ({ params: { slug } })),
     fallback: false,
@@ -24,9 +24,10 @@ export const getStaticProps: GetStaticProps<PageProps> = async (
 ) => {
   const slug = context.params?.slug as string;
   if (!slug.startsWith("zivotopis-")) {
+    const base = fromProfessionUrlSlug(`zivotopis-${slug}`, "sk");
     return {
       redirect: {
-        destination: `/sk/profese/zivotopis-${slug}`,
+        destination: `/sk/profese/${toProfessionUrlSlug(base, "sk")}`,
         permanent: true,
       },
     };
@@ -240,7 +241,7 @@ export default function ProfessionPage({ content }: PageProps) {
               <ul>
                 {content.related.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/sk/profese/zivotopis-${item.slug}`}>{item.name}</Link>
+                    <Link href={`/sk/profese/${item.urlSlug}`}>{item.name}</Link>
                   </li>
                 ))}
               </ul>

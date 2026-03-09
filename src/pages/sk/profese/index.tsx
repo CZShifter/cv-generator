@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "@/scss/Profession.module.scss";
-import { getCategoryLabels, getGroupedProfessions } from "@/data/professions";
+import { getCategoryLabels, getGroupedProfessions, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK } from "@/config/site";
 
 export default function ProfeseIndexPage() {
@@ -51,7 +51,7 @@ export default function ProfeseIndexPage() {
               <ul>
                 {list.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/sk/profese/zivotopis-${item.slug}`}>Životopis {item.name}</Link>
+                    <Link href={`/sk/profese/${toProfessionUrlSlug(item.slug, "sk")}`}>Životopis {item.name}</Link>
                   </li>
                 ))}
               </ul>
