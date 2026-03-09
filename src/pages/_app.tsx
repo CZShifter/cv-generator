@@ -321,13 +321,46 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               "description": isSk
                 ? "Vytvorte si profesionálny životopis online a exportujte ho do PDF."
                 : "Vytvořte si profesionální životopis online a exportujte ho do PDF.",
-              "brand": { "@type": "Organization", "name": siteName },
+              "image": `${siteUrl}/img/logo.png`,
+              "brand": { "@type": "Brand", "name": siteName, "logo": `${siteUrl}/img/logo.png` },
               "offers": {
                 "@type": "Offer",
                 "price": price,
                 "priceCurrency": currency,
                 "url": `${siteUrl}/${isSk ? "sk" : "cs"}/preview`,
                 "availability": "https://schema.org/InStock",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+                  "applicableCountry": isSk ? "SK" : "CZ",
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": 0,
+                    "currency": currency,
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": isSk ? "SK" : "CZ",
+                  },
+                  "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "handlingTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 0,
+                      "maxValue": 0,
+                      "unitCode": "DAY",
+                    },
+                    "transitTime": {
+                      "@type": "QuantitativeValue",
+                      "minValue": 0,
+                      "maxValue": 0,
+                      "unitCode": "DAY",
+                    },
+                  },
+                },
               },
             }),
           }}

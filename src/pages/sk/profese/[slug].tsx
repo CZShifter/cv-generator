@@ -99,13 +99,46 @@ export default function ProfessionPage({ content }: PageProps) {
     "@type": "Product",
     "name": "Online generátor životopisov",
     "description": "Vytvorte si profesionálny životopis online a exportujte ho do PDF.",
-    "brand": { "@type": "Organization", "name": SITE_NAME_SK },
+    "image": OG_IMAGE,
+    "brand": { "@type": "Brand", "name": SITE_NAME_SK, "logo": `${SITE_URL_SK}/img/logo.png` },
     "offers": {
       "@type": "Offer",
       "price": PRICE_CV_SK,
       "priceCurrency": "EUR",
       "url": `${SITE_URL_SK}/sk/preview`,
       "availability": "https://schema.org/InStock",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "applicableCountry": "SK",
+      },
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": 0,
+          "currency": "EUR",
+        },
+        "shippingDestination": {
+          "@type": "DefinedRegion",
+          "addressCountry": "SK",
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY",
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": 0,
+            "maxValue": 0,
+            "unitCode": "DAY",
+          },
+        },
+      },
     },
   };
 

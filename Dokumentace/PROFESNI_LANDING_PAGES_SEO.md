@@ -111,6 +111,15 @@ Aktuální stav:
 - `/sitemap-main.xml` → statické stránky + blog
 - `/sitemap-profese.xml` → profesní stránky
 
+Poznámky:
+- `sitemap.xml` generuje odkazy podle aktuální domény (CZ vrací `.cz`, SK vrací `.sk`).
+- Cache pro sitemapy a `robots.txt` je krátká (rychlá aktualizace), viz `next.config.ts`.
+- Při přidání nové sitemap:
+  - vytvoř nový `src/pages/sitemap-<název>.xml.ts`
+  - přidej ji do `src/pages/sitemap.xml.ts` (index)
+  - přidej krátkou cache hlavičku do `next.config.ts`
+  - přidej výjimku do `src/middleware.ts` (aby nepřidával /cs nebo /sk)
+
 Soubory:
 - `src/pages/sitemap.xml.ts`
 - `src/pages/sitemap-main.xml.ts`
