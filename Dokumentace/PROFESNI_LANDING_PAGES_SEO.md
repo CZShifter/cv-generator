@@ -1,4 +1,4 @@
-# Profesní landing pages (CZ/SK) – dokumentace
+﻿# Profesní landing pages (CZ/SK) – dokumentace
 
 Datum: 2026-03-09
 
@@ -15,7 +15,7 @@ Tento dokument popisuje:
 
 Profesní stránky slouží jako pSEO landing pages pro long‑tail dotazy:
 - `/cs/profese/zivotopis-skladnik`
-- `/sk/profese/zivotopis-skladnik`
+- `/sk/profese/zivotopis-skladnik` (nebo lokalizované SK slugy viz níže)
 
 Stránky obsahují:
 - H1 s přesnou shodou (např. „Životopis pro pozici skladník“)
@@ -52,7 +52,7 @@ Ve stejném souboru:
 ### Krok 3: hotovo
 Stránka se vygeneruje automaticky:
 - `/cs/profese/zivotopis-novy-slug`
-- `/sk/profese/zivotopis-novy-slug`
+- `/sk/profese/zivotopis-novy-slug` (nebo lokalizovaný SK slug)
 
 Sitemap se aktualizuje automaticky.
 
@@ -151,6 +151,32 @@ Používá se:
 Poznámka pro SK:
 - Slovenské slugy mohou být **lokalizované** (např. `uklizecka` → `upratovacka`).
 - Mapování je v `src/data/professions.ts` v objektu `SK_SLUGS`.
+- Při přidání nové profese zvažte, zda má mít SK slug lokalizovaný (běžný slovenský výraz).
+
+Aktuální lokalizované SK slugy:
+- `ridic` → `vodic`
+- `ridic-kamionu` → `vodic-kamionu`
+- `kuryr` → `kurier`
+- `montazni-pracovnik` → `montazny-pracovnik`
+- `delnik` → `robotnik`
+- `svarec` → `zvarac`
+- `zednik` → `murar`
+- `cisnik` → `casnik`
+- `recepcni` → `recepcny`
+- `uklizecka` → `upratovacka`
+- `bezpecnostni-pracovnik` → `bezpecnostny-pracovnik`
+- `prodavac` → `predavac`
+- `prodavacka` → `predavacka`
+- `pokladni` → `pokladnik`
+- `administrativni-pracovnik` → `administrativny-pracovnik`
+- `ucetni` → `uctovnik`
+- `obchodni-zastupce` → `obchodny-zastupca`
+- `mistr-vyroby` → `majster-vyroby`
+- `tester-softwaru` → `tester-softveru`
+- `ucitel-materske-skoly` → `ucitel-materskej-skoly`
+- `lektor-jazyku` → `lektor-jazykov`
+- `zdravotni-sestra` → `zdravotna-sestra`
+- `pecovatelka` → `opatrovatelka`
 
 Starý formát bez prefixu se přesměruje (301):
 ```
@@ -200,3 +226,4 @@ Sitemapy a LLM:
 
 Stránky jsou staticky generované (SSG) přes `getStaticPaths` a `getStaticProps`.
 To zajišťuje rychlé načítání, dobré CWV a stabilní SEO.
+

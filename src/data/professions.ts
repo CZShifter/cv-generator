@@ -472,10 +472,6 @@ function pickVariant(slug: string, variants: string[]) {
   return variants[idx];
 }
 
-export function toProfessionUrlSlug(baseSlug: string) {
-  return `zivotopis-${baseSlug}`;
-}
-
 const SK_SLUGS: Record<string, string> = {
   ridic: "vodic",
   "ridic-kamionu": "vodic-kamionu",
