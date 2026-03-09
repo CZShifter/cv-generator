@@ -51,8 +51,8 @@ function resolveBases(req: IncomingMessage) {
 
 // ---------------- Hlavní handler ----------------
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  const { primaryBase, alternateBase, isCz } = resolveBases(req as IncomingMessage);
-  const base = isCz ? primaryBase : alternateBase;
+  const { primaryBase } = resolveBases(req as IncomingMessage);
+  const base = primaryBase;
   const lastmod = new Date().toISOString();
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
