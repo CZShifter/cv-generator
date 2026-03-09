@@ -89,6 +89,7 @@ Každá profesní stránka obsahuje:
 - `canonical`
 - `hreflang` (CZ/SK + x-default)
 - OG/Twitter meta
+- `seznam-wmt` (ověření domény, CZ/SK tokeny v `_app.tsx`)
 
 ### Structured data
 Na profesních stránkách:
