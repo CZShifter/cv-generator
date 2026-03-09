@@ -26,7 +26,13 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/sitemap-:rest*.xml",
+        source: "/sitemap-main.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
+      {
+        source: "/sitemap-profese.xml",
         headers: [
           { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
         ],
