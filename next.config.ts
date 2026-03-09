@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      // ✅ Sitemapy a robots: krátká cache (rychlá aktualizace pro SEO)
+      {
+        source: "/sitemap:rest*.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
+      {
+        source: "/robots.txt",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
       // 🚫 Výjimka – pro složku /pdftemplates nepoužívat cache
       {
         source: "/pdftemplates/:path*",
