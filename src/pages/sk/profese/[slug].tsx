@@ -99,7 +99,7 @@ export default function ProfessionPage({ content }: PageProps) {
     "@type": "Product",
     "name": "Online generátor životopisov",
     "description": "Vytvorte si profesionálny životopis online a exportujte ho do PDF.",
-    "image": OG_IMAGE,
+    "image": OG_IMAGE_SK,
     "brand": { "@type": "Brand", "name": SITE_NAME_SK, "logo": `${SITE_URL_SK}/img/logo.png` },
     "offers": {
       "@type": "Offer",

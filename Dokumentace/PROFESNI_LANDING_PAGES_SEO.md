@@ -96,11 +96,17 @@ Na profesních stránkách:
 - `BreadcrumbList`
 - `FAQPage`
  - `Product` + `Offer` (cena z `src/config/site.ts`)
+   - `image` (logo/OG)
+   - `brand` jako `Brand` + `logo`
+   - `shippingDetails` a `hasMerchantReturnPolicy` kvůli požadavkům GSC
 
 Globálně v `_app.tsx`:
 - `Organization`
 - `WebSite`
  - `Product` (globální, včetně ceny a měny podle domény)
+   - `image` (logo)
+   - `brand` jako `Brand` + `logo`
+   - `shippingDetails` a `hasMerchantReturnPolicy`
 
 ---
 
