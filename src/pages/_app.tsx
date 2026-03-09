@@ -8,6 +8,12 @@ import {
   FAVICON_URL_32,
   FAVICON_URL_192,
   APPLE_TOUCH_ICON_URL,
+  SITE_URL,
+  SITE_URL_SK,
+  SITE_NAME,
+  SITE_NAME_SK,
+  PRICE_CV,
+  PRICE_CV_SK,
 } from "@/config/site";
 
 import HeaderCs from "@/components/cs/Header";
@@ -207,6 +213,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const router = useRouter();
 
   const isSk = router.pathname.startsWith("/sk");
+  const siteUrl = isSk ? SITE_URL_SK : SITE_URL;
+  const siteName = isSk ? SITE_NAME_SK : SITE_NAME;
+  const price = isSk ? PRICE_CV_SK : PRICE_CV;
+  const currency = isSk ? "EUR" : "CZK";
   const DefaultHeader = isSk ? HeaderSk : HeaderCs;
   const SpecialHeader = isSk ? SpecialHeaderSk : SpecialHeaderCs;
 
@@ -272,6 +282,56 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": siteName,
+              "url": siteUrl,
+              "logo": `${siteUrl}/img/logo.png`,
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": siteName,
+              "url": siteUrl,
+              "inLanguage": isSk ? "sk-SK" : "cs-CZ",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": `${siteUrl}/${isSk ? "sk" : "cs"}/profese?search={search_term_string}`,
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": isSk ? "Online generátor životopisov" : "Online generátor životopisů",
+              "description": isSk
+                ? "Vytvorte si profesionálny životopis online a exportujte ho do PDF."
+                : "Vytvořte si profesionální životopis online a exportujte ho do PDF.",
+              "brand": { "@type": "Organization", "name": siteName },
+              "offers": {
+                "@type": "Offer",
+                "price": price,
+                "priceCurrency": currency,
+                "url": `${siteUrl}/${isSk ? "sk" : "cs"}/preview`,
+                "availability": "https://schema.org/InStock",
+              },
+            }),
+          }}
+        />
       </Head>
 
       {useSpecialLayout ? <SpecialHeader /> : <DefaultHeader />}

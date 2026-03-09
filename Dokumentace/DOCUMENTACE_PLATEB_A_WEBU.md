@@ -224,3 +224,8 @@ Return URL (fallback):
 - Frontend nikdy nespouští generování PDF.
 - Všechny kritické operace (paid → pdf) jsou řízeny webhookem.
 - Lze přidat dedikovaný admin endpoint pro „regeneraci PDF po zaplacení“ (pokud potřeba).
+
+Příkazy pro nasazení na vercel:
+- git add .
+- git commit -m "zruseni footer v renderu_2"
+- git push origin dev
