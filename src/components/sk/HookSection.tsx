@@ -1,4 +1,4 @@
-import styles from '@/scss/HookSection.module.scss'
+﻿import styles from '@/scss/HookSection.module.scss'
 import { SITE_VERSION } from "@/config/site";
 
 export default function HookSection() {
@@ -7,7 +7,7 @@ export default function HookSection() {
       <div className={styles.HookWrapper}>
         <div className={styles.HookTitleWrapper}>
           <h2>Štruktúrovaný životopis online za pár minút!</h2>
-          <p>Vytvoriť profesionálny životopis nemusí byť zložité. Mnoho uchádzačov denne zápasí s nepraktickými editormi, neprehľadnými šablónami a nutnosťou registrácie do služieb, ktoré sľubujú viac, než dodajú. Naša aplikácia vznikla ako odpoveď na tieto problémy</p>
+          <p>Vytvoriť <a href="/sk/profese">profesionálny životopis</a> nemusí byť zložité. Mnoho uchádzačov denne zápasí s nepraktickými editormi, neprehľadnými šablónami a nutnosťou registrácie do služieb, ktoré sľubujú viac, než dodajú. Naša aplikácia vznikla ako odpoveď na tieto problémy.</p>
           <p>Formulár je intuitívny a doplnený živým náhľadom. Vďaka tomu na vás nečaká prekvapenie vo forme zlého rozloženia stránky po stiahnutí životopisu. Výsledkom je elegantné PDF pripravené na odoslanie.</p>
           <p>S našou aplikáciou ušetríte svoj čas aj trpezlivosť. Nevyžadujeme žiadnu registráciu, neukladáme vaše osobné údaje a neprekvapíme vás žiadnym predplatným ani skrytými poplatkami. Moderný životopis si vygenerujete rýchlo a jednoducho len za 4 €.</p>
         </div>       
@@ -28,3 +28,6 @@ export default function HookSection() {
     </section>
   )
 }
+
+
+

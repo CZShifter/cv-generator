@@ -110,6 +110,10 @@ pairId: "post-0003"
 
 <p><strong>Online generátor motivačních dopisů</strong> vám pomůže sestavit dopis rychle a profesionálně. Vplníte o sobě co nejvíce informací a <strong>okamžitě stáhnete hotový WORD dokument</strong>. Protože je velmi důležité text vždy <strong>přizpůsobit konkrétní firmě</strong> a pozici, můžete následný exportovaný .DOCX soubor upravit přesně na míru vašim požadavkům.</p>
 <br/>
-<a href="/cs/motivacni-dopis">
+<span><a class="blogCtaHover" href="/cs/motivacni-dopis">
   Vyzkoušejte náš generátor motivačních dopisů zdarma
-</a>
+</a></span>
+<br/>
+<br/>
+<p>*Pokud chcete také konkrétní vzor životopisu podle profese, projděte si náš <a class="textLink" href="/cs/profese">rozcestník profesí</a>.
+</p>

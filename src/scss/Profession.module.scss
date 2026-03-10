@@ -35,6 +35,16 @@
   }
 }
 
+.generatorLink {
+  font-weight: 700;
+  color: $btn-hover-color;
+  text-decoration: none;
+}
+
+.generatorLink:hover {
+  text-decoration: underline;
+}
+
 .summaryBox {
   border: 1px solid #e6e9f2;
   border-radius: $border-radius;
@@ -56,7 +66,8 @@
     color: $text-color;
     font-size: $p;
     line-height: 1.7;
-    margin-bottom: 0.4rem;
+    font-weight: 300;
+    margin-bottom: 0;
   }
 }
 
@@ -82,7 +93,8 @@
     color: $text-color;
     font-size: $p;
     line-height: 1.7;
-    margin-bottom: 0.5rem;
+    font-weight: 300;
+    margin-bottom: 0;
   }
 }
 
@@ -147,8 +159,83 @@
     color: $text-color;
     font-size: $p;
     line-height: 1.7;
-    margin-bottom: 0.5rem;
+    font-weight: 300;
+    margin-bottom: 0;
   }
+}
+
+.atsTight {
+  margin: 0 !important;
+}
+
+.bodySection .atsTight + .atsTight {
+  margin-top: 0 !important;
+}
+
+.adBox {
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  border-left: 4px solid $btn-hover-color;
+  border-radius: 6px;
+  background: #f3f7fc;
+}
+
+.adTitle {
+  margin: 0 0 10px;
+  color: $btn-hover-color;
+  font-size: $p;
+  font-weight: 600;
+}
+
+.adIntro {
+  margin: 0 0 8px;
+  color: $text-color;
+  font-size: $p;
+  line-height: 1.7;
+}
+
+.adSection {
+  margin-top: 12px;
+}
+
+.adSectionTitle {
+  margin: 0 0 6px;
+  font-size: $p;
+  color: $text-color;
+  font-weight: 600;
+}
+
+.adList {
+  margin: 0;
+  padding-left: 1.4rem;
+
+  li {
+    color: $text-color;
+    font-size: $p;
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+.adKeyword {
+  color: inherit;
+  font-weight: 300;
+}
+
+.adNote {
+  margin: 12px 0 0;
+  font-size: $p;
+  color: #44556b;
+}
+
+.quote {
+  margin: 16px 0;
+  padding: 14px 18px;
+  border-left: 4px solid $btn-hover-color;
+  background: #f3f7fc;
+  color: #203047;
+  font-style: italic;
+  border-radius: 6px;
 }
 
 .previewWrap {

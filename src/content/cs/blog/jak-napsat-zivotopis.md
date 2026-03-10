@@ -1,4 +1,4 @@
----
+﻿---
 title: "Jak vytvořit strukturovaný životopis"
 date: "10.08.2025"
 description: "Praktický návod a tipy, jak napsat moderní životopis a zvýšit svou šanci na úspěch ve výběrovém řízení."
@@ -9,6 +9,7 @@ pairId: "post-0002"
 ---
 
 <p>Chcete získat vysněnou práci? První krok je napsat životopis, který zaujme hned. Správně sestavené CV může rozhodnout, zda vás personalista pozve na pohovor, nebo vás přeskočí. V tomto návodu se naučíte přesnou strukturu, formulace i postup krok za krokem, <strong>jak vytvořit životopis, který je čitelný</strong>, měřitelný a optimalizovaný pro ATS (systémy na zpracování životopisů).</p>
+<p>Pokud chcete rovnou konkrétní vzor podle profese, projděte si <a class="textLink" href="/cs/profese">rozcestník profesí</a> nebo mrkněte na vybrané příklady: <a class="textLink" href="/cs/profese/zivotopis-skladnik">životopis skladník</a>, <a class="textLink" href="/cs/profese/zivotopis-ucetni">životopis účetní</a>, <a class="textLink" href="/cs/profese/zivotopis-programator">životopis programátor</a>.</p>
 
 ## 1. Struktura životopisu
 
@@ -213,10 +214,13 @@ pairId: "post-0002"
 
 <p>Generátor životopisů dokáže urychlit celý proces: vyberete <strong>moderní šablonu</strong>, vyplníte data a <strong>stáhnete PDF</strong>. I když používáte generátor, pořád platí zásady výše: <strong>měřitelné výsledky</strong>, <strong>klíčová slova</strong>, <strong>čisté formátování</strong> a <strong>přizpůsobení</strong> konkrétní pozici.</p>
 <br/>
-<a href="/cs/preview">
+<span><a class="blogCtaHover" href="/cs/preview">
   Vyzkoušejte náší aplikaci a za 5 minut budete mít hotovo!
-</a>
+</a></span>
 
 ---
 
 <p>Na závěr si projděte, zda je vše aktuální a relevantní k dané pozici. Přejeme hodně úspěchů při hledání práce!</p>
+
+
+

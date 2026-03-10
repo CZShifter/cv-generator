@@ -26,6 +26,8 @@ Stránky obsahují:
 - FAQ
 - CTA blok ve stylu domovské stránky
 - interní prolinkování (related)
+- box „Příklad inzerátu“ s intro textem podle kategorie, plus Náplň práce / Požadujeme
+- v běžném textu se zvýrazňuje (strong) slovo „životopis“ a název profese; **v nadpisech se strong nepoužívá**
 
 ---
 
@@ -56,6 +58,14 @@ Stránka se vygeneruje automaticky:
 
 Sitemap se aktualizuje automaticky.
 
+### Poznámka: inzerát a intro
+U každé profese se generuje box „Příklad inzerátu“. Používá:
+- intro z `CATEGORY_INTRO` (CZ/SK) – text se vkládá do boxu u inzerátu
+- body „Náplň práce“ a „Požadujeme“ z defaultních dovedností a úkolů (kategorie + klíčová slova profese)
+
+Pokud chceš inzerát upravit ručně pro konkrétní profesi, použij:
+- `AD_EXAMPLE_OVERRIDES` v `src/data/professions.ts`
+
 ---
 
 ## 3) Preview CV pro profese
@@ -70,6 +80,9 @@ Soubory:
 Chování:
 - používá `sampleCvData.ts` / `sampleCvDataSK.ts` jako base
 - data se upraví podle profese (dovednosti, náplň práce)
+- pracovní zkušenosti obsahují kombinaci:
+  - 2× bod z „náplně práce“ (responsibilities)
+  - 2× bod s výsledkem/dopadem (podle kategorie)
 - automaticky se volí fotka:
   - ženské jméno → `/photo_img/photo.jpg`
   - mužské jméno → `/photo_img/photo2.jpg`
@@ -79,7 +92,7 @@ Chování:
 Pokud chceš více variant, rozšiř `NAMES` (male/female jména a příjmení).
 Pro jemné řízení ženského rodu slouží `FEMININE_SLUG_OVERRIDES`.
 
----
+--- 
 
 ## 4) SEO (canonical, hreflang, schema)
 
@@ -109,7 +122,7 @@ Globálně v `_app.tsx`:
    - `brand` jako `Brand` + `logo`
    - `shippingDetails` a `hasMerchantReturnPolicy`
 
----
+--- 
 
 ## 5) Sitemapy (index + profese)
 
@@ -134,6 +147,7 @@ Soubory:
 
 Robots:
 - `src/pages/robots.txt.ts` ukazuje na `/sitemap.xml`
+- `robots.txt` se generuje podle aktuální domény (CZ i SK mají vlastní sitemap URL)
 
 ---
 
@@ -151,7 +165,7 @@ Soubory:
 `llms.txt` obsahuje:
 - popis webu
 - hlavní sekce
-- odkaz na sitemap
+- odkaz na sitemap podle aktuální domény (CZ/SK)
 - poznámky o strukturách a preview
 
 ---
@@ -200,12 +214,14 @@ Starý formát bez prefixu se přesměruje (301):
 /sk/profese/<slug>  → /sk/profese/zivotopis-<slug>
 ```
 
----
+--- 
 
 ## 8) Klíčové soubory – rychlý seznam
 
 Data:
 - `src/data/professions.ts` (hlavní dataset)
+- `CATEGORY_INTRO` (intro texty pro inzerát, CZ/SK)
+- `AD_EXAMPLE_DATA` / `AD_EXAMPLE_OVERRIDES` (Příklad inzerátu)
 - `src/data/professionPreviewData.ts`
 - `src/data/sampleCvData.ts`
 - `src/data/sampleCvDataSK.ts`

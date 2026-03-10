@@ -41,6 +41,38 @@ export default function ProfessionPage({ content }: PageProps) {
   const canonical = `${SITE_URL}/cs/profese/${content.urlSlug}/`;
   const alternate = `${SITE_URL_SK}/sk/profese/${content.urlSlug}/`;
   const previewData = buildProfessionPreviewData("cs", content.slug, "cvtemplate");
+  const highlightText = (text: string) => {
+    if (!text) return text;
+    const escapedName = content.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const splitPattern = new RegExp(`(${escapedName}|životopis\\w*)`, "gi");
+    const testPattern = new RegExp(`^(${escapedName}|životopis\\w*)$`, "i");
+    return text.split(splitPattern).map((part, index) =>
+      testPattern.test(part)
+        ? <strong key={`${part}-${index}`}>{part}</strong>
+        : <span key={`${part}-${index}`}>{part}</span>
+    );
+  };
+  const renderIntro = (text: string) => {
+    if (!text.includes("[generator]")) return highlightText(text);
+    const parts = text.split("[generator]");
+    return (
+      <>
+        {highlightText(parts[0])}
+        <Link className={styles.generatorLink} href="/cs/preview">
+          generátoru
+        </Link>
+        {highlightText(parts[1] ?? "")}
+      </>
+    );
+  };
+  const topSections = content.bodySections.filter(
+    (section) =>
+      section.heading === content.bodySections[0]?.heading ||
+      section.heading.toLowerCase().includes("ats")
+  );
+  const bottomSections = content.bodySections.filter(
+    (section) => !topSections.includes(section)
+  );
 
   const schemaWebPage = {
     "@context": "https://schema.org",
@@ -186,19 +218,79 @@ export default function ProfessionPage({ content }: PageProps) {
           <header className={styles.hero}>
             <h1>{content.h1}</h1>
             {content.intro.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p}>{renderIntro(p)}</p>
             ))}
-            <p>{content.uniqueLead}</p>
+            <p>{highlightText(content.uniqueLead)}</p>
           </header>
 
           <section className={styles.summaryBox}>
             <h2 className={styles.summaryTitle}>Rychlé shrnutí</h2>
             <ul className={styles.summaryList}>
               {content.summaryBullets.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{highlightText(item)}</li>
               ))}
             </ul>
           </section>
+
+          {topSections.map((section) => (
+            <section key={section.heading} className={styles.bodySection}>
+              <h2>{section.heading}</h2>
+              {section.paragraphs.map((paragraph, index) => (
+                paragraph.startsWith("Příklad inzerátu:")
+                  ? (
+                    <blockquote key={paragraph} className={styles.quote}>
+                      {paragraph.replace(/^Příklad inzerátu:\s*/i, "")}
+                    </blockquote>
+                  )
+                  : (
+                    <p
+                      key={paragraph}
+                      className={
+                        (section.heading === content.bodySections[0]?.heading ||
+                          section.heading.toLowerCase().includes("ats")) && index < 2
+                          ? styles.atsTight
+                          : undefined
+                      }
+                    >
+                      {highlightText(paragraph)}
+                    </p>
+                  )
+              ))}
+              {section.heading.toLowerCase().includes("ats") && (
+                <div className={styles.adBox}>
+                  <h3 className={styles.adTitle}>{content.adExample.title}</h3>
+                  <p className={styles.adIntro}>{content.adExample.introText}</p>
+                  <div className={styles.adSection}>
+                    <h4 className={styles.adSectionTitle}>{content.adExample.responsibilitiesTitle}:</h4>
+                    <ul className={styles.adList}>
+                      {content.adExample.responsibilities.map((item) => (
+                        <li key={item}>
+                          <span className={styles.adKeyword}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.adSection}>
+                    <h4 className={styles.adSectionTitle}>{content.adExample.requirementsTitle}:</h4>
+                    <ul className={styles.adList}>
+                      {content.adExample.requirements.map((item) => (
+                        <li key={item}>
+                          <span className={styles.adKeyword}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+              {section.bullets && (
+                <ul>
+                  {section.bullets.map((item) => (
+                    <li key={item}>{highlightText(item)}</li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
 
           <section className={styles.splitSection}>
             <div className={styles.splitLeft}>
@@ -207,7 +299,7 @@ export default function ProfessionPage({ content }: PageProps) {
                   <h2>{section.heading}</h2>
                   <ul>
                     {section.bullets.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item}>{highlightText(item)}</li>
                     ))}
                   </ul>
                 </section>
@@ -230,40 +322,46 @@ export default function ProfessionPage({ content }: PageProps) {
             </div>
           </section>
 
-          {content.bodySections.map((section) => (
+          {bottomSections.map((section) => (
             <section key={section.heading} className={styles.bodySection}>
               <h2>{section.heading}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {section.paragraphs.map((paragraph, index) => (
+                paragraph.startsWith("Příklad inzerátu:")
+                  ? (
+                    <blockquote key={paragraph} className={styles.quote}>
+                      {paragraph.replace(/^Příklad inzerátu:\s*/i, "")}
+                    </blockquote>
+                  )
+                  : (
+                    <p
+                      key={paragraph}
+                      className={
+                        (section.heading === content.bodySections[0]?.heading ||
+                          section.heading.toLowerCase().includes("ats")) && index < 2
+                          ? styles.atsTight
+                          : undefined
+                      }
+                    >
+                      {highlightText(paragraph)}
+                    </p>
+                  )
               ))}
               {section.bullets && (
                 <ul>
                   {section.bullets.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>{highlightText(item)}</li>
                   ))}
                 </ul>
               )}
             </section>
           ))}
 
-          <section className={styles.cta}>
-            <div className={styles.ctaBlock}>
-              <h2 className={styles.ctaTitle}>Připraveni vytvořit si svůj životopis?</h2>
-              <p className={styles.ctaText}>
-                Začněte nyní a vytvořte si moderní a profesionální životopis během 5 minut.
-              </p>
-              <Link className={styles.ctaButton} href="/cs/preview">
-                Vytvořit životopis
-              </Link>
-            </div>
-          </section>
-
           <section className={styles.faq}>
             <h2>Časté otázky</h2>
             {content.faqs.map((faq) => (
               <div key={faq.question} className={styles.faqItem}>
                 <h3>{faq.question}</h3>
-                <p>{faq.answer}</p>
+                <p>{highlightText(faq.answer)}</p>
               </div>
             ))}
           </section>
@@ -274,7 +372,7 @@ export default function ProfessionPage({ content }: PageProps) {
               <ul>
                 {content.related.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/cs/profese/${item.urlSlug}`}>{item.name}</Link>
+                    <Link href={`/cs/profese/${item.urlSlug}`}>{highlightText(item.name)}</Link>
                   </li>
                 ))}
               </ul>

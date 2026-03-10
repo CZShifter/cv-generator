@@ -120,21 +120,6 @@
     margin-bottom: 1.2rem;
     color: #22304b;
   }
-  a{
-    display: inline-flex;
-    color: $form-color;
-    font-weight: 500;
-    padding: $btn-padding;
-    border-radius: $btn-radius;
-    background-color: $btn-hover-color;
-    transition: transform 0.2s ease;
-     &:hover {
-      background-color: $btn-form;
-      text-decoration: none;
-      color: $white-color;
-      transform: translateY(5px);
-    }
-  }
 }
 
 /* --- obsah článku renderovaný z Markdownu --- */
@@ -143,6 +128,51 @@
   img { max-width: 100%; height: auto; display: block; margin-bottom: 0;}
   ul, ol { line-height: 1.7; margin: 0; padding: 1rem 1rem 1rem 1rem; }
   hr { border: none; border-top: 0px solid #e2e2e2; }
+  a {
+    display: inline;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: $btn-hover-color;
+    text-decoration: underline;
+    font-weight: 500;
+    &:hover {
+      background-color: transparent;
+      color: $btn-form;
+      text-decoration: underline;
+      transform: none;
+    }
+  }
+  span a{
+    background: #154D90;
+    color: white !important;
+    border-radius: 4px;
+    box-shadow: 0 8px 10px rgba(36, 101, 199, 0.2);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 200ms ease-in-out;
+    padding: 0.5rem 1rem;
+    &:hover{
+      background-color: #2465c7;
+      transform: translateY(-5px);
+      text-decoration: none;
+    }
+  }
+  :global(.textLink){
+    display: inline !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    color: $btn-hover-color !important;
+    text-decoration: underline !important;
+    font-weight: 500 !important;
+    &:hover {
+      background-color: transparent !important;
+      color: $btn-form !important;
+      text-decoration: underline !important;
+      transform: none !important;
+    }
+  }
 
   /* ZÁKLAD: obal */
   :global(.two-thirds) {

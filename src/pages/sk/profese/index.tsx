@@ -1,12 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "@/scss/Profession.module.scss";
-import { getCategoryLabels, getGroupedProfessions, toProfessionUrlSlug } from "@/data/professions";
+import { getProfessionSeeds, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK } from "@/config/site";
 
 export default function ProfeseIndexPage() {
-  const groups = getGroupedProfessions("sk");
-  const labels = getCategoryLabels("sk");
+  const list = getProfessionSeeds("sk").sort((a, b) => a.name.localeCompare(b.name, "sk"));
   const canonical = `${SITE_URL_SK}/sk/profese/`;
   const alternate = `${SITE_URL}/cs/profese/`;
 
@@ -45,18 +44,15 @@ export default function ProfeseIndexPage() {
             </p>
           </header>
 
-          {Object.entries(groups).map(([category, list]) => (
-            <section key={category} className={styles.hubGroup}>
-              <h2>{labels[category as keyof typeof labels]}</h2>
-              <ul>
-                {list.map((item) => (
-                  <li key={item.slug}>
-                    <Link href={`/sk/profese/${toProfessionUrlSlug(item.slug, "sk")}`}>Životopis {item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
+          <section className={styles.hubGroup}>
+            <ul>
+              {list.map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/sk/profese/${toProfessionUrlSlug(item.slug, "sk")}`}>Životopis {item.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </div>
     </>

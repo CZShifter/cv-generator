@@ -110,6 +110,10 @@ pairId: "post-0003"
 
 <p><strong>Online generátor motivačných listov</strong> vám pomôže zostaviť list rýchlo a profesionálne. Vyplníte o sebe čo najviac informácií a <strong>okamžite si môžete stiahnuť hotový wordový dokument</strong>. Pretože je veľmi dôležité text vždy  <strong>prispôsobiť konkrétnej firme a pozícii</strong>, môžete následný exportovaný DOCX súbor upraviť presne na mieru vašim požiadavkám.</p>
 <br/>
-<a href="/sk/motivacni-dopis">
+<span><a class="blogCtaHover" href="/sk/motivacni-dopis">
   Vyskúšajte náš generátor motivačných listov zadarmo
-</a>
+</a></span>
+<br/>
+<br/>
+<p>*Ak chcete i konkrétny vzor životopisu podľa profesie, pozrite si náš <a class="textLink" href="/sk/profese">rozcestník profesií</a>.
+</p>

@@ -37,6 +37,16 @@ export type ProfessionContent = {
     paragraphs: string[];
     bullets?: string[];
   }[];
+  adExample: {
+    title: string;
+    introText: string;
+    intro: string[];
+    responsibilitiesTitle: string;
+    responsibilities: string[];
+    requirementsTitle: string;
+    requirements: string[];
+    note: string;
+  };
   sections: {
     heading: string;
     bullets: string[];
@@ -246,6 +256,49 @@ const CATEGORY_LABELS: Record<Locale, Record<ProfessionCategory, string>> = {
   },
 };
 
+const CATEGORY_INTRO: Record<Locale, Record<ProfessionCategory, string>> = {
+  cs: {
+    logistics:
+      "Na pozici [position] hledáme spolehlivého a pečlivého zaměstnance s orientací ve skladu a dobrou fyzickou zdatností. Náplní práce bude příjem a výdej zboží, evidence zásob i příprava objednávek. Oceníme zodpovědný přístup, samostatnost a chuť podílet se na plynulém chodu skladu.",
+    manual:
+      "Na pozici [position] hledáme manuálně zručného a samostatného člověka s technickým myšlením. Důležitá je schopnost práce podle výkresů, kontrola kvality a důsledné dodržování pracovních postupů i BOZP. Oceníme pečlivost, odpovědný přístup a ochotu odvádět kvalitní práci v každodenním provozu.",
+    service:
+      "Na pozici [position] hledáme člověka s příjemným vystupováním, rychlostí, spolehlivostí a dobrou komunikací se zákazníky. Náplní práce bude obsluha zákazníků, udržování čistoty a řešení požadavků hostů. Oceníme ochotu pracovat s lidmi, profesionální přístup a snahu vytvářet příjemnou atmosféru.",
+    retail:
+      "Na pozici [position] hledáme pečlivého a vstřícného zaměstnance se zaměřením na zákaznický servis a práci s pokladnou. Vaší náplní bude prodej zboží, doplňování regálů a řešení reklamací. Oceníme spolehlivost, příjemné vystupování a aktivní přístup k zákazníkům i každodenním povinnostem na prodejně.",
+    office:
+      "Na pozici [position] hledáme spolehlivého a organizovaného člověka, který ovládá práci s MS Office a má dobré komunikační schopnosti. Náplní práce bude správa dokumentace, administrativa a koordinace úkolů. Oceníme samostatnost, pečlivost a schopnost udržet pořádek v každodenní kancelářské agendě.",
+    tech:
+      "Na pozici [position] hledáme systematického kolegu s analytickým myšlením, schopností práce s daty a komunikací v týmu. Náplní práce bude tvorba řešení, testování a dokumentace. Oceníme pečlivý přístup, schopnost hledat souvislosti a chuť podílet se na kvalitním technickém výstupu.",
+    education:
+      "Na pozici [position] hledáme trpělivého a komunikativního člověka, který zvládne přípravu materiálů i zodpovědný přístup k práci. Náplní bude příprava výuky, hodnocení studentů a spolupráce s rodiči. Oceníme schopnost předávat informace srozumitelně, empaticky a s důrazem na individuální přístup.",
+    healthcare:
+      "Na pozici [position] hledáme pečlivého a odolného člověka s empatií a profesionálním přístupem. Náplní práce bude péče o klienty, vedení dokumentace a spolupráce s týmem. Oceníme zodpovědnost, schopnost zvládat stresové situace a opravdový zájem o kvalitní a citlivou péči o druhé.",
+    student:
+      "Na pozici [position] hledáme spolehlivého a flexibilního člověka s ochotou učit se novým věcem. Náplní práce bude výpomoc týmu, plnění zadaných úkolů a rychlá adaptace na pracovní prostředí. Oceníme aktivní přístup, samostatnost a chuť získat nové zkušenosti v praxi.",
+  },
+  sk: {
+    logistics:
+      "Na pozíciu [position] hľadáme spoľahlivého a precízneho zamestnanca so znalosťou skladu a dobrou fyzickou zdatnosťou. Náplňou práce bude príjem a výdaj tovaru, evidencia zásob aj príprava objednávok. Oceníme zodpovedný prístup, samostatnosť a chuť podieľať sa na plynulom chode skladu.",
+    manual:
+      "Na pozíciu [position] hľadáme manuálne zručného a samostatného človeka s technickým myslením. Dôležitá je schopnosť práce podľa výkresov, kontrola kvality a dôsledné dodržiavanie pracovných postupov aj BOZP. Oceníme precíznosť, zodpovedný prístup a ochotu odvádzať kvalitnú prácu v každodennej prevádzke.",
+    service:
+      "Na pozíciu [position] hľadáme človeka s príjemným vystupovaním, rýchlosťou, spoľahlivosťou a dobrou komunikáciou so zákazníkmi. Náplňou práce bude obsluha zákazníkov, udržiavanie čistoty a riešenie požiadaviek hostí. Oceníme ochotu pracovať s ľuďmi, profesionálny prístup a snahu vytvárať príjemnú atmosféru.",
+    retail:
+      "Na pozíciu [position] hľadáme precízneho a ústretového zamestnanca so zameraním na zákaznícky servis a prácu s pokladňou. Vašou náplňou bude predaj tovaru, dopĺňanie regálov a riešenie reklamácií. Oceníme spoľahlivosť, príjemné vystupovanie a aktívny prístup k zákazníkom aj každodenným povinnostiam na predajni.",
+    office:
+      "Na pozíciu [position] hľadáme spoľahlivého a organizovaného človeka, ktorý ovláda prácu s MS Office a má dobré komunikačné schopnosti. Náplňou práce bude správa dokumentácie, administratíva a koordinácia úloh. Oceníme samostatnosť, precíznosť a schopnosť udržať poriadok v každodennej kancelárskej agende.",
+    tech:
+      "Na pozíciu [position] hľadáme systematického kolegu s analytickým myslením, schopnosťou práce s dátami a komunikáciou v tíme. Náplňou práce bude tvorba riešení, testovanie a dokumentácia. Oceníme precízny prístup, schopnosť hľadať súvislosti a chuť podieľať sa na kvalitnom technickom výstupe.",
+    education:
+      "Na pozíciu [position] hľadáme trpezlivého a komunikatívneho človeka, ktorý zvládne prípravu materiálov aj zodpovedný prístup k práci. Náplňou bude príprava výučby, hodnotenie študentov a spolupráca s rodičmi. Oceníme schopnosť odovzdávať informácie zrozumiteľne, empaticky a s dôrazom na individuálny prístup.",
+    healthcare:
+      "Na pozíciu [position] hľadáme precízneho a odolného človeka s empatiou a profesionálnym prístupom. Náplňou práce bude starostlivosť o klientov, vedenie dokumentácie a spolupráca s tímom. Oceníme zodpovednosť, schopnosť zvládať stresové situácie a úprimný záujem o kvalitnú a citlivú starostlivosť o druhých.",
+    student:
+      "Na pozíciu [position] hľadáme spoľahlivého a flexibilného človeka s ochotou učiť sa novým veciam. Náplňou práce bude výpomoc tímu, plnenie zadaných úloh a rýchla adaptácia na pracovné prostredie. Oceníme aktívny prístup, samostatnosť a chuť získať nové skúsenosti v praxi.",
+  },
+};
+
 const CATEGORY_DEFAULTS: Record<Locale, Record<ProfessionCategory, { skills: string[]; responsibilities: string[] }>> = {
   cs: {
     logistics: {
@@ -325,6 +378,44 @@ const CATEGORY_DEFAULTS: Record<Locale, Record<ProfessionCategory, { skills: str
   },
 };
 
+type AdExample = ProfessionContent["adExample"];
+
+const AD_EXAMPLE_OVERRIDES: Record<Locale, Record<string, AdExample>> = {
+  cs: {},
+  sk: {},
+};
+
+function buildAdExampleFromSeed(locale: Locale, seed: ProfessionSeed): AdExample {
+  const defaults = CATEGORY_DEFAULTS[locale][seed.category];
+  const responsibilitiesBase = seed.keywords;
+  const responsibilities = uniqStrings([...responsibilitiesBase, ...defaults.responsibilities]).slice(0, 6);
+  const requirementsRaw = uniqStrings(defaults.skills);
+  const requirementsFiltered = requirementsRaw.filter((item) => !responsibilities.includes(item));
+  const requirements = (requirementsFiltered.length ? requirementsFiltered : requirementsRaw).slice(0, 6);
+
+  const skillLead = requirements.slice(0, 3).join(", ");
+
+  return {
+    title: locale === "cs" ? "Příklad inzerátu" : "Príklad inzerátu",
+    introText: "",
+    intro: [],
+    responsibilitiesTitle: locale === "cs" ? "Náplň práce" : "Náplň práce",
+    responsibilities,
+    requirementsTitle: locale === "cs" ? "Požadujeme" : "Požadujeme",
+    requirements,
+    note: "",
+  };
+}
+
+const AD_EXAMPLE_DATA: Record<Locale, Record<string, AdExample>> = {
+  cs: Object.fromEntries(
+    BASE_PROFESSIONS.map((p) => [p.slug, buildAdExampleFromSeed("cs", { ...p, name: NAMES.cs[p.slug] ?? p.slug })])
+  ),
+  sk: Object.fromEntries(
+    BASE_PROFESSIONS.map((p) => [p.slug, buildAdExampleFromSeed("sk", { ...p, name: NAMES.sk[p.slug] ?? p.slug })])
+  ),
+};
+
 const UI_TEXT: Record<Locale, {
   introLead: (name: string, categoryLabel: string) => string;
   introSecond: (name: string) => string;
@@ -355,9 +446,9 @@ const UI_TEXT: Record<Locale, {
 }> = {
   cs: {
     introLead: (name, categoryLabel) =>
-      `Hledáte vzor životopisu pro pozici ${name}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám. Kategorie: ${categoryLabel}.`,
+      `Hledáte vzor životopisu pro pozici ${name}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám.`,
     introSecond: (name) =>
-      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro ${name} rovnou upravit v našem generátoru a mít hotovo během pár minut.`,
+      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro ${name} rovnou upravit v našem [generator] a mít hotovo během pár minut.`,
     h1: (name) => `Životopis pro pozici ${name}`,
     title: (name) => `Životopis ${name} – vzor, tipy a příklad CV`,
     description: (name) =>
@@ -408,9 +499,9 @@ const UI_TEXT: Record<Locale, {
   },
   sk: {
     introLead: (name, categoryLabel) =>
-      `Hľadáte vzor životopisu pre pozíciu ${name}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám. Kategória: ${categoryLabel}.`,
+      `Hľadáte vzor životopisu pre pozíciu ${name}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
     introSecond: (name) =>
-      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre ${name} hneď upraviť v našom generátore a mať hotovo za pár minút.`,
+      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre ${name} hneď upraviť v našom [generator] a mať hotovo za pár minút.`,
     h1: (name) => `Životopis pre pozíciu ${name}`,
     title: (name) => `Životopis ${name} – vzor, tipy a príklad CV`,
     description: (name) =>
@@ -463,6 +554,10 @@ const UI_TEXT: Record<Locale, {
 
 function uniq(items: string[]) {
   return Array.from(new Set(items.filter(Boolean)));
+}
+
+function uniqStrings(items: string[]) {
+  return Array.from(new Set(items.map((item) => item.trim()).filter(Boolean)));
 }
 
 function pickVariant(slug: string, variants: string[]) {
@@ -595,6 +690,21 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
             ],
     },
     {
+      heading: ui.sections.ats,
+      paragraphs:
+        locale === "cs"
+          ? [
+              "Personalisté často používají ATS (automatické systémy). Používejte proto stejné výrazy jako v inzerátu a nezakrývejte důležité informace do grafiky.",
+              "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí (Zkušenosti, Vzdělání, Dovednosti).",
+              "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise.",
+            ]
+          : [
+              "Personalisti často používajú ATS (automatické systémy). Používajte preto rovnaké výrazy ako v inzeráte a neschovávajte dôležité informácie do grafiky.",
+              "Ideálna je jednoduchá štruktúra, dobre čitateľné nadpisy a štandardné názvy sekcií (Skúsenosti, Vzdelanie, Zručnosti).",
+              "Nižšie je ukážka inzerátu s kľúčovými výrazmi, ktoré sa oplatí použiť aj v životopise.",
+            ],
+    },
+    {
       heading: ui.sections.highlight,
       paragraphs:
         locale === "cs"
@@ -619,19 +729,6 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
               "stabilita a spoľahlivosť v prevádzke",
               "nástroje a systémy, ktoré ovládate",
               "spolupráca v tíme a komunikácia",
-            ],
-    },
-    {
-      heading: ui.sections.ats,
-      paragraphs:
-        locale === "cs"
-          ? [
-              "Personalisté často používají ATS (automatické systémy). Používejte proto stejné výrazy jako v inzerátu a nezakrývejte důležité informace do grafiky.",
-              "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí (Zkušenosti, Vzdělání, Dovednosti).",
-            ]
-          : [
-              "Personalisti často používajú ATS (automatické systémy). Používajte preto rovnaké výrazy ako v inzeráte a neschovávajte dôležité informácie do grafiky.",
-              "Ideálna je jednoduchá štruktúra, dobre čitateľné nadpisy a štandardné názvy sekcií (Skúsenosti, Vzdelanie, Zručnosti).",
             ],
     },
     {
@@ -682,6 +779,10 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
           ],
     uniqueLead,
     bodySections,
+    adExample: {
+      ...(AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_DATA[locale][seed.slug]),
+      introText: CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name),
+    },
     sections: [
       { heading: ui.sections.mustHave, bullets: ui.sectionBullets.mustHave },
       { heading: ui.sections.responsibilities, bullets: responsibilities },
