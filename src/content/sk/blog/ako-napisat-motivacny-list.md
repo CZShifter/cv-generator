@@ -1,4 +1,4 @@
----
+﻿---
 title: "Ako napísať pôsobivý motivačný list"
 date: "09.08.2025"
 description: "Návod, ako napísať motivačný list, ktorý zaujme personalistu a zvýši šancu na pohovor."
@@ -106,14 +106,16 @@ pairId: "post-0003"
 
 ---
 
-## 6. Ako využiť online generátor motivačných listov?
+## 6. Aplikácia na online tvorbu motivačného listu
 
-<p><strong>Online generátor motivačných listov</strong> vám pomôže zostaviť list rýchlo a profesionálne. Vyplníte o sebe čo najviac informácií a <strong>okamžite si môžete stiahnuť hotový wordový dokument</strong>. Pretože je veľmi dôležité text vždy  <strong>prispôsobiť konkrétnej firme a pozícii</strong>, môžete následný exportovaný DOCX súbor upraviť presne na mieru vašim požiadavkám.</p>
+<p><strong>Aplikácia na online tvorbu motivačného listu</strong> vám pomôže zostaviť list rýchlo a profesionálne. Vyplníte o sebe čo najviac informácií a <strong>okamžite si môžete stiahnuť hotový wordový dokument</strong>. Pretože je veľmi dôležité text vždy  <strong>prispôsobiť konkrétnej firme a pozícii</strong>, môžete následný exportovaný DOCX súbor upraviť presne na mieru vašim požiadavkám.</p>
 <br/>
 <span><a class="blogCtaHover" href="/sk/motivacni-dopis">
-  Vyskúšajte náš generátor motivačných listov zadarmo
+  Vyskúšajte našu aplikáciu na online tvorbu motivačného listu
 </a></span>
 <br/>
 <br/>
 <p>*Ak chcete i konkrétny vzor životopisu podľa profesie, pozrite si náš <a class="textLink" href="/sk/profese">rozcestník profesií</a>.
 </p>
+
+

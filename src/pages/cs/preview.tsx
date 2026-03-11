@@ -308,7 +308,7 @@ export default function Preview() {
               "name": SITE_NAME,
               "url": `${SITE_URL}/cs/preview/`,
               "applicationCategory": "ProductivityApplication",
-              "description": "Vyplňte životopis online, vyberte šablonu, zobrazte náhled a stáhněte si hotový PDF soubor. Jednoduchý a efektivní generátor životopisů.",
+              "description": "Vyplňte životopis online, vyberte šablonu, zobrazte náhled a stáhněte si hotový PDF soubor. Aplikace na online tvorbu životopisu.",
               "inLanguage": "cs-CZ",
               "operatingSystem": "All",
               "offers": {

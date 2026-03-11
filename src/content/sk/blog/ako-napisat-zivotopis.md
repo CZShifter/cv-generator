@@ -212,9 +212,9 @@ pairId: "post-0002"
 
 ---
 
-## 11. Ako využiť online generátor životopisov?
+## 11. Aplikácia na online tvorbu životopisu
 
-<p>Generátor životopisov dokáže urýchliť celý proces: vyberiete <strong>modernú šablónu</strong>, vyplníte dáta a <strong>stiahnete PDF</strong>. Aj keď používate generátor, stále platia zásady vyššie: merateľné výsledky, kľúčové slová, čisté formátovanie a prispôsobenie konkrétnej pozícii.</p>
+<p>Aplikácia na online tvorbu životopisu dokáže urýchliť celý proces: vyberiete <strong>modernú šablónu</strong>, vyplníte dáta a <strong>stiahnete PDF</strong>. Aj keď používate aplikáciu na online tvorbu životopisu, stále platia zásady vyššie: merateľné výsledky, kľúčové slová, čisté formátovanie a prispôsobenie konkrétnej pozícii.</p>
 <br/>
 <span><a class="blogCtaHover" href="/sk/preview">
   Vyskúšajte našu online aplikáciu na tvorbu životopisov a za 5 minút máte hotovo!
@@ -223,6 +223,9 @@ pairId: "post-0002"
 ---
 
 <p>Na záver si prejdite, či je všetko aktuálne a relevantné k danej pozícii. Prajeme veľa úspechov pri hľadaní práce!</p>
+
+
+
 
 
 

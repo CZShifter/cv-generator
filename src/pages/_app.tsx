@@ -321,7 +321,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": isSk ? "Online generátor životopisov" : "Online generátor životopisů",
+              "name": isSk ? "Aplikácia na online tvorbu životopisu" : "Aplikace na online tvorbu životopisu",
               "description": isSk
                 ? "Vytvorte si profesionálny životopis online a exportujte ho do PDF."
                 : "Vytvořte si profesionální životopis online a exportujte ho do PDF.",

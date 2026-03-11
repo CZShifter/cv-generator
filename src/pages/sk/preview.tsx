@@ -308,7 +308,7 @@ export default function Preview() {
               "url": `${SITE_URL_SK}/sk/preview/`,
               "applicationCategory": "ProductivityApplication",
               "description":
-                "Vyplňte životopis online, vyberte šablónu, pozrite si náhľad a stiahnite hotový PDF súbor. Jednoduchý a efektívny generátor životopisov.",
+                "Vyplňte životopis online, vyberte šablónu, pozrite si náhľad a stiahnite hotový PDF súbor. Aplikácia na online tvorbu životopisu.",
               "inLanguage": "sk-SK",
               "operatingSystem": "All",
               "offers": {

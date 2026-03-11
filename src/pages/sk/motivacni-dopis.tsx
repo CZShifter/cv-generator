@@ -13,7 +13,7 @@ export default function MotivacniDopisPage() {
         <title>{`Vytvorte motivačný list online a zadarmo | ${SITE_NAME_SK}`}</title>
         <meta
           name="description"
-          content="Vytvorte si profesionálny motivačný list online zadarmo. Jednoduchý generátor motivačných listov – export do Wordu (.docx). Zistite, ako jednoducho a rýchlo vytvoriť motivačný list, ktorý zaujme personalistov."/>
+          content="Vytvorte si profesionálny motivačný list online zadarmo. Aplikácia na online tvorbu motivačného listu – export do Wordu (.docx). Zistite, ako jednoducho a rýchlo vytvoriť motivačný list, ktorý zaujme personalistov."/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
         <meta property="og:title" content={`Vytvorte motivačný list online a zadarmo | ${SITE_NAME_SK}`} />

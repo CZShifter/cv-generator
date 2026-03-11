@@ -445,14 +445,14 @@ const UI_TEXT: Record<Locale, {
   faqs: (name: string) => { question: string; answer: string }[];
 }> = {
   cs: {
-    introLead: (name, categoryLabel) =>
-      `Hledáte vzor životopisu pro pozici ${name}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám.`,
+    introLead: (name) =>
+      `Hledáte vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám.`,
     introSecond: (name) =>
-      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro ${name} rovnou upravit v našem [generator] a mít hotovo během pár minut.`,
-    h1: (name) => `Životopis pro pozici ${name}`,
-    title: (name) => `Životopis ${name} – vzor, tipy a příklad CV`,
+      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro ${name} rovnou upravit v naší [generator] a mít hotovo během pár minut.`,
+    h1: (name) => `Vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}`,
+    title: (name) => `Životopis ${name} – vzor, tipy a příklad CV v roce ${new Date().getFullYear()}`,
     description: (name) =>
-      `Vzor životopisu pro pozici ${name}. Praktické tipy, co uvést do CV, doporučené dovednosti a ukázka zkušeností.`,
+      `Vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}. Praktické tipy, co uvést do CV, doporučené dovednosti a ukázka zkušeností.`,
     sections: {
       mustHave: "Co má obsahovat životopis",
       skills: "Doporučené dovednosti",
@@ -499,13 +499,13 @@ const UI_TEXT: Record<Locale, {
   },
   sk: {
     introLead: (name, categoryLabel) =>
-      `Hľadáte vzor životopisu pre pozíciu ${name}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
+      `Hľadáte vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
     introSecond: (name) =>
-      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre ${name} hneď upraviť v našom [generator] a mať hotovo za pár minút.`,
-    h1: (name) => `Životopis pre pozíciu ${name}`,
-    title: (name) => `Životopis ${name} – vzor, tipy a príklad CV`,
+      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre ${name} hneď upraviť v našej [generator] a mať hotovo za pár minút.`,
+    h1: (name) => `Vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}`,
+    title: (name) => `Životopis ${name} – vzor, tipy a príklad CV v roku ${new Date().getFullYear()}`,
     description: (name) =>
-      `Vzor životopisu pre pozíciu ${name}. Praktické tipy, čo uviesť do CV, odporúčané zručnosti a ukážka skúseností.`,
+      `Vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}. Praktické tipy, čo uviesť do CV, odporúčané zručnosti a ukážka skúseností.`,
     sections: {
       mustHave: "Čo má obsahovať životopis",
       skills: "Odporúčané zručnosti",

@@ -8,7 +8,7 @@ export default function KontaktPage() {
   return ( 
     <>
       <Head>
-        <title>{`Kontakt – Podpora a dotazy ke generátoru životopisů | ${SITE_NAME}`}</title>
+        <title>{`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}</title>
         <meta
           name="description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte tým Rychlýživotopis.cz. Rádi pomůžeme s tvorbou životopisu, platbou nebo technickými dotazy. Odpovídáme většinou do 24 hodin."/>
@@ -16,12 +16,12 @@ export default function KontaktPage() {
         {/* OpenGraph */}
         <meta
           property="og:title"
-          content={`Kontakt – Podpora a dotazy ke generátoru životopisů | ${SITE_NAME}`}/>
+          content={`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}/>
         <meta
           property="og:description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi."/>
         <meta property="og:image" content={OG_IMAGE}/>
-        <meta property="og:image:alt" content="Kontakt na podporu generátoru životopisů" />
+        <meta property="og:image:alt" content="Kontakt na podporu aplikace na online tvorbu životopisu" />
         <meta property="og:url" content={`${SITE_URL}/cs/kontakt/`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="cs_CZ" />
@@ -30,12 +30,12 @@ export default function KontaktPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Kontakt – Podpora a dotazy ke generátoru životopisů | ${SITE_NAME}`}/>
+          content={`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}/>
         <meta
           name="twitter:description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi."/>
         <meta name="twitter:image" content={OG_IMAGE}/>
-        <meta name="twitter:image:alt" content="Kontakt na podporu generátoru životopisů" />
+        <meta name="twitter:image:alt" content="Kontakt na podporu aplikace na online tvorbu životopisu" />
         {/* Canonical + hreflang (oboustranně .cz ↔ .sk, absolutní URL) */}
         <link rel="canonical" href={`${SITE_URL}/cs/kontakt/`} />
         <link rel="alternate" href={`${SITE_URL}/cs/kontakt/`} hrefLang="cs-CZ" />

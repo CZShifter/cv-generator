@@ -59,7 +59,7 @@ export default function ProfessionPage({ content }: PageProps) {
       <>
         {highlightText(parts[0])}
         <Link className={styles.generatorLink} href="/cs/preview">
-          generátoru
+          aplikaci na tvorbu životopisů
         </Link>
         {highlightText(parts[1] ?? "")}
       </>
@@ -129,7 +129,7 @@ export default function ProfessionPage({ content }: PageProps) {
   const schemaOffer = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Online generátor životopisů",
+    "name": "Aplikace na online tvorbu životopisu",
     "description": "Vytvořte si profesionální životopis online a exportujte ho do PDF.",
     "image": OG_IMAGE,
     "brand": { "@type": "Brand", "name": SITE_NAME, "logo": `${SITE_URL}/img/logo.png` },
@@ -217,8 +217,8 @@ export default function ProfessionPage({ content }: PageProps) {
         <div className={styles.container}>
           <header className={styles.hero}>
             <h1>{content.h1}</h1>
-            {content.intro.map((p) => (
-              <p key={p}>{renderIntro(p)}</p>
+            {content.intro.map((p, index) => (
+              <p key={p} className={index === 0 ? styles.heroIntroTight : undefined}>{renderIntro(p)}</p>
             ))}
             <p>{highlightText(content.uniqueLead)}</p>
           </header>

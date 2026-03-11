@@ -48,7 +48,7 @@ export default function NavodPage() {
               "image": OG_IMAGE,
               "inLanguage": "cs-CZ",
               "totalTime": "PT10M",
-              "tool": ["Online generátor životopisů"],
+              "tool": ["Aplikace na online tvorbu životopisu"],
               "url": `${SITE_URL}/cs/navod/`,
               "step": [
                 {

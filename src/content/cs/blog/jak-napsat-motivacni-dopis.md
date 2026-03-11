@@ -1,4 +1,4 @@
----
+﻿---
 title: "Jak napsat působivý motivační dopis"
 date: "09.08.2025"
 description: "Návod, jak napsat motivační dopis, který zaujme personalistu a zvýší šanci na pohovor."
@@ -106,14 +106,16 @@ pairId: "post-0003"
 
 ---
 
-## 6. Jak využít online generátor motivačních dopisů?
+## 6. Aplikace na online tvorbu motivačního dopisu
 
-<p><strong>Online generátor motivačních dopisů</strong> vám pomůže sestavit dopis rychle a profesionálně. Vplníte o sobě co nejvíce informací a <strong>okamžitě stáhnete hotový WORD dokument</strong>. Protože je velmi důležité text vždy <strong>přizpůsobit konkrétní firmě</strong> a pozici, můžete následný exportovaný .DOCX soubor upravit přesně na míru vašim požadavkům.</p>
+<p><strong>Aplikace na online tvorbu motivačního dopisu</strong> vám pomůže sestavit dopis rychle a profesionálně. Vplníte o sobě co nejvíce informací a <strong>okamžitě stáhnete hotový WORD dokument</strong>. Protože je velmi důležité text vždy <strong>přizpůsobit konkrétní firmě</strong> a pozici, můžete následný exportovaný .DOCX soubor upravit přesně na míru vašim požadavkům.</p>
 <br/>
 <span><a class="blogCtaHover" href="/cs/motivacni-dopis">
-  Vyzkoušejte náš generátor motivačních dopisů zdarma
+  Vyzkoušejte naši aplikaci na online tvorbu motivačního dopisu
 </a></span>
 <br/>
 <br/>
 <p>*Pokud chcete také konkrétní vzor životopisu podle profese, projděte si náš <a class="textLink" href="/cs/profese">rozcestník profesí</a>.
 </p>
+
+
