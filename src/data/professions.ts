@@ -1,3 +1,5 @@
+import { getCvProfessionData, getCvProfessionResponsibilities } from "./cvProfessionData";
+
 export type Locale = "cs" | "sk";
 
 export type ProfessionCategory =
@@ -14,7 +16,6 @@ export type ProfessionCategory =
 type ProfessionSeedBase = {
   slug: string;
   category: ProfessionCategory;
-  keywords: string[];
 };
 
 export type ProfessionSeed = ProfessionSeedBase & {
@@ -64,64 +65,64 @@ export type ProfessionContent = {
 };
 
 const BASE_PROFESSIONS: ProfessionSeedBase[] = [
-  { slug: "skladnik", category: "logistics", keywords: ["práce se skenerem", "příjem a výdej zboží", "inventury"] },
-  { slug: "ridic", category: "logistics", keywords: ["bezpečná jízda", "dodržování tras", "péče o vozidlo"] },
-  { slug: "ridic-kamionu", category: "logistics", keywords: ["mezinárodní doprava", "tachograf", "nakládka a vykládka"] },
-  { slug: "kuryr", category: "logistics", keywords: ["rozvoz zásilek", "práce s navigací", "komunikace se zákazníky"] },
-  { slug: "dispecer-logistiky", category: "logistics", keywords: ["plánování tras", "koordinace řidičů", "práce v TMS"] },
-  { slug: "skladovy-koordinator", category: "logistics", keywords: ["organizace skladu", "vedení směny", "optimalizace procesů"] },
-  { slug: "obsluha-vzv", category: "logistics", keywords: ["řízení VZV", "manipulace s paletami", "kontrola zboží"] },
+  { slug: "skladnik", category: "logistics" },
+  { slug: "ridic", category: "logistics" },
+  { slug: "ridic-kamionu", category: "logistics" },
+  { slug: "kuryr", category: "logistics" },
+  { slug: "dispecer-logistiky", category: "logistics" },
+  { slug: "skladovy-koordinator", category: "logistics" },
+  { slug: "obsluha-vzv", category: "logistics" },
 
-  { slug: "montazni-pracovnik", category: "manual", keywords: ["montáž komponentů", "práce podle výkresů", "kontrola kvality"] },
-  { slug: "operator-vyroby", category: "manual", keywords: ["obsluha strojů", "seřízení linky", "evidence výroby"] },
-  { slug: "delnik", category: "manual", keywords: ["manuální práce", "třídění materiálu", "dodržování BOZP"] },
-  { slug: "svarec", category: "manual", keywords: ["MIG/MAG svařování", "čtení výkresů", "kontrola svarů"] },
-  { slug: "elektrikar", category: "manual", keywords: ["instalace rozvodů", "měření a revize", "práce s dokumentací"] },
-  { slug: "zednik", category: "manual", keywords: ["zdění", "omítky", "práce s betonem"] },
-  { slug: "instalater", category: "manual", keywords: ["montáž rozvodů vody", "topení", "servis"] },
-  { slug: "mechanik", category: "manual", keywords: ["diagnostika závad", "opravy strojů", "preventivní údržba"] },
-  { slug: "lakyrnik", category: "manual", keywords: ["příprava povrchu", "lakování", "kontrola kvality"] },
-  { slug: "tesar", category: "manual", keywords: ["výroba konstrukcí", "práce se dřevem", "montáž na stavbě"] },
+  { slug: "montazni-pracovnik", category: "manual" },
+  { slug: "operator-vyroby", category: "manual" },
+  { slug: "delnik", category: "manual" },
+  { slug: "svarec", category: "manual" },
+  { slug: "elektrikar", category: "manual" },
+  { slug: "zednik", category: "manual" },
+  { slug: "instalater", category: "manual" },
+  { slug: "mechanik", category: "manual" },
+  { slug: "lakyrnik", category: "manual" },
+  { slug: "tesar", category: "manual" },
 
-  { slug: "kuchar", category: "service", keywords: ["příprava jídel", "dodržování hygieny", "práce v kuchyni"] },
-  { slug: "cisnik", category: "service", keywords: ["obsluha hostů", "práce s pokladnou", "doporučení menu"] },
-  { slug: "servirka", category: "service", keywords: ["servis", "příprava stolů", "komunikace se zákazníky"] },
-  { slug: "barman", category: "service", keywords: ["příprava nápojů", "péče o bar", "inventura"] },
-  { slug: "barista", category: "service", keywords: ["příprava kávy", "obsluha kávovaru", "latte art"] },
-  { slug: "recepcni", category: "service", keywords: ["uvítání návštěv", "správa telefonů", "administrativa"] },
-  { slug: "uklizecka", category: "service", keywords: ["úklid prostor", "práce s úklidovou technikou", "doplnění hygieny"] },
-  { slug: "bezpecnostni-pracovnik", category: "service", keywords: ["ostraha objektu", "kontrola vstupů", "evidence incidentů"] },
+  { slug: "kuchar", category: "service" },
+  { slug: "cisnik", category: "service" },
+  { slug: "servirka", category: "service" },
+  { slug: "barman", category: "service" },
+  { slug: "barista", category: "service" },
+  { slug: "recepcni", category: "service" },
+  { slug: "uklizecka", category: "service" },
+  { slug: "bezpecnostni-pracovnik", category: "service" },
 
-  { slug: "prodavac", category: "retail", keywords: ["prodej zboží", "doplňování regálů", "komunikace se zákazníky"] },
-  { slug: "prodavacka", category: "retail", keywords: ["obsluha zákazníků", "pokladna", "merchandising"] },
-  { slug: "pokladni", category: "retail", keywords: ["obsluha pokladny", "finanční uzávěrky", "zákaznický servis"] },
+  { slug: "prodavac", category: "retail" },
+  { slug: "prodavacka", category: "retail" },
+  { slug: "pokladni", category: "retail" },
 
-  { slug: "asistentka", category: "office", keywords: ["organizace kalendáře", "příprava podkladů", "komunikace s klienty"] },
-  { slug: "administrativni-pracovnik", category: "office", keywords: ["zpracování dokumentů", "evidence", "práce s kancelářskými nástroji"] },
-  { slug: "ucetni", category: "office", keywords: ["účtování dokladů", "DPH", "uzávěrky"] },
-  { slug: "personalista", category: "office", keywords: ["nábor", "onboarding", "personální agenda"] },
-  { slug: "obchodni-zastupce", category: "office", keywords: ["akvizice klientů", "péče o zákazníky", "plnění KPI"] },
-  { slug: "projektovy-manazer", category: "office", keywords: ["plánování projektu", "řízení týmu", "reporting"] },
-  { slug: "marketingovy-specialista", category: "office", keywords: ["kampaně", "správa obsahu", "analytika"] },
-  { slug: "mistr-vyroby", category: "office", keywords: ["řízení směny", "plán výroby", "zlepšování procesů"] },
+  { slug: "asistentka", category: "office" },
+  { slug: "administrativni-pracovnik", category: "office" },
+  { slug: "ucetni", category: "office" },
+  { slug: "personalista", category: "office" },
+  { slug: "obchodni-zastupce", category: "office" },
+  { slug: "projektovy-manazer", category: "office" },
+  { slug: "marketingovy-specialista", category: "office" },
+  { slug: "mistr-vyroby", category: "office" },
 
-  { slug: "grafik", category: "tech", keywords: ["tvorba vizuálů", "Adobe nástroje", "práce s brandem"] },
-  { slug: "programator", category: "tech", keywords: ["vývoj aplikací", "správa kódu", "testování"] },
-  { slug: "it-podpora", category: "tech", keywords: ["řešení incidentů", "správa HW/SW", "podpora uživatelů"] },
-  { slug: "datovy-analytik", category: "tech", keywords: ["analýza dat", "dashboardy", "SQL"] },
-  { slug: "tester-softwaru", category: "tech", keywords: ["testovací scénáře", "reporting bugů", "automatizace testů"] },
+  { slug: "grafik", category: "tech" },
+  { slug: "programator", category: "tech" },
+  { slug: "it-podpora", category: "tech" },
+  { slug: "datovy-analytik", category: "tech" },
+  { slug: "tester-softwaru", category: "tech" },
 
-  { slug: "ucitel", category: "education", keywords: ["příprava výuky", "hodnocení", "komunikace s rodiči"] },
-  { slug: "ucitel-materske-skoly", category: "education", keywords: ["péče o děti", "výchovné aktivity", "bezpečnost"] },
-  { slug: "lektor-jazyku", category: "education", keywords: ["výuka jazyků", "příprava materiálů", "hodnocení pokroku"] },
+  { slug: "ucitel", category: "education" },
+  { slug: "ucitel-materske-skoly", category: "education" },
+  { slug: "lektor-jazyku", category: "education" },
 
-  { slug: "zdravotni-sestra", category: "healthcare", keywords: ["péče o pacienty", "aplikace léčby", "dokumentace"] },
-  { slug: "pecovatelka", category: "healthcare", keywords: ["pomoc klientům", "hygiena", "doprovod"] },
-  { slug: "fyzioterapeut", category: "healthcare", keywords: ["rehabilitace", "cvičení", "práce s pacientem"] },
-  { slug: "farmaceuticky-asistent", category: "healthcare", keywords: ["výdej léčiv", "kontrola zásob", "práce v lékárně"] },
+  { slug: "zdravotni-sestra", category: "healthcare" },
+  { slug: "pecovatelka", category: "healthcare" },
+  { slug: "fyzioterapeut", category: "healthcare" },
+  { slug: "farmaceuticky-asistent", category: "healthcare" },
 
-  { slug: "student-brigadnik", category: "student", keywords: ["flexibilita", "rychlé zaučení", "výpomoc týmu"] },
-  { slug: "absolvent-bez-praxe", category: "student", keywords: ["ochota učit se", "základní praxe", "týmová spolupráce"] },
+  { slug: "student-brigadnik", category: "student" },
+  { slug: "absolvent-bez-praxe", category: "student" },
 ];
 
 const NAMES: Record<Locale, Record<string, string>> = {
@@ -299,85 +300,6 @@ const CATEGORY_INTRO: Record<Locale, Record<ProfessionCategory, string>> = {
   },
 };
 
-const CATEGORY_DEFAULTS: Record<Locale, Record<ProfessionCategory, { skills: string[]; responsibilities: string[] }>> = {
-  cs: {
-    logistics: {
-      skills: ["orientace ve skladu", "spolehlivost", "pečlivost", "fyzická zdatnost"],
-      responsibilities: ["příjem a výdej zboží", "evidence zásob", "příprava objednávek"],
-    },
-    manual: {
-      skills: ["manuální zručnost", "technické myšlení", "samostatnost", "dodržování BOZP"],
-      responsibilities: ["práce podle výkresů", "kontrola kvality", "dodržování pracovních postupů"],
-    },
-    service: {
-      skills: ["komunikace se zákazníky", "příjemné vystupování", "rychlost a spolehlivost"],
-      responsibilities: ["obsluha zákazníků", "udržování čistoty", "řešení požadavků hostů"],
-    },
-    retail: {
-      skills: ["zákaznický servis", "práce s pokladnou", "pečlivost"],
-      responsibilities: ["prodej zboží", "doplňování regálů", "řešení reklamací"],
-    },
-    office: {
-      skills: ["práce s MS Office", "organizace práce", "komunikace", "spolehlivost"],
-      responsibilities: ["správa dokumentace", "administrativa", "koordinace úkolů"],
-    },
-    tech: {
-      skills: ["analytické myšlení", "práce s daty", "systematičnost", "komunikace v týmu"],
-      responsibilities: ["tvorba řešení", "testování", "dokumentace"],
-    },
-    education: {
-      skills: ["trpělivost", "komunikace", "příprava materiálů"],
-      responsibilities: ["příprava výuky", "hodnocení studentů", "spolupráce s rodiči"],
-    },
-    healthcare: {
-      skills: ["empatie", "pečlivost", "odolnost vůči stresu"],
-      responsibilities: ["péče o klienty", "vedení dokumentace", "spolupráce s týmem"],
-    },
-    student: {
-      skills: ["ochota učit se", "spolehlivost", "flexibilita"],
-      responsibilities: ["výpomoc týmu", "plnění zadaných úkolů", "rychlá adaptace"],
-    },
-  },
-  sk: {
-    logistics: {
-      skills: ["orientácia v sklade", "spoľahlivosť", "precíznosť", "fyzická zdatnosť"],
-      responsibilities: ["príjem a výdaj tovaru", "evidencia zásob", "príprava objednávok"],
-    },
-    manual: {
-      skills: ["manuálna zručnosť", "technické myslenie", "samostatnosť", "dodržiavanie BOZP"],
-      responsibilities: ["práca podľa výkresov", "kontrola kvality", "dodržiavanie pracovných postupov"],
-    },
-    service: {
-      skills: ["komunikácia so zákazníkmi", "príjemné vystupovanie", "rýchlosť a spoľahlivosť"],
-      responsibilities: ["obsluha zákazníkov", "udržiavanie čistoty", "riešenie požiadaviek hostí"],
-    },
-    retail: {
-      skills: ["zákaznícky servis", "práca s pokladňou", "precíznosť"],
-      responsibilities: ["predaj tovaru", "dopĺňanie regálov", "riešenie reklamácií"],
-    },
-    office: {
-      skills: ["práca s MS Office", "organizácia práce", "komunikácia", "spoľahlivosť"],
-      responsibilities: ["správa dokumentácie", "administratíva", "koordinačné úlohy"],
-    },
-    tech: {
-      skills: ["analytické myslenie", "práca s dátami", "systematickosť", "tímová komunikácia"],
-      responsibilities: ["tvorba riešení", "testovanie", "dokumentácia"],
-    },
-    education: {
-      skills: ["trpezlivosť", "komunikácia", "príprava materiálov"],
-      responsibilities: ["príprava výučby", "hodnotenie študentov", "spolupráca s rodičmi"],
-    },
-    healthcare: {
-      skills: ["empatia", "precíznosť", "odolnosť voči stresu"],
-      responsibilities: ["starostlivosť o klientov", "vedenie dokumentácie", "spolupráca s tímom"],
-    },
-    student: {
-      skills: ["ochota učiť sa", "spoľahlivosť", "flexibilita"],
-      responsibilities: ["výpomoc tímu", "plnenie zadaných úloh", "rýchla adaptácia"],
-    },
-  },
-};
-
 type AdExample = ProfessionContent["adExample"];
 
 const AD_EXAMPLE_OVERRIDES: Record<Locale, Record<string, AdExample>> = {
@@ -385,35 +307,27 @@ const AD_EXAMPLE_OVERRIDES: Record<Locale, Record<string, AdExample>> = {
   sk: {},
 };
 
-function buildAdExampleFromSeed(locale: Locale, seed: ProfessionSeed): AdExample {
-  const defaults = CATEGORY_DEFAULTS[locale][seed.category];
-  const responsibilitiesBase = seed.keywords;
-  const responsibilities = uniqStrings([...responsibilitiesBase, ...defaults.responsibilities]).slice(0, 6);
-  const requirementsRaw = uniqStrings(defaults.skills);
-  const requirementsFiltered = requirementsRaw.filter((item) => !responsibilities.includes(item));
-  const requirements = (requirementsFiltered.length ? requirementsFiltered : requirementsRaw).slice(0, 6);
-
-  const skillLead = requirements.slice(0, 3).join(", ");
-
-  return {
-    title: locale === "cs" ? "Příklad inzerátu" : "Príklad inzerátu",
+const AD_EXAMPLE_BASE: Record<Locale, AdExample> = {
+  cs: {
+    title: "Příklad inzerátu",
     introText: "",
     intro: [],
-    responsibilitiesTitle: locale === "cs" ? "Náplň práce" : "Náplň práce",
-    responsibilities,
-    requirementsTitle: locale === "cs" ? "Požadujeme" : "Požadujeme",
-    requirements,
+    responsibilitiesTitle: "Náplň práce",
+    responsibilities: [],
+    requirementsTitle: "Požadujeme",
+    requirements: [],
     note: "",
-  };
-}
-
-const AD_EXAMPLE_DATA: Record<Locale, Record<string, AdExample>> = {
-  cs: Object.fromEntries(
-    BASE_PROFESSIONS.map((p) => [p.slug, buildAdExampleFromSeed("cs", { ...p, name: NAMES.cs[p.slug] ?? p.slug })])
-  ),
-  sk: Object.fromEntries(
-    BASE_PROFESSIONS.map((p) => [p.slug, buildAdExampleFromSeed("sk", { ...p, name: NAMES.sk[p.slug] ?? p.slug })])
-  ),
+  },
+  sk: {
+    title: "Príklad inzerátu",
+    introText: "",
+    intro: [],
+    responsibilitiesTitle: "Náplň práce",
+    responsibilities: [],
+    requirementsTitle: "Požadujeme",
+    requirements: [],
+    note: "",
+  },
 };
 
 const UI_TEXT: Record<Locale, {
@@ -552,14 +466,6 @@ const UI_TEXT: Record<Locale, {
   },
 };
 
-function uniq(items: string[]) {
-  return Array.from(new Set(items.filter(Boolean)));
-}
-
-function uniqStrings(items: string[]) {
-  return Array.from(new Set(items.map((item) => item.trim()).filter(Boolean)));
-}
-
 function pickVariant(slug: string, variants: string[]) {
   let hash = 0;
   for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) | 0;
@@ -640,19 +546,40 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
   if (!seed) return null;
 
   const ui = UI_TEXT[locale];
-  const defaults = CATEGORY_DEFAULTS[locale][seed.category];
   const categoryLabel = CATEGORY_LABELS[locale][seed.category];
 
-  const keywordPool = locale === "cs" ? seed.keywords : [];
-  const skills = uniq([...keywordPool, ...defaults.skills]).slice(0, 8);
-  const responsibilities = uniq([...keywordPool, ...defaults.responsibilities]).slice(0, 6);
+  const cvData = getCvProfessionData(locale, seed.slug);
+  if (!cvData) {
+    throw new Error(`Missing cv profession data for slug: ${seed.slug} (${locale})`);
+  }
+  const skills = cvData.skills.slice(0, 5);
+  const responsibilities = getCvProfessionResponsibilities(cvData, 8);
 
   const related = getRelatedProfessions(locale, seed.slug, seed.category, 8);
 
-  const sampleExperience = [
-    `2019–2024 | ${seed.name} | ABC s.r.o. – ${responsibilities.slice(0, 2).join(", ")}.`,
-    `2016–2019 | ${seed.name} | XYZ s.r.o. – ${responsibilities.slice(2, 4).join(", ")}.`,
-  ];
+  const formatSampleLine = (years: string, position: string, company: string, bullets: string[]) => {
+    const lead = bullets.slice(0, 2).join(", ");
+    return `${years} | ${position} | ${company}${lead ? ` – ${lead}.` : "."}`;
+  };
+  const sampleExperience = cvData.workExperience?.length
+    ? [
+        formatSampleLine(
+          "2019–2024",
+          cvData.workExperience[0]?.position ?? seed.name,
+          "ABC s.r.o.",
+          cvData.workExperience[0]?.bullets ?? []
+        ),
+        formatSampleLine(
+          "2016–2019",
+          cvData.workExperience[1]?.position ?? seed.name,
+          "XYZ s.r.o.",
+          cvData.workExperience[1]?.bullets ?? []
+        ),
+      ]
+    : [
+        `2019–2024 | ${seed.name} | ABC s.r.o. – ${responsibilities.slice(0, 2).join(", ")}.`,
+        `2016–2019 | ${seed.name} | XYZ s.r.o. – ${responsibilities.slice(2, 4).join(", ")}.`,
+      ];
 
   const sampleEducation = locale === "cs"
     ? ["2014–2016 | Odborné učiliště | Relevantní obor", "2013 | Kurzy a certifikace dle profese"]
@@ -756,6 +683,9 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     },
   ];
 
+  const adExampleBase = AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_BASE[locale];
+  const adResponsibilities = responsibilities.slice(0, 4);
+
   return {
     slug: seed.slug,
     urlSlug: toProfessionUrlSlug(seed.slug, locale),
@@ -771,16 +701,22 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
             "Stručný návod, jak napsat životopis pro danou profesi",
             "Dovednosti a úkoly, které personalisté očekávají",
             "Ukázka životopisu s předvyplněnými daty",
+            "Co u této profese personalisté ocení",
+            "Nejčastější chyby v životopise",
           ]
         : [
             "Stručný návod, ako napísať životopis pre danú profesiu",
             "Zručnosti a úlohy, ktoré personalisti očakávajú",
             "Ukážka životopisu s predvyplnenými údajmi",
+            "Čo personalisti pri tejto profesii ocenia",
+            "Najčastejšie chyby v životopise",
           ],
     uniqueLead,
     bodySections,
     adExample: {
-      ...(AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_DATA[locale][seed.slug]),
+      ...adExampleBase,
+      responsibilities: adResponsibilities,
+      requirements: skills,
       introText: CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name),
     },
     sections: [
@@ -791,7 +727,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     skills,
     responsibilities,
     sample: {
-      summary: ui.sample.summary(seed.name, keywordPool.length ? keywordPool : defaults.skills),
+      summary: ui.sample.summary(seed.name, skills),
       experience: sampleExperience,
       education: sampleEducation,
       skills: skills.slice(0, 6),

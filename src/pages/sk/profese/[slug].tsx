@@ -5,7 +5,7 @@ import styles from "@/scss/Profession.module.scss";
 import { buildProfessionContent, fromProfessionUrlSlug, getProfessionSlugs, ProfessionContent, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK } from "@/config/site";
 import ProfessionPreviewFrame from "@/components/ProfessionPreviewFrame";
-import { buildProfessionPreviewData } from "@/data/professionPreviewData";
+import { buildProfessionPreviewData, pickPreviewTemplateId } from "@/data/professionPreviewData";
 
 type PageProps = {
   content: ProfessionContent;
@@ -40,7 +40,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async (
 export default function ProfessionPage({ content }: PageProps) {
   const canonical = `${SITE_URL_SK}/sk/profese/${content.urlSlug}/`;
   const alternate = `${SITE_URL}/cs/profese/${content.urlSlug}/`;
-  const previewData = buildProfessionPreviewData("sk", content.slug, "cvtemplate");
+  const previewTemplateId = pickPreviewTemplateId(content.slug);
+  const previewData = buildProfessionPreviewData("sk", content.slug, previewTemplateId);
+  const summaryAnchors = ["how-to", "skills-tasks", "cv-preview", "highlight", "mistakes"];
   const highlightText = (text: string) => {
     if (!text) return text;
     const escapedName = content.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -224,16 +226,22 @@ export default function ProfessionPage({ content }: PageProps) {
           </header>
 
           <section className={styles.summaryBox}>
-            <h2 className={styles.summaryTitle}>Rýchle zhrnutie</h2>
+            <h2 className={styles.summaryTitle}>Rýchle zhrnutie (navigácia)</h2>
             <ul className={styles.summaryList}>
-              {content.summaryBullets.map((item) => (
-                <li key={item}>{highlightText(item)}</li>
+              {content.summaryBullets.map((item, index) => (
+                <li key={item}>
+                  <a href={`#${summaryAnchors[index] ?? "summary"}`}>{highlightText(item)}</a>
+                </li>
               ))}
             </ul>
           </section>
 
           {topSections.map((section) => (
-            <section key={section.heading} className={styles.bodySection}>
+            <section
+              key={section.heading}
+              id={section.heading === content.bodySections[0]?.heading ? "how-to" : undefined}
+              className={styles.bodySection}
+            >
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph, index) => (
                 paragraph.startsWith("Príklad inzerátu:")
@@ -256,32 +264,6 @@ export default function ProfessionPage({ content }: PageProps) {
                     </p>
                   )
               ))}
-              {section.heading.toLowerCase().includes("ats") && (
-                <div className={styles.adBox}>
-                  <h3 className={styles.adTitle}>{content.adExample.title}</h3>
-                  <p className={styles.adIntro}>{content.adExample.introText}</p>
-                  <div className={styles.adSection}>
-                    <h4 className={styles.adSectionTitle}>{content.adExample.responsibilitiesTitle}:</h4>
-                    <ul className={styles.adList}>
-                      {content.adExample.responsibilities.map((item) => (
-                        <li key={item}>
-                          <span className={styles.adKeyword}>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className={styles.adSection}>
-                    <h4 className={styles.adSectionTitle}>{content.adExample.requirementsTitle}:</h4>
-                    <ul className={styles.adList}>
-                      {content.adExample.requirements.map((item) => (
-                        <li key={item}>
-                          <span className={styles.adKeyword}>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )}
               {section.bullets && (
                 <ul>
                   {section.bullets.map((item) => (
@@ -294,6 +276,32 @@ export default function ProfessionPage({ content }: PageProps) {
 
           <section className={styles.splitSection}>
             <div className={styles.splitLeft}>
+              <div className={styles.adBox}>
+                <h3 className={styles.adTitle}>{content.adExample.title}</h3>
+                <p className={styles.adIntro}>{content.adExample.introText}</p>
+                <div className={styles.adSection}>
+                  <h4 className={styles.adSectionTitle}>{content.adExample.responsibilitiesTitle}:</h4>
+                  <ul className={styles.adList}>
+                    {content.adExample.responsibilities.map((item) => (
+                      <li key={item}>
+                        <span className={styles.adKeyword}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.adSection}>
+                  <h4 className={styles.adSectionTitle}>{content.adExample.requirementsTitle}:</h4>
+                  <ul className={styles.adList}>
+                    {content.adExample.requirements.map((item) => (
+                      <li key={item}>
+                        <span className={styles.adKeyword}>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className={styles.splitRight} id="skills-tasks">
               {content.sections.map((section) => (
                 <section key={section.heading} className={styles.section}>
                   <h2>{section.heading}</h2>
@@ -305,25 +313,38 @@ export default function ProfessionPage({ content }: PageProps) {
                 </section>
               ))}
             </div>
-            <aside className={styles.splitRight}>
-              <ProfessionPreviewFrame locale="sk" data={previewData} />
-            </aside>
           </section>
 
-          <section className={styles.cta}>
-            <div className={styles.ctaBlock}>
-              <h2 className={styles.ctaTitle}>Pripravení vytvoriť si svoj životopis?</h2>
-              <p className={styles.ctaText}>
-                Začnite teraz a vytvorte si moderný a profesionálny životopis počas 5 minút.
-              </p>
-              <Link className={styles.ctaButton} href="/sk/preview">
-                Vytvoriť životopis
-              </Link>
+          <section className={styles.previewCta}>
+            <div className={styles.previewWrap} id="cv-preview">
+            <h2>Vzor životopisu pro pozici {content.name}</h2>
+              <ProfessionPreviewFrame locale="sk" data={previewData} templateId={previewTemplateId} />
             </div>
+            <section className={styles.cta}>
+              <div className={styles.ctaBlock}>
+                <h2 className={styles.ctaTitle}>Pripravení vytvoriť si svoj životopis?</h2>
+                <p className={styles.ctaText}>
+                  Začnite teraz a vytvorte si moderný a profesionálny životopis počas 5 minút.
+                </p>
+                <Link className={styles.ctaButton} href="/sk/preview">
+                  Vytvoriť životopis
+                </Link>
+              </div>
+            </section>
           </section>
 
           {bottomSections.map((section) => (
-            <section key={section.heading} className={styles.bodySection}>
+            <section
+              key={section.heading}
+              id={
+                section.heading.toLowerCase().includes("ocenia")
+                  ? "highlight"
+                  : section.heading.toLowerCase().includes("chyby")
+                    ? "mistakes"
+                    : undefined
+              }
+              className={styles.bodySection}
+            >
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph, index) => (
                 paragraph.startsWith("Príklad inzerátu:")

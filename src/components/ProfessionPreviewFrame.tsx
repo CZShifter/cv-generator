@@ -7,9 +7,10 @@ import styles from "@/scss/Profession.module.scss";
 type Props = {
   locale: "cs" | "sk";
   data: CvData;
+  templateId?: "cvtemplate" | "cvtemplate2";
 };
 
-export default function ProfessionPreviewFrame({ locale, data }: Props) {
+export default function ProfessionPreviewFrame({ locale, data, templateId }: Props) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [frameHeight, setFrameHeight] = useState<number | null>(null);
@@ -22,7 +23,7 @@ export default function ProfessionPreviewFrame({ locale, data }: Props) {
     const update = () => {
       const width = el.clientWidth;
       if (!width) return;
-      const nextScale = Math.min(width / CV_WIDTH, 1);
+      const nextScale = width / CV_WIDTH;
       setScale(nextScale);
       setFrameHeight(Math.round(CV_HEIGHT * nextScale));
       setReady(true);
@@ -55,11 +56,11 @@ export default function ProfessionPreviewFrame({ locale, data }: Props) {
         style={{
           width: CV_WIDTH,
           height: CV_HEIGHT,
-          transform: scale < 1 ? `scale(${scale})` : "none",
+          transform: `scale(${scale})`,
           transformOrigin: "top left",
         }}
       >
-        <ProfessionCvPreview locale={locale} data={data} />
+        <ProfessionCvPreview locale={locale} data={data} templateId={templateId} />
       </div>
     </div>
   );

@@ -1,0 +1,2202 @@
+[
+  {
+    "profession": "absolvent bez praxe",
+    "aboutMe": {
+      "male": "Jsem motivovaný a učenlivý pracovník se zodpovědným přístupem. Rychle si osvojuji nové úkoly, dobře komunikuji, pracuji pečlivě a mám chuť rozvíjet své dovednosti.",
+      "female": "Jsem motivovaná a učenlivá pracovnice se zodpovědným přístupem. Rychle si osvojuji nové úkoly, dobře komunikuji, pracuji pečlivě a mám chuť rozvíjet své dovednosti."
+    },
+    "skills": [
+      "rychlé učení",
+      "zodpovědný přístup",
+      "komunikační dovednosti",
+      "pečlivost",
+      "ochota rozvíjet se"
+    ],
+    "workExperience": [
+      {
+        "position": "Odborná školní praxe",
+        "bullets": [
+          "Pomoc při plnění běžných provozních a administrativních úkolů.",
+          "Spolupráce s kolegy při zajištění chodu oddělení.",
+          "Práce s interními podklady, dokumenty nebo jednoduchými evidencemi.",
+          "Získávání praktických zkušeností a rychlé osvojování nových postupů."
+        ]
+      },
+      {
+        "position": "Brigádník",
+        "bullets": [
+          "Podpora týmu při každodenních činnostech podle aktuálních potřeb.",
+          "Dodržování pracovních pokynů, termínů a stanovených postupů.",
+          "Komunikace se zákazníky nebo kolegy v rámci svěřených úkolů.",
+          "Zodpovědný přístup k práci a ochota učit se nové činnosti."
+        ]
+      },
+      {
+        "position": "Dobrovolnická nebo studentská výpomoc",
+        "bullets": [
+          "Organizační podpora akcí, provozu nebo interních činností.",
+          "Samostatné plnění jednoduchých úkolů pod vedením zkušenějších kolegů.",
+          "Péče o pořádek, přípravu podkladů nebo obsluhu návštěvníků.",
+          "Rozvoj týmové spolupráce, komunikace a pracovních návyků."
+        ]
+      }
+    ],
+    "slug": "absolvent-bez-praxe"
+  },
+  {
+    "profession": "administrativní pracovník",
+    "aboutMe": {
+      "male": "Jsem pečlivý a organizovaný pracovník se smyslem pro pořádek. Ovládám administrativu, komunikaci i práci s dokumenty a dbám na přesnost a spolehlivost.",
+      "female": "Jsem pečlivá a organizovaná pracovnice se smyslem pro pořádek. Ovládám administrativu, komunikaci i práci s dokumenty a dbám na přesnost a spolehlivost."
+    },
+    "skills": [
+      "organizace práce",
+      "administrativní agenda",
+      "komunikace",
+      "práce s dokumenty",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Administrativní referent",
+        "bullets": [
+          "Zpracování příchozí a odchozí korespondence a evidence dokumentů.",
+          "Příprava podkladů pro vedení, účetní oddělení nebo obchodní tým.",
+          "Komunikace s klienty, dodavateli a interními pracovníky.",
+          "Archivace dokumentace a průběžná kontrola správnosti údajů."
+        ]
+      },
+      {
+        "position": "Asistent administrativy",
+        "bullets": [
+          "Správa kalendáře, schůzek a provozní administrativy kanceláře.",
+          "Zakládání, třídění a aktualizace firemních dokumentů.",
+          "Práce v kancelářských systémech a vyplňování evidenčních formulářů.",
+          "Podpora kolegů při přípravě reportů a interních podkladů."
+        ]
+      },
+      {
+        "position": "Back office pracovník",
+        "bullets": [
+          "Zadávání dat do systému a kontrola jejich úplnosti.",
+          "Telefonická a e-mailová komunikace se zákazníky a partnery.",
+          "Příprava smluv, objednávek nebo dalších administrativních výstupů.",
+          "Dohled nad plynulým chodem kancelářských procesů."
+        ]
+      }
+    ],
+    "slug": "administrativni-pracovnik"
+  },
+  {
+    "profession": "asistentka",
+    "aboutMe": {
+      "male": "Jsem komunikativní a spolehlivý pracovník s výbornou organizací práce. Umím koordinovat úkoly, pracovat s dokumenty a zajistit plynulý chod kanceláře.",
+      "female": "Jsem komunikativní a spolehlivá pracovnice s výbornou organizací práce. Umím koordinovat úkoly, pracovat s dokumenty a zajistit plynulý chod kanceláře."
+    },
+    "skills": [
+      "organizace práce",
+      "komunikační dovednosti",
+      "časový management",
+      "práce s dokumenty",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Asistentka kanceláře",
+        "bullets": [
+          "Zajištění administrativní podpory vedení a běžného chodu kanceláře.",
+          "Plánování schůzek, správa kalendáře a organizace pracovních cest.",
+          "Příprava dokumentů, prezentací a podkladů pro jednání.",
+          "Komunikace s klienty, dodavateli a interními odděleními."
+        ]
+      },
+      {
+        "position": "Executive assistant",
+        "bullets": [
+          "Koordinace termínů, úkolů a priorit pro vedení společnosti.",
+          "Zpracování korespondence a dohled nad plněním administrativních úkolů.",
+          "Organizace porad, rezervací a návštěv včetně přípravy podkladů.",
+          "Diskrétní práce s interními informacemi a firemní dokumentací."
+        ]
+      },
+      {
+        "position": "Office assistant",
+        "bullets": [
+          "Evidence dokumentů, objednávek a dalších provozních podkladů.",
+          "Komunikace s obchodními partnery e-mailem i telefonicky.",
+          "Podpora účetního nebo personálního oddělení při administrativě.",
+          "Zajištění kancelářských potřeb a provozního servisu pracoviště."
+        ]
+      }
+    ],
+    "slug": "asistentka"
+  },
+  {
+    "profession": "barista",
+    "aboutMe": {
+      "male": "Jsem komunikativní a pečlivý pracovník s profesionálním vystupováním. Umím připravovat kvalitní kávu, obsluhovat hosty a pracovat rychle i pod tlakem.",
+      "female": "Jsem komunikativní a pečlivá pracovnice s profesionálním vystupováním. Umím připravovat kvalitní kávu, obsluhovat hosty a pracovat rychle i pod tlakem."
+    },
+    "skills": [
+      "příprava kávy",
+      "komunikace se zákazníky",
+      "profesionální vystupování",
+      "rychlost a pečlivost",
+      "práce pod tlakem"
+    ],
+    "workExperience": [
+      {
+        "position": "Barista v kavárně",
+        "bullets": [
+          "Příprava kávových nápojů podle standardů podniku.",
+          "Obsluha hostů, přijímání objednávek a doporučování nabídky.",
+          "Péče o čistotu baru, kávovaru a pracovního prostoru.",
+          "Práce s pokladnou a kontrola zásob surovin."
+        ]
+      },
+      {
+        "position": "Obsluha coffee pointu",
+        "bullets": [
+          "Rychlé odbavení zákazníků během provozní špičky.",
+          "Příprava jednoduchého občerstvení a servírování nápojů.",
+          "Doplňování sortimentu a sledování čerstvosti surovin.",
+          "Budování příjemné atmosféry a profesionální komunikace s hosty."
+        ]
+      },
+      {
+        "position": "Barista v hotelovém provozu",
+        "bullets": [
+          "Zajištění nápojového servisu pro hotelové hosty a akce.",
+          "Spolupráce s kolegy při organizaci provozu a obsluze hostů.",
+          "Dodržování hygienických pravidel a standardů kvality.",
+          "Řešení individuálních požadavků zákazníků s důrazem na spokojenost."
+        ]
+      }
+    ],
+    "slug": "barista"
+  },
+  {
+    "profession": "barman",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a komunikativní pracovník s profesionálním vystupováním. Ovládám přípravu nápojů, obsluhu hostů a práci pod tlakem v rychlém provozu.",
+      "female": "Jsem spolehlivá a komunikativní pracovnice s profesionálním vystupováním. Ovládám přípravu nápojů, obsluhu hostů a práci pod tlakem v rychlém provozu."
+    },
+    "skills": [
+      "příprava nápojů",
+      "komunikace se zákazníky",
+      "profesionální vystupování",
+      "rychlá obsluha",
+      "odolnost vůči stresu"
+    ],
+    "workExperience": [
+      {
+        "position": "Barman v baru",
+        "bullets": [
+          "Příprava alkoholických i nealkoholických nápojů dle receptur.",
+          "Komunikace s hosty a doporučování vhodných drinků.",
+          "Obsluha baru, práce s pokladnou a vyúčtování plateb.",
+          "Kontrola zásob a udržování pořádku na pracovišti."
+        ]
+      },
+      {
+        "position": "Barman v restauraci",
+        "bullets": [
+          "Zajištění nápojového servisu pro hosty restaurace a akcí.",
+          "Spolupráce s obsluhou a kuchyní při plynulém chodu provozu.",
+          "Dodržování hygienických a provozních standardů.",
+          "Řešení požadavků zákazníků s důrazem na kvalitu servisu."
+        ]
+      },
+      {
+        "position": "Bartender na eventech",
+        "bullets": [
+          "Příprava a výdej nápojů při firemních a společenských akcích.",
+          "Rychlá obsluha většího počtu hostů během špičky.",
+          "Příprava baru před akcí a inventura po jejím ukončení.",
+          "Reprezentativní vystupování a budování pozitivního dojmu z podniku."
+        ]
+      }
+    ],
+    "slug": "barman"
+  },
+  {
+    "profession": "bezpečnostní pracovník",
+    "aboutMe": {
+      "male": "Jsem zodpovědný a všímavý pracovník s profesionálním vystupováním. Umím dodržovat bezpečnostní postupy, řešit krizové situace a jednat klidně i pod tlakem.",
+      "female": "Jsem zodpovědná a všímavá pracovnice s profesionálním vystupováním. Umím dodržovat bezpečnostní postupy, řešit krizové situace a jednat klidně i pod tlakem."
+    },
+    "skills": [
+      "všímavost",
+      "bezpečnostní postupy",
+      "řešení krizových situací",
+      "profesionální vystupování",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Ostraha objektu",
+        "bullets": [
+          "Kontrola vstupů a pohybu osob v areálu nebo budově.",
+          "Pravidelné obchůzky a dohled nad dodržováním bezpečnostních pravidel.",
+          "Evidence návštěv, incidentů a provozních událostí.",
+          "Spolupráce s vedením objektu při řešení mimořádných situací."
+        ]
+      },
+      {
+        "position": "Bezpečnostní pracovník recepce",
+        "bullets": [
+          "Dohled nad vstupním prostorem a ověřování oprávnění návštěvníků.",
+          "Obsluha kamerového systému a základních zabezpečovacích prvků.",
+          "Komunikace s klienty, zaměstnanci a složkami integrovaného záchranného systému.",
+          "Rychlá reakce na nestandardní situace při zachování klidného jednání."
+        ]
+      },
+      {
+        "position": "Pracovník fyzické ostrahy",
+        "bullets": [
+          "Zajištění ochrany majetku a osob v přiděleném objektu.",
+          "Prevence rizikového chování a řešení provozních incidentů.",
+          "Vypracování záznamů o událostech a předávání informací směně.",
+          "Dodržování interních směrnic a bezpečnostních standardů."
+        ]
+      }
+    ],
+    "slug": "bezpecnostni-pracovnik"
+  },
+  {
+    "profession": "číšník",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a komunikativní pracovník s profesionálním vystupováním. Umím pracovat pod tlakem, spolupracovat v týmu a dbám na kvalitní obsluhu i spokojenost hostů.",
+      "female": "Jsem spolehlivá a komunikativní pracovnice s profesionálním vystupováním. Umím pracovat pod tlakem, spolupracovat v týmu a dbám na kvalitní obsluhu i spokojenost hostů."
+    },
+    "skills": [
+      "komunikace se zákazníky",
+      "profesionální vystupování",
+      "spolehlivost a pečlivost",
+      "schopnost práce pod tlakem",
+      "týmová spolupráce"
+    ],
+    "workExperience": [
+      {
+        "position": "Číšník v restauraci",
+        "bullets": [
+          "Obsluha hostů v restauraci a přijímání objednávek.",
+          "Doporučování jídel a nápojů podle nabídky podniku.",
+          "Příprava stolů, udržování čistoty a kontrola inventáře.",
+          "Práce s pokladním systémem a vyúčtování plateb."
+        ]
+      },
+      {
+        "position": "Obsluha kavárny",
+        "bullets": [
+          "Každodenní komunikace se zákazníky a zajištění příjemné atmosféry.",
+          "Servírování nápojů, dezertů a drobného občerstvení.",
+          "Doplňování zboží, kontrola zásob a spolupráce se skladem.",
+          "Řešení individuálních požadavků hostů a reklamací."
+        ]
+      },
+      {
+        "position": "Číšník v hotelu",
+        "bullets": [
+          "Zajištění obsluhy při snídaních, obědech, večeřích a společenských akcích.",
+          "Spolupráce s kuchyní a ostatním personálem při organizaci provozu.",
+          "Péče o vysoký standard servisu a reprezentativní vystupování.",
+          "Rychlé a přesné odbavení většího počtu hostů ve špičce."
+        ]
+      }
+    ],
+    "slug": "cisnik"
+  },
+  {
+    "profession": "datový analytik",
+    "aboutMe": {
+      "male": "Jsem analyticky zaměřený pracovník s důrazem na přesnost. Ovládám práci s daty, reporting i interpretaci výsledků a hledám souvislosti pro lepší rozhodování.",
+      "female": "Jsem analyticky zaměřená pracovnice s důrazem na přesnost. Ovládám práci s daty, reporting i interpretaci výsledků a hledám souvislosti pro lepší rozhodování."
+    },
+    "skills": [
+      "analytické myšlení",
+      "práce s daty",
+      "reporting",
+      "interpretace výsledků",
+      "pečlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Junior datový analytik",
+        "bullets": [
+          "Zpracování, čištění a kontrola dat z interních systémů.",
+          "Příprava pravidelných reportů a přehledů pro management.",
+          "Vyhledávání trendů, odchylek a souvislostí v datech.",
+          "Spolupráce s ostatními odděleními při definování potřebných ukazatelů."
+        ]
+      },
+      {
+        "position": "Reporting specialista",
+        "bullets": [
+          "Tvorba dashboardů a výstupů pro provozní i obchodní rozhodování.",
+          "Kontrola kvality dat a identifikace nesrovnalostí v evidencích.",
+          "Automatizace pravidelných reportů a datových přehledů.",
+          "Převod dat do srozumitelných podkladů pro interní uživatele."
+        ]
+      },
+      {
+        "position": "Business analyst assistant",
+        "bullets": [
+          "Podpora analytických projektů sběrem a vyhodnocením dat.",
+          "Příprava tabulek, prezentací a podkladů pro jednání.",
+          "Spolupráce na nastavování metrik a sledování výkonnosti procesů.",
+          "Dokumentace analytických zjištění a doporučení."
+        ]
+      }
+    ],
+    "slug": "datovy-analytik"
+  },
+  {
+    "profession": "dělník",
+    "aboutMe": {
+      "male": "Jsem fyzicky zdatný a spolehlivý pracovník. Dodržuji pracovní postupy, dbám na bezpečnost, pracuji pečlivě a zvládám samostatně i v týmu plnit zadané úkoly.",
+      "female": "Jsem fyzicky zdatná a spolehlivá pracovnice. Dodržuji pracovní postupy, dbám na bezpečnost, pracuji pečlivě a zvládám samostatně i v týmu plnit zadané úkoly."
+    },
+    "skills": [
+      "fyzická zdatnost",
+      "spolehlivost",
+      "dodržování pracovních postupů",
+      "pečlivost",
+      "týmová spolupráce"
+    ],
+    "workExperience": [
+      {
+        "position": "Pomocný dělník",
+        "bullets": [
+          "Provádění pomocných prací ve výrobě, skladu nebo na stavbě.",
+          "Manipulace s materiálem a příprava pracoviště pro další činnosti.",
+          "Dodržování bezpečnostních pravidel a pokynů nadřízených.",
+          "Udržování pořádku a základní kontrola pracovních pomůcek."
+        ]
+      },
+      {
+        "position": "Výrobní dělník",
+        "bullets": [
+          "Obsluha jednoduchých zařízení a plnění výrobních úkolů.",
+          "Kontrola kvality zpracovaných výrobků nebo materiálu.",
+          "Balení, třídění a příprava výrobků k expedici.",
+          "Spolupráce s kolegy na plynulém chodu provozu."
+        ]
+      },
+      {
+        "position": "Montážní výpomoc",
+        "bullets": [
+          "Pomoc při montážních a kompletovacích pracích podle zadání.",
+          "Přenášení a příprava dílů nebo materiálu na pracovišti.",
+          "Plnění opakujících se úkonů s důrazem na přesnost.",
+          "Dodržování termínů a provozních standardů."
+        ]
+      }
+    ],
+    "slug": "delnik"
+  },
+  {
+    "profession": "dispečer logistiky",
+    "aboutMe": {
+      "male": "Jsem organizovaný a odolný pracovník s dobrými komunikačními schopnostmi. Umím plánovat dopravu, řešit operativní situace a koordinovat logistické procesy s důrazem na přesnost.",
+      "female": "Jsem organizovaná a odolná pracovnice s dobrými komunikačními schopnostmi. Umím plánovat dopravu, řešit operativní situace a koordinovat logistické procesy s důrazem na přesnost."
+    },
+    "skills": [
+      "plánování dopravy",
+      "komunikace",
+      "organizační schopnosti",
+      "řešení operativních situací",
+      "přesnost"
+    ],
+    "workExperience": [
+      {
+        "position": "Dispečer dopravy",
+        "bullets": [
+          "Plánování tras, vytěžování vozidel a koordinace přeprav.",
+          "Každodenní komunikace s řidiči, zákazníky a dopravci.",
+          "Řešení zpoždění, změn tras a dalších provozních situací.",
+          "Evidence přepravních dokumentů a kontrola plnění termínů."
+        ]
+      },
+      {
+        "position": "Logistický koordinátor",
+        "bullets": [
+          "Sledování průběhu přeprav a dohled nad včasným doručením zásilek.",
+          "Spolupráce se skladem a obchodním oddělením při plánování expedice.",
+          "Aktualizace dat v systému a příprava logistických přehledů.",
+          "Optimalizace denního rozvrhu přeprav podle aktuální situace."
+        ]
+      },
+      {
+        "position": "Operátor dopravního dispečinku",
+        "bullets": [
+          "Příjem objednávek na přepravu a jejich zpracování v systému.",
+          "Operativní komunikace s partnery při změnách přepravních požadavků.",
+          "Kontrola správnosti přepravních údajů a navazujících dokumentů.",
+          "Podpora plynulého chodu logistického provozu ve směnném režimu."
+        ]
+      }
+    ],
+    "slug": "dispecer-logistiky"
+  },
+  {
+    "profession": "elektrikář",
+    "aboutMe": {
+      "male": "Jsem technicky zdatný a spolehlivý pracovník s důrazem na bezpečnost. Ovládám elektroinstalace, diagnostiku závad i práci podle technické dokumentace.",
+      "female": "Jsem technicky zdatná a spolehlivá pracovnice s důrazem na bezpečnost. Ovládám elektroinstalace, diagnostiku závad i práci podle technické dokumentace."
+    },
+    "skills": [
+      "elektroinstalace",
+      "technické myšlení",
+      "diagnostika závad",
+      "práce podle dokumentace",
+      "dodržování bezpečnosti"
+    ],
+    "workExperience": [
+      {
+        "position": "Provozní elektrikář",
+        "bullets": [
+          "Montáž, opravy a údržba elektrických zařízení a rozvodů.",
+          "Diagnostika závad a zajištění jejich rychlého odstranění.",
+          "Práce podle technické dokumentace a schémat zapojení.",
+          "Dodržování bezpečnostních předpisů a revizních postupů."
+        ]
+      },
+      {
+        "position": "Elektromontér",
+        "bullets": [
+          "Instalace elektrických prvků v průmyslových nebo komerčních objektech.",
+          "Zapojování rozvaděčů, zásuvek, osvětlení a dalších komponent.",
+          "Kontrola funkčnosti zařízení po montáži a uvedení do provozu.",
+          "Spolupráce s ostatními profesemi při realizaci zakázek."
+        ]
+      },
+      {
+        "position": "Servisní elektrikář",
+        "bullets": [
+          "Provádění pravidelných kontrol a preventivní údržby elektrozařízení.",
+          "Řešení havarijních stavů a provozních výpadků.",
+          "Evidence servisních zásahů a technických záznamů.",
+          "Návrhy opatření pro bezpečný a spolehlivý provoz."
+        ]
+      }
+    ],
+    "slug": "elektrikar"
+  },
+  {
+    "profession": "farmaceutický asistent",
+    "aboutMe": {
+      "male": "Jsem pečlivý a komunikativní pracovník se zodpovědným přístupem. Ovládám práci s léčivy, administrativu i komunikaci s klienty a dbám na přesnost a diskrétnost.",
+      "female": "Jsem pečlivá a komunikativní pracovnice se zodpovědným přístupem. Ovládám práci s léčivy, administrativu i komunikaci s klienty a dbám na přesnost a diskrétnost."
+    },
+    "skills": [
+      "práce s léčivy",
+      "komunikace s klienty",
+      "administrativa",
+      "pečlivost",
+      "diskrétnost"
+    ],
+    "workExperience": [
+      {
+        "position": "Farmaceutický asistent v lékárně",
+        "bullets": [
+          "Příprava a výdej volně prodejných přípravků dle interních pravidel.",
+          "Komunikace se zákazníky a poskytování základních informací o sortimentu.",
+          "Doplňování zboží, kontrola expirací a evidence skladových zásob.",
+          "Administrativní podpora provozu lékárny a práce s lékárenským systémem."
+        ]
+      },
+      {
+        "position": "Asistent lékárenského provozu",
+        "bullets": [
+          "Příjem a kontrola dodávek léčiv a zdravotnického materiálu.",
+          "Zakládání dokumentace a příprava podkladů pro farmaceuty.",
+          "Udržování pořádku a hygienických standardů na pracovišti.",
+          "Spolupráce na plynulém chodu výdejního i skladového procesu."
+        ]
+      },
+      {
+        "position": "Odborná zdravotnická výpomoc",
+        "bullets": [
+          "Podpora personálu při evidenci léčiv a zdravotnických pomůcek.",
+          "Péče o přesnost údajů v interních evidencích a kartách.",
+          "Komunikace s pacienty s důrazem na vstřícnost a diskrétnost.",
+          "Dodržování odborných a provozních postupů."
+        ]
+      }
+    ],
+    "slug": "farmaceuticky-asistent"
+  },
+  {
+    "profession": "fyzioterapeut",
+    "aboutMe": {
+      "male": "Jsem empatický a odborně zaměřený pracovník. Umím vést terapii, komunikovat s klienty a volit vhodné rehabilitační postupy s důrazem na individuální přístup.",
+      "female": "Jsem empatická a odborně zaměřená pracovnice. Umím vést terapii, komunikovat s klienty a volit vhodné rehabilitační postupy s důrazem na individuální přístup."
+    },
+    "skills": [
+      "individuální přístup",
+      "odborné znalosti",
+      "komunikace s klienty",
+      "rehabilitační postupy",
+      "empatie"
+    ],
+    "workExperience": [
+      {
+        "position": "Fyzioterapeut v ambulanci",
+        "bullets": [
+          "Provádění vstupních vyšetření a sestavování rehabilitačních plánů.",
+          "Vedení individuálních terapií podle potřeb klienta.",
+          "Nácvik správných pohybových stereotypů a rehabilitačních cvičení.",
+          "Evidence průběhu terapií a komunikace s dalšími odborníky."
+        ]
+      },
+      {
+        "position": "Rehabilitační pracovník",
+        "bullets": [
+          "Aplikace fyzioterapeutických metod při léčbě pohybového aparátu.",
+          "Instruktáž klientů k domácímu cvičení a prevenci obtíží.",
+          "Spolupráce s lékaři a zdravotnickým personálem při péči o pacienta.",
+          "Průběžné vyhodnocování efektivity terapie a úprava plánu."
+        ]
+      },
+      {
+        "position": "Fyzioterapeut v zařízení sociální péče",
+        "bullets": [
+          "Péče o klienty s omezenou pohyblivostí a dlouhodobými obtížemi.",
+          "Podpora soběstačnosti klientů prostřednictvím cíleného cvičení.",
+          "Citlivá komunikace s klienty a jejich rodinami.",
+          "Dodržování odborných standardů a vedení potřebné dokumentace."
+        ]
+      }
+    ],
+    "slug": "fyzioterapeut"
+  },
+  {
+    "profession": "grafik",
+    "aboutMe": {
+      "male": "Jsem kreativní a pečlivý pracovník s citem pro vizuální komunikaci. Ovládám grafické nástroje, práci s detaily i tvorbu materiálů podle zadání.",
+      "female": "Jsem kreativní a pečlivá pracovnice s citem pro vizuální komunikaci. Ovládám grafické nástroje, práci s detaily i tvorbu materiálů podle zadání."
+    },
+    "skills": [
+      "grafické nástroje",
+      "kreativita",
+      "vizuální komunikace",
+      "práce s detaily",
+      "samostatnost"
+    ],
+    "workExperience": [
+      {
+        "position": "Grafik pro tiskoviny",
+        "bullets": [
+          "Tvorba propagačních materiálů, letáků, plakátů a dalších tiskovin.",
+          "Příprava grafických podkladů podle zadání klienta nebo marketingu.",
+          "Úpravy vizuálů s důrazem na estetiku a technickou správnost.",
+          "Komunikace s tiskárnou a kontrola výstupů před výrobou."
+        ]
+      },
+      {
+        "position": "Junior graphic designer",
+        "bullets": [
+          "Návrh online i offline vizuálů v souladu s firemní identitou.",
+          "Zpracování bannerů, příspěvků na sociální sítě a prezentačních materiálů.",
+          "Editace fotografií, ikon a dalších grafických prvků.",
+          "Spolupráce s copywritery, marketéry a dalšími členy týmu."
+        ]
+      },
+      {
+        "position": "DTP operátor",
+        "bullets": [
+          "Sazba dokumentů a úprava grafických podkladů pro tisk.",
+          "Kontrola formátů, barevnosti a technických parametrů souborů.",
+          "Převod podkladů do tiskových výstupů dle požadavků výroby.",
+          "Pečlivé dodržování termínů a klientských specifikací."
+        ]
+      }
+    ],
+    "slug": "grafik"
+  },
+  {
+    "profession": "instalatér",
+    "aboutMe": {
+      "male": "Jsem technicky zručný a spolehlivý pracovník. Ovládám montáž rozvodů, opravy instalací a práci podle technické dokumentace s důrazem na kvalitu i bezpečnost.",
+      "female": "Jsem technicky zručná a spolehlivá pracovnice. Ovládám montáž rozvodů, opravy instalací a práci podle technické dokumentace s důrazem na kvalitu i bezpečnost."
+    },
+    "skills": [
+      "technická zručnost",
+      "montáž rozvodů",
+      "opravy instalací",
+      "práce podle dokumentace",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Instalatér v terénu",
+        "bullets": [
+          "Montáž vodovodních, odpadních a topenářských rozvodů.",
+          "Opravy poruch a servis instalací v bytových i komerčních objektech.",
+          "Práce podle technické dokumentace a zadání zakázky.",
+          "Kontrola těsnosti, funkčnosti a kvality provedené práce."
+        ]
+      },
+      {
+        "position": "Topenář-instalatér",
+        "bullets": [
+          "Instalace a údržba otopných systémů a souvisejících zařízení.",
+          "Výměna armatur, potrubí a dalších instalačních prvků.",
+          "Komunikace se zákazníky ohledně průběhu a rozsahu prací.",
+          "Dodržování bezpečnostních a technologických postupů."
+        ]
+      },
+      {
+        "position": "Servisní technik instalací",
+        "bullets": [
+          "Provádění preventivních kontrol a běžného servisu technických rozvodů.",
+          "Diagnostika závad a návrh vhodného způsobu opravy.",
+          "Evidence provedených servisních zásahů a spotřebovaného materiálu.",
+          "Spolupráce s kolegy při realizaci větších zakázek."
+        ]
+      }
+    ],
+    "slug": "instalater"
+  },
+  {
+    "profession": "IT podpora",
+    "aboutMe": {
+      "male": "Jsem technicky orientovaný a trpělivý pracovník. Umím řešit uživatelské požadavky, diagnostikovat technické problémy a komunikovat srozumitelně i pod časovým tlakem.",
+      "female": "Jsem technicky orientovaná a trpělivá pracovnice. Umím řešit uživatelské požadavky, diagnostikovat technické problémy a komunikovat srozumitelně i pod časovým tlakem."
+    },
+    "skills": [
+      "řešení technických problémů",
+      "komunikace s uživateli",
+      "diagnostika závad",
+      "trpělivost",
+      "technická orientace"
+    ],
+    "workExperience": [
+      {
+        "position": "IT support specialist",
+        "bullets": [
+          "Řešení uživatelských požadavků a incidentů na první úrovni podpory.",
+          "Diagnostika problémů s hardwarem, softwarem a přístupovými údaji.",
+          "Instalace a základní konfigurace pracovních stanic a aplikací.",
+          "Vedení záznamů o požadavcích a předávání složitějších případů dál."
+        ]
+      },
+      {
+        "position": "Helpdesk operátor",
+        "bullets": [
+          "Telefonická a e-mailová podpora interních nebo externích uživatelů.",
+          "Evidence servisních požadavků v ticketovacím systému.",
+          "Základní správa uživatelských účtů a přístupových oprávnění.",
+          "Instruktáž uživatelů při běžných provozních potížích."
+        ]
+      },
+      {
+        "position": "Junior systémová podpora",
+        "bullets": [
+          "Kontrola funkčnosti zařízení a podpůrných IT služeb.",
+          "Příprava techniky pro nové uživatele a výměnu zařízení.",
+          "Spolupráce s administrátory při údržbě firemního prostředí.",
+          "Aktualizace dokumentace a návodů pro uživatele."
+        ]
+      }
+    ],
+    "slug": "it-podpora"
+  },
+  {
+    "profession": "kuchař",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a pečlivý pracovník s dobrou organizací práce. Ovládám přípravu pokrmů, hygienické standardy i spolupráci v týmu během provozní špičky.",
+      "female": "Jsem spolehlivá a pečlivá pracovnice s dobrou organizací práce. Ovládám přípravu pokrmů, hygienické standardy i spolupráci v týmu během provozní špičky."
+    },
+    "skills": [
+      "příprava pokrmů",
+      "hygienické standardy",
+      "organizace práce",
+      "pečlivost",
+      "týmová spolupráce"
+    ],
+    "workExperience": [
+      {
+        "position": "Kuchař v restauraci",
+        "bullets": [
+          "Příprava jídel podle receptur a standardů provozu.",
+          "Zajištění správného skladování surovin a kontroly jejich kvality.",
+          "Spolupráce s obsluhou a ostatními členy kuchyně při výdeji jídel.",
+          "Dodržování hygienických předpisů a čistoty na pracovišti."
+        ]
+      },
+      {
+        "position": "Pomocný kuchař",
+        "bullets": [
+          "Příprava surovin, základních pokrmů a příloh podle pokynů.",
+          "Podíl na organizaci kuchyně během běžného i špičkového provozu.",
+          "Doplňování surovin a kontrola zásob v kuchyni.",
+          "Údržba pracovních ploch a kuchyňského vybavení."
+        ]
+      },
+      {
+        "position": "Kuchař v hotelu nebo jídelně",
+        "bullets": [
+          "Příprava většího množství porcí při zachování kvality pokrmů.",
+          "Sestavování denní produkce podle provozních potřeb.",
+          "Kontrola dodržování technologických postupů při přípravě jídel.",
+          "Spolupráce na plynulém chodu stravovacího provozu."
+        ]
+      }
+    ],
+    "slug": "kuchar"
+  },
+  {
+    "profession": "kurýr",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a samostatný pracovník s dobrými organizačními schopnostmi. Umím plánovat trasy, komunikovat se zákazníky a doručovat zásilky včas a pečlivě.",
+      "female": "Jsem spolehlivá a samostatná pracovnice s dobrými organizačními schopnostmi. Umím plánovat trasy, komunikovat se zákazníky a doručovat zásilky včas a pečlivě."
+    },
+    "skills": [
+      "řízení a orientace v terénu",
+      "spolehlivost",
+      "komunikace se zákazníky",
+      "samostatnost",
+      "časová organizace"
+    ],
+    "workExperience": [
+      {
+        "position": "Kurýr rozvozu zásilek",
+        "bullets": [
+          "Doručování zásilek zákazníkům podle denně plánovaných tras.",
+          "Komunikace se zákazníky při předání objednávek nebo změnách doručení.",
+          "Kontrola zásilek před expedicí a potvrzování doručení v systému.",
+          "Péče o svěřené vozidlo a dodržování dopravních předpisů."
+        ]
+      },
+      {
+        "position": "Řidič rozvozu",
+        "bullets": [
+          "Nakládka a rozvoz zboží na určené adresy včas a bez poškození.",
+          "Řešení operativních změn tras a časových oken během dne.",
+          "Vedení základní dokumentace k přepravě a převzetí zásilek.",
+          "Spolupráce se skladem a dispečinkem při organizaci rozvozu."
+        ]
+      },
+      {
+        "position": "Kurýr expresních služeb",
+        "bullets": [
+          "Zajištění rychlého doručování expresních zásilek v rámci regionu.",
+          "Přebírání zásilek od klientů a kontrola úplnosti podkladů.",
+          "Práce s mobilní aplikací nebo systémem pro evidenci doručení.",
+          "Reprezentativní jednání se zákazníky a důraz na spolehlivost."
+        ]
+      }
+    ],
+    "slug": "kuryr"
+  },
+  {
+    "profession": "lakýrník",
+    "aboutMe": {
+      "male": "Jsem pečlivý a manuálně zručný pracovník. Ovládám přípravu povrchů, aplikaci nátěrů a dodržuji technologické postupy i požadavky na kvalitu.",
+      "female": "Jsem pečlivá a manuálně zručná pracovnice. Ovládám přípravu povrchů, aplikaci nátěrů a dodržuji technologické postupy i požadavky na kvalitu."
+    },
+    "skills": [
+      "manuální zručnost",
+      "příprava povrchů",
+      "aplikace nátěrů",
+      "pečlivost",
+      "dodržování technologických postupů"
+    ],
+    "workExperience": [
+      {
+        "position": "Lakýrník ve výrobě",
+        "bullets": [
+          "Příprava povrchů před lakováním včetně broušení a čištění.",
+          "Nanášení nátěrových hmot podle technologických postupů.",
+          "Kontrola kvality lakovaného povrchu a opravy drobných vad.",
+          "Údržba pracovního vybavení a dodržování bezpečnostních pravidel."
+        ]
+      },
+      {
+        "position": "Průmyslový lakýrník",
+        "bullets": [
+          "Lakování kovových nebo jiných komponent ve výrobním provozu.",
+          "Míchání barev a příprava materiálu podle specifikace zakázky.",
+          "Dodržování přesného postupu při vrstvení a schnutí nátěrů.",
+          "Spolupráce s výrobou při plánování a předávání dílů."
+        ]
+      },
+      {
+        "position": "Přípravář lakovny",
+        "bullets": [
+          "Maskování dílů a příprava komponent k finální povrchové úpravě.",
+          "Manipulace s materiálem a přesun výrobků mezi pracovišti.",
+          "Kontrola technického stavu lakovacího prostoru a pomůcek.",
+          "Práce s důrazem na detail, čistotu a kvalitní výsledek."
+        ]
+      }
+    ],
+    "slug": "lakyrnik"
+  },
+  {
+    "profession": "lektor jazyků",
+    "aboutMe": {
+      "male": "Jsem komunikativní a trpělivý pracovník s výbornými jazykovými znalostmi. Umím předávat informace srozumitelně, motivovat studenty a přizpůsobit výuku jejich potřebám.",
+      "female": "Jsem komunikativní a trpělivá pracovnice s výbornými jazykovými znalostmi. Umím předávat informace srozumitelně, motivovat studenty a přizpůsobit výuku jejich potřebám."
+    },
+    "skills": [
+      "jazykové znalosti",
+      "komunikační dovednosti",
+      "trpělivost",
+      "schopnost vysvětlovat",
+      "individuální přístup"
+    ],
+    "workExperience": [
+      {
+        "position": "Lektor cizího jazyka",
+        "bullets": [
+          "Vedení individuálních i skupinových lekcí pro různé úrovně studentů.",
+          "Příprava výukových materiálů a přizpůsobení obsahu potřebám klientů.",
+          "Vysvětlování gramatiky, slovní zásoby a praktického použití jazyka.",
+          "Průběžné hodnocení pokroku studentů a poskytování zpětné vazby."
+        ]
+      },
+      {
+        "position": "Jazykový instruktor",
+        "bullets": [
+          "Vedení konverzačních lekcí zaměřených na praktickou komunikaci.",
+          "Motivace studentů k aktivnímu zapojení a pravidelnému procvičování.",
+          "Organizace výuky včetně docházky, domácích úkolů a testování.",
+          "Budování pozitivní a podporující atmosféry při výuce."
+        ]
+      },
+      {
+        "position": "Online lektor",
+        "bullets": [
+          "Příprava a vedení online výuky prostřednictvím digitálních nástrojů.",
+          "Sdílení studijních materiálů a interaktivních úkolů v elektronické podobě.",
+          "Přizpůsobení tempa výuky individuálním možnostem studentů.",
+          "Pravidelná komunikace se studenty a vyhodnocování jejich výsledků."
+        ]
+      }
+    ],
+    "slug": "lektor-jazyku"
+  },
+  {
+    "profession": "marketingový specialista",
+    "aboutMe": {
+      "male": "Jsem kreativní a analytický pracovník se zaměřením na výsledky. Ovládám tvorbu obsahu, marketingové kampaně i vyhodnocování dat a umím koordinovat více úkolů současně.",
+      "female": "Jsem kreativní a analytická pracovnice se zaměřením na výsledky. Ovládám tvorbu obsahu, marketingové kampaně i vyhodnocování dat a umím koordinovat více úkolů současně."
+    },
+    "skills": [
+      "tvorba obsahu",
+      "marketingové kampaně",
+      "analytické myšlení",
+      "organizace práce",
+      "komunikační dovednosti"
+    ],
+    "workExperience": [
+      {
+        "position": "Marketingový specialista",
+        "bullets": [
+          "Příprava a realizace marketingových kampaní pro online i offline kanály.",
+          "Tvorba textů, podkladů a obsahu pro web, sociální sítě nebo newslettery.",
+          "Vyhodnocování výsledků kampaní a sledování klíčových ukazatelů.",
+          "Spolupráce s grafikou, obchodem a externími dodavateli."
+        ]
+      },
+      {
+        "position": "Content marketing specialist",
+        "bullets": [
+          "Plánování obsahové strategie a správa publikačního kalendáře.",
+          "Tvorba článků, reklamních textů a podpůrných materiálů pro značku.",
+          "Optimalizace obsahu podle cílové skupiny a marketingových cílů.",
+          "Analýza výkonnosti obsahu a návrhy na jeho zlepšení."
+        ]
+      },
+      {
+        "position": "Online marketing coordinator",
+        "bullets": [
+          "Koordinace kampaní napříč digitálními kanály a reklamními platformami.",
+          "Správa podkladů pro inzerci a komunikace s externími agenturami.",
+          "Monitoring konkurence a tržních trendů.",
+          "Příprava reportů a doporučení pro další marketingové aktivity."
+        ]
+      }
+    ],
+    "slug": "marketingovy-specialista"
+  },
+  {
+    "profession": "mechanik",
+    "aboutMe": {
+      "male": "Jsem technicky zdatný a pečlivý pracovník. Umím diagnostikovat závady, provádět opravy a údržbu zařízení a pracovat podle technických postupů.",
+      "female": "Jsem technicky zdatná a pečlivá pracovnice. Umím diagnostikovat závady, provádět opravy a údržbu zařízení a pracovat podle technických postupů."
+    },
+    "skills": [
+      "diagnostika závad",
+      "technické myšlení",
+      "opravy a údržba",
+      "pečlivost",
+      "práce podle postupů"
+    ],
+    "workExperience": [
+      {
+        "position": "Mechanik strojů",
+        "bullets": [
+          "Provádění oprav a pravidelné údržby strojních zařízení.",
+          "Diagnostika mechanických závad a výměna opotřebených dílů.",
+          "Práce podle technické dokumentace a servisních postupů.",
+          "Kontrola funkčnosti zařízení po provedeném zásahu."
+        ]
+      },
+      {
+        "position": "Servisní mechanik",
+        "bullets": [
+          "Zajištění servisních zásahů v provozu nebo u zákazníků.",
+          "Evidence oprav, použitých dílů a doporučených opatření.",
+          "Spolupráce s výrobou nebo zákazníkem při řešení poruch.",
+          "Dodržování bezpečnostních pravidel při práci se stroji."
+        ]
+      },
+      {
+        "position": "Údržbář-mechanik",
+        "bullets": [
+          "Preventivní kontroly technického stavu zařízení a linek.",
+          "Operativní řešení poruch ovlivňujících plynulost provozu.",
+          "Seřizování mechanických částí a základní montážní práce.",
+          "Podíl na zlepšování technického stavu výrobního vybavení."
+        ]
+      }
+    ],
+    "slug": "mechanik"
+  },
+  {
+    "profession": "mistr výroby",
+    "aboutMe": {
+      "male": "Jsem organizovaný a zodpovědný pracovník s technickým přehledem. Umím vést tým, plánovat výrobu a dohlížet na kvalitu, bezpečnost i plnění termínů.",
+      "female": "Jsem organizovaná a zodpovědná pracovnice s technickým přehledem. Umím vést tým, plánovat výrobu a dohlížet na kvalitu, bezpečnost i plnění termínů."
+    },
+    "skills": [
+      "vedení týmu",
+      "plánování výroby",
+      "kontrola kvality",
+      "technický přehled",
+      "zodpovědnost"
+    ],
+    "workExperience": [
+      {
+        "position": "Mistr výroby",
+        "bullets": [
+          "Organizace směny a rozdělování práce mezi pracovníky výroby.",
+          "Dohled nad plněním výrobního plánu, kvalitou a produktivitou.",
+          "Kontrola dodržování bezpečnostních a pracovních postupů.",
+          "Řešení provozních problémů a komunikace s navazujícími odděleními."
+        ]
+      },
+      {
+        "position": "Vedoucí směny ve výrobě",
+        "bullets": [
+          "Koordinace činností na pracovišti během svěřené směny.",
+          "Zaškolování nových zaměstnanců a kontrola jejich výkonu.",
+          "Sledování výrobních ukazatelů a reportování výsledků nadřízeným.",
+          "Operativní řešení personálních a provozních situací."
+        ]
+      },
+      {
+        "position": "Supervizor výroby",
+        "bullets": [
+          "Dohled nad plynulým chodem výroby a efektivním využitím kapacit.",
+          "Kontrola dodržování technologických postupů a standardů kvality.",
+          "Spolupráce s údržbou, skladem a logistikou při řešení potřeb výroby.",
+          "Podíl na zavádění zlepšovacích opatření v provozu."
+        ]
+      }
+    ],
+    "slug": "mistr-vyroby"
+  },
+  {
+    "profession": "montážní pracovník",
+    "aboutMe": {
+      "male": "Jsem manuálně zručný a pečlivý pracovník. Ovládám montáž podle dokumentace, práci s nářadím a dbám na přesnost, kvalitu i dodržování pracovních postupů.",
+      "female": "Jsem manuálně zručná a pečlivá pracovnice. Ovládám montáž podle dokumentace, práci s nářadím a dbám na přesnost, kvalitu i dodržování pracovních postupů."
+    },
+    "skills": [
+      "manuální zručnost",
+      "montáž podle dokumentace",
+      "práce s nářadím",
+      "pečlivost",
+      "dodržování postupů"
+    ],
+    "workExperience": [
+      {
+        "position": "Montážní pracovník ve výrobě",
+        "bullets": [
+          "Kompletace výrobků nebo dílů podle pracovních návodů.",
+          "Používání ručního i elektrického nářadí při montážních pracích.",
+          "Kontrola správnosti montáže a kvality hotových sestav.",
+          "Dodržování stanovených výrobních a bezpečnostních postupů."
+        ]
+      },
+      {
+        "position": "Operátor montáže",
+        "bullets": [
+          "Sestavování komponent na výrobní lince nebo pracovišti.",
+          "Příprava materiálu a součástek pro navazující operace.",
+          "Spolupráce s kontrolou kvality a vedoucím směny.",
+          "Udržování pořádku na pracovišti a základní péče o vybavení."
+        ]
+      },
+      {
+        "position": "Montážní výpomoc",
+        "bullets": [
+          "Pomoc při kompletaci výrobků a balení hotových sestav.",
+          "Manipulace s díly a jejich přesun mezi jednotlivými pracovišti.",
+          "Plnění opakujících se úkolů s důrazem na přesnost.",
+          "Podpora týmu při plnění výrobního plánu."
+        ]
+      }
+    ],
+    "slug": "montazni-pracovnik"
+  },
+  {
+    "profession": "obchodní zástupce",
+    "aboutMe": {
+      "male": "Jsem komunikativní a cílevědomý pracovník se zaměřením na výsledky. Umím jednat se zákazníky, budovat vztahy a aktivně vyhledávat nové obchodní příležitosti.",
+      "female": "Jsem komunikativní a cílevědomá pracovnice se zaměřením na výsledky. Umím jednat se zákazníky, budovat vztahy a aktivně vyhledávat nové obchodní příležitosti."
+    },
+    "skills": [
+      "komunikace se zákazníky",
+      "vyjednávací schopnosti",
+      "prezentace produktů",
+      "budování vztahů",
+      "orientace na výsledky"
+    ],
+    "workExperience": [
+      {
+        "position": "Obchodní zástupce",
+        "bullets": [
+          "Aktivní vyhledávání nových zákazníků a obchodních příležitostí.",
+          "Péče o stávající klienty a rozvoj dlouhodobých obchodních vztahů.",
+          "Prezentace produktů nebo služeb a příprava obchodních nabídek.",
+          "Vyjednávání podmínek spolupráce a plnění prodejních cílů."
+        ]
+      },
+      {
+        "position": "Sales representative",
+        "bullets": [
+          "Telefonická a osobní komunikace se zákazníky v přiděleném regionu.",
+          "Mapování potřeb klientů a navrhování vhodných řešení.",
+          "Práce v CRM systému a evidence obchodních aktivit.",
+          "Spolupráce s marketingem a back office při zpracování zakázek."
+        ]
+      },
+      {
+        "position": "Key account assistant",
+        "bullets": [
+          "Podpora obchodního týmu při správě významných klientů.",
+          "Příprava cenových nabídek, smluv a obchodních podkladů.",
+          "Koordinace termínů dodávek a následné péče o zákazníka.",
+          "Sledování výsledků a reporting obchodních aktivit."
+        ]
+      }
+    ],
+    "slug": "obchodni-zastupce"
+  },
+  {
+    "profession": "obsluha VZV",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a pečlivý pracovník s praxí v manipulaci se zbožím. Ovládám řízení VZV, práci ve skladu a dodržuji bezpečnostní i provozní pravidla.",
+      "female": "Jsem spolehlivá a pečlivá pracovnice s praxí v manipulaci se zbožím. Ovládám řízení VZV, práci ve skladu a dodržuji bezpečnostní i provozní pravidla."
+    },
+    "skills": [
+      "řízení VZV",
+      "manipulace se zbožím",
+      "práce ve skladu",
+      "pečlivost",
+      "dodržování bezpečnosti"
+    ],
+    "workExperience": [
+      {
+        "position": "Řidič VZV",
+        "bullets": [
+          "Nakládka, vykládka a přesun materiálu pomocí vysokozdvižného vozíku.",
+          "Zaskladňování a vyskladňování zboží podle skladových pravidel.",
+          "Kontrola stavu zásob a správnosti manipulačních údajů.",
+          "Dodržování bezpečnostních předpisů při provozu VZV."
+        ]
+      },
+      {
+        "position": "Skladový manipulant s VZV",
+        "bullets": [
+          "Příprava materiálu pro výrobu nebo expedici dle pokynů.",
+          "Spolupráce se skladem a logistikou při plynulém toku zboží.",
+          "Kontrola technického stavu vozíku a hlášení závad.",
+          "Udržování pořádku a přehlednosti ve skladových zónách."
+        ]
+      },
+      {
+        "position": "Operátor skladu",
+        "bullets": [
+          "Práce se čtečkou nebo skladovým systémem při evidenci pohybů.",
+          "Manipulace s paletami a dalšími skladovými jednotkami.",
+          "Příjem a kontrola dodávek včetně označení materiálu.",
+          "Podpora inventur a dalších skladových procesů."
+        ]
+      }
+    ],
+    "slug": "obsluha-vzv"
+  },
+  {
+    "profession": "operátor výroby",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a pečlivý pracovník, který dbá na kvalitu a dodržování postupů. Umím pracovat ve výrobě, kontrolovat výstupy a zvládat opakující se činnosti.",
+      "female": "Jsem spolehlivá a pečlivá pracovnice, která dbá na kvalitu a dodržování postupů. Umím pracovat ve výrobě, kontrolovat výstupy a zvládat opakující se činnosti."
+    },
+    "skills": [
+      "spolehlivost",
+      "pečlivost",
+      "dodržování pracovních postupů",
+      "kontrola kvality",
+      "schopnost práce ve výrobě"
+    ],
+    "workExperience": [
+      {
+        "position": "Operátor výroby",
+        "bullets": [
+          "Obsluha výrobní linky nebo svěřeného pracovního stanoviště.",
+          "Kontrola kvality výrobků během výroby i po dokončení operace.",
+          "Doplňování materiálu a příprava komponent pro další výrobu.",
+          "Dodržování výrobních, hygienických nebo bezpečnostních pravidel."
+        ]
+      },
+      {
+        "position": "Výrobní operátor",
+        "bullets": [
+          "Provádění opakujících se úkonů podle pracovních instrukcí.",
+          "Evidence výroby a hlášení případných odchylek nebo závad.",
+          "Spolupráce s vedoucím směny a kontrolou kvality.",
+          "Udržování pořádku a základní údržba pracoviště."
+        ]
+      },
+      {
+        "position": "Pracovník výrobní linky",
+        "bullets": [
+          "Kompletace, třídění nebo balení výrobků podle zadání.",
+          "Sledování plynulosti výrobního procesu a plnění norem.",
+          "Manipulace s materiálem a hotovými výrobky na pracovišti.",
+          "Dodržování stanovených termínů a výkonových požadavků."
+        ]
+      }
+    ],
+    "slug": "operator-vyroby"
+  },
+  {
+    "profession": "pečovatelka",
+    "aboutMe": {
+      "male": "Jsem empatický a spolehlivý pracovník s trpělivým přístupem. Umím pečovat o klienty, komunikovat citlivě a zajišťovat každodenní podporu s důrazem na důstojnost.",
+      "female": "Jsem empatická a spolehlivá pracovnice s trpělivým přístupem. Umím pečovat o klienty, komunikovat citlivě a zajišťovat každodenní podporu s důrazem na důstojnost."
+    },
+    "skills": [
+      "empatie",
+      "trpělivost",
+      "péče o klienty",
+      "komunikace",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Pečovatelka v sociálních službách",
+        "bullets": [
+          "Pomoc klientům při běžných denních činnostech a osobní hygieně.",
+          "Podpora klientů při stravování, pohybu a udržování soběstačnosti.",
+          "Citlivá komunikace s klienty i jejich rodinami.",
+          "Vedení základních záznamů a spolupráce s ostatním personálem."
+        ]
+      },
+      {
+        "position": "Asistent péče",
+        "bullets": [
+          "Doprovod klientů, aktivizační činnosti a podpora při volnočasových aktivitách.",
+          "Dohled nad pohodlím, bezpečím a individuálními potřebami klientů.",
+          "Pomoc s přípravou prostředí a zajištěním chodu oddělení.",
+          "Empatický přístup a respekt k důstojnosti svěřených osob."
+        ]
+      },
+      {
+        "position": "Pracovník domácí péče",
+        "bullets": [
+          "Poskytování podpory klientům v domácím prostředí podle plánu péče.",
+          "Pomoc s úklidem, nákupy nebo jednoduchou přípravou jídla.",
+          "Sledování stavu klienta a předávání důležitých informací týmu.",
+          "Samostatná organizace práce a zodpovědné plnění úkolů."
+        ]
+      }
+    ],
+    "slug": "pecovatelka"
+  },
+  {
+    "profession": "personalista",
+    "aboutMe": {
+      "male": "Jsem komunikativní a organizovaný pracovník s důrazem na přesnost. Ovládám nábor, administrativu i práci s lidmi a dbám na profesionální a diskrétní přístup.",
+      "female": "Jsem komunikativní a organizovaná pracovnice s důrazem na přesnost. Ovládám nábor, administrativu i práci s lidmi a dbám na profesionální a diskrétní přístup."
+    },
+    "skills": [
+      "nábor zaměstnanců",
+      "komunikace",
+      "administrativa",
+      "organizace práce",
+      "diskrétnost"
+    ],
+    "workExperience": [
+      {
+        "position": "HR specialista",
+        "bullets": [
+          "Zajištění náboru zaměstnanců od inzerce po organizaci pohovorů.",
+          "Komunikace s kandidáty a koordinace výběrového procesu.",
+          "Správa personální dokumentace a administrativní podpora HR agendy.",
+          "Spolupráce s vedoucími oddělení při obsazování pracovních pozic."
+        ]
+      },
+      {
+        "position": "Personalista",
+        "bullets": [
+          "Příprava pracovněprávních dokumentů a evidence zaměstnaneckých údajů.",
+          "Podpora nástupů, výstupů a interních personálních procesů.",
+          "Komunikace se zaměstnanci v oblasti personální administrativy.",
+          "Dohled nad správností a důvěrností personálních informací."
+        ]
+      },
+      {
+        "position": "Recruitment coordinator",
+        "bullets": [
+          "Vyhledávání kandidátů a správa reakcí na pracovní nabídky.",
+          "Plánování pohovorů a zajištění komunikace mezi kandidáty a manažery.",
+          "Příprava podkladů pro onboarding nových zaměstnanců.",
+          "Tvorba přehledů a reportů o průběhu náboru."
+        ]
+      }
+    ],
+    "slug": "personalista"
+  },
+  {
+    "profession": "pokladní",
+    "aboutMe": {
+      "male": "Jsem pečlivý a vstřícný pracovník s dobrými komunikačními schopnostmi. Ovládám práci s pokladnou, hotovostí i zákaznickým servisem a dbám na přesnost.",
+      "female": "Jsem pečlivá a vstřícná pracovnice s dobrými komunikačními schopnostmi. Ovládám práci s pokladnou, hotovostí i zákaznickým servisem a dbám na přesnost."
+    },
+    "skills": [
+      "práce s pokladnou",
+      "komunikace se zákazníky",
+      "přesnost",
+      "spolehlivost",
+      "zákaznický servis"
+    ],
+    "workExperience": [
+      {
+        "position": "Pokladní v obchodě",
+        "bullets": [
+          "Obsluha pokladny a přijímání plateb v hotovosti i kartou.",
+          "Komunikace se zákazníky a poskytování základních informací.",
+          "Kontrola správnosti účtování a uzávěrka pokladny.",
+          "Spolupráce při doplňování zboží a udržování pořádku na prodejně."
+        ]
+      },
+      {
+        "position": "Pokladní v supermarketu",
+        "bullets": [
+          "Rychlé a přesné odbavování zákazníků během provozní špičky.",
+          "Řešení běžných zákaznických dotazů a reklamací na pokladně.",
+          "Kontrola cen, slevových akcí a správnosti účtenek.",
+          "Dodržování interních pokladních a bezpečnostních pravidel."
+        ]
+      },
+      {
+        "position": "Pracovník zákaznické zóny",
+        "bullets": [
+          "Podpora provozu pokladní zóny a orientace zákazníků v prodejně.",
+          "Práce s terminály, poukazy nebo věrnostními programy.",
+          "Pomoc při inventurách a evidenci provozních dokladů.",
+          "Reprezentativní vystupování a důraz na kvalitní obsluhu."
+        ]
+      }
+    ],
+    "slug": "pokladni"
+  },
+  {
+    "profession": "prodavač",
+    "aboutMe": {
+      "male": "Jsem komunikativní a spolehlivý pracovník se zaměřením na zákazníka. Umím prodávat, doplňovat zboží a vytvářet příjemné prostředí na prodejně.",
+      "female": "Jsem komunikativní a spolehlivá pracovnice se zaměřením na zákazníka. Umím prodávat, doplňovat zboží a vytvářet příjemné prostředí na prodejně."
+    },
+    "skills": [
+      "komunikace se zákazníky",
+      "prodejní dovednosti",
+      "doplňování zboží",
+      "spolehlivost",
+      "příjemné vystupování"
+    ],
+    "workExperience": [
+      {
+        "position": "Prodavač na prodejně",
+        "bullets": [
+          "Aktivní obsluha zákazníků a pomoc s výběrem sortimentu.",
+          "Doplňování zboží a kontrola cenového označení na prodejně.",
+          "Udržování pořádku, přehlednosti a atraktivního vystavení zboží.",
+          "Spolupráce s pokladnou a řešení běžných zákaznických požadavků."
+        ]
+      },
+      {
+        "position": "Obsluha specializované prodejny",
+        "bullets": [
+          "Poskytování odbornějších informací o produktech a jejich použití.",
+          "Příjem nového zboží a kontrola dodávek.",
+          "Podpora prodejních akcí a doporučování doplňkového sortimentu.",
+          "Budování pozitivního dojmu z prodejny profesionálním přístupem."
+        ]
+      },
+      {
+        "position": "Pracovník maloobchodu",
+        "bullets": [
+          "Péče o svěřený úsek prodejny a kontrola dostupnosti zboží.",
+          "Práce s interním systémem při evidenci nebo objednávkách.",
+          "Řešení dotazů, výměn nebo reklamací se zákazníky.",
+          "Plnění provozních úkolů podle pokynů vedoucího."
+        ]
+      }
+    ],
+    "slug": "prodavac"
+  },
+  {
+    "profession": "prodavačka",
+    "aboutMe": {
+      "male": "Jsem komunikativní a spolehlivý pracovník se zaměřením na zákazníka. Umím prodávat, doplňovat zboží a vytvářet příjemné prostředí na prodejně.",
+      "female": "Jsem komunikativní a spolehlivá pracovnice se zaměřením na zákazníka. Umím prodávat, doplňovat zboží a vytvářet příjemné prostředí na prodejně."
+    },
+    "skills": [
+      "komunikace se zákazníky",
+      "prodejní dovednosti",
+      "doplňování zboží",
+      "spolehlivost",
+      "příjemné vystupování"
+    ],
+    "workExperience": [
+      {
+        "position": "Prodavačka na prodejně",
+        "bullets": [
+          "Aktivní obsluha zákazníků a pomoc s výběrem sortimentu.",
+          "Doplňování zboží a kontrola cenového označení na prodejně.",
+          "Udržování pořádku, přehlednosti a atraktivního vystavení zboží.",
+          "Spolupráce s pokladnou a řešení běžných zákaznických požadavků."
+        ]
+      },
+      {
+        "position": "Obsluha specializované prodejny",
+        "bullets": [
+          "Poskytování odbornějších informací o produktech a jejich použití.",
+          "Příjem nového zboží a kontrola dodávek.",
+          "Podpora prodejních akcí a doporučování doplňkového sortimentu.",
+          "Budování pozitivního dojmu z prodejny profesionálním přístupem."
+        ]
+      },
+      {
+        "position": "Pracovník maloobchodu",
+        "bullets": [
+          "Péče o svěřený úsek prodejny a kontrola dostupnosti zboží.",
+          "Práce s interním systémem při evidenci nebo objednávkách.",
+          "Řešení dotazů, výměn nebo reklamací se zákazníky.",
+          "Plnění provozních úkolů podle pokynů vedoucího."
+        ]
+      }
+    ],
+    "slug": "prodavacka"
+  },
+  {
+    "profession": "programátor",
+    "aboutMe": {
+      "male": "Jsem analytický a samostatný pracovník s důrazem na kvalitu kódu. Ovládám vývoj aplikací, řešení problémů i spolupráci na technických zadáních.",
+      "female": "Jsem analytická a samostatná pracovnice s důrazem na kvalitu kódu. Ovládám vývoj aplikací, řešení problémů i spolupráci na technických zadáních."
+    },
+    "skills": [
+      "programování",
+      "analytické myšlení",
+      "řešení problémů",
+      "samostatnost",
+      "spolupráce v týmu"
+    ],
+    "workExperience": [
+      {
+        "position": "Junior programátor",
+        "bullets": [
+          "Vývoj a údržba aplikací podle zadání a technické specifikace.",
+          "Oprava chyb, úpravy funkcionalit a testování vlastního kódu.",
+          "Spolupráce s analytiky, testery nebo dalšími vývojáři.",
+          "Psaní přehledného a udržovatelného kódu s důrazem na kvalitu."
+        ]
+      },
+      {
+        "position": "Software developer",
+        "bullets": [
+          "Implementace nových funkcí v existujících nebo nových aplikacích.",
+          "Analýza technických problémů a návrh vhodného řešení.",
+          "Práce s verzovacím systémem a interní vývojovou dokumentací.",
+          "Účast na code review a týmové koordinaci vývoje."
+        ]
+      },
+      {
+        "position": "Web developer",
+        "bullets": [
+          "Tvorba frontendových nebo backendových částí webových projektů.",
+          "Optimalizace výkonu, funkčnosti a uživatelského chování aplikací.",
+          "Napojování systémů na API a databázové zdroje.",
+          "Průběžné testování a ladění technických problémů."
+        ]
+      }
+    ],
+    "slug": "programator"
+  },
+  {
+    "profession": "projektový manažer",
+    "aboutMe": {
+      "male": "Jsem organizovaný a komunikativní pracovník se schopností koordinovat lidi i úkoly. Umím plánovat projekty, hlídat termíny a efektivně řešit vzniklé situace.",
+      "female": "Jsem organizovaná a komunikativní pracovnice se schopností koordinovat lidi i úkoly. Umím plánovat projekty, hlídat termíny a efektivně řešit vzniklé situace."
+    },
+    "skills": [
+      "plánování projektů",
+      "komunikace",
+      "organizace práce",
+      "řízení termínů",
+      "řešení problémů"
+    ],
+    "workExperience": [
+      {
+        "position": "Projektový manažer",
+        "bullets": [
+          "Plánování, koordinace a dohled nad průběhem svěřených projektů.",
+          "Komunikace s klienty, dodavateli a interními členy týmu.",
+          "Hlídání termínů, rozpočtů a plnění jednotlivých milníků.",
+          "Řešení rizik, změn a provozních překážek v průběhu realizace."
+        ]
+      },
+      {
+        "position": "Project coordinator",
+        "bullets": [
+          "Příprava podkladů, harmonogramů a pravidelných projektových přehledů.",
+          "Koordinace návazností mezi jednotlivými odděleními nebo dodavateli.",
+          "Sledování úkolů a vyhodnocování stavu plnění projektových aktivit.",
+          "Podpora vedení projektu při administrativní i organizační části práce."
+        ]
+      },
+      {
+        "position": "Vedoucí projektových aktivit",
+        "bullets": [
+          "Stanovování priorit a rozdělení úkolů mezi členy týmu.",
+          "Kontrola kvality výstupů a souladu se zadáním projektu.",
+          "Organizace porad a zajištění plynulé informační výměny.",
+          "Zodpovědnost za hladký průběh projektu od zahájení po předání."
+        ]
+      }
+    ],
+    "slug": "projektovy-manazer"
+  },
+  {
+    "profession": "recepční",
+    "aboutMe": {
+      "male": "Jsem komunikativní a reprezentativní pracovník s organizačními schopnostmi. Umím vítat návštěvy, řešit provozní agendu a zajišťovat profesionální první kontakt.",
+      "female": "Jsem komunikativní a reprezentativní pracovnice s organizačními schopnostmi. Umím vítat návštěvy, řešit provozní agendu a zajišťovat profesionální první kontakt."
+    },
+    "skills": [
+      "komunikace",
+      "reprezentativní vystupování",
+      "organizace práce",
+      "administrativa",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Recepční",
+        "bullets": [
+          "Vítání návštěv a poskytování základních informací klientům i partnerům.",
+          "Vyřizování telefonátů, e-mailů a provozní administrativy recepce.",
+          "Evidence návštěv, rezervací a příchozí korespondence.",
+          "Zajištění plynulého chodu vstupní zóny a reprezentativního prostředí."
+        ]
+      },
+      {
+        "position": "Recepční v hotelu",
+        "bullets": [
+          "Odbavení hostů při příjezdu a odjezdu včetně práce v rezervačním systému.",
+          "Řešení požadavků hostů a poskytování informací o službách.",
+          "Spolupráce s ostatními odděleními při zajištění komfortu návštěvníků.",
+          "Práce s platbami, fakturací a každodenní uzávěrkou směny."
+        ]
+      },
+      {
+        "position": "Front desk assistant",
+        "bullets": [
+          "Zajištění prvního kontaktu s návštěvníky a příchozími hovory.",
+          "Administrativní podpora kanceláře a rezervace zasedacích místností.",
+          "Příprava jednoduchých dokumentů a evidence provozních požadavků.",
+          "Péče o profesionální a vstřícné vystupování vůči veřejnosti."
+        ]
+      }
+    ],
+    "slug": "recepcni"
+  },
+  {
+    "profession": "řidič",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a samostatný pracovník s odpovědným přístupem. Ovládám bezpečnou jízdu, plánování tras a péči o vozidlo i v náročnějším provozu.",
+      "female": "Jsem spolehlivá a samostatná pracovnice s odpovědným přístupem. Ovládám bezpečnou jízdu, plánování tras a péči o vozidlo i v náročnějším provozu."
+    },
+    "skills": [
+      "bezpečná jízda",
+      "spolehlivost",
+      "samostatnost",
+      "plánování tras",
+      "péče o vozidlo"
+    ],
+    "workExperience": [
+      {
+        "position": "Řidič rozvozu",
+        "bullets": [
+          "Přeprava zboží nebo osob podle plánovaných tras a časových oken.",
+          "Kontrola vozidla před jízdou a péče o jeho provozní stav.",
+          "Vyplňování přepravní dokumentace a potvrzování převzetí zásilek.",
+          "Komunikace se zákazníky, dispečinkem nebo kolegy při změnách trasy."
+        ]
+      },
+      {
+        "position": "Firemní řidič",
+        "bullets": [
+          "Zajištění spolehlivé dopravy osob nebo materiálu dle potřeb společnosti.",
+          "Dodržování dopravních předpisů a zásad bezpečné jízdy.",
+          "Operativní plánování tras s ohledem na čas a efektivitu.",
+          "Péče o čistotu a základní technický stav vozidla."
+        ]
+      },
+      {
+        "position": "Řidič zásobování",
+        "bullets": [
+          "Rozvoz materiálu na provozovny nebo k zákazníkům.",
+          "Nakládka a vykládka zboží v souladu s provozními pravidly.",
+          "Evidence jízd, spotřeby a přepravních dokladů.",
+          "Spolupráce se skladem a logistikou při plánování přepravy."
+        ]
+      }
+    ],
+    "slug": "ridic"
+  },
+  {
+    "profession": "řidič kamionu",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a samostatný pracovník se zodpovědným přístupem. Ovládám dálkovou přepravu, plánování tras, práci s dokumentací a dodržování bezpečnostních předpisů.",
+      "female": "Jsem spolehlivá a samostatná pracovnice se zodpovědným přístupem. Ovládám dálkovou přepravu, plánování tras, práci s dokumentací a dodržování bezpečnostních předpisů."
+    },
+    "skills": [
+      "dálková přeprava",
+      "plánování tras",
+      "práce s dokumentací",
+      "spolehlivost",
+      "dodržování předpisů"
+    ],
+    "workExperience": [
+      {
+        "position": "Řidič kamionu",
+        "bullets": [
+          "Přeprava zboží na vnitrostátních nebo mezinárodních trasách.",
+          "Kontrola nákladu, přepravních dokladů a technického stavu soupravy.",
+          "Dodržování jízdních režimů, bezpečnostních pravidel a termínů doručení.",
+          "Komunikace s dispečinkem a zákazníky během přepravy."
+        ]
+      },
+      {
+        "position": "Řidič mezinárodní dopravy",
+        "bullets": [
+          "Plánování tras a průběžné řešení operativních situací na cestách.",
+          "Nakládka a vykládka zboží dle pokynů a dokumentace.",
+          "Evidence přepravních dokumentů a práce s navigačními systémy.",
+          "Zodpovědnost za bezpečný a hospodárný provoz vozidla."
+        ]
+      },
+      {
+        "position": "Profesionální řidič nákladní dopravy",
+        "bullets": [
+          "Převoz paletového nebo kusového zboží mezi sklady a odběrateli.",
+          "Kontrola upevnění nákladu a souladu s přepravními předpisy.",
+          "Provádění běžných provozních kontrol vozidla před odjezdem.",
+          "Samostatné plnění pracovních úkolů s důrazem na přesnost a dochvilnost."
+        ]
+      }
+    ],
+    "slug": "ridic-kamionu"
+  },
+  {
+    "profession": "servírka",
+    "aboutMe": {
+      "male": "Jsem spolehlivý a komunikativní pracovník s profesionálním vystupováním. Umím pracovat pod tlakem, spolupracovat v týmu a dbám na kvalitní obsluhu i spokojenost hostů.",
+      "female": "Jsem spolehlivá a komunikativní pracovnice s profesionálním vystupováním. Umím pracovat pod tlakem, spolupracovat v týmu a dbám na kvalitní obsluhu i spokojenost hostů."
+    },
+    "skills": [
+      "komunikace se zákazníky",
+      "profesionální vystupování",
+      "spolehlivost a pečlivost",
+      "schopnost práce pod tlakem",
+      "týmová spolupráce"
+    ],
+    "workExperience": [
+      {
+        "position": "Servírka v restauraci",
+        "bullets": [
+          "Obsluha hostů v restauraci a přijímání objednávek.",
+          "Doporučování jídel a nápojů podle nabídky podniku.",
+          "Příprava stolů, udržování čistoty a kontrola inventáře.",
+          "Práce s pokladním systémem a vyúčtování plateb."
+        ]
+      },
+      {
+        "position": "Obsluha kavárny",
+        "bullets": [
+          "Každodenní komunikace se zákazníky a zajištění příjemné atmosféry.",
+          "Servírování nápojů, dezertů a drobného občerstvení.",
+          "Doplňování zboží, kontrola zásob a spolupráce se skladem.",
+          "Řešení individuálních požadavků hostů a reklamací."
+        ]
+      },
+      {
+        "position": "Servírka v hotelu",
+        "bullets": [
+          "Zajištění obsluhy při snídaních, obědech, večeřích a společenských akcích.",
+          "Spolupráce s kuchyní a ostatním personálem při organizaci provozu.",
+          "Péče o vysoký standard servisu a reprezentativní vystupování.",
+          "Rychlé a přesné odbavení většího počtu hostů ve špičce."
+        ]
+      }
+    ],
+    "slug": "servirka"
+  },
+  {
+    "profession": "skladník",
+    "aboutMe": {
+      "male": "Jsem pečlivý a spolehlivý pracovník s dobrou orientací ve skladu. Umím manipulovat se zbožím, evidovat zásoby a pracovat efektivně podle stanovených postupů.",
+      "female": "Jsem pečlivá a spolehlivá pracovnice s dobrou orientací ve skladu. Umím manipulovat se zbožím, evidovat zásoby a pracovat efektivně podle stanovených postupů."
+    },
+    "skills": [
+      "orientace ve skladu",
+      "manipulace se zbožím",
+      "evidence zásob",
+      "spolehlivost",
+      "pečlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Skladník",
+        "bullets": [
+          "Příjem, kontrola a ukládání zboží na určená skladová místa.",
+          "Příprava objednávek k expedici a kompletace zásilek.",
+          "Evidence pohybů zboží ve skladovém systému nebo pomocí čtečky.",
+          "Udržování pořádku a přehlednosti ve skladových prostorách."
+        ]
+      },
+      {
+        "position": "Skladový manipulant",
+        "bullets": [
+          "Nakládka, vykládka a přesun zboží v rámci skladu.",
+          "Kontrola správnosti dodávek a označení skladových jednotek.",
+          "Spolupráce s expedicí, dopravou nebo výrobou při toku materiálu.",
+          "Podpora inventur a pravidelných skladových kontrol."
+        ]
+      },
+      {
+        "position": "Expediční pracovník",
+        "bullets": [
+          "Balení a příprava zásilek podle objednávek a termínů expedice.",
+          "Kontrola úplnosti podkladů a správného označení zásilek.",
+          "Komunikace s kolegy ohledně priorit a průběhu expedice.",
+          "Dodržování provozních a bezpečnostních pravidel skladu."
+        ]
+      }
+    ],
+    "slug": "skladnik"
+  },
+  {
+    "profession": "skladový koordinátor",
+    "aboutMe": {
+      "male": "Jsem organizovaný a pečlivý pracovník s přehledem o skladových procesech. Umím koordinovat tým, hlídat zásoby a zajišťovat plynulý chod skladu.",
+      "female": "Jsem organizovaná a pečlivá pracovnice s přehledem o skladových procesech. Umím koordinovat tým, hlídat zásoby a zajišťovat plynulý chod skladu."
+    },
+    "skills": [
+      "organizace skladu",
+      "koordinace týmu",
+      "evidence zásob",
+      "komunikace",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Skladový koordinátor",
+        "bullets": [
+          "Koordinace denních skladových činností a rozdělování práce týmu.",
+          "Dohled nad příjmem, výdejem a správnou evidencí skladových zásob.",
+          "Řešení provozních situací mezi skladem, expedicí a dopravou.",
+          "Kontrola dodržování skladových postupů a provozních pravidel."
+        ]
+      },
+      {
+        "position": "Vedoucí skladu",
+        "bullets": [
+          "Plánování kapacit a organizace práce podle aktuálního vytížení.",
+          "Sledování stavů zásob a spolupráce při inventurách.",
+          "Zaškolování nových pracovníků a dohled nad kvalitou práce.",
+          "Příprava přehledů a reportů o skladovém provozu."
+        ]
+      },
+      {
+        "position": "Koordinátor expedice",
+        "bullets": [
+          "Zajištění plynulé návaznosti mezi skladem a odesláním zásilek.",
+          "Kontrola prioritních objednávek a termínů expedice.",
+          "Komunikace s dopravci a interními odděleními ohledně průběhu zásilek.",
+          "Optimalizace skladových procesů s důrazem na efektivitu."
+        ]
+      }
+    ],
+    "slug": "skladovy-koordinator"
+  },
+  {
+    "profession": "student brigádník",
+    "aboutMe": {
+      "male": "Jsem učenlivý a spolehlivý pracovník s chutí pracovat. Rychle se přizpůsobuji, dobře komunikuji a zadané úkoly plním pečlivě a zodpovědně.",
+      "female": "Jsem učenlivá a spolehlivá pracovnice s chutí pracovat. Rychle se přizpůsobuji, dobře komunikuji a zadané úkoly plním pečlivě a zodpovědně."
+    },
+    "skills": [
+      "rychlé učení",
+      "spolehlivost",
+      "komunikace",
+      "pečlivost",
+      "flexibilita"
+    ],
+    "workExperience": [
+      {
+        "position": "Brigádník",
+        "bullets": [
+          "Výpomoc při běžných provozních činnostech podle aktuální potřeby.",
+          "Plnění jednoduchých úkolů samostatně i pod dohledem zkušenějších kolegů.",
+          "Komunikace se zákazníky nebo spolupráce s interním týmem.",
+          "Zodpovědné dodržování pokynů, termínů a pracovních pravidel."
+        ]
+      },
+      {
+        "position": "Sezónní výpomoc",
+        "bullets": [
+          "Podpora provozu při zvýšeném pracovním vytížení.",
+          "Doplňování zboží, třídění materiálu nebo pomocná administrativa.",
+          "Rychlé zaučení do nových činností a adaptace na pracovní prostředí.",
+          "Ochota zastat různé typy úkolů podle potřeby zaměstnavatele."
+        ]
+      },
+      {
+        "position": "Studentská praxe nebo brigáda",
+        "bullets": [
+          "Získávání pracovních zkušeností v reálném provozu.",
+          "Spolupráce s kolegy na zajištění plynulého chodu pracoviště.",
+          "Práce s důrazem na pečlivost a zodpovědný přístup.",
+          "Rozvoj pracovních návyků, samostatnosti a flexibility."
+        ]
+      }
+    ],
+    "slug": "student-brigadnik"
+  },
+  {
+    "profession": "svářeč",
+    "aboutMe": {
+      "male": "Jsem technicky zručný a pečlivý pracovník. Ovládám svařování podle dokumentace, práci s materiálem a dbám na kvalitu, přesnost i bezpečnost při práci.",
+      "female": "Jsem technicky zručná a pečlivá pracovnice. Ovládám svařování podle dokumentace, práci s materiálem a dbám na kvalitu, přesnost i bezpečnost při práci."
+    },
+    "skills": [
+      "svařování",
+      "technická zručnost",
+      "práce podle dokumentace",
+      "pečlivost",
+      "dodržování bezpečnosti"
+    ],
+    "workExperience": [
+      {
+        "position": "Svářeč ve výrobě",
+        "bullets": [
+          "Svařování kovových dílů a konstrukcí podle technické dokumentace.",
+          "Příprava materiálu, seřízení vybavení a kontrola svarů.",
+          "Dodržování předepsaných technologických a bezpečnostních postupů.",
+          "Spolupráce s výrobou a kontrolou kvality při předávání výrobků."
+        ]
+      },
+      {
+        "position": "Zámečník-svářeč",
+        "bullets": [
+          "Montáž a spojování konstrukčních prvků v dílně nebo provozu.",
+          "Čtení výkresové dokumentace a přesné provádění pracovních úkonů.",
+          "Opracování materiálu před a po svařování.",
+          "Kontrola kvality provedené práce a odstraňování nedostatků."
+        ]
+      },
+      {
+        "position": "Pracovník kovovýroby",
+        "bullets": [
+          "Příprava dílů pro další zpracování a kompletaci.",
+          "Manipulace s materiálem a obsluha základního dílenského vybavení.",
+          "Údržba svařovací techniky a pracovního prostoru.",
+          "Plnění výrobních úkolů s důrazem na přesnost a bezpečnost."
+        ]
+      }
+    ],
+    "slug": "svarec"
+  },
+  {
+    "profession": "tesař",
+    "aboutMe": {
+      "male": "Jsem manuálně zručný a spolehlivý pracovník. Ovládám práci se dřevem, montáž konstrukcí a čtení technických podkladů s důrazem na přesnost a kvalitu.",
+      "female": "Jsem manuálně zručná a spolehlivá pracovnice. Ovládám práci se dřevem, montáž konstrukcí a čtení technických podkladů s důrazem na přesnost a kvalitu."
+    },
+    "skills": [
+      "manuální zručnost",
+      "práce se dřevem",
+      "montáž konstrukcí",
+      "čtení technických podkladů",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Tesař",
+        "bullets": [
+          "Výroba a montáž dřevěných konstrukcí podle výkresové dokumentace.",
+          "Příprava materiálu, měření a přesné opracování dřevěných prvků.",
+          "Montáž krovů, bednění nebo dalších stavebních konstrukcí.",
+          "Dodržování technologických a bezpečnostních postupů na stavbě."
+        ]
+      },
+      {
+        "position": "Stavební tesař",
+        "bullets": [
+          "Práce na hrubé stavbě při realizaci dřevěných částí konstrukcí.",
+          "Používání ručního a elektrického nářadí při montážních pracích.",
+          "Spolupráce s dalšími řemeslníky na koordinaci prací.",
+          "Kontrola kvality a stability dokončených částí konstrukce."
+        ]
+      },
+      {
+        "position": "Montážní pracovník dřevostaveb",
+        "bullets": [
+          "Kompletace a montáž prefabrikovaných dřevěných prvků.",
+          "Příprava pracoviště a manipulace s materiálem na místě realizace.",
+          "Práce podle projektové dokumentace a pokynů vedoucího.",
+          "Důraz na přesnost, termíny a bezpečné provedení práce."
+        ]
+      }
+    ],
+    "slug": "tesar"
+  },
+  {
+    "profession": "tester softwaru",
+    "aboutMe": {
+      "male": "Jsem pečlivý a analytický pracovník se smyslem pro detail. Ovládám testování aplikací, hledání chyb i přesnou dokumentaci výsledků a navržených zlepšení.",
+      "female": "Jsem pečlivá a analytická pracovnice se smyslem pro detail. Ovládám testování aplikací, hledání chyb i přesnou dokumentaci výsledků a navržených zlepšení."
+    },
+    "skills": [
+      "testování aplikací",
+      "analytické myšlení",
+      "smysl pro detail",
+      "hledání chyb",
+      "dokumentace"
+    ],
+    "workExperience": [
+      {
+        "position": "Tester softwaru",
+        "bullets": [
+          "Provádění manuálních testů aplikací podle připravených scénářů.",
+          "Vyhledávání chyb, ověřování funkčnosti a kontrola uživatelského chování.",
+          "Zapisování výsledků testování a detailní popis nalezených problémů.",
+          "Spolupráce s vývojáři a analytiky při ověřování oprav."
+        ]
+      },
+      {
+        "position": "QA tester",
+        "bullets": [
+          "Kontrola nových funkcionalit před nasazením do provozu.",
+          "Tvorba a aktualizace testovacích scénářů a checklistů.",
+          "Opakované testování po úpravách a kontrola regresí.",
+          "Podíl na zlepšování kvality produktu a interních testovacích postupů."
+        ]
+      },
+      {
+        "position": "Junior quality assurance specialist",
+        "bullets": [
+          "Ověřování správnosti dat, formulářů a klíčových procesů v systému.",
+          "Dokumentace testovacích výsledků a reportování stavu testů.",
+          "Komunikace s týmem ohledně priorit chyb a jejich reprodukovatelnosti.",
+          "Pečlivá práce s detailním zadáním a důraz na přesnost."
+        ]
+      }
+    ],
+    "slug": "tester-softwaru"
+  },
+  {
+    "profession": "účetní",
+    "aboutMe": {
+      "male": "Jsem pečlivý a zodpovědný pracovník se smyslem pro přesnost. Ovládám účetní agendu, práci s doklady i kontrolu správnosti údajů a termínů.",
+      "female": "Jsem pečlivá a zodpovědná pracovnice se smyslem pro přesnost. Ovládám účetní agendu, práci s doklady i kontrolu správnosti údajů a termínů."
+    },
+    "skills": [
+      "účetní agenda",
+      "práce s doklady",
+      "přesnost",
+      "spolehlivost",
+      "dodržování termínů"
+    ],
+    "workExperience": [
+      {
+        "position": "Účetní",
+        "bullets": [
+          "Zpracování přijatých a vydaných dokladů v účetním systému.",
+          "Kontrola správnosti účetních podkladů a jejich evidence.",
+          "Příprava podkladů pro uzávěrky, přiznání nebo audit.",
+          "Komunikace s kolegy, dodavateli nebo klienty ohledně dokladů."
+        ]
+      },
+      {
+        "position": "Fakturant / účetní referent",
+        "bullets": [
+          "Vystavování a evidence faktur, dobropisů a souvisejících dokumentů.",
+          "Kontrola splatností a spolupráce při správě pohledávek.",
+          "Zakládání účetních podkladů a archivace dokumentace.",
+          "Podpora hlavní účetní při běžné administrativní agendě."
+        ]
+      },
+      {
+        "position": "Back office účetní",
+        "bullets": [
+          "Zadávání účetních dat a kontrola úplnosti evidovaných položek.",
+          "Příprava přehledů, tabulek a interních účetních výstupů.",
+          "Spolupráce s personálním nebo obchodním oddělením při předávání podkladů.",
+          "Dodržování interních směrnic a účetních termínů."
+        ]
+      }
+    ],
+    "slug": "ucetni"
+  },
+  {
+    "profession": "učitel",
+    "aboutMe": {
+      "male": "Jsem trpělivý a komunikativní pracovník s odpovědným přístupem. Umím předávat znalosti, motivovat studenty a vytvářet podnětné prostředí pro výuku i rozvoj.",
+      "female": "Jsem trpělivá a komunikativní pracovnice s odpovědným přístupem. Umím předávat znalosti, motivovat studenty a vytvářet podnětné prostředí pro výuku i rozvoj."
+    },
+    "skills": [
+      "pedagogické dovednosti",
+      "komunikace",
+      "trpělivost",
+      "předávání znalostí",
+      "organizace výuky"
+    ],
+    "workExperience": [
+      {
+        "position": "Učitel",
+        "bullets": [
+          "Příprava a vedení výuky podle osnov a vzdělávacích plánů.",
+          "Předávání znalostí s ohledem na úroveň a potřeby žáků.",
+          "Hodnocení výsledků, oprava prací a poskytování zpětné vazby.",
+          "Spolupráce s rodiči, kolegy a vedením školy."
+        ]
+      },
+      {
+        "position": "Pedagogický pracovník",
+        "bullets": [
+          "Tvorba výukových materiálů a příprava aktivit pro studenty.",
+          "Vedení třídní dokumentace a organizace školních povinností.",
+          "Podpora rozvoje znalostí, samostatnosti a pracovních návyků žáků.",
+          "Budování bezpečného a podnětného prostředí ve třídě."
+        ]
+      },
+      {
+        "position": "Lektor nebo vyučující",
+        "bullets": [
+          "Vedení tematických lekcí a vysvětlování probírané látky.",
+          "Přizpůsobení tempa výuky schopnostem jednotlivých studentů.",
+          "Organizace testování, projektů nebo dalších vzdělávacích aktivit.",
+          "Motivace studentů k aktivnímu zapojení do výuky."
+        ]
+      }
+    ],
+    "slug": "ucitel"
+  },
+  {
+    "profession": "učitel mateřské školy",
+    "aboutMe": {
+      "male": "Jsem trpělivý a empatický pracovník s pozitivním přístupem k dětem. Umím organizovat aktivity, podporovat rozvoj a vytvářet bezpečné a podnětné prostředí.",
+      "female": "Jsem trpělivá a empatická pracovnice s pozitivním přístupem k dětem. Umím organizovat aktivity, podporovat rozvoj a vytvářet bezpečné a podnětné prostředí."
+    },
+    "skills": [
+      "práce s dětmi",
+      "trpělivost",
+      "empatie",
+      "organizace aktivit",
+      "zodpovědnost"
+    ],
+    "workExperience": [
+      {
+        "position": "Učitel mateřské školy",
+        "bullets": [
+          "Příprava a vedení vzdělávacích i volnočasových aktivit pro děti.",
+          "Podpora sociálního, pohybového a kreativního rozvoje dětí.",
+          "Dohled nad bezpečností, hygienou a denním režimem třídy.",
+          "Komunikace s rodiči a vedení základní pedagogické dokumentace."
+        ]
+      },
+      {
+        "position": "Pedagogický pracovník v MŠ",
+        "bullets": [
+          "Vytváření podnětného prostředí pro hru, učení a adaptaci dětí.",
+          "Individuální přístup k potřebám a tempu rozvoje jednotlivých dětí.",
+          "Spolupráce s kolegy při plánování tematických činností.",
+          "Podpora samostatnosti, komunikace a správných návyků."
+        ]
+      },
+      {
+        "position": "Asistent pedagoga v předškolním zařízení",
+        "bullets": [
+          "Pomoc při organizaci denního programu a činností ve třídě.",
+          "Podpora dětí při sebeobsluze, hrách a skupinových aktivitách.",
+          "Citlivá komunikace s dětmi a vytváření klidné atmosféry.",
+          "Spolupráce s učiteli při zajištění chodu třídy."
+        ]
+      }
+    ],
+    "slug": "ucitel-materske-skoly"
+  },
+  {
+    "profession": "uklízečka",
+    "aboutMe": {
+      "male": "Jsem pečlivý a spolehlivý pracovník se smyslem pro pořádek. Umím samostatně uklízet prostory, dodržovat hygienické standardy a pracovat důsledně a zodpovědně.",
+      "female": "Jsem pečlivá a spolehlivá pracovnice se smyslem pro pořádek. Umím samostatně uklízet prostory, dodržovat hygienické standardy a pracovat důsledně a zodpovědně."
+    },
+    "skills": [
+      "pečlivost",
+      "smysl pro pořádek",
+      "samostatnost",
+      "dodržování hygieny",
+      "spolehlivost"
+    ],
+    "workExperience": [
+      {
+        "position": "Uklízečka",
+        "bullets": [
+          "Úklid kanceláří, společných prostor nebo provozních místností.",
+          "Doplňování hygienických potřeb a kontrola čistoty svěřených prostor.",
+          "Používání vhodných čisticích prostředků podle typu povrchu.",
+          "Dodržování stanoveného harmonogramu a hygienických pravidel."
+        ]
+      },
+      {
+        "position": "Pracovník úklidu",
+        "bullets": [
+          "Pravidelné i mimořádné úklidové práce podle požadavků provozu.",
+          "Údržba podlah, sociálních zařízení a dalších frekventovaných míst.",
+          "Samostatná organizace práce a zodpovědnost za čistotu objektu.",
+          "Ohleduplné a diskrétní jednání v prostoru klienta nebo firmy."
+        ]
+      },
+      {
+        "position": "Úklidová výpomoc",
+        "bullets": [
+          "Pomoc při generálním úklidu nebo sezónních úklidových pracích.",
+          "Třídění odpadu a základní péče o pořádek v zázemí pracoviště.",
+          "Spolupráce s ostatními pracovníky úklidu při větších zakázkách.",
+          "Důsledné plnění zadaných úkolů s důrazem na detail."
+        ]
+      }
+    ],
+    "slug": "uklizecka"
+  },
+  {
+    "profession": "zdravotní sestra",
+    "aboutMe": {
+      "male": "Jsem empatický a zodpovědný pracovník s profesionálním přístupem. Ovládám péči o pacienty, komunikaci i vedení dokumentace a dbám na přesnost a lidskost.",
+      "female": "Jsem empatická a zodpovědná pracovnice s profesionálním přístupem. Ovládám péči o pacienty, komunikaci i vedení dokumentace a dbám na přesnost a lidskost."
+    },
+    "skills": [
+      "péče o pacienty",
+      "empatie",
+      "odbornost",
+      "komunikace",
+      "vedení dokumentace"
+    ],
+    "workExperience": [
+      {
+        "position": "Zdravotní sestra",
+        "bullets": [
+          "Poskytování ošetřovatelské péče pacientům dle pokynů a standardů.",
+          "Monitorování zdravotního stavu pacientů a vedení záznamů.",
+          "Příprava pacientů na vyšetření, zákroky nebo další ošetření.",
+          "Komunikace s pacienty, rodinami a zdravotnickým týmem."
+        ]
+      },
+      {
+        "position": "Praktická sestra",
+        "bullets": [
+          "Podpora lékařů a sester při běžné zdravotní péči.",
+          "Aplikace základních ošetřovatelských úkonů a práce s dokumentací.",
+          "Dohled nad komfortem a bezpečím pacientů na oddělení.",
+          "Dodržování hygienických a odborných standardů."
+        ]
+      },
+      {
+        "position": "Sestra v ambulanci",
+        "bullets": [
+          "Organizace chodu ambulance a příprava ordinace na provoz.",
+          "Objednávání pacientů a administrativní zpracování návštěv.",
+          "Spolupráce při vyšetřeních a drobných výkonech.",
+          "Citlivý a profesionální přístup při každodenním kontaktu s pacienty."
+        ]
+      }
+    ],
+    "slug": "zdravotni-sestra"
+  },
+  {
+    "profession": "zedník",
+    "aboutMe": {
+      "male": "Jsem manuálně zručný a spolehlivý pracovník. Ovládám zednické práce, práci podle výkresů a dodržuji technologické i bezpečnostní postupy na stavbě.",
+      "female": "Jsem manuálně zručná a spolehlivá pracovnice. Ovládám zednické práce, práci podle výkresů a dodržuji technologické i bezpečnostní postupy na stavbě."
+    },
+    "skills": [
+      "zednické práce",
+      "manuální zručnost",
+      "práce podle výkresů",
+      "spolehlivost",
+      "dodržování postupů"
+    ],
+    "workExperience": [
+      {
+        "position": "Zedník",
+        "bullets": [
+          "Provádění zdění, omítek, betonáží a dalších stavebních prací.",
+          "Práce podle projektové dokumentace a pokynů stavbyvedoucího.",
+          "Příprava materiálu, nářadí a pracovního prostoru na stavbě.",
+          "Dodržování technologických a bezpečnostních postupů při realizaci."
+        ]
+      },
+      {
+        "position": "Stavební dělník se zednickou praxí",
+        "bullets": [
+          "Pomoc při výstavbě a rekonstrukcích budov a objektů.",
+          "Zpracování stavebních směsí a manipulace s materiálem.",
+          "Kontrola rovinnosti, přesnosti a kvality provedených prací.",
+          "Spolupráce s ostatními řemeslníky v rámci stavby."
+        ]
+      },
+      {
+        "position": "Pracovník stavebních prací",
+        "bullets": [
+          "Realizace dokončovacích i hrubých stavebních činností.",
+          "Opravy zdiva, příček a dalších konstrukčních prvků.",
+          "Údržba nářadí a odpovědný přístup ke svěřenému vybavení.",
+          "Plnění úkolů v souladu s termíny a požadovanou kvalitou."
+        ]
+      }
+    ],
+    "slug": "zednik"
+  }
+]

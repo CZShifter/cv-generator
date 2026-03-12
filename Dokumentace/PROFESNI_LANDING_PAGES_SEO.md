@@ -28,6 +28,7 @@ Stránky obsahují:
 - interní prolinkování (related)
 - box „Příklad inzerátu“ s intro textem podle kategorie, plus Náplň práce / Požadujeme
 - v běžném textu se zvýrazňuje (strong) slovo „životopis“ a název profese; **v nadpisech se strong nepoužívá**
+- v H1 profesního rozcestníku se dynamicky používá aktuální rok (pro lepší SEO)
 
 ---
 
@@ -58,10 +59,28 @@ Stránka se vygeneruje automaticky:
 
 Sitemap se aktualizuje automaticky.
 
+### Krok 4: doplnit data pro preview + typické úkoly
+Nový systém **nebere data z kategorií**, ale z konkrétní profese.
+
+Soubory:
+- `src/data/cv-profese-data-cz.json`
+- `src/data/cv-profese-data-sk.json`
+
+Každý záznam musí mít:
+- `slug` (shodný s `BASE_PROFESSIONS.slug`)
+- `aboutMe` (male/female)
+- `skills` (5 bodů)
+- `workExperience` (3 pozice × 4 body)
+
+Poznámky:
+- CZ a SK soubor se párují **podle `slug`**, ne podle pořadí.
+- Pokud se `slug` nezná, běží fallback na CZ data.
+
 ### Poznámka: inzerát a intro
 U každé profese se generuje box „Příklad inzerátu“. Používá:
 - intro z `CATEGORY_INTRO` (CZ/SK) – text se vkládá do boxu u inzerátu
-- body „Náplň práce“ a „Požadujeme“ z defaultních dovedností a úkolů (kategorie + klíčová slova profese)
+- body „Náplň práce“ = **4 body** z dat profese (stejné jako v „Typické úkoly“)
+- body „Požadujeme“ = **5 dovedností** z dat profese
 
 Pokud chceš inzerát upravit ručně pro konkrétní profesi, použij:
 - `AD_EXAMPLE_OVERRIDES` v `src/data/professions.ts`
@@ -74,20 +93,24 @@ Preview využívá tvoje existující CV šablony a sample data.
 
 Soubory:
 - `src/data/professionPreviewData.ts` (generátor dat)
+- `src/data/cvProfessionData.ts` (mapování dat z JSON)
 - `src/components/ProfessionCvPreview.tsx`
 - `src/components/ProfessionPreviewFrame.tsx` (responsivní A4)
 
 Chování:
 - používá `sampleCvData.ts` / `sampleCvDataSK.ts` jako base
-- data se upraví podle profese (dovednosti, náplň práce)
-- pracovní zkušenosti obsahují kombinaci:
-  - 2× bod z „náplně práce“ (responsibilities)
-  - 2× bod s výsledkem/dopadem (podle kategorie)
+- data se upraví podle profese z JSON (CZ/SK)
+- pracovní zkušenosti v preview berou **3 pozice × 4 body** z JSON
 - automaticky se volí fotka:
   - ženské jméno → `/photo_img/photo.jpg`
   - mužské jméno → `/photo_img/photo2.jpg`
 - vzdělání a certifikace se řídí **kategorií profese**
 - kontakty (email/telefon/linkedin/web) se generují z vybraného jména
+- **rameček je na `.resume`**, ne na `previewFrame`
+- náhled se škáluje podle šířky (držení A4 poměru)
+- **přepínání šablon**: deterministicky podle `slug` (50/50 mezi `cvtemplate` a `cvtemplate2`)
+- `ProfessionCvPreview` páruje vždy **stejné `sections` + `styles`** dle `templateId` (žádné míchání šablon)
+- **template2** v profesích má doplněné pravé‑sloupcové typografie v `Profession.module.scss` (bez zásahu do šablon)
 
 Pokud chceš více variant, rozšiř `NAMES` (male/female jména a příjmení).
 Pro jemné řízení ženského rodu slouží `FEMININE_SLUG_OVERRIDES`.
@@ -222,6 +245,9 @@ Data:
 - `src/data/professions.ts` (hlavní dataset)
 - `CATEGORY_INTRO` (intro texty pro inzerát, CZ/SK)
 - `AD_EXAMPLE_DATA` / `AD_EXAMPLE_OVERRIDES` (Příklad inzerátu)
+- `src/data/cv-profese-data-cz.json` (preview + skills + about me, CZ)
+- `src/data/cv-profese-data-sk.json` (preview + skills + about me, SK)
+- `src/data/cvProfessionData.ts` (mapování přes slug)
 - `src/data/professionPreviewData.ts`
 - `src/data/sampleCvData.ts`
 - `src/data/sampleCvDataSK.ts`
@@ -234,6 +260,8 @@ Stránky:
 
 Styly:
 - `src/scss/Profession.module.scss`
+- `src/templates/CvTemplate.module.scss` (šablona 1, bez zásahů)
+- `src/templates/CvTemplate2.module.scss` (šablona 2, bez zásahů)
 
 Sitemapy a LLM:
 - `src/pages/sitemap.xml.ts`
@@ -258,4 +286,61 @@ Sitemapy a LLM:
 
 Stránky jsou staticky generované (SSG) přes `getStaticPaths` a `getStaticProps`.
 To zajišťuje rychlé načítání, dobré CWV a stabilní SEO.
+
+---
+
+## 11) Rychlé shrnutí (anchor links)
+
+Sekce „Rychlé shrnutí“ je nyní klikací a používá kotvy:
+1. Stručný návod → `#how-to`
+2. Dovednosti + úkoly → `#skills-tasks`
+3. Ukázka životopisu → `#cv-preview`
+4. Co personalisté ocení → `#highlight`
+5. Nejčastější chyby → `#mistakes`
+
+Vše se nastavuje v:
+- `src/pages/cs/profese/[slug].tsx`
+- `src/pages/sk/profese/[slug].tsx`
+
+---
+
+## 12) Rozložení sekcí (split + preview)
+
+Nové rozložení:
+- **Split 50/50**: vlevo „Příklad inzerátu“, vpravo „Co má obsahovat… / Typické úkoly… / Doporučené dovednosti“
+- **Preview CV** je pod tím a má vlastní šířku (centrovaný max-width 794px)
+
+Soubory:
+- `src/pages/cs/profese/[slug].tsx`
+- `src/pages/sk/profese/[slug].tsx`
+- `src/scss/Profession.module.scss`
+
+---
+
+## 13) Přepínání šablon v profesích
+
+Použité šablony:
+- `cvtemplate`
+- `cvtemplate2`
+
+Výběr je **deterministický podle `slug`**:
+```
+hash(slug) % 2 === 0 → cvtemplate
+hash(slug) % 2 === 1 → cvtemplate2
+```
+
+Změny jsou pouze v profesních komponentách:
+- `src/components/ProfessionCvPreview.tsx`
+- `src/components/ProfessionPreviewFrame.tsx`
+
+---
+
+## 14) Izolace stylů šablony 2 v profesích
+
+Šablony se **nemění**. V profesích se doplňuje pouze:
+- pravý sloupec (`contact`, `educationEntry`, `languages` apod.)
+- typografie a spacing pod `template2Preview` wrapperem
+
+Soubor:
+- `src/scss/Profession.module.scss`
 
