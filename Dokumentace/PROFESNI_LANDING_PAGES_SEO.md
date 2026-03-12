@@ -298,6 +298,9 @@ Sekce „Rychlé shrnutí“ je nyní klikací a používá kotvy:
 4. Co personalisté ocení → `#highlight`
 5. Nejčastější chyby → `#mistakes`
 
+Semantika:
+- Rychlé shrnutí je obalené v `<nav>` s `aria-label` (CZ/SK) pro lepší navigaci a přístupnost.
+
 Vše se nastavuje v:
 - `src/pages/cs/profese/[slug].tsx`
 - `src/pages/sk/profese/[slug].tsx`
@@ -329,6 +332,11 @@ hash(slug) % 2 === 0 → cvtemplate
 hash(slug) % 2 === 1 → cvtemplate2
 ```
 
+Poznámka k typům:
+- `TemplateId` je širší (cvtemplate1–4), ale pro profesní preview se používá jen:
+  - `PreviewTemplateId = "cvtemplate" | "cvtemplate2"`
+  - `pickPreviewTemplateId()` vrací pouze tyto dvě hodnoty
+
 Změny jsou pouze v profesních komponentách:
 - `src/components/ProfessionCvPreview.tsx`
 - `src/components/ProfessionPreviewFrame.tsx`
@@ -343,4 +351,27 @@ Změny jsou pouze v profesních komponentách:
 
 Soubor:
 - `src/scss/Profession.module.scss`
+
+---
+
+## 15) Rychlé shrnutí – název
+
+Nadpis rychlého shrnutí je:
+- CZ: **Rychlé shrnutí (navigace)**
+- SK: **Rýchle zhrnutie (navigácia)**
+
+Soubory:
+- `src/pages/cs/profese/[slug].tsx`
+- `src/pages/sk/profese/[slug].tsx`
+
+---
+
+## 16) Nadpis preview
+
+Nadpis nad náhledem CV:
+- **Vzor životopisu pro pozici {název profese}**
+
+Soubory:
+- `src/pages/cs/profese/[slug].tsx`
+- `src/pages/sk/profese/[slug].tsx`
 

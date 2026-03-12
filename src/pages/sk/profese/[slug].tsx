@@ -227,13 +227,15 @@ export default function ProfessionPage({ content }: PageProps) {
 
           <section className={styles.summaryBox}>
             <h2 className={styles.summaryTitle}>Rýchle zhrnutie (navigácia)</h2>
-            <ul className={styles.summaryList}>
-              {content.summaryBullets.map((item, index) => (
-                <li key={item}>
-                  <a href={`#${summaryAnchors[index] ?? "summary"}`}>{highlightText(item)}</a>
-                </li>
-              ))}
-            </ul>
+            <nav aria-label="Rýchle zhrnutie">
+              <ul className={styles.summaryList}>
+                {content.summaryBullets.map((item, index) => (
+                  <li key={item}>
+                    <a href={`#${summaryAnchors[index] ?? "summary"}`}>{highlightText(item)}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </section>
 
           {topSections.map((section) => (
