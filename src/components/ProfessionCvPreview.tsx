@@ -7,11 +7,12 @@ import { getCvTemplate1Sections as getSectionsCs } from "@/components/cs/CvTempl
 import { getCvTemplate1Sections as getSectionsSk } from "@/components/sk/CvTemplate.sections";
 import { getCvTemplate2Sections as getSectionsCs2 } from "@/components/cs/CvTemplate2.sections";
 import { getCvTemplate2Sections as getSectionsSk2 } from "@/components/sk/CvTemplate2.sections";
+import type { PreviewTemplateId } from "@/data/professionPreviewData";
 
 type Props = {
   locale: "cs" | "sk";
   data: CvData;
-  templateId?: "cvtemplate" | "cvtemplate2";
+  templateId?: PreviewTemplateId;
 };
 
 export default function ProfessionCvPreview({ locale, data, templateId }: Props) {

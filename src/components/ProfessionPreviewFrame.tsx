@@ -3,11 +3,12 @@ import { CvData } from "@/data/CvData";
 import { CV_WIDTH, CV_HEIGHT } from "@/constants";
 import ProfessionCvPreview from "@/components/ProfessionCvPreview";
 import styles from "@/scss/Profession.module.scss";
+import type { PreviewTemplateId } from "@/data/professionPreviewData";
 
 type Props = {
   locale: "cs" | "sk";
   data: CvData;
-  templateId?: "cvtemplate" | "cvtemplate2";
+  templateId?: PreviewTemplateId;
 };
 
 export default function ProfessionPreviewFrame({ locale, data, templateId }: Props) {

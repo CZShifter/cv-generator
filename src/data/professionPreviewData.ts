@@ -4,7 +4,8 @@ import { SAMPLE_CV_DATA as SAMPLE_CV_DATA_SK } from "./sampleCvDataSK";
 import { getCvProfessionData } from "./cvProfessionData";
 import { buildProfessionContent, Locale } from "./professions";
 
-type TemplateId = "cvtemplate" | "cvtemplate2" | "cvtemplate3" | "cvtemplate4";
+export type TemplateId = "cvtemplate" | "cvtemplate2" | "cvtemplate3" | "cvtemplate4";
+export type PreviewTemplateId = "cvtemplate" | "cvtemplate2";
 
 const COMPANY_BY_CATEGORY: Record<Locale, Record<string, string[]>> = {
   cs: {
@@ -161,7 +162,7 @@ function isFeminineSlug(slug: string) {
   return /(ka|čka|čka|čka|ice|yňa|yne|yně|arka|arka|orka)$/.test(slug);
 }
 
-export function pickPreviewTemplateId(slug: string): TemplateId {
+export function pickPreviewTemplateId(slug: string): PreviewTemplateId {
   return hashOf(slug) % 2 === 0 ? "cvtemplate" : "cvtemplate2";
 }
 
