@@ -396,3 +396,27 @@ Poznámka:
 - `localPatterns.search` se porovnává **na přesnou shodu**, ne jako wildcard.
 - Proto ho **nepoužívat** a nechat jen `pathname`.
 
+---
+
+## 18) Share box u inzerátu (CZ/SK)
+
+Ve sloupci s inzerátem je pod boxem „Příklad inzerátu“ vložen share box s ikonami pro sdílení profese:
+- Facebook, X, WhatsApp, Telegram, Reddit
+- text: **„Sdílejte rady & tipy s ostatními“**
+- klikání přes ikonky
+
+Responzivní chování:
+- **>= 900px:** share box je pod inzerátem (levý sloupec)
+- **< 900px:** share box se přesune **nad náhled životopisu**
+
+Styly:
+- ikony 28px, X a WhatsApp 24px
+- kruhový background 42px
+- ikonky `space-between`
+- nadpis 20px, centrovaný, margin-bottom 16px
+
+Soubory:
+- `src/pages/cs/profese/[slug].tsx`
+- `src/pages/sk/profese/[slug].tsx`
+- `src/scss/Profession.module.scss`
+

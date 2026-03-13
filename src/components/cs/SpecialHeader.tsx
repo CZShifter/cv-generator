@@ -64,20 +64,22 @@ export default function Header() {
                 Životopis
               </Link>
             </li>
-            <LanguageSelector
-              current="cs"
-              onSelect={lang => {
-                // Custom logika...
-                const segments = window.location.pathname.split("/").filter(Boolean);
-                if (["cs", "sk"].includes(segments[0])) {
-                  segments[0] = lang;
-                } else {
-                  segments.unshift(lang);
-                }
-                const newPath = "/" + segments.join("/");
-                window.location.pathname = newPath;
-              }}
-            />
+            <li className={styles.menuItem}>
+              <LanguageSelector
+                current="cs"
+                onSelect={lang => {
+                  // Custom logika...
+                  const segments = window.location.pathname.split("/").filter(Boolean);
+                  if (["cs", "sk"].includes(segments[0])) {
+                    segments[0] = lang;
+                  } else {
+                    segments.unshift(lang);
+                  }
+                  const newPath = "/" + segments.join("/");
+                  window.location.pathname = newPath;
+                }}
+              />
+            </li>
           </ul>
         </nav>
       </div>
