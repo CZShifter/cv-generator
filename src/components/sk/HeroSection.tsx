@@ -25,7 +25,7 @@ export default function HeroSection() {
               className={styles.HeroleftImg}  // pokud chceš stylovat ještě obrázek samotný
               sizes="100%"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </picture>
           <picture className={styles.HeroleftImg2}>
