@@ -256,6 +256,72 @@
   color: #44556b;
 }
 
+.shareBox {
+  padding: 14px 16px;
+  border: 1px solid #e6e9f2;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.shareTitle {
+  margin: 0 0 16px;
+  color: $btn-hover-color;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.shareLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.shareLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: $btn-hover-color;
+  background: #f3f7fc;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  &:hover {
+    background: $btn-hover-color;
+    color: $white-color;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+}
+
+.shareXIcon {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.shareSmallIcon {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.shareBoxDesktop {
+  display: block;
+}
+
+.shareBoxMobile {
+  display: none;
+  margin: 0 0 2rem;
+}
+
 .quote {
   margin: 16px 0;
   padding: 14px 18px;
@@ -405,14 +471,53 @@
   }
 }
 
-.faqItem {
-  margin-bottom: 1.2rem;
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-  h3 {
-    font-size: $h3;
-    color: $primary-color;
-    margin-bottom: 0.4rem;
-  }
+.faqItem {
+  border: 1px solid #e6e9f2;
+  border-radius: $border-radius;
+  background: #ffffff;
+  box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.faqQuestion {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  font-size: $p;
+  color: $text-color;
+  font-weight: 600;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqIcon {
+  width: 10px;
+  height: 10px;
+  border: solid #6b7280;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] .faqIcon {
+  transform: rotate(-135deg);
+}
+
+.faqAnswer {
+  padding: 0 1.2rem 1rem;
 
   p {
     font-size: $p;
@@ -420,6 +525,16 @@
     line-height: 1.7;
     margin: 0;
   }
+}
+
+.faqLink {
+  color: $btn-hover-color;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.faqLink:hover {
+  text-decoration: underline;
 }
 
 .splitSection {
@@ -574,6 +689,14 @@
 @media (max-width: 900px) {
   .splitSection {
     grid-template-columns: 1fr;
+  }
+
+  .shareBoxDesktop {
+    display: none;
+  }
+
+  .shareBoxMobile {
+    display: block;
   }
 }
 

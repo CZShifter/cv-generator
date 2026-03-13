@@ -210,7 +210,7 @@ export function buildProfessionPreviewData(
   if (!cvData) {
     throw new Error(`Missing cv profession data for slug: ${content.slug} (${locale})`);
   }
-  const skills = cvData.skills.slice(0, 5);
+  const skills = cvData.skills;
 
   data.name = first;
   data.surname = last;

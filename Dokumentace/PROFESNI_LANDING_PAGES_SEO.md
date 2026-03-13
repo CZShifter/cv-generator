@@ -375,3 +375,24 @@ Soubory:
 - `src/pages/cs/profese/[slug].tsx`
 - `src/pages/sk/profese/[slug].tsx`
 
+---
+
+## 17) Next/Image – lokální obrázky s query stringem
+
+Používáme verzování přes query (např. `?v=05.10.25`).  
+V Next.js je nutné mít povolené lokální patterny pro `/img/**`.
+
+Nastavení:
+- `next.config.ts`
+```
+images: {
+  localPatterns: [
+    { pathname: "/img/**" }
+  ]
+}
+```
+
+Poznámka:
+- `localPatterns.search` se porovnává **na přesnou shodu**, ne jako wildcard.
+- Proto ho **nepoužívat** a nechat jen `pathname`.
+

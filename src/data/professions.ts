@@ -362,7 +362,7 @@ const UI_TEXT: Record<Locale, {
     introLead: (name) =>
       `Hledáte vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám.`,
     introSecond: (name) =>
-      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro ${name} rovnou upravit v naší [generator] a mít hotovo během pár minut.`,
+      `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro pozici ${name} rovnou upravit v naší [generator] a mít hotovo během pár minut.`,
     h1: (name) => `Vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}`,
     title: (name) => `Životopis ${name} – vzor, tipy a příklad CV v roce ${new Date().getFullYear()}`,
     description: (name) =>
@@ -395,19 +395,34 @@ const UI_TEXT: Record<Locale, {
     },
     faqs: (name) => [
       {
-        question: `Jak dlouhý má být životopis pro ${name}?`,
+        question: `Jak dlouhý má být životopis pro pozici ${name}?`,
         answer:
-          "Ideální je 1 strana, maximálně 2 u zkušených kandidátů. Důležitější než délka je relevance a přehlednost.",
+          `Ideální rozsah pro pozici ${name} je jedna až dvě strany A4. Absolventům stačí jedna strana pro rychlé skenování, zkušení profesionálové využijí dvě. Důležité je prioritizovat zkušenosti za posledních 15 let a starší uvádět jen heslovitě, aby dokument zůstal přehledný pro náboráře i systémy ATS.`,
       },
       {
-        question: `Mám uvádět všechny pracovní zkušenosti?`,
+        question: "Co musí obsahovat správně napsaný životopis?",
         answer:
-          "Vyberte hlavně zkušenosti, které souvisí s pozicí. Starší a méně relevantní můžete zkrátit.",
+          "Povinný základ tvoří kontaktní údaje, profesní shrnutí, praxe, vzdělání a dovednosti. Profesní shrnutí v úvodu slouží jako krátký „elevator pitch“ definující váš přínos. V sekci dovedností uvádějte konkrétní nástroje (např. SAP, Google Workspace) s úrovní pokročilosti, aby náborář ihned viděl vaši technickou zdatnost.",
       },
       {
-        question: `Je lepší strukturovaný nebo kreativní životopis?`,
+        question: "Má být v životopise fotografie?",
         answer:
-          "U většiny profesí funguje přehledná a strukturovaná forma. Kreativní prvky použijte jen, pokud je očekává obor.",
+          "Fotografie není povinná, v Česku je však běžná pro lepší zapamatovatelnost. Musí být vždy profesionální (pasový formát), nikoliv momentka z dovolené. V zahraničí (USA, UK) se naopak nedoporučuje kvůli prevenci diskriminace. Často je lepší odkázat na profesionální portrét na LinkedInu.",
+      },
+      {
+        question: "Jak napsat životopis bez praxe?",
+        answer:
+          "Zaměřte se na přenositelné dovednosti, stáže a dobrovolnictví, které náboráři uznávají jako plnohodnotnou praxi. Uveďte školní projekty, kde jste prokázali odpovědnost či vedení týmu. Zdůrazněte digitální gramotnost a certifikáty z kurzů, které dokládají vaši snahu o profesní růst i bez formální historie. Vzor najdete zde: /cs/profese/zivotopis-absolvent-bez-praxe.",
+      },
+      {
+        question: "Jak upravit životopis podle konkrétní pracovní nabídky?",
+        answer:
+          "Přizpůsobení je klíčové pro průchod přes systémy ATS. Identifikujte klíčová slova v inzerátu a organicky je vložte do svého textu. Příkladem je zrcadlení odborných termínů (např. „Agile“) v profesním shrnutí. Personalizace ukazuje vaši motivaci a jasně propojuje vaše zkušenosti s potřebami konkrétního zaměstnavatele.",
+      },
+      {
+        question: `Jak má vypadat životopis pro pozici ${name} v roce 2026?`,
+        answer:
+          `Moderní životopis pro pozici ${name} sází na minimalismus, bezpatková písma (Calibri, Aptos) a dostatek bílého místa. Musí být čitelný pro lidi i stroje. Místo frází uvádějte měřitelné výsledky (např. „úspora 15 % nákladů“). Nezapomeňte na funkční odkazy na LinkedIn či online portfolio pro hlubší vhled.`,
       },
     ],
   },
@@ -415,7 +430,7 @@ const UI_TEXT: Record<Locale, {
     introLead: (name, categoryLabel) =>
       `Hľadáte vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
     introSecond: (name) =>
-      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre ${name} hneď upraviť v našej [generator] a mať hotovo za pár minút.`,
+      `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre pozíciu ${name} hneď upraviť v našej [generator] a mať hotovo za pár minút.`,
     h1: (name) => `Vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}`,
     title: (name) => `Životopis ${name} – vzor, tipy a príklad CV v roku ${new Date().getFullYear()}`,
     description: (name) =>
@@ -448,19 +463,34 @@ const UI_TEXT: Record<Locale, {
     },
     faqs: (name) => [
       {
-        question: `Ako dlhý má byť životopis pre ${name}?`,
+        question: `Ako dlhý má byť životopis pre pozíciu ${name}?`,
         answer:
-          "Ideálne 1 strana, maximálne 2 pri skúsených kandidátoch. Dôležitá je relevancia a prehľadnosť.",
+          `Ideálny rozsah pre pozíciu ${name} je jedna až dve strany A4. Absolventom stačí jedna strana pre rýchle skenovanie, skúsení profesionáli využijú dve. Dôležité je prioritizovať skúsenosti za posledných 15 rokov a staršie uvádzať len heslovito, aby dokument zostal prehľadný pre náborárov aj systémy ATS.`,
       },
       {
-        question: `Mám uvádzať všetky pracovné skúsenosti?`,
+        question: "Čo musí obsahovať správne napísaný životopis?",
         answer:
-          "Vyberte najmä skúsenosti súvisiace s pozíciou. Staršie a menej relevantné môžete skrátiť.",
+          "Povinný základ tvoria kontaktné údaje, profesijné zhrnutie, prax, vzdelanie a zručnosti. Profesijné zhrnutie v úvode slúži ako krátky „elevator pitch“ definujúci váš prínos. V sekcii zručností uvádzajte konkrétne nástroje (napr. SAP, Google Workspace) s úrovňou pokročilosti, aby náborár hneď videl vašu technickú zdatnosť.",
       },
       {
-        question: `Je lepší štruktúrovaný alebo kreatívny životopis?`,
+        question: "Má byť v životopise fotografia?",
         answer:
-          "Vo väčšine profesií funguje prehľadná a štruktúrovaná forma. Kreatívne prvky použite len, ak to očakáva odbor.",
+          "Fotografia nie je povinná, na Slovensku je však bežná pre lepšiu zapamätateľnosť. Musí byť vždy profesionálna (pasový formát), nie momentka z dovolenky. V zahraničí (USA, UK) sa naopak neodporúča kvôli prevencii diskriminácie. Často je lepšie odkázať na profesionálny portrét na LinkedIne.",
+      },
+      {
+        question: "Ako napísať životopis bez praxe?",
+        answer:
+          "Zamerajte sa na prenositeľné zručnosti, stáže a dobrovoľníctvo, ktoré náborári uznávajú ako plnohodnotnú prax. Uveďte školské projekty, kde ste preukázali zodpovednosť či vedenie tímu. Zdôraznite digitálnu gramotnosť a certifikáty z kurzov, ktoré dokladajú vašu snahu o profesijný rast aj bez formálnej histórie. Vzor nájdete tu: /sk/profese/zivotopis-absolvent-bez-praxe.",
+      },
+      {
+        question: "Ako upraviť životopis podľa konkrétnej pracovnej ponuky?",
+        answer:
+          "Prispôsobenie je kľúčové pre priechod cez systémy ATS. Identifikujte kľúčové slová v inzeráte a organicky ich vložte do svojho textu. Príkladom je zrkadlenie odborných termínov (napr. „Agile“) v profesijnom zhrnutí. Personalizácia ukazuje vašu motiváciu a jasne prepája vaše skúsenosti s potrebami konkrétneho zamestnávateľa.",
+      },
+      {
+        question: `Ako má vyzerať životopis pre pozíciu ${name} v roku 2026?`,
+        answer:
+          `Moderný životopis pre pozíciu ${name} stavia na minimalizme, bezpätkových písmach (Calibri, Aptos) a dostatku bieleho miesta. Musí byť čitateľný pre ľudí aj stroje. Namiesto fráz uvádzajte merateľné výsledky (napr. „úspora 15 % nákladov“). Nezabudnite na funkčné odkazy na LinkedIn či online portfólio pre hlbší vhľad.`,
       },
     ],
   },
@@ -471,6 +501,18 @@ function pickVariant(slug: string, variants: string[]) {
   for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) | 0;
   const idx = Math.abs(hash) % variants.length;
   return variants[idx];
+}
+
+function pickDeterministic<T>(items: T[], count: number, seed: string) {
+  if (!items.length) return [];
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) | 0;
+  const start = Math.abs(hash) % items.length;
+  const result: T[] = [];
+  for (let i = 0; i < Math.min(count, items.length); i++) {
+    result.push(items[(start + i) % items.length]);
+  }
+  return result;
 }
 
 const SK_SLUGS: Record<string, string> = {
@@ -552,7 +594,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
   if (!cvData) {
     throw new Error(`Missing cv profession data for slug: ${seed.slug} (${locale})`);
   }
-  const skills = cvData.skills.slice(0, 5);
+  const skills = cvData.skills;
   const responsibilities = getCvProfessionResponsibilities(cvData, 8);
 
   const related = getRelatedProfessions(locale, seed.slug, seed.category, 8);
@@ -685,6 +727,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
 
   const adExampleBase = AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_BASE[locale];
   const adResponsibilities = responsibilities.slice(0, 4);
+  const adRequirements = pickDeterministic(skills, 6, `${seed.slug}-requirements`);
 
   return {
     slug: seed.slug,
@@ -716,7 +759,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     adExample: {
       ...adExampleBase,
       responsibilities: adResponsibilities,
-      requirements: skills,
+      requirements: adRequirements,
       introText: CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name),
     },
     sections: [

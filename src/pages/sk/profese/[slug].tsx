@@ -1,6 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { RiTelegram2Line, RiFacebookCircleLine } from "react-icons/ri";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
+import { LiaRedditAlien } from "react-icons/lia";
 import styles from "@/scss/Profession.module.scss";
 import { buildProfessionContent, fromProfessionUrlSlug, getProfessionSlugs, ProfessionContent, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK } from "@/config/site";
@@ -40,6 +44,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async (
 export default function ProfessionPage({ content }: PageProps) {
   const canonical = `${SITE_URL_SK}/sk/profese/${content.urlSlug}/`;
   const alternate = `${SITE_URL}/cs/profese/${content.urlSlug}/`;
+  const shareUrlEncoded = encodeURIComponent(canonical);
+  const shareTextEncoded = encodeURIComponent(content.title);
+  const shareWhatsappEncoded = encodeURIComponent(`${content.title} ${canonical}`);
   const previewTemplateId = pickPreviewTemplateId(content.slug);
   const previewData = buildProfessionPreviewData("sk", content.slug, previewTemplateId);
   const summaryAnchors = ["how-to", "skills-tasks", "cv-preview", "highlight", "mistakes"];
@@ -302,6 +309,56 @@ export default function ProfessionPage({ content }: PageProps) {
                   </ul>
                 </div>
               </div>
+              <div className={`${styles.shareBox} ${styles.shareBoxDesktop}`}>
+                <h4 className={styles.shareTitle}>Sdílejte rady & tipy s ostatními</h4>
+                <div className={styles.shareLinks}>
+                  <a
+                    className={styles.shareLink}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEncoded}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Zdieľať na Facebooku"
+                  >
+                    <RiFacebookCircleLine />
+                  </a>
+                  <a
+                    className={styles.shareLink}
+                    href={`https://twitter.com/intent/tweet?url=${shareUrlEncoded}&text=${shareTextEncoded}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Zdieľať na X"
+                  >
+                    <FaXTwitter className={styles.shareXIcon} />
+                  </a>
+                  <a
+                    className={styles.shareLink}
+                    href={`https://wa.me/?text=${shareWhatsappEncoded}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Zdieľať na WhatsApp"
+                  >
+                    <FaWhatsapp className={styles.shareSmallIcon} />
+                  </a>
+                  <a
+                    className={styles.shareLink}
+                    href={`https://t.me/share/url?url=${shareUrlEncoded}&text=${shareTextEncoded}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Zdieľať na Telegrame"
+                  >
+                    <RiTelegram2Line />
+                  </a>
+                  <a
+                    className={styles.shareLink}
+                    href={`https://www.reddit.com/submit?url=${shareUrlEncoded}&title=${shareTextEncoded}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Zdieľať na Reddite"
+                  >
+                    <LiaRedditAlien />
+                  </a>
+                </div>
+              </div>
             </div>
             <div className={styles.splitRight} id="skills-tasks">
               {content.sections.map((section) => (
@@ -316,6 +373,57 @@ export default function ProfessionPage({ content }: PageProps) {
               ))}
             </div>
           </section>
+
+          <div className={`${styles.shareBox} ${styles.shareBoxMobile}`}>
+            <h4 className={styles.shareTitle}>Sdílejte rady & tipy s ostatními</h4>
+            <div className={styles.shareLinks}>
+              <a
+                className={styles.shareLink}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrlEncoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zdieľať na Facebooku"
+              >
+                <RiFacebookCircleLine />
+              </a>
+              <a
+                className={styles.shareLink}
+                href={`https://twitter.com/intent/tweet?url=${shareUrlEncoded}&text=${shareTextEncoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zdieľať na X"
+              >
+                <FaXTwitter className={styles.shareXIcon} />
+              </a>
+              <a
+                className={styles.shareLink}
+                href={`https://wa.me/?text=${shareWhatsappEncoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zdieľať na WhatsApp"
+              >
+                <FaWhatsapp className={styles.shareSmallIcon} />
+              </a>
+              <a
+                className={styles.shareLink}
+                href={`https://t.me/share/url?url=${shareUrlEncoded}&text=${shareTextEncoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zdieľať na Telegrame"
+              >
+                <RiTelegram2Line />
+              </a>
+              <a
+                className={styles.shareLink}
+                href={`https://www.reddit.com/submit?url=${shareUrlEncoded}&title=${shareTextEncoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Zdieľať na Reddite"
+              >
+                <LiaRedditAlien />
+              </a>
+            </div>
+          </div>
 
           <section className={styles.previewCta}>
             <div className={styles.previewWrap} id="cv-preview">
@@ -380,13 +488,33 @@ export default function ProfessionPage({ content }: PageProps) {
           ))}
 
           <section className={styles.faq}>
-            <h2>Časté otázky</h2>
-            {content.faqs.map((faq) => (
-              <div key={faq.question} className={styles.faqItem}>
-                <h3>{faq.question}</h3>
-                <p>{highlightText(faq.answer)}</p>
-              </div>
-            ))}
+            <h2>Časté otázky (FAQ)</h2>
+            <div className={styles.faqList}>
+              {content.faqs.map((faq) => (
+                <details key={faq.question} className={styles.faqItem}>
+                  <summary className={styles.faqQuestion}>
+                    <span>{faq.question}</span>
+                    <span className={styles.faqIcon} aria-hidden="true" />
+                  </summary>
+                  <div className={styles.faqAnswer}>
+                    {faq.answer.includes("/sk/profese/zivotopis-absolvent-bez-praxe") ? (() => {
+                      const [before, after] = faq.answer.split("/sk/profese/zivotopis-absolvent-bez-praxe");
+                      return (
+                        <p>
+                          {highlightText(before)}
+                          <Link className={styles.faqLink} href="/sk/profese/zivotopis-absolvent-bez-praxe">
+                            vzor životopisu bez praxe
+                          </Link>
+                          {highlightText(after ?? "")}
+                        </p>
+                      );
+                    })() : (
+                      <p>{highlightText(faq.answer)}</p>
+                    )}
+                  </div>
+                </details>
+              ))}
+            </div>
           </section>
 
           {content.related.length > 0 && (

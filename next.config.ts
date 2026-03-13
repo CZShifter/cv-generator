@@ -11,6 +11,13 @@ const commitSha =
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
+  images: {
+    localPatterns: [
+      {
+        pathname: "/img/**",
+      },
+    ],
+  },
 
   env: {
     NEXT_PUBLIC_APP_VERSION: commitSha, // ← bude dostupné na klientovi
