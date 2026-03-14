@@ -8,7 +8,7 @@ import NarrativeSection2 from '@/components/cs/NarrativeSection2';
 import AISection from '@/components/cs/AISection';
 import StatsSection from '@/components/cs/StatsSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
-import { SITE_URL, SITE_URL_SK, SITE_NAME, SITE_VERSION, FAVICON_URL_32, APPLE_TOUCH_ICON_URL, FAVICON_URL_192, OG_IMAGE } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME, SITE_VERSION, FAVICON_URL_32, APPLE_TOUCH_ICON_URL, FAVICON_URL_192, OG_IMAGE, LOGO_SCHEMA_URL } from "@/config/site";
 import styles from "@/scss/Blog.module.scss";
 
 type BlogPostMeta = {
@@ -163,7 +163,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 "@type": "Organization",
                 "name": SITE_NAME,
                 "url": SITE_URL,
-                "logo": { "@type": "ImageObject", "url": `${SITE_URL}/img/logo_nove_barevny.png` }
+                "logo": { "@type": "ImageObject", "url": LOGO_SCHEMA_URL }
               },
               "inLanguage": "cs-CZ",
               "blogPost": posts.slice(0, 10).map((p) => ({

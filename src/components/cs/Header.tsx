@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image"
-import { SITE_VERSION } from "@/config/site";
+import { LOGO_COLOR_URL } from "@/config/site";
 import styles from "@/scss/Header.module.scss";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -37,7 +37,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/cs">
-          <Image className={styles.logo} src={`/img/logo_nove_barevny.png?v=${SITE_VERSION}`} alt="Vytvořte moderní životopis online – Profesionální CV za 5 minut | RychlýŽivotopis.cz" width={201} height={60} priority/>
+          <Image className={styles.logo} src={LOGO_COLOR_URL} alt="Vytvořte moderní životopis online – Profesionální CV za 5 minut | RychlýŽivotopis.cz" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>
           <button

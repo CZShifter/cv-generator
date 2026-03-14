@@ -40,10 +40,11 @@
   &:hover {
     transform: translateY(-5px);
   }
-  h3 {
+  .featureTitle {
     font-size: $h3;
     color: $secondary-color;
     line-height: 1.2;
+    margin: 0;
   }
   p {
     font-size: $p;

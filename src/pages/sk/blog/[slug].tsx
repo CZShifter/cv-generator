@@ -17,7 +17,8 @@ import {
   SITE_VERSION,
   FAVICON_URL_32,
   FAVICON_URL_192,
-  APPLE_TOUCH_ICON_URL
+  APPLE_TOUCH_ICON_URL,
+  LOGO_SCHEMA_URL_SK
 } from "@/config/site";
 
 // Povolené atributy pro HTML v Markdownu
@@ -156,7 +157,7 @@ export default function BlogPost({ data, content, slug, altSlugCs }: BlogPostPro
                 "@type": "Organization",
                 "name": SITE_NAME_SK,
                 "url": SITE_URL_SK,
-                "logo": { "@type": "ImageObject", "url": `${SITE_URL_SK}/img/logo.png` }
+                "logo": { "@type": "ImageObject", "url": LOGO_SCHEMA_URL_SK }
               },
               "datePublished": data.date,
               "dateModified": data.date,

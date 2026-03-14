@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, SELLER_COMPANY, SELLER_ADDRESS, PRICE_CV_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, SELLER_COMPANY, SELLER_ADDRESS, PRICE_CV_SK, LOGO_SCHEMA_URL_SK } from "@/config/site";
 import HeroSection from '@/components/sk/HeroSection';
 import HookSection from '@/components/sk/HookSection';
 import SecureSection from '@/components/sk/SecureSection';
@@ -69,7 +69,7 @@ export default function Home() {
               "url": `${SITE_URL_SK}/sk/`,
               "logo": {
                 "@type": "ImageObject",
-                "url": `${SITE_URL_SK}/img/logo_nove_barevny.png`
+                "url": LOGO_SCHEMA_URL_SK
               },
               "address": {
                 "@type": "PostalAddress",

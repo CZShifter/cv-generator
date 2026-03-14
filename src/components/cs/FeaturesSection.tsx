@@ -32,7 +32,7 @@ export default function FeaturesSection() {
         {features.map((item, index) => (
           <div key={index} className={styles.tile}>
             <div className={styles.icon}>{item.icon}</div>
-            <h3>{item.title}</h3>
+            <h2 className={styles.featureTitle}>{item.title}</h2>
             <p>{item.description}</p>
           </div>
         ))}

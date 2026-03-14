@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image"
-import { SITE_VERSION } from "@/config/site";
+import { LOGO_LIGHT_URL_SK } from "@/config/site";
 import styles from "@/scss/SpecialHeader.module.scss";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -37,7 +37,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/sk">
-          <Image className={styles.logo} src={`/img/logo_SK_nove_bile.png?v=${SITE_VERSION}`} alt="Rychlý Životopis logo" width={201} height={60} priority/>
+          <Image className={styles.logo} src={LOGO_LIGHT_URL_SK} alt="Rychlý Životopis logo" width={201} height={60} priority/>
         </Link>
         <nav className={styles.nav}>
           <button

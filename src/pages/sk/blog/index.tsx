@@ -8,7 +8,7 @@ import NarrativeSection2 from '@/components/sk/NarrativeSection2';
 import AISection from '@/components/sk/AISection';
 import StatsSection from '@/components/sk/StatsSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
-import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, SITE_VERSION, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, SITE_VERSION, FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, OG_IMAGE_SK, LOGO_SCHEMA_URL_SK } from "@/config/site";
 import styles from "@/scss/Blog.module.scss";
 
 type BlogPostMeta = {
@@ -163,7 +163,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                 "@type": "Organization",
                 "name": SITE_NAME_SK,
                 "url": SITE_URL_SK,
-                "logo": { "@type": "ImageObject", "url": `${SITE_URL_SK}/img/logo_SK_nove_barevny.png` }
+                "logo": { "@type": "ImageObject", "url": LOGO_SCHEMA_URL_SK }
               },
               "inLanguage": "sk-SK",
               "blogPost": posts.slice(0, 10).map((p) => ({

@@ -14,6 +14,8 @@ import {
   SITE_NAME_SK,
   PRICE_CV,
   PRICE_CV_SK,
+  LOGO_SCHEMA_URL,
+  LOGO_SCHEMA_URL_SK,
 } from "@/config/site";
 
 import HeaderCs from "@/components/cs/Header";
@@ -215,6 +217,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const isSk = router.pathname.startsWith("/sk");
   const siteUrl = isSk ? SITE_URL_SK : SITE_URL;
   const siteName = isSk ? SITE_NAME_SK : SITE_NAME;
+  const siteLogo = isSk ? LOGO_SCHEMA_URL_SK : LOGO_SCHEMA_URL;
   const price = isSk ? PRICE_CV_SK : PRICE_CV;
   const currency = isSk ? "EUR" : "CZK";
   const DefaultHeader = isSk ? HeaderSk : HeaderCs;
@@ -294,7 +297,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               "@type": "Organization",
               "name": siteName,
               "url": siteUrl,
-              "logo": `${siteUrl}/img/logo.png`,
+              "logo": siteLogo,
             }),
           }}
         />
@@ -325,8 +328,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               "description": isSk
                 ? "Vytvorte si profesionálny životopis online a exportujte ho do PDF."
                 : "Vytvořte si profesionální životopis online a exportujte ho do PDF.",
-              "image": `${siteUrl}/img/logo.png`,
-              "brand": { "@type": "Brand", "name": siteName, "logo": `${siteUrl}/img/logo.png` },
+              "image": siteLogo,
+              "brand": { "@type": "Brand", "name": siteName, "logo": siteLogo },
               "offers": {
                 "@type": "Offer",
                 "price": price,

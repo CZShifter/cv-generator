@@ -7,7 +7,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { LiaRedditAlien } from "react-icons/lia";
 import styles from "@/scss/Profession.module.scss";
 import { buildProfessionContent, fromProfessionUrlSlug, getProfessionSlugs, ProfessionContent, toProfessionUrlSlug } from "@/data/professions";
-import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK, LOGO_SCHEMA_URL_SK } from "@/config/site";
 import ProfessionPreviewFrame from "@/components/ProfessionPreviewFrame";
 import { buildProfessionPreviewData, pickPreviewTemplateId } from "@/data/professionPreviewData";
 
@@ -141,7 +141,7 @@ export default function ProfessionPage({ content }: PageProps) {
     "name": "Aplikácia na online tvorbu životopisu",
     "description": "Vytvorte si profesionálny životopis online a exportujte ho do PDF.",
     "image": OG_IMAGE_SK,
-    "brand": { "@type": "Brand", "name": SITE_NAME_SK, "logo": `${SITE_URL_SK}/img/logo.png` },
+    "brand": { "@type": "Brand", "name": SITE_NAME_SK, "logo": LOGO_SCHEMA_URL_SK },
     "offers": {
       "@type": "Offer",
       "price": PRICE_CV_SK,
@@ -222,7 +222,7 @@ export default function ProfessionPage({ content }: PageProps) {
         />
       </Head>
 
-      <div className={styles.wrapper}>
+      <main className={styles.wrapper}>
         <div className={styles.container}>
           <header className={styles.hero}>
             <h1>{content.h1}</h1>
@@ -530,7 +530,7 @@ export default function ProfessionPage({ content }: PageProps) {
             </section>
           )}
         </div>
-      </div>
+      </main>
     </>
   );
 }

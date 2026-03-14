@@ -11,7 +11,7 @@ import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import {
   SITE_URL, SITE_URL_SK, SITE_NAME, OG_IMAGE, SITE_VERSION,
-  FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL
+  FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, LOGO_SCHEMA_URL
 } from "@/config/site";
 
 // --- povolíme class/style a užitečné atributy na elementech, které používáš v MD ---
@@ -148,7 +148,7 @@ export default function BlogPost({ data, content, slug, altSlugSk }: BlogPostPro
                 "@type": "Organization",
                 "name": SITE_NAME,
                 "url": SITE_URL,
-                "logo": { "@type": "ImageObject", "url": `${SITE_URL}/img/logo.png` }
+                "logo": { "@type": "ImageObject", "url": LOGO_SCHEMA_URL }
               },
               "datePublished": data.date,
               "dateModified": data.date,
