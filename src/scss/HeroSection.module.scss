@@ -243,7 +243,7 @@
    &:hover {
       text-decoration: none;
       background-color: $btn-form;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      box-shadow: $shadow-soft;
       transform: translateY(5px);
    }
    @media (max-width: 700px) {

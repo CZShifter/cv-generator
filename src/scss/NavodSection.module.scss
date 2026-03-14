@@ -12,7 +12,7 @@
 .guideSection blockquote{
   display: flex;
   flex-direction: column;
-  background: #f5f8fe;
+  background: $color-gray-090;
   border-left: 5px solid $btn-hover-color;
   padding: 2rem;
   width: 70%;
@@ -24,28 +24,28 @@
   color: $text2-color;
   margin-top: 1rem;
   border-radius: 8px;
-  box-shadow: 0 8px 8px rgba(92, 141, 196, 0.250);
+  box-shadow: $shadow-soft-4;
   font-size: $p;
   font-weight: 400;
   
   p:nth-of-type(1) {
     strong{
-      color: rgb(4, 179, 4);
+      color: $color-success;
     }
   }
   p:nth-of-type(2) {
     strong{
-      color: rgb(4, 179, 4);
+      color: $color-success;
     }
   }
   p:nth-of-type(3) {
     strong{
-      color: red;
+      color: $color-danger-plain;
    }
   }
   p:nth-of-type(5) {
     strong{
-      color: red;
+      color: $color-danger-plain;
       font-size: $p_small;
     }
   }
@@ -125,8 +125,8 @@
   width: 100%;
   height: auto;
   border-radius: 0px 0px 8px 8px;
-  box-shadow: 0 8px 8px -2px rgba(92, 141, 196, 0.250);
-  background: #f6f9fd;
+  box-shadow: $shadow-soft-4-tight;
+  background: $color-gray-080;
 }
 .guideTextWrapper{
   display: flex;
@@ -157,6 +157,24 @@
       color: $btn-hover-color;
     }
   }
+}
+
+.iconEdit {
+  color: $color-edit-icon;
+  vertical-align: middle;
+}
+
+.iconTrash {
+  color: $color-trash-icon;
+  vertical-align: middle;
+}
+
+.strongNeutral {
+  color: $color-gray-600;
+}
+
+.strongDanger {
+  color: $color-danger-plain;
 }
 
 @media (max-width: 700px) {

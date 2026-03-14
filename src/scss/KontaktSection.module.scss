@@ -110,7 +110,7 @@
   flex-direction: column;
   width: 100%;
   gap: $gap;
-  background-color: #f7f7f7;
+  background-color: $third-color;
   border-radius: $border-radius;
   padding: 32px;
   align-self: start;
@@ -221,7 +221,7 @@
   box-shadow: none;
   text-align: left;
   &.open {
-    box-shadow: 0 2px 8px rgba(61,97,211,0.08);
+    box-shadow: $shadow-light;
   }
 }
 
@@ -249,7 +249,7 @@
 // --- SEO-friendly odpovědi ---
 .faqAnswer {
   margin-top: 0.7rem;
-  color: #434a54;
+  color: $color-gray-700;
   font-size: 1rem;
   // odpověď je v DOM vždy, ale defaultně skrytá
   display: none;
@@ -289,6 +289,6 @@
 .personal {
   font-size: 1.05rem;
   text-align: center;
-  color: #444;
+  color: $color-gray-600;
   margin-top: 2rem;
 }

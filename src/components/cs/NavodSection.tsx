@@ -86,8 +86,8 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upravit&quot;)</p>
-                  <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Smazat&quot;)</p>
+                  <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit className={styles.iconEdit} /> (&quot;Upravit&quot;)</p>
+                  <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash className={styles.iconTrash} /> (&quot;Smazat&quot;)</p>
                   <p>Editace umožňuje rychle opravovat překlepy nebo doplňovat informace, mazání zase slouží k odstranění starých či nepotřebných údajů.</p> 
                   <p>Díky tomu udržíte vzdělání přehledné a aktuální.</p>
                 </blockquote>
@@ -127,10 +127,10 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam můžete kdykoliv upravit pomocí ikony  <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upravit&quot;)</p>
-                  <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Smazat&quot;)</p>
+                  <p>Každý záznam můžete kdykoliv upravit pomocí ikony  <FaEdit className={styles.iconEdit} /> (&quot;Upravit&quot;)</p>
+                  <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash className={styles.iconTrash} /> (&quot;Smazat&quot;)</p>
                   <p>Editace umožňuje rychle opravovat překlepy nebo doplňovat informace, mazání zase slouží k odstranění starých či nepotřebných údajů.</p> 
-                  <p><strong style={{ color: "red"}}>Celá tato sekce je nepovinná. Pokud nemáte žádné kurzy nebo certifikáty k uvedení, klidně ji přeskočte – její základní stav je &quot;vypnuto&quot;.</strong></p>
+                  <p><strong className={styles.strongDanger}>Celá tato sekce je nepovinná. Pokud nemáte žádné kurzy nebo certifikáty k uvedení, klidně ji přeskočte – její základní stav je &quot;vypnuto&quot;.</strong></p>
                 </blockquote>
               </div>
             </div>
@@ -163,14 +163,14 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p><strong style={{ color: "#444"}}>Vysvětlení úrovní znalosti jazyka podle CEFR:</strong></p>
-                  <p><strong style={{ color: "#444"}}>A1</strong> – začátečník</p>
-                  <p><strong style={{ color: "#444"}}>A2</strong> – mírně pokročilý</p>
-                  <p><strong style={{ color: "#444"}}>B1</strong> – středně pokročilý</p>
-                  <p><strong style={{ color: "#444"}}>B2</strong> – pokročilý</p>
-                  <p><strong style={{ color: "#444"}}>C1</strong> – velmi pokročilý</p>
-                  <p><strong style={{ color: "#444"}}>C2</strong> – téměř rodilý mluvčí</p>
-                  <p><strong style={{ color: "#444"}}>Rodilý mluvčí</strong> – jazyk používáte jako svůj hlavní a bez omezení</p>
+                  <p><strong className={styles.strongNeutral}>Vysvětlení úrovní znalosti jazyka podle CEFR:</strong></p>
+                  <p><strong className={styles.strongNeutral}>A1</strong> – začátečník</p>
+                  <p><strong className={styles.strongNeutral}>A2</strong> – mírně pokročilý</p>
+                  <p><strong className={styles.strongNeutral}>B1</strong> – středně pokročilý</p>
+                  <p><strong className={styles.strongNeutral}>B2</strong> – pokročilý</p>
+                  <p><strong className={styles.strongNeutral}>C1</strong> – velmi pokročilý</p>
+                  <p><strong className={styles.strongNeutral}>C2</strong> – téměř rodilý mluvčí</p>
+                  <p><strong className={styles.strongNeutral}>Rodilý mluvčí</strong> – jazyk používáte jako svůj hlavní a bez omezení</p>
                 </blockquote>
               </div>
             </div>
@@ -206,8 +206,8 @@ export default function NavodSection() {
                   </p>  
                 </div>
                 <blockquote>
-                    <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upravit&quot;)</p>
-                    <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Smazat&quot;)</p>
+                    <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit className={styles.iconEdit} /> (&quot;Upravit&quot;)</p>
+                    <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash className={styles.iconTrash} /> (&quot;Smazat&quot;)</p>
                     <p>Editace umožňuje rychle opravovat překlepy nebo doplňovat informace, mazání zase slouží k odstranění starých či nepotřebných údajů.</p> 
                 </blockquote>
               </div>
@@ -244,8 +244,8 @@ export default function NavodSection() {
                   </p>   
                 </div>
                 <blockquote>
-                    <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upravit&quot;)</p>
-                    <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Smazat&quot;)</p>
+                    <p>Každý záznam můžete kdykoliv upravit pomocí ikony <FaEdit className={styles.iconEdit} /> (&quot;Upravit&quot;)</p>
+                    <p>Nebo zcela odstranit kliknutím na ikonu  <FaTrash className={styles.iconTrash} /> (&quot;Smazat&quot;)</p>
                     <p>Editace umožňuje rychle opravovat překlepy nebo doplňovat informace, mazání zase slouží k odstranění starých či nepotřebných údajů.</p> 
                 </blockquote>
               </div>
@@ -254,3 +254,4 @@ export default function NavodSection() {
     </section>
   );
 }
+

@@ -76,7 +76,7 @@
     gap: 2rem;
     border-radius: $border-radius;
     background-color: $white-color;
-    border: 2px solid #dddddd;
+    border: 2px solid $color-gray-300;
     padding: 32px;
     &:first-of-type{
         display: none; //možnost přidat 3 kartu - momentálně vypnuto
@@ -279,7 +279,7 @@
     height: auto;
     background-color: $form-color;
     border-radius: $border-radius;
-    box-shadow: 0 8px 24px rgba(85, 143, 219, 0.089);
+    box-shadow: $shadow-soft-xxxl;
     padding: $main-padding;
     padding-bottom: 0;
     align-items: center;

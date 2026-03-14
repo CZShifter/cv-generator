@@ -87,8 +87,8 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upraviť&quot;)</p> 
-                  <p>úplne odstrániť kliknutím na ikonu <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Zmazať&quot;).</p>
+                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit className={styles.iconEdit} /> (&quot;Upraviť&quot;)</p> 
+                  <p>úplne odstrániť kliknutím na ikonu <FaTrash className={styles.iconTrash} /> (&quot;Zmazať&quot;).</p>
                   <p>Editácia umožňuje rýchlo opravovať preklepy alebo dopĺňať informácie, mazanie zase slúži na odstránenie starých či nepotrebných údajov.</p>
                 </blockquote>
               </div>
@@ -124,10 +124,10 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upraviť&quot;)</p> 
-                  <p>úplne odstrániť kliknutím na ikonu <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Zmazať&quot;).</p>
+                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit className={styles.iconEdit} /> (&quot;Upraviť&quot;)</p> 
+                  <p>úplne odstrániť kliknutím na ikonu <FaTrash className={styles.iconTrash} /> (&quot;Zmazať&quot;).</p>
                   <p>Editácia umožňuje rýchlo opravovať preklepy alebo dopĺňať informácie, mazanie zase slúži na odstránenie starých či nepotrebných údajov.</p>
-                  <p><strong style={{ color: "red" }}>Celá táto sekcia je nepovinná. Pokiaľ nemáte žiadne kurzy alebo certifikáty, pokojne ju preskočte – jej základný stav je &quot;vypnutý&quot;.</strong></p>
+                  <p><strong className={styles.strongDanger}>Celá táto sekcia je nepovinná. Pokiaľ nemáte žiadne kurzy alebo certifikáty, pokojne ju preskočte – jej základný stav je &quot;vypnutý&quot;.</strong></p>
                 </blockquote>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p><strong style={{ color: "#444" }}>Vysvetlenie úrovní podľa CEFR:</strong></p>
+                  <p><strong className={styles.strongNeutral}>Vysvetlenie úrovní podľa CEFR:</strong></p>
                   <p>A1 – začiatočník</p>
                   <p>A2 – mierne pokročilý</p>
                   <p>B1 – stredne pokročilý</p>
@@ -196,8 +196,8 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upraviť&quot;)</p> 
-                  <p>úplne odstrániť kliknutím na ikonu <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Zmazať&quot;).</p>
+                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit className={styles.iconEdit} /> (&quot;Upraviť&quot;)</p> 
+                  <p>úplne odstrániť kliknutím na ikonu <FaTrash className={styles.iconTrash} /> (&quot;Zmazať&quot;).</p>
                   <p>Editácia umožňuje rýchlo opravovať preklepy alebo dopĺňať informácie, mazanie zase slúži na odstránenie starých či nepotrebných údajov.</p>
                 </blockquote>
               </div>
@@ -235,8 +235,8 @@ export default function NavodSection() {
                   </p>
                 </div>
                 <blockquote>
-                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit style={{ color: "#11539e", verticalAlign: "middle" }} /> (&quot;Upraviť&quot;)</p> 
-                  <p>úplne odstrániť kliknutím na ikonu <FaTrash style={{ color: "#d7263d", verticalAlign: "middle" }} /> (&quot;Zmazať&quot;).</p>
+                  <p>Každý záznam môžete kedykoľvek upraviť pomocou ikony <FaEdit className={styles.iconEdit} /> (&quot;Upraviť&quot;)</p> 
+                  <p>úplne odstrániť kliknutím na ikonu <FaTrash className={styles.iconTrash} /> (&quot;Zmazať&quot;).</p>
                   <p>Editácia umožňuje rýchlo opravovať preklepy alebo dopĺňať informácie, mazanie zase slúži na odstránenie starých či nepotrebných údajov.</p>
                   <p>Správne radenie a konkrétny popis každej skúsenosti vám výrazne zvýši šancu zaujať personalistu už pri prvom pohľade na životopis.</p>
                 </blockquote>
@@ -246,3 +246,4 @@ export default function NavodSection() {
     </section>
   );
 }
+

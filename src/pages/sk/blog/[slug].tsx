@@ -195,7 +195,7 @@ export default function BlogPost({ data, content, slug, altSlugCs }: BlogPostPro
               {content}
             </ReactMarkdown>
           </div>
-          <div style={{ marginTop: "2.4rem", color: "#7b849c", fontSize: "0.98rem" }}>
+          <div className={styles.postMeta}>
             {data.author && <span>Autor: {data.author} | </span>}
             {data.date && <span>{data.date}</span>}
           </div>

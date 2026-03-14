@@ -93,10 +93,10 @@
 }
 
 /* Varianty barev */
-.IconVerifying { color: #6b7280; } /* šedá */
-.IconCancelled { color: #e11d48; } /* červená */
-.IconError     { color: #e11d48; }
-.IconInfo      { color: #6b7280; }
+.IconVerifying { color: $color-gray-450; } /* šedá */
+.IconCancelled { color: $color-danger-strong; } /* červená */
+.IconError     { color: $color-danger-strong; }
+.IconInfo      { color: $color-gray-450; }
 
 /* Spinner animace pro "verifying" */
 .Spin {

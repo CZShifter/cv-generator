@@ -94,7 +94,7 @@
   }
 
   blockquote {
-    background: #f5f8fe;
+    background: $color-gray-090;
     border-left: 4px solid $btn-hover-color;
     padding: 0.85rem 1.2rem;
     font-style: italic;
@@ -104,7 +104,7 @@
   }
 
   code {
-    background: #f3f3f5;
+    background: $color-gray-110;
     padding: 0.16em 0.42em;
     border-radius: 5px;
     font-size: 0.97em;
@@ -112,14 +112,20 @@
   }
 
   pre {
-    background: #f3f3f5;
+    background: $color-gray-110;
     padding: 1.1em 1.4em;
     border-radius: 7px;
     overflow-x: auto;
     font-size: 0.98rem;
     margin-bottom: 1.2rem;
-    color: #22304b;
+    color: $color-gray-900;
   }
+}
+
+.postMeta {
+  margin-top: 2.4rem;
+  color: $color-gray-520;
+  font-size: 0.98rem;
 }
 
 /* --- obsah článku renderovaný z Markdownu --- */
@@ -127,7 +133,7 @@
   max-width: $max-width;
   img { max-width: 100%; height: auto; display: block; margin-bottom: 0;}
   ul, ol { line-height: 1.7; margin: 0; padding: 1rem 1rem 1rem 1rem; }
-  hr { border: none; border-top: 0px solid #e2e2e2; }
+  hr { border: none; border-top: 0px solid $color-gray-200; }
   a {
     display: inline;
     padding: 0;
@@ -144,16 +150,16 @@
     }
   }
   span a{
-    background: #154D90;
-    color: white !important;
+    background: $btn-hover-color;
+    color: $white-color !important;
     border-radius: 4px;
-    box-shadow: 0 8px 10px rgba(36, 101, 199, 0.2);
+    box-shadow: $shadow-soft-xl;
     text-decoration: none;
     font-weight: 500;
     transition: 200ms ease-in-out;
     padding: 0.5rem 1rem;
     &:hover{
-      background-color: #2465c7;
+      background-color: $btn-form;
       transform: translateY(-5px);
       text-decoration: none;
     }

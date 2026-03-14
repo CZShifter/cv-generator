@@ -50,9 +50,9 @@
 }
 
 .summaryBox {
-  border: 1px solid #e6e9f2;
+  border: 1px solid $color-gray-150;
   border-radius: $border-radius;
-  background: #f9fbff;
+  background: $color-gray-060;
   padding: 1.1rem 1.4rem;
   margin-bottom: 2rem;
 }
@@ -127,8 +127,8 @@
 }
 
 .sample {
-  border: 1px solid #e6e9f2;
-  background: #f9fbff;
+  border: 1px solid $color-gray-150;
+  background: $color-gray-060;
   border-radius: $border-radius;
   padding: 1.4rem 1.6rem;
   margin-bottom: 2rem;
@@ -205,7 +205,7 @@
   padding: 16px 18px;
   border-left: 4px solid $btn-hover-color;
   border-radius: 6px;
-  background: #f3f7fc;
+  background: $color-gray-070;
 }
 
 .adTitle {
@@ -253,14 +253,14 @@
 .adNote {
   margin: 12px 0 0;
   font-size: $p;
-  color: #44556b;
+  color: $color-gray-800;
 }
 
 .shareBox {
   padding: 14px 16px;
-  border: 1px solid #e6e9f2;
+  border: 1px solid $color-gray-150;
   border-radius: 6px;
-  background: #ffffff;
+  background: $white-color;
 }
 
 .shareTitle {
@@ -286,7 +286,7 @@
   height: 42px;
   border-radius: 50%;
   color: $btn-hover-color;
-  background: #f3f7fc;
+  background: $color-gray-070;
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 
@@ -298,7 +298,7 @@
   &:hover {
     background: $btn-hover-color;
     color: $white-color;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    box-shadow: $shadow-share;
     transform: translateY(-1px);
   }
 }
@@ -326,8 +326,8 @@
   margin: 16px 0;
   padding: 14px 18px;
   border-left: 4px solid $btn-hover-color;
-  background: #f3f7fc;
-  color: #203047;
+  background: $color-gray-070;
+  color: $color-gray-850;
   font-style: italic;
   border-radius: 6px;
 }
@@ -359,7 +359,7 @@
 
 .previewFrame {
   border-radius: $border-radius;
-  background: #ffffff;
+  background: $white-color;
   overflow: hidden;
   width: 100%;
   max-width: 100%;
@@ -370,7 +370,7 @@
 }
 
 .resumeFrame {
-  border: 1px solid #e6e9f2;
+  border: 1px solid $color-gray-150;
   border-radius: $border-radius;
   box-sizing: border-box;
   overflow: hidden;
@@ -444,7 +444,7 @@
     }
 
     > div:not(.contact) > h3 {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid $color-border-light;
       padding-bottom: 0.5rem;
     }
 
@@ -478,10 +478,10 @@
 }
 
 .faqItem {
-  border: 1px solid #e6e9f2;
+  border: 1px solid $color-gray-150;
   border-radius: $border-radius;
-  background: #ffffff;
-  box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.18);
+  background: $white-color;
+  box-shadow: $shadow-card;
   overflow: hidden;
 }
 
@@ -505,7 +505,7 @@
 .faqIcon {
   width: 10px;
   height: 10px;
-  border: solid #6b7280;
+  border: solid $color-gray-450;
   border-width: 0 2px 2px 0;
   display: inline-block;
   transform: rotate(45deg);
@@ -608,7 +608,7 @@
     text-decoration: none;
     background-color: $btn-form;
     color: $white-color;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    box-shadow: $shadow-soft;
     transform: translateY(5px);
   }
 }

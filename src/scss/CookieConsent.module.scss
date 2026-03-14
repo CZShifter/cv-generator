@@ -4,25 +4,25 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #232323;
-  color: #fff;
+  background: $color-black-900;
+  color: $white-color;
   padding: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   z-index: 2000;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+  box-shadow: $shadow-cookie;
 }
 
 .cookieConsentText {
   font-size: 1rem;
   margin-right: 1.5rem;
   a {
-    color: #aee8ff;
+    color: $color-link-soft;
     text-decoration: underline;
     &:hover {
-      color: #66cfff;
+      color: $color-link-soft-hover;
     }
   }
 }
@@ -43,7 +43,7 @@
   font-size: 1rem;
   cursor: pointer;
   background: $btn-hover-color;
-  color: #fff;
+  color: $white-color;
   transition: background 0.2s;
   &:hover {
     background: $btn-form;
@@ -56,11 +56,11 @@
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
-  background: #444;
-  color: #fff;
+  background: $color-gray-600;
+  color: $white-color;
   transition: background 0.2s;
   &:hover {
-    background: #666;
+    background: $color-gray-550;
   }
 }
 

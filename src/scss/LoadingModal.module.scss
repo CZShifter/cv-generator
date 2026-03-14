@@ -2,7 +2,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 15, 20, 0.55);
+  background: $overlay-dark;
   backdrop-filter: blur(2px);
   display: grid;
   place-items: center;
@@ -11,7 +11,7 @@
 
 .modal {
   background: $btn-hover-color;
-  color: #fff;
+  color: $white-color;
   min-width: 260px;
   max-width: min(90vw, 480px);
   border-radius: 8px;
@@ -19,16 +19,16 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: $shadow-modal;
+  border: 1px solid $white-08;
 }
 
 .spinner {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.25);
-  border-top-color: #fff;
+  border: 3px solid $white-25;
+  border-top-color: $white-color;
   animation: spin 0.8s linear infinite;
   flex: 0 0 auto;
 }
