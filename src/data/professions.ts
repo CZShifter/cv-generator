@@ -743,14 +743,14 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
         ? [
             "Stručný návod, jak napsat životopis pro danou profesi",
             "Dovednosti a úkoly, které personalisté očekávají",
-            "Ukázka životopisu s předvyplněnými daty",
+            "Vzor životopisu s předvyplněnými daty",
             "Co u této profese personalisté ocení",
             "Nejčastější chyby v životopise",
           ]
         : [
             "Stručný návod, ako napísať životopis pre danú profesiu",
             "Zručnosti a úlohy, ktoré personalisti očakávajú",
-            "Ukážka životopisu s predvyplnenými údajmi",
+            "Vzor životopisu s predvyplnenými údajmi",
             "Čo personalisti pri tejto profesii ocenia",
             "Najčastejšie chyby v životopise",
           ],

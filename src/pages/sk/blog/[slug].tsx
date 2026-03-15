@@ -24,10 +24,13 @@ import {
 // Povolené atributy pro HTML v Markdownu
 const schema: Schema = {
   ...defaultSchema,
+  tagNames: [...(defaultSchema.tagNames || []), "details", "summary"],
   attributes: {
     ...defaultSchema.attributes,
     div: [...(defaultSchema.attributes?.div || []), ["className"], ["class"], ["style"]],
     section: [...(defaultSchema.attributes?.section || []), ["className"], ["class"], ["style"]],
+    details: [...(defaultSchema.attributes?.details || []), ["className"], ["class"], ["open"]],
+    summary: [...(defaultSchema.attributes?.summary || []), ["className"], ["class"]],
     img: [
       ...(defaultSchema.attributes?.img || []),
       ["className"], ["class"], ["style"], ["loading"], ["decoding"], ["sizes"], ["srcSet"], ["alt"]

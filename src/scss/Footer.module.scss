@@ -36,4 +36,14 @@
     color: $form-color;
     font-size: $p_small;
   }
+   @media (max-width: 410px) {
+    flex-wrap: wrap;
+    gap: 0;
+    a{
+      color: $form-color;
+      font-size: $p_small;
+      padding: 0.5rem;
+      padding-bottom: 0;
+    }
+  }
 }

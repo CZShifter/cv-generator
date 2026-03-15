@@ -9,8 +9,8 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} {SITE_NAME_SK} Všetky práva vyhradené.</p>
         <div className={styles.odkazy_wrapper}>
         <p><a href="/sk/dokumenty/obchodni-podminky" target="_blank" rel="noopener noreferrer">Obchodné podmienky</a></p>
-        <p>|</p>
-        <p><a href="/sk/dokumenty/gdpr" target="_blank" rel="noopener noreferrer">Ochrana osobných údajov</a></p>
+        <p>|&nbsp;<a href="/sk/dokumenty/gdpr" target="_blank" rel="noopener noreferrer"> Ochrana osobných údajov</a></p>
+        <p>|&nbsp;<a href="/sk/profese" target="_blank" rel="noopener noreferrer"> Profese</a></p>
         </div>
       </div>
     </footer>

@@ -53,8 +53,8 @@ export default function ProfessionPage({ content }: PageProps) {
   const highlightText = (text: string) => {
     if (!text) return text;
     const escapedName = content.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const splitPattern = new RegExp(`(${escapedName}|životopis\\w*)`, "gi");
-    const testPattern = new RegExp(`^(${escapedName}|životopis\\w*)$`, "i");
+    const splitPattern = new RegExp(`(${escapedName}|životopis\\w*|vzor\\w*|20\\d{2})`, "gi");
+    const testPattern = new RegExp(`^(${escapedName}|životopis\\w*|vzor\\w*|20\\d{2})$`, "i");
     return text.split(splitPattern).map((part, index) =>
       testPattern.test(part)
         ? <strong key={`${part}-${index}`}>{part}</strong>
