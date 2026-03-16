@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { RiTelegram2Line, RiFacebookCircleLine } from "react-icons/ri";
+import { RiTelegram2Line, RiFacebookCircleLine, RiDoubleQuotesR } from "react-icons/ri";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { LiaRedditAlien } from "react-icons/lia";
@@ -286,6 +286,9 @@ export default function ProfessionPage({ content }: PageProps) {
           <section className={styles.splitSection}>
             <div className={styles.splitLeft}>
               <div className={styles.adBox}>
+                <span className={styles.adQuoteIcon} aria-hidden="true">
+                  <RiDoubleQuotesR />
+                </span>
                 <h3 className={styles.adTitle}>{content.adExample.title}</h3>
                 <p className={styles.adIntro}>{content.adExample.introText}</p>
                 <div className={styles.adSection}>

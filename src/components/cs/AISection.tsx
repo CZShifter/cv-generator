@@ -1,5 +1,3 @@
-import 'swiper/css'
-import 'swiper/css/effect-coverflow'
 import styles from '@/scss/AISection.module.scss'
 import { SITE_VERSION } from "@/config/site";
 

@@ -1,14 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
-import type { Schema } from "hast-util-sanitize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { blogMdxComponents } from "@/components/blog/BlogMdxComponents";
 import {
   SITE_URL,
   SITE_URL_SK,
@@ -21,43 +19,14 @@ import {
   LOGO_SCHEMA_URL_SK
 } from "@/config/site";
 
-// Povolené atributy pro HTML v Markdownu
-const schema: Schema = {
-  ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames || []), "details", "summary"],
-  attributes: {
-    ...defaultSchema.attributes,
-    div: [...(defaultSchema.attributes?.div || []), ["className"], ["class"], ["style"]],
-    section: [...(defaultSchema.attributes?.section || []), ["className"], ["class"], ["style"]],
-    details: [...(defaultSchema.attributes?.details || []), ["className"], ["class"], ["open"]],
-    summary: [...(defaultSchema.attributes?.summary || []), ["className"], ["class"]],
-    img: [
-      ...(defaultSchema.attributes?.img || []),
-      ["className"], ["class"], ["style"], ["loading"], ["decoding"], ["sizes"], ["srcSet"], ["alt"]
-    ],
-    p: [...(defaultSchema.attributes?.p || []), ["className"], ["class"], ["style"]],
-    span: [...(defaultSchema.attributes?.span || []), ["className"], ["class"], ["style"]],
-    ul: [...(defaultSchema.attributes?.ul || []), ["className"], ["class"], ["style"]],
-    ol: [...(defaultSchema.attributes?.ol || []), ["className"], ["class"], ["style"]],
-    li: [...(defaultSchema.attributes?.li || []), ["className"], ["class"], ["style"]],
-    a: [...(defaultSchema.attributes?.a || []), ["className"], ["class"], ["style"], ["target"], ["rel"]],
-    h1: [...(defaultSchema.attributes?.h1 || []), ["className"], ["class"], ["style"]],
-    h2: [...(defaultSchema.attributes?.h2 || []), ["className"], ["class"], ["style"]],
-    h3: [...(defaultSchema.attributes?.h3 || []), ["className"], ["class"], ["style"]],
-    h4: [...(defaultSchema.attributes?.h4 || []), ["className"], ["class"], ["style"]],
-    h5: [...(defaultSchema.attributes?.h5 || []), ["className"], ["class"], ["style"]],
-    h6: [...(defaultSchema.attributes?.h6 || []), ["className"], ["class"], ["style"]],
-  },
-};
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const postsDirectory = path.join(process.cwd(), "src/content/sk/blog");
   const filenames = fs.readdirSync(postsDirectory);
 
   const paths = filenames
-    .filter(name => name.endsWith(".md"))
+    .filter(name => name.endsWith(".mdx"))
     .map(filename => ({
-      params: { slug: filename.replace(/\.md$/, "") },
+      params: { slug: filename.replace(/\.mdx$/, "") },
     }));
 
   return { paths, fallback: false };
@@ -66,28 +35,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const { params } = context;
   const slug = params?.slug as string;
-  const filePath = path.join(process.cwd(), "src/content/sk/blog", `${slug}.md`);
+  const filePath = path.join(process.cwd(), "src/content/sk/blog", `${slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
+  const mdxSource = await serialize(content, {
+    blockJS: false,
+    blockDangerousJS: true,
+  });
 
   // Najdi spárovaný CZ článek podle pairId (pokud existuje)
   const pairId = typeof data.pairId === "string" ? data.pairId.trim() : "";
   let altSlugCs: string | null = null;
   if (pairId) {
     const csDir = path.join(process.cwd(), "src/content/cs/blog");
-    const csFiles = fs.readdirSync(csDir).filter((f) => f.endsWith(".md"));
+    const csFiles = fs.readdirSync(csDir).filter((f) => f.endsWith(".mdx"));
     for (const f of csFiles) {
       const full = path.join(csDir, f);
       const raw = fs.readFileSync(full, "utf8");
       const fm = matter(raw).data as { pairId?: string };
       if (typeof fm.pairId === "string" && fm.pairId.trim() === pairId) {
-        altSlugCs = f.replace(/\.md$/, "");
+        altSlugCs = f.replace(/\.mdx$/, "");
         break;
       }
     }
   }
 
-  return { props: { data, content, slug, altSlugCs } };
+  return { props: { data, slug, altSlugCs, mdxSource } };
 };
 
 type BlogPostProps = {
@@ -100,12 +73,12 @@ type BlogPostProps = {
     author?: string;
     pairId?: string;
   };
-  content: string;
   slug: string;
   altSlugCs?: string | null;
+  mdxSource: MDXRemoteSerializeResult;
 };
 
-export default function BlogPost({ data, content, slug, altSlugCs }: BlogPostProps) {
+export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostProps) {
   return (
     <>
       <Head>
@@ -188,19 +161,14 @@ export default function BlogPost({ data, content, slug, altSlugCs }: BlogPostPro
               />
             </picture>
           )}
+          <div className={styles.postMetaTop}>
+            {data.author && <span>Autor: {data.author} | </span>}
+            {data.date && <span>{data.date}</span>}
+          </div>
           <h1>{data.title}</h1>
           {/* Povolit HTML bloky + bezpečná sanitizace */}
           <div className={styles.prose}>
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw, [rehypeSanitize, schema]]}
-            >
-              {content}
-            </ReactMarkdown>
-          </div>
-          <div className={styles.postMeta}>
-            {data.author && <span>Autor: {data.author} | </span>}
-            {data.date && <span>{data.date}</span>}
+            <MDXRemote {...mdxSource} components={blogMdxComponents} />
           </div>
         </article>
       </div>

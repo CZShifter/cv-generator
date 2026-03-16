@@ -17,9 +17,9 @@ type BlogPostMeta = {
   description: string;
   date: string;          // původní text z frontmatteru (pro zobrazení)
   _ts: number;           // číslo pro bezpečné řazení (timestamp)
-  coverImage?: string;
-  coverImageWebp?: string;
-  author?: string;
+  coverImage: string | null;
+  coverImageWebp: string | null;
+  author?: string | null;
 };
 
 type BlogIndexProps = {
@@ -63,7 +63,7 @@ function parseFrontmatterDate(input: unknown): number {
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), "src/content/sk/blog");
   const publicDir = path.join(process.cwd(), "public");
-  const filenames = fs.readdirSync(postsDirectory).filter(f => f.endsWith(".md"));
+  const filenames = fs.readdirSync(postsDirectory).filter(f => f.endsWith(".mdx"));
 
   const posts: BlogPostMeta[] = filenames.map(filename => {
     const filePath = path.join(postsDirectory, filename);
@@ -92,14 +92,14 @@ export async function getStaticProps() {
       }
   
       return {
-        slug: filename.replace(/\.md$/, ""),
-        title: data.title ?? filename.replace(/\.md$/, ""),
+      slug: filename.replace(/\.mdx$/, ""),
+      title: data.title ?? filename.replace(/\.mdx$/, ""),
         description: data.description ?? "",
         date: dateStr,
         _ts: ts,
-        coverImage,
-        coverImageWebp, // ← přidáno
-        author: data.author,
+        coverImage: coverImage ?? null,
+        coverImageWebp: coverImageWebp ?? null, // ← přidáno
+        author: typeof data.author === "string" ? data.author : null,
       };
     });
 

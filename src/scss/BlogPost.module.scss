@@ -35,13 +35,14 @@
     object-fit: cover;
     object-position: middle;
     border-radius: $border-radius;
+    border: 1px solid #e6e9f2;
     background: $white-color;
     display: block;
   }
   picture {
     width: 100%;
     max-height: 400px;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     object-fit: cover;
     object-position: center;
     border-radius: $border-radius;
@@ -70,7 +71,161 @@
     margin-bottom: 1.2rem;
   }
   p{
-    margin-bottom: 8px;
+    margin-bottom: 0;
+  }
+
+  .perex {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .blogAfterSection {
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+
+  .blogAfterGrid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .blogAfterCol {
+    min-width: 0;
+  }
+
+  .blogRelatedList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .blogRelatedItem {
+    display: block;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 8px;
+    background: $white-color;
+    border: 1px solid $color-gray-150;
+    box-shadow: none;
+    transition: box-shadow 0.18s, transform 0.18s;
+  }
+
+  .blogRelatedItem:hover {
+    box-shadow: $shadow-soft;
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  .blogRelatedMedia {
+    width: 160px;
+    height: 100px;
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background: $color-gray-100;
+    float: left;
+    margin: 0 16px 8px 0;
+  }
+
+  .blogRelatedMedia img {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 500px) {
+    .blogRelatedMedia {
+      width: 120px;
+      height: 75px;
+    }
+    .blogRelatedMedia img {
+      width: 120px;
+      height: 75px;
+    }
+    .perex {
+      text-align: justify;
+    }
+  }
+
+  .blogRelatedBody {
+    display: block;
+    min-width: 0;
+  }
+
+  .blogRelatedItem::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .blogRelatedTitle {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .blogRelatedDesc {
+    color: $text2-color;
+    font-size: $p;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .blogCta {
+    margin: 0 !important;
+  }
+
+  .blogCtaBlock {
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 32px 24px;
+    background-color: $btn-hover-color;
+    border-radius: $border-radius;
+    text-align: center;
+  }
+
+  .blogCtaTitle {
+    font-size: $h3;
+    color: $white-color;
+    margin: 0;
+    text-align: center;
+  }
+
+  .blogCtaText {
+    font-size: $p;
+    color: $white-color;
+    margin: 0;
+    text-align: center;
+  }
+
+  .blogCtaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white-color;
+    color: $btn-hover-color;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+  }
+
+  .blogCtaButton:hover {
+    text-decoration: none;
+    background-color: $btn-form;
+    color: $white-color;
+    box-shadow: $shadow-soft;
+    transform: translateY(5px);
   }
 
   h2 {
@@ -79,6 +234,7 @@
     color: $btn-hover-color;
     font-weight: 600;
     margin-bottom: 1rem;
+    text-align: left;
   }
 
   h3 {
@@ -87,10 +243,15 @@
     font-size: $h3;
     font-weight: 600;
     color: $text-color;
+    text-align: left;
+  }
+
+  .blogSectionTitle {
+    margin-top: 0;
   }
   strong{
     color: $btn-hover-color;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   blockquote {
@@ -122,17 +283,23 @@
   }
 }
 
-.postMeta {
-  margin-top: 2.4rem;
+.postMetaTop {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   color: $color-gray-520;
-  font-size: 0.98rem;
+  font-size: 0.85rem;
+  text-align: left;
 }
 
 /* --- obsah článku renderovaný z Markdownu --- */
 .prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   max-width: $max-width;
   img { max-width: 100%; height: auto; display: block; margin-bottom: 0;}
-  ul, ol { line-height: 1.7; margin: 0; padding: 1rem 1rem 1rem 1rem; }
+  ul, ol { line-height: 1.7; margin: 0; padding: 0 1rem; }
   hr { border: none; border-top: 0px solid $color-gray-200; }
   a {
     display: inline;
@@ -164,7 +331,7 @@
       text-decoration: none;
     }
   }
-  :global(.textLink){
+  .textLink{
     display: inline !important;
     padding: 0 !important;
     border-radius: 0 !important;
@@ -181,9 +348,9 @@
   }
 
   /* ZÁKLAD: obal */
-  :global(.two-thirds) {
+  .twoThirds {
     display: grid;
-    gap: $gap64;
+    gap: 2rem;
     justify-content: start;
     align-items: start;
     grid-template-columns: 4fr 4fr;
@@ -192,38 +359,37 @@
     }
   }
   /* Výchozí pořadí: text vlevo, obrázek vpravo */
-  :global(.two-thirds .text)  { order: 1; }
-  :global(.two-thirds .media) { order: 2; }
+  .twoThirdsText  { order: 1; }
+  .twoThirdsMedia { order: 2; }
+  .twoThirdsText {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   /* OBRÁZEK VPRAVO (aliasy image-right / right)
      → poměr 2fr 1fr, pořadí text|media */
-  :global(.two-thirds.image-right),
-  :global(.two-thirds.right) {
+  .twoThirds.imageRight {
     grid-template-columns: 4fr 4fr;
   }
-  :global(.text2) {
+  .textBlock {
     display: flex;
     flex-direction: column;
     gap: $gap;
   }
-  :global(.two-thirds.image-right .text),
-  :global(.two-thirds.right .text)  { order: 1; }
-  :global(.two-thirds.image-right .media),
-  :global(.two-thirds.right .media) { order: 2; }
+  .twoThirds.imageRight .twoThirdsText  { order: 1; }
+  .twoThirds.imageRight .twoThirdsMedia { order: 2; }
 
   /* OBRÁZEK VLEVO (aliasy image-left / left)
      → poměr 1fr 2fr, pořadí media|text */
-  :global(.two-thirds.image-left),
-  :global(.two-thirds.left) {
+  .twoThirds.imageLeft {
     grid-template-columns: 4fr 4fr;
   }
-  :global(.two-thirds.image-left .text),
-  :global(.two-thirds.left .text)  { order: 2; }
-  :global(.two-thirds.image-left .media),
-  :global(.two-thirds.left .media) { order: 1; }
+  .twoThirds.imageLeft .twoThirdsText  { order: 2; }
+  .twoThirds.imageLeft .twoThirdsMedia { order: 1; }
 
   /* Styl pro IMG uvnitř media */
-  :global(.two-thirds .media img) {
+  .twoThirdsMedia img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -232,27 +398,50 @@
   }
   /* Mobil: jeden sloupec, obrázek vždy nad textem */
   @media (max-width: 700px) {
-    :global(.two-thirds.image-left) { grid-template-columns: 1fr; }
-    :global(.two-thirds .media) { order: 1; }
-    :global(.two-thirds .text)  { order: 2; }
+    .twoThirds.imageLeft { grid-template-columns: 1fr; }
+    .twoThirdsMedia { order: 1; }
+    .twoThirdsText  { order: 2; }
+  }
+  @media (max-width: 900px) {
+    .blogAfterGrid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .twoThirds {
+      gap: 1rem;
+    }
   }
   @media (max-width: 700px) {
-    :global(.two-thirds.image-right) { grid-template-columns: 1fr; }
-    :global(.two-thirds .media) { order: 1; }
-    :global(.two-thirds .text)  { order: 2; }
+    .twoThirds.imageRight { grid-template-columns: 1fr; }
+    .twoThirdsMedia { order: 1; }
+    .twoThirdsText  { order: 2; }
   }
   @media (max-width: 700px) {
-     h1,h2{
+     h1{
       text-align: center;
      }
-    p,ul,li,h3,h4{
+     h2, h3{
+      text-align: left;
+     }
+    p,ul,li,h4{
       text-align: left;
     }
   }
 }
 
+.prose h2,
+.prose h3,
+.prose h4,
+.prose p {
+  margin: 0;
+}
+
+.prose h2 {
+  margin-top: 1rem;
+}
+
 /* Box pro oblečení na pohovor */
-.prose :global(.dressBox) {
+.prose .dressBox {
   width: 100%;
   background: $color-gray-060;
   border: 1px solid $color-gray-150;
@@ -260,48 +449,137 @@
   padding: 16px 18px;
 }
 
-.prose :global(.dressTitle) {
+.prose .dressTitle {
   margin: 0 0 12px 0;
   color: $btn-hover-color;
   font-size: calc($h3);
   font-weight: 600;
 }
 
-.prose :global(.dressGrid) {
+.prose .dressGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 8px 16px;
 }
 
-.prose :global(.dressHead) {
+.prose .dressHead {
   font-weight: 700;
   color: $text-color;
   font-size: $p;
 }
 
-.prose :global(.dressCell) {
+.prose .dressCell {
   color: $text-color;
   font-size: $p;
   line-height: 1.6;
 }
 
+/* Quote box */
+.prose .quoteBox {
+  width: 100%;
+  background: $color-gray-060;
+  border: 1px solid $color-gray-150;
+  border-radius: $border-radius;
+  padding: 16px 18px;
+  position: relative;
+}
+
+.prose .quoteLabel {
+  font-weight: 700;
+  color: $btn-hover-color;
+  font-size: $p;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.prose .quoteText {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-left: 0;
+  color: $text-color;
+  font-size: $p;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.prose .quoteIcon {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  color: $btn-hover-color;
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.prose .summaryBox {
+  border: 1px solid $color-gray-150;
+  border-radius: $border-radius;
+  background: $color-gray-060;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 0;
+}
+
+.prose .summaryTitle {
+  font-size: calc($h3);
+  color: $btn-hover-color;
+  margin: 0 0 0.8rem 0;
+}
+
+.prose .summaryList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: summary-item;
+}
+
+.prose .summaryList li {
+  counter-increment: summary-item;
+  color: $text-color;
+  font-size: $p;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 0;
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.prose .summaryList li::before {
+  content: counter(summary-item) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: $btn-hover-color;
+  font-weight: 600;
+}
+
+.prose .summaryList a {
+  color: $btn-hover-color;
+  text-decoration: none;
+}
+
+.prose .summaryList a:hover {
+  text-decoration: underline;
+}
+
 /* Blog FAQ (accordion) */
-.prose :global(.blogFaq) {
+.prose .blogFaq {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
   margin-top: 0.6rem;
 }
 
-.prose :global(.blogFaqItem) {
+.prose .blogFaqItem {
   border: 1px solid $color-gray-150;
   border-radius: $border-radius;
   background: $white-color;
-  box-shadow: $shadow-card;
+  box-shadow: none;
   overflow: hidden;
 }
 
-.prose :global(.blogFaqQuestion) {
+.prose .blogFaqQuestion {
   list-style: none;
   display: flex;
   align-items: center;
@@ -314,11 +592,11 @@
   font-weight: 600;
 }
 
-.prose :global(.blogFaqQuestion::-webkit-details-marker) {
+.prose .blogFaqQuestion::-webkit-details-marker {
   display: none;
 }
 
-.prose :global(.blogFaqIcon) {
+.prose .blogFaqIcon {
   width: 10px;
   height: 10px;
   border: solid $color-gray-450;
@@ -328,15 +606,15 @@
   transition: transform 0.2s ease;
 }
 
-.prose :global(.blogFaqItem[open] .blogFaqIcon) {
+.prose .blogFaqItem[open] .blogFaqIcon {
   transform: rotate(-135deg);
 }
 
-.prose :global(.blogFaqAnswer) {
+.prose .blogFaqAnswer {
   padding: 0 1rem 1rem;
 }
 
-.prose :global(.blogFaqAnswer p) {
+.prose .blogFaqAnswer p {
   font-size: $p;
   color: $text-color;
   line-height: 1.7;
@@ -344,7 +622,7 @@
 }
 
 /* Odkazy na konci článku */
-.prose :global(.blogLinksRow) {
+.prose .blogLinksRow {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -352,7 +630,7 @@
   margin-top: 1.5rem;
 }
 
-.prose :global(.blogLinkCard) {
+.prose .blogLinkCard {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -372,8 +650,8 @@
   }
 }
 
-.prose :global(.blogLinksRow .blogLinkCard picture),
-.prose :global(.blogLinksRow .blogLinkCard img) {
+.prose .blogLinksRow .blogLinkCard picture,
+.prose .blogLinksRow .blogLinkCard img {
   width: 100%;
   height: 160px !important;
   max-height: 160px !important;
@@ -383,32 +661,32 @@
   background: $color-gray-100;
 }
 
-.prose :global(.blogLinksRow .blogLinkCard picture) {
+.prose .blogLinksRow .blogLinkCard picture {
   height: 160px !important;
   max-height: 160px !important;
   overflow: hidden;
 }
 
-.prose :global(.blogLinkTitle) {
+.prose .blogLinkTitle {
   color: $primary-color;
   font-weight: 600;
   font-size: $h3;
   text-decoration: none;
 }
 
-.prose :global(.blogLinkCard:hover .blogLinkTitle) {
+.prose .blogLinkCard:hover .blogLinkTitle {
   text-decoration: underline;
 }
 
-.prose :global(.blogLinkCard:hover .blogLinkTitle) {
+.prose .blogLinkCard:hover .blogLinkTitle {
   text-decoration: underline;
 }
 
 @media (max-width: 700px) {
-  .prose :global(.dressHead) {
+  .prose .dressHead {
     margin-top: 6px;
   }
-  .prose :global(.blogLinksRow) {
+  .prose .blogLinksRow {
     flex-direction: column;
     align-items: flex-start;
   }

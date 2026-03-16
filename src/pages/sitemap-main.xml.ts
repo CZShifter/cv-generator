@@ -109,13 +109,13 @@ function collectPosts(root: string, lang: Lang): PostInfo[] {
         walk(full);
         continue;
       }
-      if (!ent.name.endsWith(".md")) continue;
+      if (!ent.name.endsWith(".mdx")) continue;
 
       const raw = fs.readFileSync(full, "utf8");
       const fm = parseFrontmatter(raw);
       const pairId = fm["pairId"]?.trim();
 
-      const rel = path.relative(root, full).replace(/\\/g, "/").replace(/\.md$/, "");
+      const rel = path.relative(root, full).replace(/\\/g, "/").replace(/\.mdx$/, "");
       const slug = "/blog/" + rel;
 
       let lastmodISO: string | undefined;

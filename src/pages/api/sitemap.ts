@@ -21,12 +21,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let blogEntries: { slug: string; lastmod: string }[] = []
 
   if (fs.existsSync(blogDir)) {
-    const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+    const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.mdx'))
     blogEntries = files.map((file) => {
       const filePath = path.join(blogDir, file)
       const stats = fs.statSync(filePath)
       const lastmod = stats.mtime.toISOString().split('T')[0]
-      const slug = file.replace(/\.mdx?$/, '').replace(/\.md$/, '')
+      const slug = file.replace(/\.mdx$/, '')
       return { slug, lastmod }
     })
   }

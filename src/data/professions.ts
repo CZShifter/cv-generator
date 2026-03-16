@@ -309,7 +309,7 @@ const AD_EXAMPLE_OVERRIDES: Record<Locale, Record<string, AdExample>> = {
 
 const AD_EXAMPLE_BASE: Record<Locale, AdExample> = {
   cs: {
-    title: "Příklad inzerátu",
+    title: "Příklad inzerátu:",
     introText: "",
     intro: [],
     responsibilitiesTitle: "Náplň práce",
@@ -319,7 +319,7 @@ const AD_EXAMPLE_BASE: Record<Locale, AdExample> = {
     note: "",
   },
   sk: {
-    title: "Príklad inzerátu",
+    title: "Príklad inzerátu:",
     introText: "",
     intro: [],
     responsibilitiesTitle: "Náplň práce",
