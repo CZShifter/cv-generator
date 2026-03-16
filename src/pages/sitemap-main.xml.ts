@@ -2,6 +2,7 @@ import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
 import fs from "fs";
 import path from "path";
+import matter from "gray-matter";
 
 // ---------------- Statické stránky ----------------
 const STATIC_PATHS = [
@@ -75,17 +76,37 @@ function resolveBases(req: IncomingMessage) {
   return { primaryBase, alternateBase, isCz };
 }
 
-function parseFrontmatter(raw: string): Record<string, string> {
-  const m = raw.match(/^---\s*([\s\S]*?)\s*---/);
-  if (!m) return {};
-  const out: Record<string, string> = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^\s*([A-Za-z0-9_-]+)\s*:\s*(.+?)\s*$/);
-    if (kv) {
-      out[kv[1].trim()] = kv[2].trim().replace(/^"(.*)"$/, "$1").replace(/^'(.*)'$/, "$1");
-    }
+// Bezpečný parser pro formáty: "DD.MM.YYYY", "DD.MM.YY", "YYYY-MM-DD", ISO
+function parseFrontmatterDate(input: unknown): number {
+  if (typeof input !== "string" || !input.trim()) return 0;
+
+  const s = input.trim();
+
+  // DD.MM.YYYY nebo DD.MM.YY
+  const dot = /^(\d{1,2})\.(\d{1,2})\.(\d{2}|\d{4})$/;
+  const m1 = s.match(dot);
+  if (m1) {
+    const [, d, mo, y] = m1;
+    const year = y.length === 2 ? Number(y) + 2000 : Number(y);
+    const month = Number(mo) - 1;
+    const day = Number(d);
+    const dt = new Date(year, month, day).getTime();
+    return Number.isNaN(dt) ? 0 : dt;
   }
-  return out;
+
+  // YYYY-MM-DD
+  const hyph = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+  const m2 = s.match(hyph);
+  if (m2) {
+    const year = Number(m2[1]);
+    const month = Number(m2[2]) - 1;
+    const day = Number(m2[3]);
+    const dt = new Date(year, month, day).getTime();
+    return Number.isNaN(dt) ? 0 : dt;
+  }
+
+  const t = new Date(s).getTime();
+  return Number.isNaN(t) ? 0 : t;
 }
 
 function fileMtimeISO(full: string) {
@@ -112,18 +133,16 @@ function collectPosts(root: string, lang: Lang): PostInfo[] {
       if (!ent.name.endsWith(".mdx")) continue;
 
       const raw = fs.readFileSync(full, "utf8");
-      const fm = parseFrontmatter(raw);
-      const pairId = fm["pairId"]?.trim();
+      const fm = matter(raw).data as Record<string, unknown>;
+      const pairId = typeof fm.pairId === "string" ? fm.pairId.trim() : undefined;
 
       const rel = path.relative(root, full).replace(/\\/g, "/").replace(/\.mdx$/, "");
       const slug = "/blog/" + rel;
 
       let lastmodISO: string | undefined;
-      const d = fm["updated"] || fm["date"];
-      if (d) {
-        const dt = new Date(d);
-        if (!isNaN(dt.getTime())) lastmodISO = dt.toISOString();
-      }
+      const d = fm.updated ?? fm.date;
+      const ts = parseFrontmatterDate(d);
+      if (ts) lastmodISO = new Date(ts).toISOString();
       if (!lastmodISO) lastmodISO = fileMtimeISO(full);
 
       posts.push({ lang, slug, pairId, lastmodISO });
