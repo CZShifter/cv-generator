@@ -196,6 +196,9 @@ function buildXml(
   }
 
   for (const pair of pairs) {
+    if (isCz && !pair.cs) continue;
+    if (!isCz && !pair.sk) continue;
+
     const alts: { lang: Lang; href: string }[] = [];
     let loc = "";
     let lastmod: string | undefined;
