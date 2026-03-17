@@ -331,7 +331,7 @@ const AD_EXAMPLE_BASE: Record<Locale, AdExample> = {
 };
 
 const UI_TEXT: Record<Locale, {
-  introLead: (name: string, categoryLabel: string) => string;
+  introLead: (name: string) => string;
   introSecond: (name: string) => string;
   h1: (name: string) => string;
   title: (name: string) => string;
@@ -427,7 +427,7 @@ const UI_TEXT: Record<Locale, {
     ],
   },
   sk: {
-    introLead: (name, categoryLabel) =>
+    introLead: (name) =>
       `Hľadáte vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
     introSecond: (name) =>
       `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre pozíciu ${name} hneď upraviť v našej [generator] a mať hotovo za pár minút.`,
@@ -588,8 +588,6 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
   if (!seed) return null;
 
   const ui = UI_TEXT[locale];
-  const categoryLabel = CATEGORY_LABELS[locale][seed.category];
-
   const cvData = getCvProfessionData(locale, seed.slug);
   if (!cvData) {
     throw new Error(`Missing cv profession data for slug: ${seed.slug} (${locale})`);
@@ -737,7 +735,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     title: ui.title(seed.name),
     description: ui.description(seed.name),
     h1: ui.h1(seed.name),
-    intro: [ui.introLead(seed.name, categoryLabel), ui.introSecond(seed.name)],
+    intro: [ui.introLead(seed.name), ui.introSecond(seed.name)],
     summaryBullets:
       locale === "cs"
         ? [

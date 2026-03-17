@@ -9,7 +9,7 @@ export default function HookSection2() {
         <div className={styles.HookTitleWrapper}>
           <h2>Ukažte se zaměstnavateli v tom nejlepším světle</h2>
           <p>Motivační dopis je ideálním doplňkem k profesionálnímu životopisu. Pomáhá lépe vysvětlit, proč se o pozici ucházíte, a dává příležitost ukázat vaši motivaci i přínos pro firmu. S naší aplikací vytvoříte kvalitní motivační dopis během několika minut, bez stresu a s jistotou, že výsledek odpovídá současným náborovým standardům.</p>
-          <p>Než si ale vytvoříte váš perfektní motivační dopis, doporučujeme začít u <Link href='/cs/preview'> životopisu</Link>, který bude tvořit pevný základ celé žádosti. Spolu s motivačním dopisem pak získáte kompletní a přesvědčivou prezentaci vašich zkušeností i motivace.</p>
+          <p>Než si ale vytvoříte váš perfektní motivační dopis, doporučujeme začít u <Link href='/cs/preview'>vytvoření životopisu online</Link>, který bude tvořit pevný základ celé žádosti. Spolu s motivačním dopisem pak získáte kompletní a přesvědčivou prezentaci vašich zkušeností i motivace.</p>
         </div>       
         <div className={styles.HookLeft}>
           <picture>

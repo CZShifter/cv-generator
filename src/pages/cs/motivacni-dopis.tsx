@@ -14,6 +14,11 @@ export default function MotivacniDopisPage() {
         <meta name="description" content="Vytvořte si profesionální motivační dopis online zdarma. Aplikace na online tvorbu motivačního dopisu – export do Wordu (.docx). Zjistěte, jak snadno a rychle vytvořit motivační dopis, který personalisty zaujme."/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
+        <meta property="og:title" content={`Vytvořte motivační dopis online a zdarma | ${SITE_NAME}`} />
+        <meta
+          property="og:description"
+          content="Vytvořte si profesionální motivační dopis online zdarma. Aplikace na online tvorbu motivačního dopisu – export do Wordu (.docx). Zjistěte, jak snadno a rychle vytvořit motivační dopis, který personalisty zaujme."
+        />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:alt" content="Ukázka motivačního dopisu vytvořeného online" />
         <meta property="og:url" content={`${SITE_URL}/cs/motivacni-dopis/`} />

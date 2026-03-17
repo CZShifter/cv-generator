@@ -8,9 +8,9 @@ export default function HookSection() {
       <div className={styles.HookWrapper}>
         <div className={styles.HookTitleWrapper}>
           <h2>Štruktúrovaný životopis online za pár minút!</h2>
-          <p>Vytvoriť <Link href="/sk/profese">profesionálny životopis</Link> nemusí byť zložité. Mnoho uchádzačov denne zápasí s nepraktickými editormi, neprehľadnými šablónami a nutnosťou registrácie do služieb, ktoré sľubujú viac, než dodajú. Naša aplikácia vznikla ako odpoveď na tieto problémy.</p>
-          <p>Formulár je intuitívny a doplnený živým náhľadom. Vďaka tomu na vás nečaká prekvapenie vo forme zlého rozloženia stránky po stiahnutí životopisu. Výsledkom je elegantné PDF pripravené na odoslanie.</p>
-          <p>S našou aplikáciou ušetríte svoj čas aj trpezlivosť. Nevyžadujeme žiadnu registráciu, neukladáme vaše osobné údaje a neprekvapíme vás žiadnym predplatným ani skrytými poplatkami. Moderný životopis si vygenerujete rýchlo a jednoducho len za 4 €.</p>
+          <p>Vytvoriť profesionálny životopis nemusí byť zložité. Mnoho uchádzačov denne zápasí s nepraktickými editormi, neprehľadnými šablónami a nutnosťou registrácie do služieb, ktoré sľubujú viac, než dodajú. Naša aplikácia vznikla ako odpoveď na tieto problémy.</p>
+          <p>Formulár je intuitívny a doplnený živým náhľadom. Vďaka tomu na vás nečaká prekvapenie vo forme zlého rozloženia stránky po stiahnutí životopisu. Výsledkom je elegantné PDF pripravené na odoslanie. Prípadne si nájdite <Link href="/sk/profese">vzor životopisu</Link> podľa pozície na ktorú sa hlásite.</p>
+          <p>S našou aplikáciou ušetríte svoj čas aj trpezlivosť. Nevyžadujeme žiadnu registráciu, neukladáme vaše osobné údaje a neprekvapíme vás žiadnym predplatným ani skrytými poplatkami. Moderný životopis vytvoríte rýchlo a jednoducho len za 4 € bez registrácie.</p>
         </div>       
         <div className={styles.HookLeft}>
           <picture>

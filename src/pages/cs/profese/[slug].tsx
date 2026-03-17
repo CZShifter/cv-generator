@@ -68,7 +68,7 @@ export default function ProfessionPage({ content }: PageProps) {
       <>
         {highlightText(parts[0])}
         <Link className={styles.generatorLink} href="/cs/preview">
-          aplikaci na tvorbu životopisů
+          aplikaci na tvorbu životopisu online
         </Link>
         {highlightText(parts[1] ?? "")}
       </>
@@ -241,6 +241,9 @@ export default function ProfessionPage({ content }: PageProps) {
                     <a href={`#${summaryAnchors[index] ?? "summary"}`}>{highlightText(item)}</a>
                   </li>
                 ))}
+                <li>
+                  <a href="#motivacni-dopis">Motivační dopis</a>
+                </li>
               </ul>
             </nav>
           </section>
@@ -489,6 +492,22 @@ export default function ProfessionPage({ content }: PageProps) {
               )}
             </section>
           ))}
+
+          <section className={styles.bodySection} id="motivacni-dopis">
+            <h2>Motivační dopis</h2>
+            <p>
+              Nezapomeňte na motivační dopis, může to být detail, který rozhodne o tom, zda vás zaměstnavatel pozve na pohovor.
+              Doplňuje životopis, dává vaší žádosti o práci kontext a ukazuje, proč chcete právě tuto pozici.
+              V tomto článku najdete návod, {" "}
+              <Link className={styles.generatorLink} href="/cs/blog/jak-napsat-motivacni-dopis">
+                jak napsat motivační dopis
+              </Link>
+              , nebo si ho rovnou vytvořte v naší aplikaci zdarma.
+            </p>
+            <Link className={styles.generatorLink} href="/cs/motivacni-dopis">
+              Vytvořit motivační dopis zdarma
+            </Link>
+          </section>
 
           <section className={styles.faq}>
             <h2>Časté otázky (FAQ)</h2>

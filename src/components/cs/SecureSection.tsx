@@ -21,7 +21,7 @@ export default function SecureSection() {
         </div>
         <div className={styles.SecureTitleWrapper}>
           <h2><span>Ochrana vašeho soukromí</span> je naší prioritou!</h2>
-          <p>Na rozdíl od jiných aplikací si v naší nevytváříte žádný účet. Bezpečnost je u nás na prvním místě a vaše osobní údaje nikdy neprodáváme žádné třetí straně. Vaše data držíme pouze 24 hodin, abyste mohli pohodlně upravovat váš životopis. Poté je vše nenávratně smazáno.</p>
+          <p>Na rozdíl od jiných aplikací si v naší nevytváříte žádný účet. Bezpečnost je u nás na prvním místě a vaše osobní údaje nikdy neprodáváme žádné třetí straně. Vaše data držíme pouze 24 hodin, abyste mohli pohodlně upravovat váš životopis.</p>
         </div>          
       </div>
     </section>

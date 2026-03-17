@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useRef } from "react";
+﻿import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   initGoogleAnalytics,
   initSklik,
@@ -75,7 +75,7 @@ const CookieConsent: React.FC = () => {
     return "unset";
   };
 
-  const sendFirstPVOnce = () => {
+  const sendFirstPVOnce = useCallback(() => {
     if (firstPvSent.current) return;
 
     // pojistka přes sessionStorage v rámci jedné session
@@ -98,10 +98,10 @@ const CookieConsent: React.FC = () => {
     } catch {
       /* ignore */
     }
-  };
+  }, [trackPageView]);
 
   /** Spustí GA init a zajistí první PV: hned (MP), po onReady i s pojistkou. */
-  const startAnalyticsWithFirstPV = () => {
+  const startAnalyticsWithFirstPV = useCallback(() => {
     ensureGtag();
     updateConsentGranted();
 
@@ -119,7 +119,7 @@ const CookieConsent: React.FC = () => {
     // 4) Marketingové pixely
     initSklik();
     initGoogleAds();
-  };
+  }, [sendFirstPVOnce]);
 
   // zruš fallback timeout při unmountu
   useEffect(() => {
@@ -190,7 +190,7 @@ const CookieConsent: React.FC = () => {
     };
     window.addEventListener("cookie:open", onOpen as EventListener);
     return () => window.removeEventListener("cookie:open", onOpen as EventListener);
-  }, []);
+  }, [startAnalyticsWithFirstPV]);
 
   if (!show) return null;
 
@@ -222,6 +222,7 @@ const CookieConsent: React.FC = () => {
 };
 
 export default CookieConsent;
+
 
 
 

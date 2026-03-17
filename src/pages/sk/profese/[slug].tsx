@@ -68,7 +68,7 @@ export default function ProfessionPage({ content }: PageProps) {
       <>
         {highlightText(parts[0])}
         <Link className={styles.generatorLink} href="/sk/preview">
-          aplikácii na tvorbu životopisov
+          aplikácii na tvorbu životopisov online
         </Link>
         {highlightText(parts[1] ?? "")}
       </>
@@ -241,6 +241,9 @@ export default function ProfessionPage({ content }: PageProps) {
                     <a href={`#${summaryAnchors[index] ?? "summary"}`}>{highlightText(item)}</a>
                   </li>
                 ))}
+                <li>
+                  <a href="#motivacny-list">Motivačný list</a>
+                </li>
               </ul>
             </nav>
           </section>
@@ -489,6 +492,22 @@ export default function ProfessionPage({ content }: PageProps) {
               )}
             </section>
           ))}
+
+          <section className={styles.bodySection} id="motivacny-list">
+            <h2>Motivačný list</h2>
+            <p>
+              Nezabudnite na motivačný list, môže to byť detail, ktorý rozhodne o tom, či vás zamestnávateľ pozve na pohovor.
+              Dopĺňa životopis, dáva vašej žiadosti o prácu kontext a ukazuje, prečo chcete práve túto pozíciu.
+              V tomto článku nájdete návod, {" "}
+              <Link className={styles.generatorLink} href="/sk/blog/ako-napisat-motivacny-list">
+                ako napísať motivačný list
+              </Link>
+              , alebo si ho rovno vytvorte v našej aplikácii zadarmo.
+            </p>
+            <Link className={styles.generatorLink} href="/sk/motivacni-dopis">
+              Vytvoriť motivačný list zadarmo
+            </Link>
+          </section>
 
           <section className={styles.faq}>
             <h2>Časté otázky (FAQ)</h2>
