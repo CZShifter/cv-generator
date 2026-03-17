@@ -4,7 +4,7 @@ import DopisSection from '@/components/sk/DopisSection';
 import NarrativeSection3 from '@/components/sk/NarrativeSection3';
 import HookSection2 from '@/components/sk/HookSection2';
 import AISection2 from '@/components/sk/AISection2';
-import StatsSection from '@/components/cs/StatsSection';
+import StatsSection from '@/components/sk/StatsSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
 export default function MotivacniDopisPage() {
   return ( 
