@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+﻿import React, { useEffect, useState, useRef } from "react";
 import {
   initGoogleAnalytics,
   initSklik,
@@ -54,9 +54,26 @@ const CookieConsent: React.FC = () => {
   const [state, setState] = useState<CookieState>("unset");
   const [show, setShow] = useState(false);
 
-  // „jednou a dost“ v rámci aktuální session (zabrání duplicitám při remountech / hot‑reloadu)
+  // „jednou a dost“ v rámci aktuální session (zabrání duplicitám při remountech / hot-reloadu)
   const firstPvSent = useRef(false);
   const fallbackTimer = useRef<number | null>(null);
+
+  const syncStateFromStorage = () => {
+    const ls = typeof window !== "undefined" ? localStorage.getItem(COOKIE_NAME) : null;
+    const ck = getCookie(COOKIE_NAME);
+    const consent = (ls ?? ck) as CookieState | null;
+
+    if (consent === "accepted_all") {
+      setState("accepted_all");
+      return "accepted_all";
+    }
+    if (consent === "essential_only") {
+      setState("essential_only");
+      return "essential_only";
+    }
+    setState("unset");
+    return "unset";
+  };
 
   const sendFirstPVOnce = () => {
     if (firstPvSent.current) return;
@@ -121,26 +138,22 @@ const CookieConsent: React.FC = () => {
     preloadGaLoader();
 
     // 1) načti uložený stav souhlasu
-    const ls = typeof window !== "undefined" ? localStorage.getItem(COOKIE_NAME) : null;
-    const ck = getCookie(COOKIE_NAME);
-    const consent = (ls ?? ck) as CookieState | null;
+    const consent = syncStateFromStorage();
 
     if (consent === "accepted_all") {
-      setState("accepted_all");
       startAnalyticsWithFirstPV();
 
       // sync persistencí
-      if (!ls) localStorage.setItem(COOKIE_NAME, "accepted_all");
-      if (!ck) setCookie(COOKIE_NAME, "accepted_all");
+      if (!localStorage.getItem(COOKIE_NAME)) localStorage.setItem(COOKIE_NAME, "accepted_all");
+      if (!getCookie(COOKIE_NAME)) setCookie(COOKIE_NAME, "accepted_all");
 
       setShow(false);
     } else if (consent === "essential_only") {
-      setState("essential_only");
       ensureGtag();
       updateConsentRevoked();
 
-      if (!ls) localStorage.setItem(COOKIE_NAME, "essential_only");
-      if (!ck) setCookie(COOKIE_NAME, "essential_only");
+      if (!localStorage.getItem(COOKIE_NAME)) localStorage.setItem(COOKIE_NAME, "essential_only");
+      if (!getCookie(COOKIE_NAME)) setCookie(COOKIE_NAME, "essential_only");
 
       setShow(false);
     } else {
@@ -170,7 +183,16 @@ const CookieConsent: React.FC = () => {
     setShow(false);
   };
 
-  if (!show || state !== "unset") return null;
+  useEffect(() => {
+    const onOpen = () => {
+      syncStateFromStorage();
+      setShow(true);
+    };
+    window.addEventListener("cookie:open", onOpen as EventListener);
+    return () => window.removeEventListener("cookie:open", onOpen as EventListener);
+  }, []);
+
+  if (!show) return null;
 
   return (
     <div className={styles.cookieConsent}>
@@ -189,9 +211,18 @@ const CookieConsent: React.FC = () => {
         <button className={styles.acceptEssential} onClick={acceptEssential}>
           Pouze nezbytné
         </button>
+        {state !== "unset" && (
+          <button className={styles.close} onClick={() => setShow(false)}>
+            Zavřít
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
 export default CookieConsent;
+
+
+
+

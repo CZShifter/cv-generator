@@ -1,4 +1,4 @@
-// src/components/Footer.tsx
+﻿// src/components/Footer.tsx
 import {  SITE_NAME_SK } from "@/config/site";
 import styles from '@/scss/Footer.module.scss';
 
@@ -16,3 +16,4 @@ export default function Footer() {
     </footer>
   );
 }
+

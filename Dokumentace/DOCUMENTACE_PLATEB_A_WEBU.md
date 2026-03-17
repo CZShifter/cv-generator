@@ -225,6 +225,19 @@ Return URL (fallback):
 - Všechny kritické operace (paid → pdf) jsou řízeny webhookem.
 - Lze přidat dedikovaný admin endpoint pro „regeneraci PDF po zaplacení“ (pokud potřeba).
 
+---
+
+## 9) Prevence rozbitých znaků (UTF‑8)
+
+Aby se do zdrojáků nedostávaly rozbité znaky typu `â/Ĺ/Ă/�`, je v repozitáři nastaveno:
+
+- `.editorconfig` s `charset = utf-8`
+- `.vscode/settings.json` s:
+  - `"files.encoding": "utf8"`
+  - `"files.autoGuessEncoding": false`
+
+Tyto změny neovlivňují existující soubory, pouze zajišťují, aby se nové/uložené soubory ukládaly v UTF‑8.
+
 Příkazy pro nasazení na vercel:
 - git add .
 - git commit -m "zruseni footer v renderu_2"

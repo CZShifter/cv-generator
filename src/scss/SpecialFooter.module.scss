@@ -26,4 +26,12 @@
     color: $form-color;
     font-size: $p_small;
   }
+  .cookieSettings{
+    color: $form-color;
+    font-size: $p_small;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
 }

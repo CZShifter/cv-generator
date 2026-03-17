@@ -64,6 +64,21 @@
   }
 }
 
+.close {
+  padding: 0.5rem 1rem;
+  border: 1px solid $color-gray-600;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: transparent;
+  color: $white-color;
+  transition: background 0.2s, border-color 0.2s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: $color-gray-500;
+  }
+}
+
 @media (max-width: 600px) {
   .cookieConsent {
     flex-direction: column;

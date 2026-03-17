@@ -1,5 +1,5 @@
 //VERZE WEBU !!!
-export const SITE_VERSION = "18.03.26";
+export const SITE_VERSION = "19.03.26";
 // Základní nastavení webu
 export const SITE_URL = "https://rychlyzivotopis.cz";
 export const OG_IMAGE = `${SITE_URL}/img/og-cvgen.jpg?v=${SITE_VERSION}`;
