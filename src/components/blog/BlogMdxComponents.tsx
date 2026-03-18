@@ -1,6 +1,7 @@
 import React from "react";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import styles from "@/scss/BlogPost.module.scss";
+import { SITE_VERSION } from "@/config/site";
 
 type TwoThirdsProps = {
   position?: "left" | "right";
@@ -18,14 +19,16 @@ export function TwoThirds({
   children,
 }: TwoThirdsProps) {
   const positionClass = position === "right" ? styles.imageRight : styles.imageLeft;
+  const imageJpgSrc = imageJpg ? `${imageJpg}?v=${SITE_VERSION}` : imageJpg;
+  const imageWebpSrc = imageWebp ? `${imageWebp}?v=${SITE_VERSION}` : imageWebp;
   return (
     <div className={`${styles.twoThirds} ${positionClass}`}>
       <div className={styles.twoThirdsText}>{children}</div>
       <div className={styles.twoThirdsMedia}>
         <picture>
-          {imageWebp && <source srcSet={imageWebp} type="image/webp" />}
-          <source srcSet={imageJpg} type="image/jpeg" />
-          <img src={imageJpg} alt={alt} loading="lazy" decoding="async" />
+          {imageWebpSrc && <source srcSet={imageWebpSrc} type="image/webp" />}
+          <source srcSet={imageJpgSrc} type="image/jpeg" />
+          <img src={imageJpgSrc} alt={alt} loading="lazy" decoding="async" />
         </picture>
       </div>
     </div>
@@ -140,9 +143,16 @@ export function RelatedList({ title, items }: RelatedListProps) {
           <a className={styles.blogRelatedItem} href={item.href} key={item.href}>
             <div className={styles.blogRelatedMedia}>
               <picture>
-                {item.imageWebp && <source srcSet={item.imageWebp} type="image/webp" />}
-                <source srcSet={item.imageJpg} type="image/jpeg" />
-                <img src={item.imageJpg} alt={item.alt} loading="lazy" decoding="async" />
+                {item.imageWebp && (
+                  <source srcSet={`${item.imageWebp}?v=${SITE_VERSION}`} type="image/webp" />
+                )}
+                <source srcSet={`${item.imageJpg}?v=${SITE_VERSION}`} type="image/jpeg" />
+                <img
+                  src={`${item.imageJpg}?v=${SITE_VERSION}`}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </picture>
             </div>
             <div className={styles.blogRelatedBody}>
