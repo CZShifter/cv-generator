@@ -70,8 +70,10 @@ export function middleware(req: NextRequest) {
     pathname === "/sitemap-main.xml" ||
     pathname === "/sitemap-profese.xml" ||
     pathname === "/llms.txt" ||
+    pathname === "/llms-full.txt" ||
     pathname === "/humans.txt" ||
     pathname === "/.well-known/llms.txt" ||
+    pathname === "/.well-known/llms-full.txt" ||
     pathname.startsWith("/img") ||
     pathname.startsWith("/photo_img") ||
     pathname.startsWith("/fonts") ||
@@ -101,6 +103,6 @@ export function middleware(req: NextRequest) {
 // Matcher: vše kromě vyjmenovaných cest (rychlejší než filtrovat uvnitř)
 export const config = {
   matcher: [
-    "/((?!_next|api|favicon.ico|robots.txt|sitemap.xml|sitemap-main.xml|sitemap-profese.xml|llms.txt|humans.txt|.well-known/llms.txt|img|photo_img|fonts|pdftemplates|cs|sk).*)",
+    "/((?!_next|api|favicon.ico|robots.txt|sitemap.xml|sitemap-main.xml|sitemap-profese.xml|llms.txt|llms-full.txt|humans.txt|.well-known/llms.txt|.well-known/llms-full.txt|img|photo_img|fonts|pdftemplates|cs|sk).*)",
   ],
 };

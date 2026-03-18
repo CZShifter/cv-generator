@@ -238,6 +238,29 @@ Aby se do zdrojáků nedostávaly rozbité znaky typu `â/Ĺ/Ă/�`, je v repoz
 
 Tyto změny neovlivňují existující soubory, pouze zajišťují, aby se nové/uložené soubory ukládaly v UTF‑8.
 
+---
+
+## 10) UI – tlačítko „zpět nahoru“ (scroll-to-top)
+
+- Přidán plovoucí button vpravo dole se šipkou nahoru a kruhovým progress indikátorem.
+- Kruh se plynule vyplňuje podle pozice ve stránce (čím níž, tím plnější).
+- Kliknutí posune stránku plynule na začátek.
+- **Vypnuto** na cestách (CZ i SK): `/preview`, `/po-platbe`, `/edit`, `/zaplaceno`.
+
+Soubory:
+- `src/components/ui/ScrollToTop.tsx`
+- `src/scss/ScrollToTop.module.scss`
+- `src/pages/_app.tsx` (globální zapnutí + výjimky)
+
+---
+
+## 11) Úprava `humans.txt` a `llms` souborů
+
+- Aktualizovány/změněny soubory:
+  - `public/humans.txt`
+  - `public/.well-known/humans.txt`
+  - `public/llms-full.txt`
+
 Příkazy pro nasazení na vercel:
 - git add .
 - git commit -m "zruseni footer v renderu_2"

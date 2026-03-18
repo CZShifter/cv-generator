@@ -1,0 +1,18 @@
+/* TEAM */
+Owner: Tomáš Tippl
+Project: RychlyZivotopis
+Location: Czech Republic
+Contact: rychlyzivotopis@gmail.com
+
+/* SITE */
+Czech website: https://rychlyzivotopis.cz
+Slovak website: https://rychlyzivotopis.sk
+Languages: Czech, Slovak
+Type: Online application for CV and resume creation
+Content: Blog articles, practical job search tips, profession-specific CV samples
+Free tools: Cover letter creation
+Standards: HTML5, CSS3, TypeScript
+Framework: Next.js
+
+/* THANKS */
+Thanks to all users, testers, and contributors.

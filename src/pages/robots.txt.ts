@@ -2,21 +2,28 @@
 import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
 
+const ALLOWED_HOSTS = new Set([
+  "rychlyzivotopis.cz",
+  "www.rychlyzivotopis.cz",
+  "rychlyzivotopis.sk",
+  "www.rychlyzivotopis.sk",
+]);
+
 function header(req: IncomingMessage, name: string): string {
   const v = req.headers[name.toLowerCase()];
   if (Array.isArray(v)) return v[0] ?? "";
   return (v ?? "") as string;
 }
 
-function getProto(req: IncomingMessage) {
-  const p = header(req, "x-forwarded-proto").split(",")[0].trim();
-  return p || "https";
+function getProto(req: IncomingMessage): "http" | "https" {
+  const p = header(req, "x-forwarded-proto").split(",")[0].trim().toLowerCase();
+  return p === "http" ? "http" : "https";
 }
 
 function getHost(req: IncomingMessage) {
-  const xf = header(req, "x-forwarded-host").split(",")[0].trim();
-  const host = xf || header(req, "host");
-  return host.toLowerCase();
+  const xf = header(req, "x-forwarded-host").split(",")[0].trim().toLowerCase();
+  const host = (xf || header(req, "host")).trim().toLowerCase();
+  return ALLOWED_HOSTS.has(host) ? host : "rychlyzivotopis.cz";
 }
 
 function getOrigin(req: IncomingMessage) {
@@ -43,6 +50,8 @@ function buildRobots(origin: string) {
 ${disallows}
 
 Sitemap: ${origin}/sitemap.xml
+Sitemap: ${origin}/sitemap-main.xml
+Sitemap: ${origin}/sitemap-profese.xml
 `;
 }
 

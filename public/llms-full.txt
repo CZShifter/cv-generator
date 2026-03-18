@@ -1,0 +1,109 @@
+# RychlyZivotopis.cz / RychlyZivotopis.sk
+
+> Extended list of profession-specific CV guides and samples for both Czech and Slovak domains.
+
+## Czech Profession Guides (All)
+
+- [absolvent bez praxe](https://rychlyzivotopis.cz/cs/profese/zivotopis-absolvent-bez-praxe): Profession-specific CV guide and sample in Czech.
+- [administrativní pracovník](https://rychlyzivotopis.cz/cs/profese/zivotopis-administrativni-pracovnik): Profession-specific CV guide and sample in Czech.
+- [asistentka](https://rychlyzivotopis.cz/cs/profese/zivotopis-asistentka): Profession-specific CV guide and sample in Czech.
+- [barista](https://rychlyzivotopis.cz/cs/profese/zivotopis-barista): Profession-specific CV guide and sample in Czech.
+- [barman](https://rychlyzivotopis.cz/cs/profese/zivotopis-barman): Profession-specific CV guide and sample in Czech.
+- [bezpečnostní pracovník](https://rychlyzivotopis.cz/cs/profese/zivotopis-bezpecnostni-pracovnik): Profession-specific CV guide and sample in Czech.
+- [číšník](https://rychlyzivotopis.cz/cs/profese/zivotopis-cisnik): Profession-specific CV guide and sample in Czech.
+- [datový analytik](https://rychlyzivotopis.cz/cs/profese/zivotopis-datovy-analytik): Profession-specific CV guide and sample in Czech.
+- [dělník](https://rychlyzivotopis.cz/cs/profese/zivotopis-delnik): Profession-specific CV guide and sample in Czech.
+- [dispečer logistiky](https://rychlyzivotopis.cz/cs/profese/zivotopis-dispecer-logistiky): Profession-specific CV guide and sample in Czech.
+- [elektrikář](https://rychlyzivotopis.cz/cs/profese/zivotopis-elektrikar): Profession-specific CV guide and sample in Czech.
+- [farmaceutický asistent](https://rychlyzivotopis.cz/cs/profese/zivotopis-farmaceuticky-asistent): Profession-specific CV guide and sample in Czech.
+- [fyzioterapeut](https://rychlyzivotopis.cz/cs/profese/zivotopis-fyzioterapeut): Profession-specific CV guide and sample in Czech.
+- [grafik](https://rychlyzivotopis.cz/cs/profese/zivotopis-grafik): Profession-specific CV guide and sample in Czech.
+- [instalatér](https://rychlyzivotopis.cz/cs/profese/zivotopis-instalater): Profession-specific CV guide and sample in Czech.
+- [IT podpora](https://rychlyzivotopis.cz/cs/profese/zivotopis-it-podpora): Profession-specific CV guide and sample in Czech.
+- [kuchař](https://rychlyzivotopis.cz/cs/profese/zivotopis-kuchar): Profession-specific CV guide and sample in Czech.
+- [kurýr](https://rychlyzivotopis.cz/cs/profese/zivotopis-kuryr): Profession-specific CV guide and sample in Czech.
+- [lakýrník](https://rychlyzivotopis.cz/cs/profese/zivotopis-lakyrnik): Profession-specific CV guide and sample in Czech.
+- [lektor jazyků](https://rychlyzivotopis.cz/cs/profese/zivotopis-lektor-jazyku): Profession-specific CV guide and sample in Czech.
+- [mistr výroby](https://rychlyzivotopis.cz/cs/profese/zivotopis-mistr-vyroby): Profession-specific CV guide and sample in Czech.
+- [marketingový specialista](https://rychlyzivotopis.cz/cs/profese/zivotopis-marketingovy-specialista): Profession-specific CV guide and sample in Czech.
+- [mechanik](https://rychlyzivotopis.cz/cs/profese/zivotopis-mechanik): Profession-specific CV guide and sample in Czech.
+- [montážní pracovník](https://rychlyzivotopis.cz/cs/profese/zivotopis-montazni-pracovnik): Profession-specific CV guide and sample in Czech.
+- [obchodní zástupce](https://rychlyzivotopis.cz/cs/profese/zivotopis-obchodni-zastupce): Profession-specific CV guide and sample in Czech.
+- [obsluha VZV](https://rychlyzivotopis.cz/cs/profese/zivotopis-obsluha-vzv): Profession-specific CV guide and sample in Czech.
+- [operátor výroby](https://rychlyzivotopis.cz/cs/profese/zivotopis-operator-vyroby): Profession-specific CV guide and sample in Czech.
+- [pečovatelka](https://rychlyzivotopis.cz/cs/profese/zivotopis-pecovatelka): Profession-specific CV guide and sample in Czech.
+- [personalista](https://rychlyzivotopis.cz/cs/profese/zivotopis-personalista): Profession-specific CV guide and sample in Czech.
+- [pokladní](https://rychlyzivotopis.cz/cs/profese/zivotopis-pokladni): Profession-specific CV guide and sample in Czech.
+- [prodavač](https://rychlyzivotopis.cz/cs/profese/zivotopis-prodavac): Profession-specific CV guide and sample in Czech.
+- [prodavačka](https://rychlyzivotopis.cz/cs/profese/zivotopis-prodavacka): Profession-specific CV guide and sample in Czech.
+- [programátor](https://rychlyzivotopis.cz/cs/profese/zivotopis-programator): Profession-specific CV guide and sample in Czech.
+- [projektový manažer](https://rychlyzivotopis.cz/cs/profese/zivotopis-projektovy-manazer): Profession-specific CV guide and sample in Czech.
+- [recepční](https://rychlyzivotopis.cz/cs/profese/zivotopis-recepcni): Profession-specific CV guide and sample in Czech.
+- [řidič](https://rychlyzivotopis.cz/cs/profese/zivotopis-ridic): Profession-specific CV guide and sample in Czech.
+- [řidič kamionu](https://rychlyzivotopis.cz/cs/profese/zivotopis-ridic-kamionu): Profession-specific CV guide and sample in Czech.
+- [servírka](https://rychlyzivotopis.cz/cs/profese/zivotopis-servirka): Profession-specific CV guide and sample in Czech.
+- [skladník](https://rychlyzivotopis.cz/cs/profese/zivotopis-skladnik): Profession-specific CV guide and sample in Czech.
+- [skladový koordinátor](https://rychlyzivotopis.cz/cs/profese/zivotopis-skladovy-koordinator): Profession-specific CV guide and sample in Czech.
+- [student brigádník](https://rychlyzivotopis.cz/cs/profese/zivotopis-student-brigadnik): Profession-specific CV guide and sample in Czech.
+- [svářeč](https://rychlyzivotopis.cz/cs/profese/zivotopis-svarec): Profession-specific CV guide and sample in Czech.
+- [tesař](https://rychlyzivotopis.cz/cs/profese/zivotopis-tesar): Profession-specific CV guide and sample in Czech.
+- [tester softwaru](https://rychlyzivotopis.cz/cs/profese/zivotopis-tester-softwaru): Profession-specific CV guide and sample in Czech.
+- [učitel](https://rychlyzivotopis.cz/cs/profese/zivotopis-ucitel): Profession-specific CV guide and sample in Czech.
+- [učitel mateřské školy](https://rychlyzivotopis.cz/cs/profese/zivotopis-ucitel-materske-skoly): Profession-specific CV guide and sample in Czech.
+- [účetní](https://rychlyzivotopis.cz/cs/profese/zivotopis-ucetni): Profession-specific CV guide and sample in Czech.
+- [uklízečka](https://rychlyzivotopis.cz/cs/profese/zivotopis-uklizecka): Profession-specific CV guide and sample in Czech.
+- [zdravotní sestra](https://rychlyzivotopis.cz/cs/profese/zivotopis-zdravotni-sestra): Profession-specific CV guide and sample in Czech.
+- [zedník](https://rychlyzivotopis.cz/cs/profese/zivotopis-zednik): Profession-specific CV guide and sample in Czech.
+
+## Slovak Profession Guides (All)
+
+- [Životopis absolvent bez praxe](https://rychlyzivotopis.sk/sk/profese/zivotopis-absolvent-bez-praxe): Profession-specific CV guide and sample in Slovak.
+- [Životopis administratívny pracovník](https://rychlyzivotopis.sk/sk/profese/zivotopis-administrativny-pracovnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis asistentka](https://rychlyzivotopis.sk/sk/profese/zivotopis-asistentka): Profession-specific CV guide and sample in Slovak.
+- [Životopis barista](https://rychlyzivotopis.sk/sk/profese/zivotopis-barista): Profession-specific CV guide and sample in Slovak.
+- [Životopis barman](https://rychlyzivotopis.sk/sk/profese/zivotopis-barman): Profession-specific CV guide and sample in Slovak.
+- [Životopis bezpečnostný pracovník](https://rychlyzivotopis.sk/sk/profese/zivotopis-bezpecnostny-pracovnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis čašník](https://rychlyzivotopis.sk/sk/profese/zivotopis-casnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis dátový analytik](https://rychlyzivotopis.sk/sk/profese/zivotopis-datovy-analytik): Profession-specific CV guide and sample in Slovak.
+- [Životopis dispečer logistiky](https://rychlyzivotopis.sk/sk/profese/zivotopis-dispecer-logistiky): Profession-specific CV guide and sample in Slovak.
+- [Životopis elektrikár](https://rychlyzivotopis.sk/sk/profese/zivotopis-elektrikar): Profession-specific CV guide and sample in Slovak.
+- [Životopis farmaceutický asistent](https://rychlyzivotopis.sk/sk/profese/zivotopis-farmaceuticky-asistent): Profession-specific CV guide and sample in Slovak.
+- [Životopis fyzioterapeut](https://rychlyzivotopis.sk/sk/profese/zivotopis-fyzioterapeut): Profession-specific CV guide and sample in Slovak.
+- [Životopis grafik](https://rychlyzivotopis.sk/sk/profese/zivotopis-grafik): Profession-specific CV guide and sample in Slovak.
+- [Životopis inštalatér](https://rychlyzivotopis.sk/sk/profese/zivotopis-instalater): Profession-specific CV guide and sample in Slovak.
+- [Životopis IT podpora](https://rychlyzivotopis.sk/sk/profese/zivotopis-it-podpora): Profession-specific CV guide and sample in Slovak.
+- [Životopis kuchár](https://rychlyzivotopis.sk/sk/profese/zivotopis-kuchar): Profession-specific CV guide and sample in Slovak.
+- [Životopis kuriér](https://rychlyzivotopis.sk/sk/profese/zivotopis-kurier): Profession-specific CV guide and sample in Slovak.
+- [Životopis lakýrnik](https://rychlyzivotopis.sk/sk/profese/zivotopis-lakyrnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis lektor jazykov](https://rychlyzivotopis.sk/sk/profese/zivotopis-lektor-jazykov): Profession-specific CV guide and sample in Slovak.
+- [Životopis majster výroby](https://rychlyzivotopis.sk/sk/profese/zivotopis-majster-vyroby): Profession-specific CV guide and sample in Slovak.
+- [Životopis marketingový špecialista](https://rychlyzivotopis.sk/sk/profese/zivotopis-marketingovy-specialista): Profession-specific CV guide and sample in Slovak.
+- [Životopis mechanik](https://rychlyzivotopis.sk/sk/profese/zivotopis-mechanik): Profession-specific CV guide and sample in Slovak.
+- [Životopis montážny pracovník](https://rychlyzivotopis.sk/sk/profese/zivotopis-montazny-pracovnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis murár](https://rychlyzivotopis.sk/sk/profese/zivotopis-murar): Profession-specific CV guide and sample in Slovak.
+- [Životopis obchodný zástupca](https://rychlyzivotopis.sk/sk/profese/zivotopis-obchodny-zastupca): Profession-specific CV guide and sample in Slovak.
+- [Životopis obsluha VZV](https://rychlyzivotopis.sk/sk/profese/zivotopis-obsluha-vzv): Profession-specific CV guide and sample in Slovak.
+- [Životopis opatrovateľka](https://rychlyzivotopis.sk/sk/profese/zivotopis-opatrovatelka): Profession-specific CV guide and sample in Slovak.
+- [Životopis operátor výroby](https://rychlyzivotopis.sk/sk/profese/zivotopis-operator-vyroby): Profession-specific CV guide and sample in Slovak.
+- [Životopis personalista](https://rychlyzivotopis.sk/sk/profese/zivotopis-personalista): Profession-specific CV guide and sample in Slovak.
+- [Životopis pokladník](https://rychlyzivotopis.sk/sk/profese/zivotopis-pokladnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis predavač](https://rychlyzivotopis.sk/sk/profese/zivotopis-predavac): Profession-specific CV guide and sample in Slovak.
+- [Životopis predavačka](https://rychlyzivotopis.sk/sk/profese/zivotopis-predavacka): Profession-specific CV guide and sample in Slovak.
+- [Životopis programátor](https://rychlyzivotopis.sk/sk/profese/zivotopis-programator): Profession-specific CV guide and sample in Slovak.
+- [Životopis projektový manažér](https://rychlyzivotopis.sk/sk/profese/zivotopis-projektovy-manazer): Profession-specific CV guide and sample in Slovak.
+- [Životopis recepčný](https://rychlyzivotopis.sk/sk/profese/zivotopis-recepcny): Profession-specific CV guide and sample in Slovak.
+- [Životopis robotník](https://rychlyzivotopis.sk/sk/profese/zivotopis-robotnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis servírka](https://rychlyzivotopis.sk/sk/profese/zivotopis-servirka): Profession-specific CV guide and sample in Slovak.
+- [Životopis skladník](https://rychlyzivotopis.sk/sk/profese/zivotopis-skladnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis skladový koordinátor](https://rychlyzivotopis.sk/sk/profese/zivotopis-skladovy-koordinator): Profession-specific CV guide and sample in Slovak.
+- [Životopis študent brigádnik](https://rychlyzivotopis.sk/sk/profese/zivotopis-student-brigadnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis tesár](https://rychlyzivotopis.sk/sk/profese/zivotopis-tesar): Profession-specific CV guide and sample in Slovak.
+- [Životopis tester softvéru](https://rychlyzivotopis.sk/sk/profese/zivotopis-tester-softveru): Profession-specific CV guide and sample in Slovak.
+- [Životopis učiteľ](https://rychlyzivotopis.sk/sk/profese/zivotopis-ucitel): Profession-specific CV guide and sample in Slovak.
+- [Životopis učiteľ materskej školy](https://rychlyzivotopis.sk/sk/profese/zivotopis-ucitel-materskej-skoly): Profession-specific CV guide and sample in Slovak.
+- [Životopis účtovník](https://rychlyzivotopis.sk/sk/profese/zivotopis-uctovnik): Profession-specific CV guide and sample in Slovak.
+- [Životopis upratovačka](https://rychlyzivotopis.sk/sk/profese/zivotopis-upratovacka): Profession-specific CV guide and sample in Slovak.
+- [Životopis vodič](https://rychlyzivotopis.sk/sk/profese/zivotopis-vodic): Profession-specific CV guide and sample in Slovak.
+- [Životopis vodič kamiónu](https://rychlyzivotopis.sk/sk/profese/zivotopis-vodic-kamionu): Profession-specific CV guide and sample in Slovak.
+- [Životopis zdravotná sestra](https://rychlyzivotopis.sk/sk/profese/zivotopis-zdravotna-sestra): Profession-specific CV guide and sample in Slovak.
+- [Životopis zvárač](https://rychlyzivotopis.sk/sk/profese/zivotopis-zvarac): Profession-specific CV guide and sample in Slovak.

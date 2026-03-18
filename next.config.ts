@@ -25,6 +25,18 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      {
+        source: "/llms.txt",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
+      {
+        source: "/llms-full.txt",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" },
+        ],
+      },
       // ✅ Sitemapy a robots: krátká cache (rychlá aktualizace pro SEO)
       {
         source: "/sitemap.xml",
@@ -67,6 +79,10 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+
+  async redirects() {
+    return [];
   },
 };
 

@@ -1,0 +1,60 @@
+# RychlyZivotopis.cz / RychlyZivotopis.sk
+
+> Bilingual online application for CV and resume creation for Czech and Slovak users, including profession-specific guides, blog content, and PDF export.
+
+RychlyZivotopis is a bilingual website focused on creating CVs quickly and simply, without registration.
+The site includes profession guides with CV/resume samples, practical job-application advice, and a free tool for creating cover letters.
+It also offers a paid workflow for exporting CVs as PDF with one-time payments (no membership), plus free edits for 24 hours after payment.
+Profession pages may include sample preview data for illustration only.
+
+## Product
+
+- [Main Czech site](https://rychlyzivotopis.cz/cs): Czech version of the CV application and related content.
+- [Main Slovak site](https://rychlyzivotopis.sk/sk): Slovak version of the CV application and related content.
+- [Sitemap CZ](https://rychlyzivotopis.cz/sitemap.xml): Sitemap for Czech domain.
+- [Sitemap SK](https://rychlyzivotopis.sk/sitemap.xml): Sitemap for Slovak domain.
+
+## Profession Guides and CV Samples
+
+- [Czech profession pages](https://rychlyzivotopis.cz/cs/profese/): Profession-specific CV guides with sample CV/resume content in Czech.
+- [Slovak profession pages](https://rychlyzivotopis.sk/sk/profese/): Profession-specific CV guides with sample CV/resume content in Slovak.
+
+## Key Profession Guides (Czech)
+
+- [Administrativní pracovník CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-administrativni-pracovnik): Profession-specific CV guide and sample in Czech.
+- [Skladník CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-skladnik): Profession-specific CV guide and sample in Czech.
+- [Číšník / číšnice CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-cisnik): Profession-specific CV guide and sample in Czech.
+- [Řidič CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-ridic): Profession-specific CV guide and sample in Czech.
+- [Účetní CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-ucetni): Profession-specific CV guide and sample in Czech.
+- [Programátor CV guide](https://rychlyzivotopis.cz/cs/profese/zivotopis-programator): Profession-specific CV guide and sample in Czech.
+
+## Key Profession Guides (Slovak)
+
+- [Administratívny pracovník CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-administrativny-pracovnik): Profession-specific CV guide and sample in Slovak.
+- [Skladník CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-skladnik): Profession-specific CV guide and sample in Slovak.
+- [Číšnik CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-casnik): Profession-specific CV guide and sample in Slovak.
+- [Vodič CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-vodic): Profession-specific CV guide and sample in Slovak.
+- [Účtovník CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-uctovnik): Profession-specific CV guide and sample in Slovak.
+- [Programátor CV guide](https://rychlyzivotopis.sk/sk/profese/zivotopis-programator): Profession-specific CV guide and sample in Slovak.
+
+## Full Profession Index
+
+- [All Czech profession guides (full list)](https://rychlyzivotopis.cz/llms-full.txt): Extended list of all Czech profession pages.
+- [All Slovak profession guides (full list)](https://rychlyzivotopis.sk/llms-full.txt): Extended list of all Slovak profession pages.
+
+## Cover Letters
+
+- [Czech cover letter tool](https://rychlyzivotopis.cz/cs/motivacni-dopis): Free online tool for creating cover letters in Czech.
+- [Slovak cover letter tool](https://rychlyzivotopis.sk/sk/motivacni-dopis): Free online tool for creating cover letters in Slovak.
+
+## Blog
+
+- [Czech blog](https://rychlyzivotopis.cz/cs/blog/): Articles about CV writing, interviews, and job search in Czech.
+- [Slovak blog](https://rychlyzivotopis.sk/sk/blog/): Articles about CV writing, interviews, and job search in Slovak.
+
+## Notes
+
+- The product offers paid PDF export of CVs.
+- Pages contain structured data (WebPage, BreadcrumbList, FAQPage).
+- CV preview on profession pages uses sample data for illustration.
+- The website is available in Czech and Slovak language paths.

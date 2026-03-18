@@ -24,6 +24,7 @@ import CookieConsentCs from "@/components/cs/CookieConsent";
 import HeaderSk from "@/components/sk/Header";
 import FooterSk from "@/components/sk/Footer";
 import CookieConsentSk from "@/components/sk/CookieConsent";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 // ── NOVÉ: speciální varianty headeru a footeru ─────────────────────────────────
 import SpecialHeaderCs from "@/components/cs/SpecialHeader";
@@ -53,6 +54,7 @@ function getLangFromPath(pathname: string) {
 
 // ── NOVÉ: seznam segmentů, kde chceme SPECIAL header+footer ───────────────────
 const SPECIAL_SEGMENTS = ["edit", "preview"]; // ← sem můžeš snadno přidávat další stránky
+const SCROLL_TOP_EXCLUDE = ["preview", "po-platbe", "edit", "zaplaceno"];
 
 // ── NOVÉ: detekce speciální cesty podle prvního segmentu za /cs|/sk ───────────
 function isSpecialRoute(pathname: string): boolean {
@@ -60,6 +62,13 @@ function isSpecialRoute(pathname: string): boolean {
   if (!m) return false;
   const firstSegment = m[2].toLowerCase();
   return SPECIAL_SEGMENTS.includes(firstSegment);
+}
+
+function shouldShowScrollToTop(pathname: string): boolean {
+  const m = pathname.match(/^\/(cs|sk)\/([^\/?]+)/i);
+  if (!m) return true;
+  const firstSegment = m[2].toLowerCase();
+  return !SCROLL_TOP_EXCLUDE.includes(firstSegment);
 }
 
 /* --------------------------- LOGOVÁNÍ CHYB ---------------------------------- */
@@ -275,6 +284,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   }
 
   const useSpecialLayout = isSpecialRoute(router.pathname);
+  const showScrollToTop = shouldShowScrollToTop(router.pathname);
 
 
   return (
@@ -381,6 +391,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       </ErrorBoundary>
 
       <CookieConsent />
+      {showScrollToTop ? <ScrollToTop /> : null}
       {useSpecialLayout ? <SpecialFooter /> : <DefaultFooter />}
     </>
   );
