@@ -7,6 +7,7 @@ import Head from "next/head";
 import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { blogMdxComponents } from "@/components/blog/BlogMdxComponents";
+import BlogShareBox from "@/components/blog/BlogShareBox";
 import {
   SITE_URL, SITE_URL_SK, SITE_NAME, OG_IMAGE, SITE_VERSION,
   FAVICON_URL_32, FAVICON_URL_192, APPLE_TOUCH_ICON_URL, LOGO_SCHEMA_URL
@@ -70,6 +71,7 @@ type BlogPostProps = {
 };
 
 export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostProps) {
+  const canonical = `${SITE_URL}/cs/blog/${slug}/`;
   return (
     <>
       <Head>
@@ -81,12 +83,12 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
         {/* Canonical + hreflang */}
-        <link rel="canonical" href={`${SITE_URL}/cs/blog/${slug}/`} />
-        <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="cs-CZ" />
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" href={canonical} hrefLang="cs-CZ" />
         {altSlugSk && (
           <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${altSlugSk}/`} hrefLang="sk-SK" />
         )}
-        <link rel="alternate" href={`${SITE_URL}/cs/blog/${slug}/`} hrefLang="x-default" />
+        <link rel="alternate" href={canonical} hrefLang="x-default" />
         {/* OG (article) */}
         <meta property="og:title" content={`${data.title} | Blog | ${SITE_NAME}`} />
         <meta property="og:description" content={data.description} />
@@ -94,7 +96,7 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
           property="og:image"
           content={data.coverImage ? `${SITE_URL}${data.coverImage}?v=${SITE_VERSION}` : OG_IMAGE}/>
         <meta property="og:image:alt" content={data.title} />
-        <meta property="og:url" content={`${SITE_URL}/cs/blog/${slug}/`} />
+        <meta property="og:url" content={canonical} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="cs_CZ" />
         <meta property="og:locale:alternate" content="sk_SK" />
@@ -115,7 +117,7 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "mainEntityOfPage": `${SITE_URL}/cs/blog/${slug}/`,
+              "mainEntityOfPage": canonical,
               "headline": data.title,
               "description": data.description,
               "image": data.coverImage ? `${SITE_URL}${data.coverImage}?v=${SITE_VERSION}` : undefined,
@@ -152,9 +154,12 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
               />
             </picture>
           )}
-          <div className={styles.postMetaTop}>
-            {data.author && <span>Autor: {data.author} | </span>}
-            {data.date && <span>{data.date}</span>}
+          <div className={styles.blogMetaRow}>
+            <div className={styles.postMetaTop}>
+              {data.author && <span>Autor: {data.author} | </span>}
+              {data.date && <span>{data.date}</span>}
+            </div>
+            <BlogShareBox url={canonical} title={data.title} locale="cs" />
           </div>
           <h1>{data.title}</h1>
 
@@ -162,7 +167,6 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
           <div className={styles.prose}>
             <MDXRemote {...mdxSource} components={blogMdxComponents} />
           </div>
-
         </article>
       </main>
     </>

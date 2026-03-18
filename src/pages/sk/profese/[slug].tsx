@@ -2,9 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { RiTelegram2Line, RiFacebookCircleLine, RiDoubleQuotesR } from "react-icons/ri";
+import { LiaLinkedinIn } from "react-icons/lia";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
-import { LiaRedditAlien } from "react-icons/lia";
 import styles from "@/scss/Profession.module.scss";
 import { buildProfessionContent, fromProfessionUrlSlug, getProfessionSlugs, ProfessionContent, toProfessionUrlSlug } from "@/data/professions";
 import { SITE_URL, SITE_URL_SK, SITE_NAME_SK, OG_IMAGE_SK, PRICE_CV_SK, LOGO_SCHEMA_URL_SK } from "@/config/site";
@@ -358,12 +358,12 @@ export default function ProfessionPage({ content }: PageProps) {
                   </a>
                   <a
                     className={styles.shareLink}
-                    href={`https://www.reddit.com/submit?url=${shareUrlEncoded}&title=${shareTextEncoded}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEncoded}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Zdieľať na Reddite"
                   >
-                    <LiaRedditAlien />
+                    <LiaLinkedinIn />
                   </a>
                 </div>
               </div>
@@ -423,12 +423,12 @@ export default function ProfessionPage({ content }: PageProps) {
               </a>
               <a
                 className={styles.shareLink}
-                href={`https://www.reddit.com/submit?url=${shareUrlEncoded}&title=${shareTextEncoded}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEncoded}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Zdieľať na Reddite"
+                aria-label="Zdie�ate na Reddite"
               >
-                <LiaRedditAlien />
+                  <LiaLinkedinIn />
               </a>
             </div>
           </div>
@@ -558,3 +558,6 @@ export default function ProfessionPage({ content }: PageProps) {
     </>
   );
 }
+
+
+

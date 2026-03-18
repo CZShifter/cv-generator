@@ -7,6 +7,7 @@ import Head from "next/head";
 import styles from "@/scss/BlogPost.module.scss";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { blogMdxComponents } from "@/components/blog/BlogMdxComponents";
+import BlogShareBox from "@/components/blog/BlogShareBox";
 import {
   SITE_URL,
   SITE_URL_SK,
@@ -79,6 +80,7 @@ type BlogPostProps = {
 };
 
 export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostProps) {
+  const canonical = `${SITE_URL_SK}/sk/blog/${slug}/`;
   return (
     <>
       <Head>
@@ -90,12 +92,12 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
         {/* Canonical + hreflang */}
-        <link rel="canonical" href={`${SITE_URL_SK}/sk/blog/${slug}/`} />
+        <link rel="canonical" href={canonical} />
         {altSlugCs && (
           <link rel="alternate" href={`${SITE_URL}/cs/blog/${altSlugCs}/`} hrefLang="cs-CZ" />
         )}
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="sk-SK" />
-        <link rel="alternate" href={`${SITE_URL_SK}/sk/blog/${slug}/`} hrefLang="x-default" />
+        <link rel="alternate" href={canonical} hrefLang="sk-SK" />
+        <link rel="alternate" href={canonical} hrefLang="x-default" />
         {/* OG */}
         <meta property="og:title" content={`${data.title} | Blog | ${SITE_NAME_SK}`} />
         <meta property="og:description" content={data.description} />
@@ -103,7 +105,7 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
           property="og:image"
           content={data.coverImage ? `${SITE_URL_SK}${data.coverImage}?v=${SITE_VERSION}` : OG_IMAGE_SK}/>
         <meta property="og:image:alt" content={data.title} />
-        <meta property="og:url" content={`${SITE_URL_SK}/sk/blog/${slug}/`} />
+        <meta property="og:url" content={canonical} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="sk_SK" />
         <meta property="og:locale:alternate" content="cs_CZ" />
@@ -124,7 +126,7 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BlogPosting",
-              "mainEntityOfPage": `${SITE_URL_SK}/sk/blog/${slug}/`,
+              "mainEntityOfPage": canonical,
               "headline": data.title,
               "description": data.description,
               "image": data.coverImage ? `${SITE_URL_SK}${data.coverImage}?v=${SITE_VERSION}` : undefined,
@@ -161,9 +163,12 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
               />
             </picture>
           )}
-          <div className={styles.postMetaTop}>
-            {data.author && <span>Autor: {data.author} | </span>}
-            {data.date && <span>{data.date}</span>}
+          <div className={styles.blogMetaRow}>
+            <div className={styles.postMetaTop}>
+              {data.author && <span>Autor: {data.author} | </span>}
+              {data.date && <span>{data.date}</span>}
+            </div>
+            <BlogShareBox url={canonical} title={data.title} locale="sk" />
           </div>
           <h1>{data.title}</h1>
           {/* Povolit HTML bloky + bezpečná sanitizace */}

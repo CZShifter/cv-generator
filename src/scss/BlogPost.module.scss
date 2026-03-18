@@ -228,6 +228,82 @@
     transform: translateY(5px);
   }
 
+  .blogMetaRow {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blogShareBox {
+    width: 100%;
+    max-width: 270px;
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .blogShareTitle {
+    margin: 0;
+    font-size: $p;
+    font-weight: 600;
+    color: $btn-hover-color;
+    text-align: center;
+  }
+
+  .blogShareLinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .blogShareLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: $color-gray-070;
+    border: 1px solid $color-gray-150;
+    color: $btn-hover-color;
+    text-decoration: none;
+    box-shadow: none;
+    transition: transform 0.18s, color 0.18s, background 0.18s;
+  }
+
+  .blogShareLink svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .blogShareLink:hover {
+    background: $btn-hover-color;
+    color: $white-color;
+    transform: translateY(-2px);
+    box-shadow: none;
+  }
+
+  .blogShareSmallIcon {
+    font-size: 1.1rem;
+  }
+
+  .blogShareXIcon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
   h2 {
     margin-top: 1.5rem;
     font-size: calc($h2 / 1.5);
@@ -285,8 +361,8 @@
 
 .postMetaTop {
   align-self: flex-start;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
   color: $color-gray-520;
   font-size: 0.85rem;
   text-align: left;
