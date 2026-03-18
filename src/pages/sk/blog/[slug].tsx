@@ -143,7 +143,7 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
           }}
         />
       </Head>
-      <div className={styles.blogPostWrapper}>
+      <main className={styles.blogPostWrapper}>
         <article className={styles.blogPost}>
           {data.coverImage && (
             <picture>
@@ -171,7 +171,7 @@ export default function BlogPost({ data, slug, altSlugCs, mdxSource }: BlogPostP
             <MDXRemote {...mdxSource} components={blogMdxComponents} />
           </div>
         </article>
-      </div>
+      </main>
     </>
   );
 }

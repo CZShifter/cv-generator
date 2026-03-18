@@ -134,7 +134,7 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
         />
       </Head>
 
-      <div className={styles.blogPostWrapper}>
+      <main className={styles.blogPostWrapper}>
         <article className={styles.blogPost}>
           {data.coverImage && (
             <picture>
@@ -164,7 +164,7 @@ export default function BlogPost({ data, slug, altSlugSk, mdxSource }: BlogPostP
           </div>
 
         </article>
-      </div>
+      </main>
     </>
   );
 }
