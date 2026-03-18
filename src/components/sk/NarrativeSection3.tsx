@@ -21,7 +21,7 @@ export default function NarrativeSection() {
             </picture>
         </div>
         <div className={styles.NarrativeLeftWrapper}>
-          <h2>Motivačný list online <span>úplne zadarmo</span></h2>
+          <h1>Motivačný list online <span>úplne zadarmo</span></h1>
           <p>S našou aplikáciou si motivačný list vytvoríte jednoducho, bez nutnosti hľadania návodov, vzorov alebo zložitého formulovania viet. Stačí vyplniť niekoľko základných údajov a behom pár sekúnd získate profesionálne štruktúrovaný text, ktorý bude pripravený zaujať každého personalistu.</p>
           <p>Vytvorenie je úplne zadarmo, nevyžaduje registráciu, neobsahuje žiadne reklamy a neukladá vaše dáta. Motivačný list si stiahnete vo formáte DOCX, ihneď pripravený na odoslanie alebo úpravy podľa potreby. Vďaka prehľadnému rozhraniu je celý proces intuitívny a výrazne rýchlejší ako tvorba od základu.</p>
         </div>

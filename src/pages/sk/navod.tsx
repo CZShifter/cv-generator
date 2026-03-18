@@ -6,13 +6,13 @@ export default function NavodPage() {
   return ( 
       <>
       <Head>
-        <title>{`Návod – Ako vyplniť online životopis krok za krokom | ${SITE_NAME_SK}`}</title>
+        <title>{`Návod ako vyplniť životopis online krok za krokom | ${SITE_NAME_SK}`}</title>
         <meta
           name="description"
           content="Podrobný návod, ako jednoducho a správne vyplniť online životopis. Ukážky všetkých krokov s obrázkami a tipy, na čo si dať pozor. Zvládne to každý – pozrite si postup!"/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Návod – Ako vyplniť online životopis krok za krokom | ${SITE_NAME_SK}`} />
+        <meta property="og:title" content={`Návod ako vyplniť životopis online krok za krokom | ${SITE_NAME_SK}`} />
         <meta
           property="og:description"
           content="Podrobný návod na vyplnenie online životopisu. Prejdite si jednotlivé kroky, pozrite si ukážky a začnite tvoriť svoje vlastné CV bez stresu."/>
@@ -24,7 +24,7 @@ export default function NavodPage() {
         <meta property="og:locale:alternate" content="cs_CZ" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Návod – Ako vyplniť online životopis krok za krokom | ${SITE_NAME_SK}`} />
+        <meta name="twitter:title" content={`Návod ako vyplniť životopis online krok za krokom | ${SITE_NAME_SK}`} />
         <meta
           name="twitter:description"
           content="Podrobný návod na vyplnenie online životopisu. Prejdite si jednotlivé kroky, pozrite si ukážky a začnite tvoriť svoje vlastné CV bez stresu."/>

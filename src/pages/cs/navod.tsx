@@ -6,13 +6,13 @@ export default function NavodPage() {
   return ( 
       <>
       <Head>
-        <title>{`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`}</title>
+        <title>{`Návod jak vyplnit životopis online krok za krokem | ${SITE_NAME}`}</title>
         <meta
           name="description"
           content="Podrobný návod, jak jednoduše a správně vyplnit online životopis. Ukázky všech kroků s obrázky a tipy, na co si dát pozor. Zvládne to každý – podívejte se na postup!"/>
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`} />
+        <meta property="og:title" content={`Návod jak vyplnit životopis online krok za krokem | ${SITE_NAME}`} />
         <meta
           property="og:description"
           content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
@@ -24,7 +24,7 @@ export default function NavodPage() {
         <meta property="og:locale:alternate" content="sk_SK" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Návod – Jak vyplnit online životopis krok za krokem | ${SITE_NAME}`} />
+        <meta name="twitter:title" content={`Návod jak vyplnit životopis online krok za krokem | ${SITE_NAME}`} />
         <meta
           name="twitter:description"
           content="Podrobný návod na vyplnění online životopisu. Projděte si jednotlivé kroky, podívejte se na ukázky a začněte tvořit své vlastní CV bez stresu."/>
@@ -43,12 +43,12 @@ export default function NavodPage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HowTo",
-              "name": "Jak vyplnit online životopis krok za krokem",
+              "name": "Jak vyplnit životopis online krok za krokem",
               "description": "Podrobný návod pro vyplnění online životopisu, doplněný obrázky a postupem, který zvládne každý.",
               "image": OG_IMAGE,
               "inLanguage": "cs-CZ",
               "totalTime": "PT10M",
-              "tool": ["Aplikace na online tvorbu životopisu"],
+              "tool": ["Aplikace na tvorbu životopisu online "],
               "url": `${SITE_URL}/cs/navod/`,
               "step": [
                 {

@@ -42,6 +42,8 @@ export const getStaticProps: GetStaticProps<PageProps> = async (
 };
 
 export default function ProfessionPage({ content }: PageProps) {
+  const currentYear = new Date().getFullYear();
+  const metaTitle = `Ako napísať životopis ${content.name} - vzor ${currentYear} | ${SITE_NAME_SK}`;
   const canonical = `${SITE_URL_SK}/sk/profese/${content.urlSlug}/`;
   const alternate = `${SITE_URL}/cs/profese/${content.urlSlug}/`;
   const shareUrlEncoded = encodeURIComponent(canonical);
@@ -86,7 +88,7 @@ export default function ProfessionPage({ content }: PageProps) {
   const schemaWebPage = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": content.title,
+    "name": metaTitle,
     "description": content.description,
     "url": canonical,
     "inLanguage": "sk-SK",
@@ -138,8 +140,8 @@ export default function ProfessionPage({ content }: PageProps) {
   const schemaOffer = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Aplikácia na online tvorbu životopisu",
-    "description": "Vytvorte si profesionálny životopis online a exportujte ho do PDF.",
+    "name": "Aplikácia na tvorbu životopisu online",
+    "description": "Webová aplikácia na rýchlu tvorbu štruktúrovaného životopisu online. Bez registrácie, PDF ihneď.",
     "image": OG_IMAGE_SK,
     "brand": { "@type": "Brand", "name": SITE_NAME_SK, "logo": LOGO_SCHEMA_URL_SK },
     "offers": {
@@ -186,14 +188,14 @@ export default function ProfessionPage({ content }: PageProps) {
   return (
     <>
       <Head>
-        <title>{`${content.title} | ${SITE_NAME_SK}`}</title>
+        <title>{metaTitle}</title>
         <meta name="description" content={content.description} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={canonical} />
         <link rel="alternate" href={alternate} hrefLang="cs-CZ" />
         <link rel="alternate" href={canonical} hrefLang="sk-SK" />
         <link rel="alternate" href={canonical} hrefLang="x-default" />
-        <meta property="og:title" content={`${content.title} | ${SITE_NAME_SK}`} />
+        <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={content.description} />
         <meta property="og:image" content={OG_IMAGE_SK} />
         <meta property="og:url" content={canonical} />
@@ -201,7 +203,7 @@ export default function ProfessionPage({ content }: PageProps) {
         <meta property="og:locale" content="sk_SK" />
         <meta property="og:locale:alternate" content="cs_CZ" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${content.title} | ${SITE_NAME_SK}`} />
+        <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={content.description} />
         <meta name="twitter:image" content={OG_IMAGE_SK} />
         <script

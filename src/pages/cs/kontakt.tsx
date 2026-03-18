@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE, SITE_NAME, SITE_MAIL } from "@/config/site";
 import KontaktSection from '@/components/cs/KontaktSection';
 import CallToActionSection from '@/components/cs/CallToActionSection';
 import AISection from '@/components/cs/AISection';
@@ -8,7 +8,7 @@ export default function KontaktPage() {
   return ( 
     <>
       <Head>
-        <title>{`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}</title>
+        <title>{`Kontakty a FAQ aplikace na tvorbu životopisu online | ${SITE_NAME}`}</title>
         <meta
           name="description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte tým Rychlýživotopis.cz. Rádi pomůžeme s tvorbou životopisu, platbou nebo technickými dotazy. Odpovídáme většinou do 24 hodin."/>
@@ -16,7 +16,7 @@ export default function KontaktPage() {
         {/* OpenGraph */}
         <meta
           property="og:title"
-          content={`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}/>
+          content={`Kontakty a FAQ aplikace na tvorbu životopisu online | ${SITE_NAME}`}/>
         <meta
           property="og:description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi."/>
@@ -30,7 +30,7 @@ export default function KontaktPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Kontakt – Podpora a dotazy k aplikaci na online tvorbu životopisu | ${SITE_NAME}`}/>
+          content={`Kontakty a FAQ aplikace na tvorbu životopisu online | ${SITE_NAME}`}/>
         <meta
           name="twitter:description"
           content="Máte otázku nebo potřebujete poradit? Kontaktujte nás, rádi vám pomůžeme s tvorbou životopisu nebo technickými záležitostmi."/>
@@ -52,7 +52,7 @@ export default function KontaktPage() {
               "url": `${SITE_URL}/cs/kontakt/`,
               "name": `Kontakt - ${SITE_NAME}`,
               "inLanguage": "cs-CZ",
-              "description": "Máte otázku k životopisu, platbě nebo technický problém? Kontaktujte nás přes e-mail rychlyzivotopis@gmail.com, odpovídáme do 24 hodin."
+              "description": `Máte otázku k životopisu, platbě nebo technický problém? Kontaktujte nás přes e-mail ${SITE_MAIL}, odpovídáme do 24 hodin.`
             })
           }}
         />

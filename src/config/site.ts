@@ -3,12 +3,12 @@ export const SITE_VERSION = "19.03.26";
 // Základní nastavení webu
 export const SITE_URL = "https://rychlyzivotopis.cz";
 export const OG_IMAGE = `${SITE_URL}/img/og-cvgen.jpg?v=${SITE_VERSION}`;
-export const SITE_NAME = "RychlýŽivotopis.cz";
+export const SITE_NAME = "RychlýŽivotopis";
 export const SITE_MAIL = "rychlyzivotopis@gmail.com";
 // Základní nastavení webu SK Verze
 export const SITE_URL_SK = "https://rychlyzivotopis.sk";
 export const OG_IMAGE_SK = `${SITE_URL_SK}/img/og-cvgen-sk.jpg?v=${SITE_VERSION}`;
-export const SITE_NAME_SK = "RýchlyŽivotopis.sk";
+export const SITE_NAME_SK = "RýchlyŽivotopis";
 export const SITE_MAIL_SK = "rychlyzivotopis@gmail.com";
 // Meta icony
 export const FAVICON_URL_32 = `/img/favicon.png?v=${SITE_VERSION}`;

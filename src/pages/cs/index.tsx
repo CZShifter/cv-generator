@@ -14,12 +14,12 @@ export default function Home() {
   return ( 
     <>
       <Head>
-        <title>{`Vytvořte moderní životopis online snadno a rychle do 5 minut | ${SITE_NAME}`}</title>
-        <meta name="description" content="Vytvořte si moderní a profesionální životopis během pár minut. Jednoduše, bez registrace, okamžitě v PDF. Vyberte si šablonu a získejte náskok na trhu práce!" />
+        <title>{`Vytvořte životopis online rychle a bez registrace | ${SITE_NAME}`}</title>
+        <meta name="description" content="Vytvořte strukturovaný životopis online během pár minut, bez registrace a okamžitě v PDF. Vyberte si šablonu a získejte náskok na trhu práce!" />
         <meta name="robots" content="index, follow" />
         {/* OpenGraph */}
-        <meta property="og:title" content={`Vytvořte moderní životopis online snadno a rychle do 5 minut | ${SITE_NAME}`} />
-        <meta property="og:description" content="Vytvořte si moderní životopis rychle a jednoduše. Výběr šablon, bez registrace, PDF ihned." />
+        <meta property="og:title" content={`Vytvořte životopis online rychle a bez registrace | ${SITE_NAME}`} />
+        <meta property="og:description" content="Vytvořte strukturovaný životopis online během pár minut, bez registrace a okamžitě v PDF." />
         <meta property="og:image" content={OG_IMAGE} />
         <meta property="og:image:alt" content="Ukázka moderního životopisu z aplikace" />
         <meta property="og:url" content={`${SITE_URL}/cs/`} />
@@ -28,8 +28,8 @@ export default function Home() {
         <meta property="og:locale:alternate" content="sk_SK" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`Vytvořte moderní životopis online – Profesionální CV za 5 minut | ${SITE_NAME}`} />
-        <meta name="twitter:description" content="Vytvořte si moderní životopis rychle a jednoduše. Výběr šablon, bez registrace, PDF ihned." />
+        <meta name="twitter:title" content={`Vytvořte životopis online rychle a bez registrace | ${SITE_NAME}`} />
+        <meta name="twitter:description" content="Vytvořte strukturovaný životopis online během pár minut, bez registrace a okamžitě v PDF." />
         <meta name="twitter:image" content={OG_IMAGE} />
         {/* Hreflang – absolutní URL a oboustranně na .cz i .sk */}
         <link rel="canonical" href={`${SITE_URL}/cs/`} />
@@ -47,7 +47,7 @@ export default function Home() {
                 "name": SITE_NAME,
                 "url": `${SITE_URL}/cs/`,
                 "inLanguage": "cs-CZ",
-                "description": "Vytvořte moderní životopis online – profesionální PDF během pár minut. Bez registrace, výběr moderních šablon."
+                "description": "Vytvořte strukturovaný životopis online během pár minut, bez registrace a okamžitě v PDF, na výběr několik moderních šablon."
               },
               {
                 "@context": "https://schema.org",
@@ -74,12 +74,12 @@ export default function Home() {
               {
                 "@context": "https://schema.org",
                 "@type": "WebApplication",
-                "name": "Online tvorba životopisu",
+                "name": "Aplikace na tvorbu životopisu online",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Web",
                 "url": `${SITE_URL}/cs/`,
                 "inLanguage": "cs-CZ",
-                "description": "Webová aplikace pro rychlou tvorbu moderního životopisu. Bez registrace, PDF ihned.",
+                "description": "Webová aplikace pro rychlou tvorbu strukturovaného životopisu online. Bez registrace, PDF ihned.",
                 "image": OG_IMAGE,
                 "brand": { "@id": `${SITE_URL}/#org` },
                 "isAccessibleForFree": false,

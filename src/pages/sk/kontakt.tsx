@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK } from "@/config/site";
+import { SITE_URL, SITE_URL_SK, OG_IMAGE_SK, SITE_NAME_SK, SITE_MAIL_SK } from "@/config/site";
 import KontaktSection from '@/components/sk/KontaktSection';
 import CallToActionSection from '@/components/sk/CallToActionSection';
 import AISection from '@/components/sk/AISection';
@@ -8,7 +8,7 @@ export default function KontaktPage() {
   return ( 
     <>
       <Head>
-        <title>{`Kontakt – Podpora a otázky k aplikácii na online tvorbu životopisu | ${SITE_NAME_SK}`}</title>
+        <title>{`Kontakty a FAQ aplikácie na tvorbu životopisu online | ${SITE_NAME_SK}`}</title>
         <meta
           name="description"
           content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás. Radi pomôžeme s tvorbou životopisu, platbou alebo technickými otázkami. Odpovedáme zvyčajne do 24 hodín."/>
@@ -16,7 +16,7 @@ export default function KontaktPage() {
         {/* OpenGraph */}
         <meta
           property="og:title"
-          content={`Kontakt – Podpora a otázky k aplikácii na online tvorbu životopisu | ${SITE_NAME_SK}`}/>
+          content={`Kontakty a FAQ aplikácie na tvorbu životopisu online | ${SITE_NAME_SK}`}/>
         <meta
           property="og:description"
           content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás, radi vám pomôžeme s tvorbou životopisu alebo technickými záležitosťami."/>
@@ -30,7 +30,7 @@ export default function KontaktPage() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content={`Kontakt – Podpora a otázky k aplikácii na online tvorbu životopisu | ${SITE_NAME_SK}`}/>
+          content={`Kontakty a FAQ aplikácie na tvorbu životopisu online | ${SITE_NAME_SK}`}/>
         <meta
           name="twitter:description"
           content="Máte otázku alebo potrebujete poradiť? Kontaktujte nás, radi vám pomôžeme s tvorbou životopisu alebo technickými záležitosťami."/>
@@ -52,7 +52,7 @@ export default function KontaktPage() {
               "name": `Kontakt - ${SITE_NAME_SK}`,
               "inLanguage": "sk-SK",
               "description":
-                "Máte otázku k životopisu, platbe alebo technický problém? Kontaktujte nás e-mailom na rychlyzivotopis@gmail.com, zvyčajne odpovieme do 24 hodín."
+                `Máte otázku k životopisu, platbe alebo technický problém? Kontaktujte nás e-mailom na ${SITE_MAIL_SK}, zvyčajne odpovieme do 24 hodín.`
             })
           }}
         />
