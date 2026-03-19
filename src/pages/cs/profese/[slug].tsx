@@ -442,7 +442,7 @@ export default function ProfessionPage({ content }: PageProps) {
               <div className={styles.ctaBlock}>
                 <h2 className={styles.ctaTitle}>Připraveni vytvořit si svůj životopis?</h2>
                 <p className={styles.ctaText}>
-                  Začněte nyní a vytvořte si moderní a profesionální životopis během 5 minut.
+                  Začněte nyní a vytvořte strukturovaný životopis během 5 minut bez registrace.
                 </p>
                 <Link className={styles.ctaButton} href="/cs/preview">
                   Vytvořit životopis
@@ -504,11 +504,8 @@ export default function ProfessionPage({ content }: PageProps) {
               <Link className={styles.generatorLink} href="/cs/blog/jak-napsat-motivacni-dopis">
                 jak napsat motivační dopis
               </Link>
-              , nebo si ho rovnou vytvořte v naší aplikaci zdarma.
+              , nebo si ho rovnou vytvořte v <Link className={styles.generatorLink} href="/cs/motivacni-dopis">naší aplikaci zdarma</Link>.
             </p>
-            <Link className={styles.generatorLink} href="/cs/motivacni-dopis">
-              Vytvořit motivační dopis zdarma
-            </Link>
           </section>
 
           <section className={styles.faq}>

@@ -426,7 +426,7 @@ export default function ProfessionPage({ content }: PageProps) {
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEncoded}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Zdie�ate na Reddite"
+                aria-label="Zdieľať na LinkedIne"
               >
                   <LiaLinkedinIn />
               </a>
@@ -442,7 +442,7 @@ export default function ProfessionPage({ content }: PageProps) {
               <div className={styles.ctaBlock}>
                 <h2 className={styles.ctaTitle}>Pripravení vytvoriť si svoj životopis?</h2>
                 <p className={styles.ctaText}>
-                  Začnite teraz a vytvorte si moderný a profesionálny životopis počas 5 minút.
+                  Začnite teraz a vytvorte štruktúrovaný životopis počas 5 minút bez registrácie.
                 </p>
                 <Link className={styles.ctaButton} href="/sk/preview">
                   Vytvoriť životopis
@@ -504,11 +504,8 @@ export default function ProfessionPage({ content }: PageProps) {
               <Link className={styles.generatorLink} href="/sk/blog/ako-napisat-motivacny-list">
                 ako napísať motivačný list
               </Link>
-              , alebo si ho rovno vytvorte v našej aplikácii zadarmo.
+              , alebo si ho rovno vytvorte v <Link className={styles.generatorLink} href="/sk/motivacni-dopis">našej aplikácii zadarmo</Link>.
             </p>
-            <Link className={styles.generatorLink} href="/sk/motivacni-dopis">
-              Vytvoriť motivačný list zadarmo
-            </Link>
           </section>
 
           <section className={styles.faq}>
