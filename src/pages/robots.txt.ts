@@ -32,15 +32,8 @@ function getOrigin(req: IncomingMessage) {
 
 // 🚫 Seznam zakázaných cest – platí pro všechny boty
 const DISALLOW_PATHS = [
-  "/cs/edit/",
-  "/sk/edit/",
   "/cs/zaplaceno/",
   "/sk/zaplaceno/",
-  "/cs/po-platbe",
-  "/sk/po-platbe",
-  "/cs/preview",
-  "/sk/preview",
-  "/404",
 ];
 
 // 📝 Funkce pro sestavení robots.txt
