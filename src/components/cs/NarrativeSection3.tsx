@@ -1,5 +1,6 @@
 import styles from '@/scss/NarrativeSection2.module.scss';
 import { SITE_VERSION } from "@/config/site";
+import Link from "next/link";
 
 export default function NarrativeSection() {
   return (
@@ -22,8 +23,9 @@ export default function NarrativeSection() {
         </div>
         <div className={styles.NarrativeLeftWrapper}>
           <h1>Motivační dopis online <span>úplně zdarma</span></h1>
-          <p>S naší aplikací si motivační dopis vytvoříte jednoduše, bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během pár vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout každého personalistu.</p>
-          <p>Vytvoření je úplně zdarma, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá vaše data. Motivační dopis si stáhnete ve formátu DOCX, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od základu.</p>
+          <p>S naší aplikací si <strong>motivační dopis vytvoříte jednoduše</strong>, bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během pár vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout každého personalistu.</p>
+          <p><strong>Vytvoření je úplně zdarma</strong>, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá vaše data. <strong>Motivační dopis si stáhnete ve formátu DOCX</strong>, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od základu.</p>
+          <p>Pokud si chcete motivační dopis napsat sami, na blogu najdete <Link href="/cs/blog/jak-napsat-motivacni-dopis">podrobný návod</Link>, jak ho správně strukturovat, co do něj uvést a čemu se vyhnout.</p>
         </div>
       </div>
     </main>

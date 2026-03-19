@@ -21,8 +21,8 @@ export default function AISection() {
         </div>
          <div className={styles.AITitleWrapper}>
           <h2>Vyplňujte rychleji díky <span>umělé inteligenci</span></h2>
-          <p>Naše aplikace využívá umělou inteligenci k tomu, aby vám co nejvíce usnadnila tvorbu životopisu. Nástroj vám nabídne návrh textu podle vašeho stručného popisu. Pomůže s pracovními zkušenostmi, dovednostmi, osobním profilem i motivačním dopisem.</p>
-          <p>Návrhy můžete poté libovolně upravit, nebo použít jako inspiraci. Vše probíhá automaticky, bez nutnosti přihlášení, nebo registrace.</p>
+          <p>Naše aplikace <strong>využívá umělou inteligenci</strong> k tomu, aby vám co nejvíce usnadnila tvorbu životopisu. Nástroj vám nabídne návrh textu podle vašeho stručného popisu. Pomůže s pracovními zkušenostmi, dovednostmi, osobním profilem i motivačním dopisem.</p>
+          <p>Návrhy můžete poté libovolně upravit, nebo použít jako inspiraci. Vše probíhá automaticky, <strong>bez nutnosti přihlášení, nebo registrace</strong>.</p>
         </div>          
       </div>
     </section>

@@ -23,8 +23,8 @@ export default function NarrativeSection() {
         </div>
         <div className={styles.NarrativeLeftWrapper}>
           <h2>Naše CV naplní očekávání <span>každého personalisty</span></h2>
-          <p>Naše aplikace nabízí řešení, které je promyšlené do posledního detailu – od výběru typografie až po strukturu jednotlivých sekcí. Vše vychází z reálné praxe v oblasti HR nadnárodních korporací a je navrženo tak, aby personalista během několika vteřin získal jasnou představu o vašich dovednostech, zkušenostech i potenciálu. Váš životopis tak bude splňovat nároky profesionálů z oblasti HR.</p>
-          <p>Aplikace zjednodušuje celý proces, aniž by přitom snižovala kvalitu. Váš čas je cenný a správně strukturovaný životopis může být přesně to, co ho promění ve skutečnou příležitost.</p>
+          <p>Naše aplikace nabízí řešení, které je promyšlené do posledního detailu – od výběru typografie až po strukturu jednotlivých sekcí. <strong>Vše vychází z reálné praxe v oblasti HR</strong> nadnárodních korporací a je navrženo tak, aby personalista během několika vteřin získal jasnou představu o vašich dovednostech, zkušenostech i potenciálu. Váš životopis tak bude splňovat nároky profesionálů z oblasti HR.</p>
+          <p>Aplikace <strong>zjednodušuje celý proces</strong>, aniž by přitom snižovala kvalitu. Váš čas je cenný a správně strukturovaný životopis může být přesně to, co ho promění ve skutečnou příležitost.</p>
           <p>A pokud potřebujete i <Link href='/cs/motivacni-dopis'>motivační dopis</Link> aplikace nabízí jeho generování zcela zdarma. Jednoduše a bez závazků.</p>
         </div>
       </div>

@@ -75,8 +75,6 @@ export default function ContactSection() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
         />
-        {/* <link rel="preload" as="image" href={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`}/>
-        <link rel="preload" as="image" href={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}/> */}
       </Head>
       <div className={styles.SectionWrapper}>
         <h1 className={styles.heading}>Kontaktujte nás</h1>
@@ -87,7 +85,7 @@ export default function ContactSection() {
             {/* Sekce O nás */}
             <div className={styles.oNas}>
               <h2>Naše motivace</h2>
-              <p>Věříme, že vytvořit profesionální životopis by mělo být jednoduché, rychlé a dostupné pro každého</p>
+              <p>Věříme, že vytvořit strukturovaný životopis by mělo být jednoduché, rychlé a dostupné pro každého</p>
               <p>Zaměřujeme se na kvalitu, bezpečnost dat a maximální uživatelský komfort. Tato aplikace vznikla proto, abychom odstranili zbytečnou komplikovanost a pomohli vám získat práci, po které toužíte.</p>
               <p>Každou šablonu jsme navrhli tak, aby obsahovala všechny klíčové informace a zároveň byla graficky poutavá a přehledná.</p>
             </div>
@@ -98,17 +96,6 @@ export default function ContactSection() {
               <p>Ulice: {SELLER_ADDRESS}</p>
               <p>Město: {SELLER_ADDRESS_CITY}</p>
               <p>E-mail: <a href={`mailto:${SITE_MAIL}`} className={styles.email} onClick={() => trackGAEvent('click', 'contact', 'email_click')}>{SITE_MAIL}</a></p>
-              {/* <picture>
-                  <source srcSet={`/img/cartoon_cv7.webp?v=${SITE_VERSION}`} type="image/webp" />
-                  <source srcSet={`/img/cartoon_cv7.png?v=${SITE_VERSION}`} type="image/png" />
-                  <img
-                    src={`/img/cartoon_cv7.png?v=${SITE_VERSION}`}
-                    alt="Muž sedí a mává na kameru"
-                    width={200}      // nastav šířku dle reálného obrázku nebo layoutu
-                    height={400}     // nastav výšku dle reálného obrázku nebo layoutu
-                    className={styles.kontakt_img}  // pokud chceš stylovat ještě obrázek samotný
-                  />
-              </picture> */}
             </div>
           </div>
           {/* FAQ akordeon */}

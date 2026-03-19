@@ -6,7 +6,7 @@ export default function CallToActionSection() {
     <section className={styles.cta}>
       <div className={styles.container}>
         <h2>Připraveni vytvořit si svůj životopis?</h2>
-        <p>Začněte nyní a vytvořte si moderní a profesionální životopis během několika minut</p>
+        <p>Začněte nyní a vytvořte si moderní strukturovaný životopis online během několika minut</p>
         <Link href="/cs/preview" className={styles.button}>
           Začít ihned
         </Link>

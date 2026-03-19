@@ -22,8 +22,8 @@ export default function NarrativeSection() {
         </div>
         <div className={styles.NarrativeLeftWrapper}>
           <h2>Motivační dopis online <span>úplně zdarma</span></h2>
-          <p>S naší aplikací si motivační dopis vytvoříte jednoduše, bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během pár vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout každého personalistu.</p>
-          <p>Vytvoření je úplně zdarma, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá vaše data. Motivační dopis si stáhnete ve formátu DOCX, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od základu.</p>
+          <p>S naší aplikací si <strong>motivační dopis vytvoříte jednoduše</strong>, bez nutnosti hledání návodů, vzorů nebo složitého formulování vět. Stačí vyplnit několik základních údajů a během pár vteřin získáte profesionálně strukturovaný text, který bude připraven zaujmout každého personalistu.</p>
+          <p><strong>Vytvoření je úplně zdarma</strong>, nevyžaduje registraci, neobsahuje žádné reklamy a neukládá vaše data. <strong>Motivační dopis si stáhnete ve formátu DOCX</strong>, ihned připravený k odeslání nebo úpravám podle potřeby. Díky přehlednému rozhraní je celý proces intuitivní a výrazně rychlejší než tvorba od základu.</p>
         </div>
       </div>
     </main>

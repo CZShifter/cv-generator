@@ -426,7 +426,7 @@ export default function ProfessionPage({ content }: PageProps) {
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEncoded}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Sdílet na Redditu"
+                    aria-label="Sdílet na LinkedIn"
                   >
                     <LiaLinkedinIn />
                   </a>

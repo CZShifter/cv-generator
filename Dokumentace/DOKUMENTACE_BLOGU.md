@@ -67,6 +67,25 @@ Zpětná kompatibilita je zachována.
 
 ---
 
+## Sdílení článku (share ikonky)
+
+Sdílecí box je nyní samostatná komponenta:
+- `src/components/blog/BlogShareBox.tsx`
+
+Použití:
+- Vkládá se **hned pod cover image** a je v **jednom řádku** s metadaty (autor + datum).
+- Zarovnání je `space-between`, share box je vpravo, a při nedostatku místa se může zalomit pod metadata.
+- Sdílí se: Facebook, X, WhatsApp, Telegram, LinkedIn.
+
+Styly:
+- `src/scss/BlogPost.module.scss`
+  - `.blogMetaRow`
+  - `.blogShareBox`
+  - `.blogShareLinks`
+  - `.blogShareLink`
+  - `.blogShareXIcon` (speciální velikost pro X)
+
+---
 ## Komponenty pro MDX (sjednocený vzhled)
 
 Komponenty jsou definované v:
@@ -231,3 +250,4 @@ Tyto balíčky musí být v `package.json` a nainstalované přes `npm install`.
 - Pokud se přidává nová sekce, doplňte ji jako komponentu do `BlogMdxComponents.tsx`.
 - `SummaryNav` používá stejné vizuální zpracování jako box „Rychlé shrnutí (navigace)“ z profesí.
 - `QuoteBox` používá ikonu `<RiDoubleQuotesR />` a label (např. „Příklad:“).
+
