@@ -648,12 +648,12 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
           ? [
               `Životopis pro pozici ${seed.name} by měl být jasný a věcný. Personalista chce rychle pochopit, co umíte a jaké výsledky můžete přinést.`,
               `Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte měřitelné výsledky, nástroje a procesy, se kterými pracujete.`,
-              `Pokud s profesí začínáte, zdůrazněte praxi, brigády, kurzy nebo projekty. Důležitá je motivace a rychlá adaptace.`,
+              `Pokud s profesí začínáte, zdůrazněte praxi, brigády, kurzy nebo projekty. Důležitá je motivace a rychlá adaptace. Podrobný návod, [blog]jak napsat životopis[/blog], najdete v našem blogu.`,
             ]
           : [
               `Životopis pre pozíciu ${seed.name} má byť jasný a vecný. Personalista chce rýchlo pochopiť, čo viete a aké výsledky prinesiete.`,
               `Zamerajte sa na skúsenosti, ktoré súvisia s náplňou práce. Uveďte merateľné výsledky, nástroje a procesy, s ktorými pracujete.`,
-              `Ak s profesiou začínate, zvýraznite prax, brigády, kurzy alebo projekty. Dôležitá je motivácia a rýchla adaptácia.`,
+              `Ak s profesiou začínate, zvýraznite prax, brigády, kurzy alebo projekty. Dôležitá je motivácia a rýchla adaptácia. Podrobný návod, [blog]ako napísať životopis[/blog], nájdete na našom blogu.`,
             ],
     },
     {
@@ -727,6 +727,8 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
   const adResponsibilities = responsibilities.slice(0, 4);
   const adRequirements = pickDeterministic(skills, 6, `${seed.slug}-requirements`);
 
+  const combinedIntro = `${ui.introLead(seed.name)} ${ui.introSecond(seed.name)} ${uniqueLead}`.trim();
+
   return {
     slug: seed.slug,
     urlSlug: toProfessionUrlSlug(seed.slug, locale),
@@ -735,7 +737,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     title: ui.title(seed.name),
     description: ui.description(seed.name),
     h1: ui.h1(seed.name),
-    intro: [ui.introLead(seed.name), ui.introSecond(seed.name)],
+    intro: [combinedIntro],
     summaryBullets:
       locale === "cs"
         ? [
@@ -752,7 +754,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
             "Čo personalisti pri tejto profesii ocenia",
             "Najčastejšie chyby v životopise",
           ],
-    uniqueLead,
+    uniqueLead: "",
     bodySections,
     adExample: {
       ...adExampleBase,

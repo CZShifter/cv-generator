@@ -76,6 +76,33 @@ export default function ProfessionPage({ content }: PageProps) {
       </>
     );
   };
+  const renderParagraph = (text: string) => {
+    if (!text.includes("[blog]") && !text.includes("[preview]")) return highlightText(text);
+    const parts = text.split(/(\[blog\][\s\S]*?\[\/blog\]|\[preview\][\s\S]*?\[\/preview\])/g);
+    return (
+      <>
+        {parts.filter(Boolean).map((part, index) => {
+          if (part.startsWith("[blog]")) {
+            const label = part.replace(/^\[blog\]|\[\/blog\]$/g, "");
+            return (
+              <Link key={`blog-${index}`} className={styles.generatorLink} href="/sk/blog/ako-napisat-zivotopis">
+                {label}
+              </Link>
+            );
+          }
+          if (part.startsWith("[preview]")) {
+            const label = part.replace(/^\[preview\]|\[\/preview\]$/g, "");
+            return (
+              <Link key={`preview-${index}`} className={styles.generatorLink} href="/sk/preview">
+                {label}
+              </Link>
+            );
+          }
+          return <span key={`text-${index}`}>{highlightText(part)}</span>;
+        })}
+      </>
+    );
+  };
   const topSections = content.bodySections.filter(
     (section) =>
       section.heading === content.bodySections[0]?.heading ||
@@ -229,9 +256,9 @@ export default function ProfessionPage({ content }: PageProps) {
           <header className={styles.hero}>
             <h1>{content.h1}</h1>
             {content.intro.map((p, index) => (
-              <p key={p} className={index === 0 ? styles.heroIntroTight : undefined}>{renderIntro(p)}</p>
+              <p key={p} className={index === 0 ? styles.heroPerex : undefined}>{renderIntro(p)}</p>
             ))}
-            <p>{highlightText(content.uniqueLead)}</p>
+            {content.uniqueLead?.trim() && <p>{highlightText(content.uniqueLead)}</p>}
           </header>
 
           <section className={styles.summaryBox}>
@@ -274,7 +301,7 @@ export default function ProfessionPage({ content }: PageProps) {
                           : undefined
                       }
                     >
-                      {highlightText(paragraph)}
+                      {renderParagraph(paragraph)}
                     </p>
                   )
               ))}
@@ -481,7 +508,7 @@ export default function ProfessionPage({ content }: PageProps) {
                           : undefined
                       }
                     >
-                      {highlightText(paragraph)}
+                      {renderParagraph(paragraph)}
                     </p>
                   )
               ))}

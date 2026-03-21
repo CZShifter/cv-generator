@@ -39,6 +39,21 @@
   margin-bottom: 0 !important;
 }
 
+.hero .heroPerex {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+
+  strong {
+    font-weight: inherit;
+  }
+
+  a,
+  .generatorLink {
+    font-size: inherit;
+  }
+}
+
 .generatorLink {
   font-weight: 700;
   color: $btn-hover-color;
