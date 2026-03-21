@@ -101,12 +101,17 @@ export function Faq({ title, items }: FaqProps) {
 
 type AfterGridProps = {
   children: React.ReactNode;
+  variant?: "70-30";
 };
 
-export function AfterGrid({ children }: AfterGridProps) {
+export function AfterGrid({ children, variant }: AfterGridProps) {
+  const gridClass =
+    variant === "70-30"
+      ? `${styles.blogAfterGrid} ${styles.blogAfterGrid7030}`
+      : styles.blogAfterGrid;
   return (
     <div className={styles.blogAfterSection}>
-      <div className={styles.blogAfterGrid}>{children}</div>
+      <div className={gridClass}>{children}</div>
     </div>
   );
 }
