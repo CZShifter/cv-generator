@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { RiDoubleQuotesR } from "react-icons/ri";
 import styles from "@/scss/BlogPost.module.scss";
 import { SITE_VERSION } from "@/config/site";
@@ -176,13 +176,67 @@ type BlogCtaProps = {
   text?: string;
   buttonLabel: string;
   href: string;
+  rotatingPhrases?: string[];
 };
 
-export function BlogCta({ title, text, buttonLabel, href }: BlogCtaProps) {
+export function BlogCta({ title, text, buttonLabel, href, rotatingPhrases }: BlogCtaProps) {
+  const phrases = useMemo(
+    () => (rotatingPhrases ?? []).map((p) => p.trim()).filter(Boolean),
+    [rotatingPhrases]
+  );
+  const fallbackTitle = phrases[0] ?? title;
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (phrases.length === 0) return;
+    const current = phrases[phraseIndex] ?? "";
+    const typingSpeed = 140;
+    const deletingSpeed = 60;
+    const pauseAfterTyped = 4000;
+    const pauseAfterDeleted = 300;
+
+    if (!deleting && charIndex < current.length) {
+      const t = setTimeout(() => setCharIndex((c) => c + 1), typingSpeed);
+      return () => clearTimeout(t);
+    }
+    if (!deleting && charIndex === current.length) {
+      const t = setTimeout(() => setDeleting(true), pauseAfterTyped);
+      return () => clearTimeout(t);
+    }
+    if (deleting && charIndex > 0) {
+      const t = setTimeout(() => setCharIndex((c) => c - 1), deletingSpeed);
+      return () => clearTimeout(t);
+    }
+    if (deleting && charIndex === 0) {
+      const t = setTimeout(() => {
+        setDeleting(false);
+        setPhraseIndex((i) => (i + 1) % phrases.length);
+      }, pauseAfterDeleted);
+      return () => clearTimeout(t);
+    }
+  }, [phrases, phraseIndex, charIndex, deleting]);
+
+  const showTypewriter = phrases.length > 0;
+  const currentText = phrases[phraseIndex] ?? "";
+  const typedText = currentText.slice(0, charIndex);
+
   return (
     <div className={styles.blogCta}>
       <div className={styles.blogCtaBlock}>
-        <h2 className={styles.blogCtaTitle}>{title}</h2>
+        <h2 className={styles.blogCtaTitle} aria-live="polite" aria-atomic="true">
+          {showTypewriter ? (
+            <>
+              <span className={styles.blogCtaType}>
+                {typedText || "\u00A0"}
+                <span className={styles.blogCtaCursor} aria-hidden="true" />
+              </span>
+            </>
+          ) : (
+            fallbackTitle
+          )}
+        </h2>
         {text && <p className={styles.blogCtaText}>{text}</p>}
         <a className={styles.blogCtaButton} href={href}>{buttonLabel}</a>
       </div>
