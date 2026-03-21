@@ -6,7 +6,6 @@
   width: 100%;
   height: auto;
   background-color: $back-color;
-  text-align: center;
   justify-content: center;
   align-items: center;
   @media (max-width: 700px) {
@@ -16,31 +15,67 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1rem;
   align-items: center;
   width: 100%;
-  gap: 24px;
   max-width: $max-width;
-  background-color: $btn-hover-color;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(140% 120% at 10% 0%, rgba(20, 155, 225, 0.36) 0%, rgba(20, 155, 225, 0) 58%),
+    radial-gradient(140% 120% at 90% 10%, rgba(10, 90, 145, 0.5) 0%, rgba(10, 90, 145, 0) 62%),
+    radial-gradient(140% 120% at 20% 100%, rgba(0, 95, 150, 0.45) 0%, rgba(0, 95, 150, 0) 60%),
+    linear-gradient(135deg, #003b5e 0%, #003a5c 30%, #0a5f8f 62%, #0a5f8f 100%);
   padding: 64px;
   h2 {
     font-size: $h2;
     color: $white-color;
+    text-align: left;
   }
   p {
     font-size: $p;
     color: $white-color;
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    text-align: left;
   }
   @media (max-width: 1024px) {
     padding: 32px;
   }
   @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    text-align: center;
     padding: 32px 24px;
     h2{
       font-size: calc($h2 / 1.5);
+      text-align: center;
+    }
+    p{
+      text-align: center;
     }
   }
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  --mask:
+    radial-gradient(18.54px at 50% calc(100% + 0.9px), #0000 calc(99% - 19px), #000 calc(101% - 19px) 99%, #0000 101%) calc(50% - 18px) calc(50% - 14px + 0.5px) / 36px 28px,
+    radial-gradient(18.54px at 50% -0.9px, #0000 calc(99% - 19px), #000 calc(101% - 19px) 99%, #0000 101%) 50% calc(50% + 14px) / 36px 28px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  background:
+    radial-gradient(110% 130% at 15% 30%, rgba(120, 200, 255, 0.22) 0%, rgba(0, 95, 150, 0) 35%),
+    radial-gradient(110% 130% at 80% 70%, rgba(90, 170, 230, 0.18) 0%, rgba(0, 95, 150, 0) 38%);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}
+
+.container > * {
+  position: relative;
+  z-index: 2;
 }
 .button {
   display: block;

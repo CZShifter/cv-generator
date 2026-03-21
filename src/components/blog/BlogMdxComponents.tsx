@@ -182,7 +182,7 @@ export function BlogCta({ title, text, buttonLabel, href }: BlogCtaProps) {
   return (
     <div className={styles.blogCta}>
       <div className={styles.blogCtaBlock}>
-        <h3 className={styles.blogCtaTitle}>{title}</h3>
+        <h2 className={styles.blogCtaTitle}>{title}</h2>
         {text && <p className={styles.blogCtaText}>{text}</p>}
         <a className={styles.blogCtaButton} href={href}>{buttonLabel}</a>
       </div>

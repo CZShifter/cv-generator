@@ -360,7 +360,7 @@ const UI_TEXT: Record<Locale, {
 }> = {
   cs: {
     introLead: (name) =>
-      `Hledáte vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout u personalisty a vyhnout se typickým chybám.`,
+      `Hledáte vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}? Připravili jsme konkrétní doporučení, která vám pomohou vyniknout.`,
     introSecond: (name) =>
       `Najdete tu strukturu, dovednosti i ukázku CV. Pokud chcete, můžete si vzor pro pozici ${name} rovnou upravit v naší [generator] a mít hotovo během pár minut.`,
     h1: (name) => `Vzor životopisu pro pozici ${name} v roce ${new Date().getFullYear()}`,
@@ -428,7 +428,7 @@ const UI_TEXT: Record<Locale, {
   },
   sk: {
     introLead: (name) =>
-      `Hľadáte vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť u personalistu a vyhnúť sa častým chybám.`,
+      `Hľadáte vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}? Pripravili sme konkrétne odporúčania, ktoré vám pomôžu vyniknúť.`,
     introSecond: (name) =>
       `Nájdete tu štruktúru, zručnosti aj ukážku CV. Ak chcete, môžete si vzor pre pozíciu ${name} hneď upraviť v našej [generator] a mať hotovo za pár minút.`,
     h1: (name) => `Vzor životopisu pre pozíciu ${name} v roku ${new Date().getFullYear()}`,
