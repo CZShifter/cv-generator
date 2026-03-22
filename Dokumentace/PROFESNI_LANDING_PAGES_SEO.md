@@ -25,8 +25,8 @@ Stránky obsahují:
 - preview CV (A4, responsivní)
 - FAQ
 - CTA blok ve stylu domovské stránky
-- interní prolinkování (related)
-- box „Příklad inzerátu“ s intro textem podle kategorie, plus Náplň práce / Požadujeme
+- interní prolinkování (related) s textem „vzor {profese}“
+- box „Příklad inzerátu“ s intro textem podle profese (JSON) nebo fallbackem podle kategorie, plus Náplň práce / Požadujeme
 - v běžném textu se zvýrazňuje (strong) slovo „životopis“ a název profese; **v nadpisech se strong nepoužívá**
 - v H1 profesního rozcestníku se dynamicky používá aktuální rok (pro lepší SEO)
 
@@ -59,7 +59,7 @@ Stránka se vygeneruje automaticky:
 
 Sitemap se aktualizuje automaticky.
 
-### Krok 4: doplnit data pro preview + typické úkoly
+### Krok 4: doplnit data pro preview + typické úkoly + unikátní texty sekcí
 Nový systém **nebere data z kategorií**, ale z konkrétní profese.
 
 Soubory:
@@ -71,14 +71,74 @@ Každý záznam musí mít:
 - `aboutMe` (male/female)
 - `skills` (5 bodů)
 - `workExperience` (3 pozice × 4 body)
+- `sections` (unikátní texty pro stránku profese)
 
 Poznámky:
 - CZ a SK soubor se párují **podle `slug`**, ne podle pořadí.
-- Pokud se `slug` nezná, běží fallback na CZ data.
+- Pokud `sections` chybí, použijí se generické texty z `src/data/professions.ts`.
+
+#### Struktura `sections` v JSON
+```
+"sections": {
+  "howToWriteCv": {
+    "heading": "Jak napsat životopis pro tuto profesi",
+    "paragraphs": [
+      "Věta 1…",
+      "Věta 2…",
+      "Věta 3…"
+    ]
+  },
+  "atsTips": {
+    "heading": "Tipy pro ATS a výběrová řízení",
+    "paragraphs": [
+      "Věta 1…",
+      "Věta 2…",
+      "Věta 3…"
+    ]
+  },
+  "whatRecruitersAppreciate": {
+    "heading": "Co u této profese personalisté ocení",
+    "paragraphs": [
+      "Věta 1…",
+      "Věta 2…"
+    ],
+    "bullets": [
+      "bod 1",
+      "bod 2",
+      "bod 3",
+      "bod 4"
+    ]
+  },
+  "commonCvMistakes": {
+    "heading": "Nejčastější chyby v životopise",
+    "paragraphs": [
+      "Věta 1…"
+    ],
+    "bullets": [
+      "bod 1",
+      "bod 2",
+      "bod 3"
+    ]
+  },
+  "jobAdExample": {
+    "heading": "Příklad inzerátu",
+    "text": "První odstavec inzerátu (unikátní pro profesi)."
+  }
+}
+```
+
+Poznámky k sekcím:
+- **Jak napsat životopis** a **Tipy pro ATS** se na stránce vždy zobrazují jako **jeden odstavec** (všechny věty se spojí).
+- Do sekce **Jak napsat životopis** se automaticky přidá věta:
+  - CZ: „Podrobný návod, [blog]jak napsat životopis[/blog], najdete v našem blogu.“
+  - SK: „Podrobný návod, [blog]ako napísať životopis[/blog], nájdete v našom blogu.“
+- Pokud text už `[blog]` obsahuje, žádný další odkaz se nepřidává.
+- `jobAdExample.text` se použije jako **intro text** v boxu inzerátu.
 
 ### Poznámka: inzerát a intro
 U každé profese se generuje box „Příklad inzerátu“. Používá:
-- intro z `CATEGORY_INTRO` (CZ/SK) – text se vkládá do boxu u inzerátu
+- intro z `sections.jobAdExample.text` (CZ/SK) – pokud existuje, má přednost
+- jinak fallback na `CATEGORY_INTRO` (CZ/SK)
 - body „Náplň práce“ = **4 body** z dat profese (stejné jako v „Typické úkoly“)
 - body „Požadujeme“ = **5 dovedností** z dat profese
 

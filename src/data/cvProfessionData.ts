@@ -9,6 +9,22 @@ export type CvProfessionLocaleData = {
   aboutMe: { male: string; female: string };
   skills: string[];
   workExperience: CvProfessionWorkExperience[];
+  sections?: CvProfessionSections;
+};
+
+export type CvProfessionSectionBlock = {
+  heading: string;
+  paragraphs?: string[];
+  bullets?: string[];
+  text?: string;
+};
+
+export type CvProfessionSections = {
+  howToWriteCv: CvProfessionSectionBlock;
+  atsTips: CvProfessionSectionBlock;
+  whatRecruitersAppreciate: CvProfessionSectionBlock;
+  commonCvMistakes: CvProfessionSectionBlock;
+  jobAdExample: { heading: string; text: string };
 };
 
 type CvProfessionRawEntry = {
@@ -17,6 +33,7 @@ type CvProfessionRawEntry = {
   aboutMe: { male: string; female: string };
   skills: string[];
   workExperience: CvProfessionWorkExperience[];
+  sections?: CvProfessionSections;
 };
 
 import rawData from "./cv-profese-data-cz.json";
@@ -43,6 +60,7 @@ function buildLocaleMaps() {
         aboutMe: entry.aboutMe,
         skills: entry.skills,
         workExperience: entry.workExperience,
+        sections: entry.sections,
       };
     }
     return map;

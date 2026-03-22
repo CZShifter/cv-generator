@@ -1,4 +1,8 @@
-import { getCvProfessionData, getCvProfessionResponsibilities } from "./cvProfessionData";
+import {
+  CvProfessionSections,
+  getCvProfessionData,
+  getCvProfessionResponsibilities,
+} from "./cvProfessionData";
 
 export type Locale = "cs" | "sk";
 
@@ -640,7 +644,65 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
       : `Krátky, dobre štruktúrovaný životopis s jasnými výsledkami funguje v tomto odbore najlepšie.`,
   ]);
 
-  const bodySections = [
+  const buildSection = (
+    heading: string,
+    paragraphs: string[],
+    bullets?: string[]
+  ): { heading: string; paragraphs: string[]; bullets?: string[] } => {
+    const section: { heading: string; paragraphs: string[]; bullets?: string[] } = {
+      heading,
+      paragraphs,
+    };
+    if (bullets && bullets.length > 0) section.bullets = bullets;
+    return section;
+  };
+
+  const mergeParagraphs = (paragraphs?: string[]) => {
+    return (paragraphs ?? []).map((p) => p.trim()).filter(Boolean).join(" ");
+  };
+
+  const appendHowToBlogLink = (text: string) => {
+    if (!text) return text;
+    if (text.includes("[blog]")) return text;
+    const sentence =
+      locale === "cs"
+        ? "Podrobný návod, [blog]jak napsat životopis[/blog], najdete v našem blogu."
+        : "Podrobný návod, [blog]ako napísať životopis[/blog], nájdete v našom blogu.";
+    const spacer = text.endsWith(".") ? " " : ". ";
+    return `${text}${spacer}${sentence}`;
+  };
+
+  const buildCzSectionsFromJson = (sections: CvProfessionSections) => {
+    const howToParagraph = appendHowToBlogLink(
+      mergeParagraphs(sections.howToWriteCv.paragraphs)
+    );
+    const atsParagraph = mergeParagraphs(sections.atsTips.paragraphs);
+
+    return [
+      buildSection(
+        sections.howToWriteCv.heading || ui.sections.howTo,
+        howToParagraph ? [howToParagraph] : [],
+        sections.howToWriteCv.bullets
+      ),
+      buildSection(
+        sections.atsTips.heading || ui.sections.ats,
+        atsParagraph ? [atsParagraph] : [],
+        sections.atsTips.bullets
+      ),
+      buildSection(
+        sections.whatRecruitersAppreciate.heading || ui.sections.highlight,
+        sections.whatRecruitersAppreciate.paragraphs ?? [],
+        sections.whatRecruitersAppreciate.bullets
+      ),
+      buildSection(
+        sections.commonCvMistakes.heading || ui.sections.mistakes,
+        sections.commonCvMistakes.paragraphs ?? [],
+        sections.commonCvMistakes.bullets
+      ),
+    ];
+  };
+
+  const defaultBodySections = [
     {
       heading: ui.sections.howTo,
       paragraphs:
@@ -723,9 +785,22 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     },
   ];
 
+  const bodySections = cvData.sections
+    ? buildCzSectionsFromJson(cvData.sections)
+    : defaultBodySections;
+
   const adExampleBase = AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_BASE[locale];
   const adResponsibilities = responsibilities.slice(0, 4);
   const adRequirements = pickDeterministic(skills, 6, `${seed.slug}-requirements`);
+  const jobAdIntroText = cvData.sections?.jobAdExample?.text?.trim();
+  const adIntroText =
+    jobAdIntroText && jobAdIntroText.length > 0
+      ? jobAdIntroText
+      : CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name);
+  const adTitle =
+    cvData.sections?.jobAdExample?.heading
+      ? cvData.sections.jobAdExample.heading
+      : adExampleBase.title;
 
   const combinedIntro = `${ui.introLead(seed.name)} ${ui.introSecond(seed.name)} ${uniqueLead}`.trim();
 
@@ -758,9 +833,10 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     bodySections,
     adExample: {
       ...adExampleBase,
+      title: adTitle,
       responsibilities: adResponsibilities,
       requirements: adRequirements,
-      introText: CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name),
+      introText: adIntroText,
     },
     sections: [
       { heading: ui.sections.mustHave, bullets: ui.sectionBullets.mustHave },

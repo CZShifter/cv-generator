@@ -45,7 +45,53 @@
         ]
       }
     ],
-    "slug": "absolvent-bez-praxe"
+    "slug": "absolvent-bez-praxe",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět potenciál, ochotu učit se, školní nebo brigádní zkušenosti a schopnost rychle zapadnout do týmu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Pomoc při plnění běžných provozních a administrativních úkolů. Spolupráce s kolegy při zajištění chodu oddělení. Práce s interními podklady, dokumenty nebo jednoduchými evidencemi."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v rychlém zaučení, dochvilnosti a zodpovědném plnění úkolů",
+          "stabilní přístup k práci i bez dlouhé praxe",
+          "školní praxi, brigády, MS Office nebo základní práci s PC",
+          "spolupráce s týmem, komunikace a ochota převzít odpovědnost"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouze obecná tvrzení bez ukázky školní praxe, brigády nebo konkrétních úkolů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například školní praxe, brigáda, administrativa, komunikace, MS Office.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako rychlé učení, zodpovědný přístup, komunikační dovednosti, pečlivost a ochota rozvíjet se.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici absolvent bez praxe by měl být jasný a věcný. Personalista chce rychle pochopit, co jste se už naučili a jak rychle se dokážete adaptovat.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte praxi ze školy, brigád, dobrovolnických aktivit nebo projektů a ukažte, že umíte převzít jednoduché úkoly a dotahovat je do konce.",
+          "Zdůrazněte předměty, praxi, brigády, kurzy nebo studentské projekty."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici absolvent bez praxe hledáme učenlivou a spolehlivou posilu, která má chuť rychle se zapojit do provozu. Oceníme pečlivost, dobrou komunikaci, základní práci na PC a zodpovědný přístup k jednoduchým administrativním nebo provozním úkolům."
+      }
+    }
   },
   {
     "profession": "administrativní pracovník",
@@ -93,7 +139,53 @@
         ]
       }
     ],
-    "slug": "administrativni-pracovnik"
+    "slug": "administrativni-pracovnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost, pořádek v dokumentech, schopnost hlídat termíny a jistotu v každodenní administrativě.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Zpracování příchozí a odchozí korespondence a evidence dokumentů. Příprava podkladů pro vedení, účetní oddělení nebo obchodní tým. Komunikace s klienty, dodavateli a interními pracovníky."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v bezchybné evidenci, rychlém zpracování dokumentů a plynulé komunikaci",
+          "spolehlivost při opakované administrativní agendě a práci s termíny",
+          "MS Office, Excel, interní evidenční systémy a archivaci dokumentů",
+          "komunikace s kolegy, klienty a navazujícími odděleními"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis kancelářské práce bez uvedení agendy, systémů nebo rozsahu odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například administrativa, evidence dat, Excel, dokumenty, korespondence.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako organizace práce, administrativní agenda, komunikace, práce s dokumenty a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici administrativní pracovník by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte držet pořádek v agendě a zvládat více úkolů současně.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte konkrétní administrativní činnosti, objem agendy, práci s dokumenty a systémy, které ovládáte.",
+          "Pokud ještě nemáte dlouhou praxi, pomohou i stáže, back office výpomoc nebo školní administrativa."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici administrativní pracovník hledáme pečlivou a organizovanou posilu se zkušeností s dokumenty, evidencí dat a každodenní kancelářskou agendou. Náplní práce bude zpracování korespondence, příprava podkladů, práce v Excelu a komunikace s interními i externími kontakty."
+      }
+    }
   },
   {
     "profession": "asistentka",
@@ -141,7 +233,53 @@
         ]
       }
     ],
-    "slug": "asistentka"
+    "slug": "asistentka",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět organizaci práce, diskrétnost, komunikaci a schopnost držet pohromadě provoz kanceláře i kalendář vedení.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Zajištění administrativní podpory vedení a běžného chodu kanceláře. Plánování schůzek, správa kalendáře a organizace pracovních cest. Příprava dokumentů, prezentací a podkladů pro jednání."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v hlídání termínů, přípravě podkladů a plynulé koordinaci úkolů",
+          "spolehlivost v každodenní podpoře vedení a kancelářského provozu",
+          "správu kalendáře, MS Office, prezentace a e-mailovou korespondenci",
+          "profesionální komunikace s vedením, klienty i interním týmem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je neurčitý popis pomoci vedení bez konkrétních úkolů, priorit nebo nástrojů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například správa kalendáře, administrativa, prezentace, komunikace, office support.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako organizace práce, komunikační dovednosti, časový management, práce s dokumenty a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici asistentka by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte organizovat den, priority a komunikaci.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte koordinaci schůzek, přípravu podkladů, administrativní podporu i situace, kdy bylo potřeba jednat samostatně a diskrétně.",
+          "Dobře fungují i zkušenosti z recepce, kanceláře nebo studentské organizační role."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici asistentka hledáme spolehlivou a komunikativní posilu, která zvládne správu kalendáře, přípravu dokumentů i každodenní podporu vedení. Oceníme samostatnost, diskrétnost, jistotu v MS Office a profesionální vystupování při kontaktu s klienty."
+      }
+    }
   },
   {
     "profession": "barista",
@@ -189,7 +327,53 @@
         ]
       }
     ],
-    "slug": "barista"
+    "slug": "barista",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět kvalitu přípravy kávy, rychlost obsluhy, znalost provozu a příjemné vystupování vůči hostům.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava kávových nápojů podle standardů podniku. Obsluha hostů, přijímání objednávek a doporučování nabídky. Péče o čistotu baru, kávovaru a pracovního prostoru."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v rychlé obsluze, stabilní kvalitě nápojů a spokojenosti hostů",
+          "spolehlivost v provozu i během špičky",
+          "kávovar, mlýnek, latte art a pokladní systém",
+          "spolupráce s obsluhou a budování příjemné atmosféry v provozu"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné tvrzení o práci v kavárně bez zmínky o kávě, technice nebo provozu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například příprava kávy, obsluha kávovaru, latte art, pokladna, zákaznický servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako příprava kávy, komunikace se zákazníky, profesionální vystupování, rychlost a pečlivost a práce pod tlakem.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici barista by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte spojit kvalitu nápoje s rychlou a příjemnou obsluhou.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ provozu, objem hostů, kávovou techniku, přípravu nápojů i standardy čistoty a servisu.",
+          "Pomohou i brigády v gastronomii, kurzy baristy nebo zkušenost s obsluhou zákazníků."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici barista hledáme pečlivou a energickou posilu se vztahem ke kvalitní kávě a zákaznickému servisu. Náplní práce bude příprava kávových nápojů, práce s mlýnkem a kávovarem, obsluha hostů i péče o čistotu a plynulý chod baru."
+      }
+    }
   },
   {
     "profession": "barman",
@@ -237,7 +421,53 @@
         ]
       }
     ],
-    "slug": "barman"
+    "slug": "barman",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět rychlost, jistotu při přípravě nápojů, přehled o sortimentu a reprezentativní komunikaci s hosty.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava alkoholických i nealkoholických nápojů dle receptur. Komunikace s hosty a doporučování vhodných drinků. Obsluha baru, práce s pokladnou a vyúčtování plateb."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plynulé obsluze, kvalitě drinků a zvládání provozní špičky",
+          "spolehlivý výkon v rušném baru nebo na akcích",
+          "míchání koktejlů, práci s pokladnou, inventuru a znalost lihovin",
+          "spolupráce s obsluhou a profesionální jednání s hosty"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je zjednodušený popis práce za barem bez zmínky o nápojích, tempu nebo odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například míchání koktejlů, bar, pokladna, inventura, zákaznický servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako příprava nápojů, komunikace se zákazníky, profesionální vystupování, rychlá obsluha a odolnost vůči stresu.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici barman by měl být jasný a věcný. Personalista chce rychle pochopit, jak zvládáte tempo provozu, kontakt s hosty a nápojový servis.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ podniku, sortiment, množství hostů, práci s pokladnou i zodpovědnost za zásoby a uzávěrku.",
+          "Pomůže praxe v gastronomii, účast na eventech nebo základní znalost koktejlů a práce za barem."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici barman hledáme spolehlivou posilu s profesionálním vystupováním a jistotou při přípravě nápojů. Oceníme znalost koktejlů, práci s pokladním systémem, rychlou obsluhu hostů a schopnost udržet kvalitu i během rušného provozu."
+      }
+    }
   },
   {
     "profession": "bezpečnostní pracovník",
@@ -285,7 +515,53 @@
         ]
       }
     ],
-    "slug": "bezpecnostni-pracovnik"
+    "slug": "bezpecnostni-pracovnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět všímavost, klidné jednání, dodržování postupů a schopnost správně reagovat v nestandardní situaci.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Kontrola vstupů a pohybu osob v areálu nebo budově. Pravidelné obchůzky a dohled nad dodržováním bezpečnostních pravidel. Evidence návštěv, incidentů a provozních událostí."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v prevenci incidentů, přesné evidenci událostí a bezpečném provozu objektu",
+          "stabilní a odpovědný výkon i ve směnném režimu",
+          "kamerový systém, kontrolu vstupů, pochůzkovou činnost a knihu návštěv",
+          "komunikace s návštěvami, zaměstnanci a vedením objektu"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš obecný profil bez zmínky o typu objektu, směnách nebo bezpečnostních činnostech. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například ostraha objektu, kontrola vstupů, kamerový systém, pochůzky, evidence incidentů.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako všímavost, bezpečnostní postupy, řešení krizových situací, profesionální vystupování a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici bezpečnostní pracovník by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte spojit pozornost, disciplínu a profesionální vystupování.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ střeženého objektu, bezpečnostní činnosti, reakce na incidenty a práci se systémy nebo evidencí.",
+          "Pokud začínáte, zdůrazněte zodpovědnost, směnovou flexibilitu a zkušenost s provozní disciplínou."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici bezpečnostní pracovník hledáme zodpovědnou a všímavou posilu pro dohled nad objektem a kontrolu vstupů. Náplní práce bude pochůzková činnost, práce s kamerovým systémem, evidence návštěv a řešení provozních situací při zachování klidného a profesionálního jednání."
+      }
+    }
   },
   {
     "profession": "číšník",
@@ -333,7 +609,53 @@
         ]
       }
     ],
-    "slug": "cisnik"
+    "slug": "cisnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět rychlou a přesnou obsluhu, přirozenou komunikaci s hosty a jistotu v provozu restaurace.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Obsluha hostů v restauraci a přijímání objednávek. Doporučování jídel a nápojů podle nabídky podniku. Příprava stolů, udržování čistoty a kontrola inventáře."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v spokojenosti hostů, plynulé obsluze stolů a zvládání špičky bez chyb",
+          "spolehlivost v každé směně a dobrý servisní standard",
+          "pokladní systém, znalost menu, servírování a inkaso plateb",
+          "spolupráce s kuchyní, barem a ostatní obsluhou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je strohý výčet obsluhy bez zmínky o typu provozu, tempu nebo odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například obsluha hostů, pokladna, servírování, menu, zákaznický servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace se zákazníky, profesionální vystupování, spolehlivost a pečlivost, schopnost práce pod tlakem a týmová spolupráce.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici číšník by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte hostům nabídnout dobrý servis a zvládnout provozní tempo.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ podniku, práci s hosty, objednávkami a pokladnou, ale i zvládání špičky a komunikaci s kuchyní.",
+          "Pomohou brigády v gastronomii, práce na akcích nebo zkušenost s obsluhou zákazníků."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici číšník hledáme komunikativní a spolehlivou posilu, která zvládne přijímat objednávky, doporučit nabídku a zajistit kvalitní servis hostům. Oceníme profesionalitu, práci s pokladním systémem a schopnost fungovat rychle i v provozní špičce."
+      }
+    }
   },
   {
     "profession": "datový analytik",
@@ -381,7 +703,53 @@
         ]
       }
     ],
-    "slug": "datovy-analytik"
+    "slug": "datovy-analytik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost převést data do srozumitelných závěrů, přesnost a jistotu v reportingu i interpretaci výsledků.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Zpracování, čištění a kontrola dat z interních systémů. Příprava pravidelných reportů a přehledů pro management. Vyhledávání trendů, odchylek a souvislostí v datech."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v automatizaci reportů, kvalitě dat a přínosu analýz pro rozhodování",
+          "spolehlivost při práci s čísly, datovou kvalitou a termíny",
+          "SQL, Excel, Power BI nebo Tableau a Python",
+          "spolupráce s managementem, byznysem a interními zadavateli"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouhé vyjmenování nástrojů bez ukázky dopadu analýz nebo typu datové práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například SQL, reporting, dashboardy, Power BI, datová analýza.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako analytické myšlení, práce s daty, reporting, interpretace výsledků a pečlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici datový analytik by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte data nejen zpracovat, ale i správně vysvětlit.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte datové zdroje, typ reportů, metriky, dashboardy a konkrétní situace, kdy analýza pomohla rozhodování nebo odhalila problém.",
+          "Dobře fungují školní projekty, případové studie, dashboardy nebo vlastní analytické ukázky."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici datový analytik hledáme analyticky silnou posilu, která umí pracovat s daty, tvořit reporty a hledat souvislosti důležité pro rozhodování. Oceníme znalost SQL, Excelu, BI nástrojů a schopnost převést čísla do srozumitelných doporučení."
+      }
+    }
   },
   {
     "profession": "dělník",
@@ -429,7 +797,53 @@
         ]
       }
     ],
-    "slug": "delnik"
+    "slug": "delnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět spolehlivost, fyzickou zdatnost, dodržování postupů a ochotu odvést stabilní práci bez zbytečných chyb.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Provádění pomocných prací ve výrobě, skladu nebo na stavbě. Manipulace s materiálem a příprava pracoviště pro další činnosti. Dodržování bezpečnostních pravidel a pokynů nadřízených."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plnění úkolů v tempu provozu, dochvilnosti a kvalitně odvedené manuální práci",
+          "stabilita, bezpečnost a disciplína v provozu",
+          "ruční nářadí, manipulaci s materiálem a dodržování BOZP",
+          "spolupráce s kolegy a respekt k pokynům vedoucího"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis manuální práce bez uvedení prostředí, činností nebo odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například manuální práce, BOZP, manipulace s materiálem, výroba, pomocné práce.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako fyzická zdatnost, spolehlivost, dodržování pracovních postupů, pečlivost a týmová spolupráce.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici dělník by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládnete fyzickou práci, tempo provozu a jasně dané postupy.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte konkrétní činnosti, typ provozu, používané nářadí a situace, kdy byla důležitá pečlivost, dochvilnost nebo samostatnost.",
+          "Pokud nemáte dlouhou praxi, uveďte brigády, stavby, výrobu nebo jinou fyzickou práci."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici dělník hledáme spolehlivou a fyzicky zdatnou posilu pro pomocné nebo výrobní práce. Náplní práce bude manipulace s materiálem, příprava pracoviště, dodržování bezpečnostních pravidel a plnění zadaných úkolů samostatně i v týmu."
+      }
+    }
   },
   {
     "profession": "dispečer logistiky",
@@ -477,7 +891,53 @@
         ]
       }
     ],
-    "slug": "dispecer-logistiky"
+    "slug": "dispecer-logistiky",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět organizaci tras, operativní reakce, přesnost v datech a jistotu v komunikaci s řidiči i zákazníky.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Plánování tras, vytěžování vozidel a koordinace přeprav. Každodenní komunikace s řidiči, zákazníky a dopravci. Řešení zpoždění, změn tras a dalších provozních situací."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v včasném doručení, vytížení vozidel a rychlém řešení změn v přepravě",
+          "spolehlivost při řízení denního logistického provozu",
+          "logistické systémy, Excel, sledování zásilek a komunikaci s řidiči",
+          "návaznost mezi skladem, dopravci, zákazníky a dispečinkem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je nejasný popis logistiky bez uvedení plánování dopravy, práce v systému nebo operativy. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například plánování dopravy, dispečink, logistika, sledování zásilek, komunikace s řidiči.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako plánování dopravy, komunikace, organizační schopnosti, řešení operativních situací a přesnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici dispečer logistiky by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře zvládáte provozní tlak, plánování a rychlé rozhodování.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ přeprav, počet vozidel nebo zásilek, logistický software a situace, kdy bylo potřeba přesměrovat, přerozdělit nebo zachránit termín.",
+          "Pomohou zkušenosti z logistiky, skladu, zákaznického servisu nebo práce s dopravní agendou."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici dispečer logistiky hledáme organizovanou a odolnou posilu, která zvládne plánovat trasy, komunikovat s řidiči a hlídat průběh přeprav. Oceníme přesnost, práci v logistickém systému, schopnost řešit změny a orientaci na včasné doručení."
+      }
+    }
   },
   {
     "profession": "elektrikář",
@@ -525,7 +985,53 @@
         ]
       }
     ],
-    "slug": "elektrikar"
+    "slug": "elektrikar",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět odbornost, bezpečnost, schopnost číst dokumentaci a samostatně vyřešit závadu nebo montáž.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Montáž, opravy a údržba elektrických zařízení a rozvodů. Diagnostika závad a zajištění jejich rychlého odstranění. Práce podle technické dokumentace a schémat zapojení."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v spolehlivém provozu zařízení, rychlé diagnostice a kvalitně provedené instalaci",
+          "bezpečný a přesný výkon v provozu i při montážích",
+          "elektro dokumentaci, rozvaděče, měření elektrických veličin a rozvody",
+          "spolupráce s dalšími profesemi a jasná komunikace o závadách nebo postupu"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je chybějící informace o typu elektro práce, vyhlášce, dokumentaci nebo rozsahu zásahů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například elektroinstalace, diagnostika závad, rozvaděče, dokumentace, silnoproud.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako elektroinstalace, technické myšlení, diagnostika závad, práce podle dokumentace a dodržování bezpečnosti.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici elektrikář by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte pracovat bezpečně, přesně a podle dokumentace.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte druh instalací, typ zařízení, opravy, preventivní údržbu i použitá měření nebo rozvaděče.",
+          "Pokud jste na začátku, zdůrazněte odborný výcvik, praxi, osvědčení a školní projekty."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici elektrikář hledáme technicky zdatnou a spolehlivou posilu pro montáž, opravy a údržbu elektrozařízení. Náplní práce bude práce podle dokumentace, diagnostika závad, zapojování rozvaděčů a dodržování bezpečnostních a revizních postupů."
+      }
+    }
   },
   {
     "profession": "farmaceutický asistent",
@@ -573,7 +1079,53 @@
         ]
       }
     ],
-    "slug": "farmaceuticky-asistent"
+    "slug": "farmaceuticky-asistent",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost, diskrétnost, znalost provozu lékárny a jistotu při práci s léčivy a klienty.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava a výdej volně prodejných přípravků dle interních pravidel. Komunikace se zákazníky a poskytování základních informací o sortimentu. Doplňování zboží, kontrola expirací a evidence skladových zásob."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v správné evidenci, kontrole expirací a kultivovaném kontaktu s klienty",
+          "spolehlivost v odborném a citlivém provozu",
+          "lékárenský software, OTC sortiment, skladování léčiv a kontrolu expirací",
+          "spolupráce s farmaceuty a vstřícnou komunikaci s klienty"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš obecná formulace bez zmínky o lékárenském provozu, evidenci nebo sortimentu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například lékárna, OTC sortiment, kontrola expirací, léčiva, lékárenský software.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako práce s léčivy, komunikace s klienty, administrativa, pečlivost a diskrétnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici farmaceutický asistent by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládáte spojit odbornou pečlivost s lidským přístupem.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte práci s léčivy, skladovou a výdejní agendu, komunikaci s klienty i dodržování provozních pravidel a diskrétnosti.",
+          "Pomůže odborná praxe, zdravotnické vzdělání nebo zkušenost z lékárny či zdravotnictví."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici farmaceutický asistent hledáme pečlivou a komunikativní posilu pro podporu lékárenského provozu. Oceníme práci s léčivy a OTC sortimentem, kontrolu expirací, znalost lékárenského systému i vstřícný a diskrétní přístup ke klientům."
+      }
+    }
   },
   {
     "profession": "fyzioterapeut",
@@ -621,7 +1173,53 @@
         ]
       }
     ],
-    "slug": "fyzioterapeut"
+    "slug": "fyzioterapeut",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět odborný přístup, schopnost vést terapii, pracovat individuálně s klientem a sledovat efekt terapie.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Provádění vstupních vyšetření a sestavování rehabilitačních plánů. Vedení individuálních terapií podle potřeb klienta. Nácvik správných pohybových stereotypů a rehabilitačních cvičení."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v zlepšení stavu klientů, kvalitním rehabilitačním plánu a citlivé komunikaci",
+          "profesionalita a důslednost při dlouhodobé péči",
+          "rehabilitační plán, měkké techniky, kineziotaping a zdravotnickou dokumentaci",
+          "spolupráce s lékaři, klienty i rodinami"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná deklarace empatie bez popisu metod, klientely nebo typu terapie. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například fyzioterapie, rehabilitační plán, kineziotaping, individuální přístup, dokumentace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako individuální přístup, odborné znalosti, komunikace s klienty, rehabilitační postupy a empatie.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici fyzioterapeut by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte spojit odbornost s citlivým vedením klienta.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ klientů, používané metody, sestavení plánu, dokumentaci i výsledky nebo cíle terapie.",
+          "Pokud začínáte, zdůrazněte praxe, klinické stáže, kurzy a zkušenost s konkrétními technikami."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici fyzioterapeut hledáme odborně silnou a empatickou posilu, která zvládne vstupní vyšetření, tvorbu rehabilitačního plánu i vedení individuálních terapií. Oceníme pečlivou dokumentaci, citlivou komunikaci a schopnost přizpůsobit postup konkrétnímu klientovi."
+      }
+    }
   },
   {
     "profession": "grafik",
@@ -669,7 +1267,53 @@
         ]
       }
     ],
-    "slug": "grafik"
+    "slug": "grafik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět cit pro vizuál, technickou přesnost, schopnost držet zadání a dodat použitelné výstupy v termínu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Tvorba propagačních materiálů, letáků, plakátů a dalších tiskovin. Příprava grafických podkladů podle zadání klienta nebo marketingu. Úpravy vizuálů s důrazem na estetiku a technickou správnost."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitě vizuálů, konzistenci značky a rychlém zpracování podkladů",
+          "spolehlivost při práci s termíny i detaily",
+          "Photoshop, Illustrator, InDesign, Figma a přípravu dat pro tisk nebo online",
+          "spolupráce s marketingem, copy a dalšími členy týmu"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouhé tvrzení o kreativitě bez ukázky nástrojů, výstupů nebo typu grafické práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například Photoshop, Illustrator, InDesign, Figma, grafické materiály.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako grafické nástroje, kreativita, vizuální komunikace, práce s detaily a samostatnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici grafik by měl být jasný a věcný. Personalista chce rychle pochopit, co umíte navrhnout, zpracovat a odevzdat bez zbytečných oprav.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte konkrétní typy výstupů, nástroje, práci s brandem, přípravu podkladů a ideálně i portfolio nebo odkaz na ukázky.",
+          "Na začátku hodně pomůže portfolio, školní práce, freelance zakázky nebo vlastní redesigny."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici grafik hledáme kreativní a pečlivou posilu se zkušeností s tvorbou online i tiskových materiálů. Oceníme jistotu v Adobe nástrojích nebo Figmě, cit pro vizuální komunikaci, samostatnost a schopnost připravit grafické podklady podle zadání i termínu."
+      }
+    }
   },
   {
     "profession": "instalatér",
@@ -717,7 +1361,53 @@
         ]
       }
     ],
-    "slug": "instalater"
+    "slug": "instalater",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět technickou zručnost, samostatnost při montáži a opravách a jistotu v práci podle dokumentace.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Montáž vodovodních, odpadních a topenářských rozvodů. Opravy poruch a servis instalací v bytových i komerčních objektech. Práce podle technické dokumentace a zadání zakázky."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitně provedených rozvodech, rychlém odstranění závad a bezpečném provozu",
+          "spolehlivá práce v terénu i na zakázce",
+          "sanitární techniku, topenářské systémy, PPR, měď a tlakové zkoušky",
+          "komunikace se zákazníkem a spolupráce s dalšími řemesly"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je nejasný popis oprav bez uvedení typu instalací, materiálů nebo technické práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například instalace rozvodů, topenářství, sanitární technika, tlakové zkoušky, servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako technická zručnost, montáž rozvodů, opravy instalací, práce podle dokumentace a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici instalatér by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte samostatně řešit montáž i servis a dodržet kvalitu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ rozvodů, opravy, používané materiály, práci podle dokumentace a kontakt se zákazníkem nebo stavbou.",
+          "Na začátku pomáhá učiliště, praxe na stavbě, servisní výjezdy nebo pomoc při montážích."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici instalatér hledáme technicky zručnou a spolehlivou posilu pro montáž a servis rozvodů vody, odpadů a topení. Oceníme práci podle dokumentace, zkušenost se sanitární technikou, tlakové zkoušky a zodpovědný přístup k provedení zakázky."
+      }
+    }
   },
   {
     "profession": "IT podpora",
@@ -765,7 +1455,53 @@
         ]
       }
     ],
-    "slug": "it-podpora"
+    "slug": "it-podpora",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost rychle odhalit problém, srozumitelně komunikovat s uživatelem a dotahovat požadavky do řešení.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Řešení uživatelských požadavků a incidentů na první úrovni podpory. Diagnostika problémů s hardwarem, softwarem a přístupovými údaji. Instalace a základní konfigurace pracovních stanic a aplikací."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v rychlosti vyřešení ticketů, funkčním pracovním stanicím a spokojenosti uživatelů",
+          "spolehlivá podpora běžného provozu bez zbytečných výpadků",
+          "Windows, macOS, Active Directory, ticketovací systém a instalaci hardwaru nebo softwaru",
+          "komunikace s uživateli a eskalace na další úrovně podpory"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je výčet technologií bez popisu reálné podpory uživatelů nebo řešených incidentů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například helpdesk, Active Directory, ticketovací systém, Windows, instalace softwaru.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako řešení technických problémů, komunikace s uživateli, diagnostika závad, trpělivost a technická orientace.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici IT podpora by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte spojit technické řešení s trpělivou komunikací.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ podporovaných uživatelů, incidenty, nástroje, správu účtů a příklady problémů, které jste běžně řešili.",
+          "Dobře fungují školní IT projekty, domácí správa zařízení, helpdesk praxe nebo certifikace."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici IT podpora hledáme technicky orientovanou a trpělivou posilu, která zvládne řešit uživatelské požadavky, instalovat software a spravovat základní přístupy. Oceníme práci s ticketovacím systémem, Active Directory a schopnost komunikovat srozumitelně i pod tlakem."
+      }
+    }
   },
   {
     "profession": "kuchař",
@@ -813,7 +1549,53 @@
         ]
       }
     ],
-    "slug": "kuchar"
+    "slug": "kuchar",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět kvalitu přípravy jídel, organizaci práce v kuchyni, hygienu a schopnost zvládnout výdej i špičku.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava jídel podle receptur a standardů provozu. Zajištění správného skladování surovin a kontroly jejich kvality. Spolupráce s obsluhou a ostatními členy kuchyně při výdeji jídel."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v stabilní kvalitě pokrmů, dobré organizaci směny a dodržování standardů",
+          "spolehlivý výkon v kuchyni a důslednost v hygieně",
+          "teplou a studenou kuchyni, normování surovin a HACCP",
+          "spolupráce s kuchyní, obsluhou a provozem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis vaření bez typu kuchyně, rozsahu práce nebo hygienických standardů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například příprava pokrmů, HACCP, teplá kuchyně, normování, hygienické standardy.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako příprava pokrmů, hygienické standardy, organizace práce, pečlivost a týmová spolupráce.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici kuchař by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládáte kvalitu, tempo provozu a pořádek v kuchyni.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ kuchyně, objem porcí, zodpovědnost za stanoviště, práci se surovinami a dodržování hygieny.",
+          "Pomohou brigády v kuchyni, školní praxe, catering nebo znalost základních technologických postupů."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici kuchař hledáme spolehlivou a pečlivou posilu pro přípravu pokrmů podle receptur a provozních standardů. Oceníme zkušenost s teplou nebo studenou kuchyní, dodržování HACCP, organizaci práce a schopnost fungovat rychle během výdeje."
+      }
+    }
   },
   {
     "profession": "kurýr",
@@ -861,7 +1643,53 @@
         ]
       }
     ],
-    "slug": "kuryr"
+    "slug": "kuryr",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět dochvilnost, orientaci v terénu, samostatnost a profesionální kontakt se zákazníkem při předání zásilky.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Doručování zásilek zákazníkům podle denně plánovaných tras. Komunikace se zákazníky při předání objednávek nebo změnách doručení. Kontrola zásilek před expedicí a potvrzování doručení v systému."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v včasném doručení, nízké chybovosti a dobré komunikaci při rozvozu",
+          "spolehlivost v každodenním provozu a při změnách tras",
+          "řidičský průkaz sk. B, GPS navigaci, mobilní aplikaci a potvrzování doručení",
+          "spolupráce s dispečinkem, skladem a zákazníky"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis řízení bez rozvozu, práce s trasami nebo zákaznického kontaktu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například rozvoz zásilek, GPS, kurýr, doručení, práce s mobilní aplikací.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako řízení a orientace v terénu, spolehlivost, komunikace se zákazníky, samostatnost a časová organizace.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici kurýr by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře zvládáte rozvoz, organizaci dne a kontakt se zákazníky.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte region rozvozu, počet zastávek, práci s aplikací, plánování tras a řešení změn nebo časových oken.",
+          "Pokud začínáte, zdůrazněte řidičskou praxi, spolehlivost, orientaci a zkušenost s provozní disciplínou."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici kurýr hledáme spolehlivou a samostatnou posilu s dobrou orientací v terénu a odpovědným přístupem k rozvozu. Náplní práce bude doručování zásilek, komunikace se zákazníky, práce s mobilní aplikací a potvrzování doručení podle plánovaných tras."
+      }
+    }
   },
   {
     "profession": "lakýrník",
@@ -909,7 +1737,53 @@
         ]
       }
     ],
-    "slug": "lakyrnik"
+    "slug": "lakyrnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost, kvalitu povrchu, dodržení technologického postupu a cit pro detail při finální úpravě.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava povrchů před lakováním včetně broušení a čištění. Nanášení nátěrových hmot podle technologických postupů. Kontrola kvality lakovaného povrchu a opravy drobných vad."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitě povrchu, nízké chybovosti a dodržení technologických kroků",
+          "stabilní kvalita práce i u opakovaných zakázek",
+          "stříkací techniku, míchání barev, broušení, tmelení a kontrolu povrchu",
+          "spolupráce s výrobou a návaznými pracovišti"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš stručný popis lakování bez uvedení přípravy povrchu, techniky nebo kvality. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například lakování, stříkací technika, broušení, tmelení, kontrola povrchu.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako manuální zručnost, příprava povrchů, aplikace nátěrů, pečlivost a dodržování technologických postupů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici lakýrník by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte spojit technický postup s pečlivým finálním výsledkem.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte přípravu povrchů, používané materiály, lakovací techniku, kontrolu kvality a případné opravy vad.",
+          "Pomůže praxe ve výrobě, dílně nebo zkušenost s přípravou a povrchovou úpravou materiálů."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici lakýrník hledáme pečlivou a manuálně zručnou posilu pro přípravu povrchů a aplikaci nátěrů podle technologických postupů. Oceníme práci se stříkací technikou, míchání barev, cit pro detail a důraz na kvalitu finálního povrchu."
+      }
+    }
   },
   {
     "profession": "lektor jazyků",
@@ -957,7 +1831,53 @@
         ]
       }
     ],
-    "slug": "lektor-jazyku"
+    "slug": "lektor-jazyku",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět jazykovou jistotu, schopnost vysvětlovat srozumitelně a přizpůsobit výuku úrovni i cíli studenta.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Vedení individuálních i skupinových lekcí pro různé úrovně studentů. Příprava výukových materiálů a přizpůsobení obsahu potřebám klientů. Vysvětlování gramatiky, slovní zásoby a praktického použití jazyka."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v pokroku studentů, kvalitě výuky a dlouhodobé motivaci účastníků",
+          "spolehlivě vedená výuka a dobrá organizace lekcí",
+          "výukové materiály, online výuku, konverzační lekce a přípravu na zkoušky",
+          "komunikace se studenty, rodiči nebo jazykovou školou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné tvrzení o znalosti jazyka bez popisu výuky, skupin nebo metod. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například výuka jazyků, konverzace, online výuka, příprava na zkoušky, materiály.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako jazykové znalosti, komunikační dovednosti, trpělivost, schopnost vysvětlovat a individuální přístup.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici lektor jazyků by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte jazyk předat druhým, ne jen ovládat.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte jazyk, úrovně studentů, typ lekcí, používané materiály a výsledky studentů nebo způsob práce.",
+          "Na začátku pomohou doučování, vlastní materiály, certifikáty a ukázka stylu výuky."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici lektor jazyků hledáme komunikativní a trpělivou posilu s výbornou znalostí vyučovaného jazyka a schopností vést individuální i skupinové lekce. Oceníme tvorbu materiálů, konverzační výuku, online nástroje a cit pro motivaci studentů."
+      }
+    }
   },
   {
     "profession": "marketingový specialista",
@@ -1005,7 +1925,53 @@
         ]
       }
     ],
-    "slug": "marketingovy-specialista"
+    "slug": "marketingovy-specialista",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět kombinaci kreativity, datového pohledu a schopnosti doručit kampaň od nápadu po vyhodnocení.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava a realizace marketingových kampaní pro online i offline kanály. Tvorba textů, podkladů a obsahu pro web, sociální sítě nebo newslettery. Vyhodnocování výsledků kampaní a sledování klíčových ukazatelů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v výkonnosti kampaní, kvalitě obsahu a smysluplném vyhodnocování dat",
+          "schopnost držet termíny, priority a výsledky napříč kanály",
+          "Google Analytics, reklamní platformy, SEO a e-mail marketing",
+          "spolupráce s grafikou, obchodem a externími dodavateli"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je výčet marketingových aktivit bez čísel, kanálů nebo konkrétních výstupů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například kampaně, SEO, Google Analytics, Google Ads, obsah.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako tvorba obsahu, marketingové kampaně, analytické myšlení, organizace práce a komunikační dovednosti.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici marketingový specialista by měl být jasný a věcný. Personalista chce rychle pochopit, jaký marketingový přínos umíte firmě skutečně dodat.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte kanály, kampaně, metriky, obsah, rozpočty a konkrétní výsledky nebo optimalizace, které jste dělali.",
+          "Pomohou i vlastní projekty, správa sociálních sítí, copywriting nebo menší kampaně pro školu či klienta."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici marketingový specialista hledáme kreativní a analytickou posilu, která zvládne připravit kampaně, tvořit obsah a vyhodnocovat výsledky. Oceníme práci s GA, reklamními platformami, SEO, e-mailingem a schopnost koordinovat více marketingových úkolů současně."
+      }
+    }
   },
   {
     "profession": "mechanik",
@@ -1053,7 +2019,53 @@
         ]
       }
     ],
-    "slug": "mechanik"
+    "slug": "mechanik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost najít závadu, opravit zařízení a udržet techniku ve spolehlivém provozu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Provádění oprav a pravidelné údržby strojních zařízení. Diagnostika mechanických závad a výměna opotřebených dílů. Práce podle technické dokumentace a servisních postupů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v rychlém odstranění poruch, kvalitní údržbě a menším počtu odstávek",
+          "spolehlivá údržba provozu a přesná technická práce",
+          "technickou dokumentaci, hydrauliku, pneumatiku, seřizování strojů a preventivní údržbu",
+          "spolupráce s výrobou, údržbou a servisním týmem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš obecné uvedení oprav bez typu zařízení, závad nebo servisních činností. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například mechanik, údržba strojů, diagnostika závad, seřizování, dokumentace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako diagnostika závad, technické myšlení, opravy a údržba, pečlivost a práce podle postupů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici mechanik by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte technický problém nejen najít, ale i vyřešit.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ zařízení, opravy, preventivní údržbu, čtení dokumentace a rychlost nebo kvalitu zásahů.",
+          "Pomůže praxe v dílně, výrobě nebo školní technické projekty a servisní výjezdy."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici mechanik hledáme technicky zdatnou a pečlivou posilu pro údržbu a opravy strojních zařízení. Oceníme diagnostiku závad, práci podle dokumentace, seřizování strojů a zodpovědný přístup k bezpečnému a plynulému provozu."
+      }
+    }
   },
   {
     "profession": "mistr výroby",
@@ -1101,7 +2113,53 @@
         ]
       }
     ],
-    "slug": "mistr-vyroby"
+    "slug": "mistr-vyroby",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět vedení lidí, kontrolu kvality, plnění plánu a schopnost držet výrobu v tempu i pořádku.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Organizace směny a rozdělování práce mezi pracovníky výroby. Dohled nad plněním výrobního plánu, kvalitou a produktivitou. Kontrola dodržování bezpečnostních a pracovních postupů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v výrobních ukazatelích, organizaci směny a zlepšování provozu",
+          "spolehlivé vedení směny a stabilní výkon týmu",
+          "ERP nebo výrobní systém, plánování kapacit a výrobní dokumentaci",
+          "vedení pracovníků a koordinace s údržbou, skladem a logistikou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouze manažerské fráze bez výrobních čísel, směny nebo odpovědnosti za tým. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například řízení směny, výrobní plán, kontrola kvality, ERP, vedení týmu.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako vedení týmu, plánování výroby, kontrola kvality, technický přehled a zodpovědnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici mistr výroby by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte propojit lidi, výkon výroby a provozní disciplínu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte velikost týmu, směnný provoz, výrobní plán, kvalitu, bezpečnost a situace, kdy jste řešili problémy nebo zlepšení.",
+          "Pokud se do role posouváte, ukažte předchozí vedení menšího týmu, zaškolování nebo koordinaci provozu."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici mistr výroby hledáme zodpovědnou a organizačně silnou posilu, která zvládne vést směnu, rozdělovat práci a hlídat výrobní plán i kvalitu. Oceníme technický přehled, práci ve výrobním systému a schopnost řešit provozní i personální situace."
+      }
+    }
   },
   {
     "profession": "montážní pracovník",
@@ -1149,7 +2207,53 @@
         ]
       }
     ],
-    "slug": "montazni-pracovnik"
+    "slug": "montazni-pracovnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost při kompletaci, práci podle návodu a schopnost držet kvalitu opakovaných úkonů.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Kompletace výrobků nebo dílů podle pracovních návodů. Používání ručního i elektrického nářadí při montážních pracích. Kontrola správnosti montáže a kvality hotových sestav."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v správné montáži, nízké chybovosti a plnění výrobního plánu",
+          "spolehlivý výkon v montážním provozu",
+          "aku nářadí, technické výkresy, kompletaci výrobků a kontrolu rozměrů",
+          "spolupráce s výrobou a kontrolou kvality"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné tvrzení o manuální zručnosti bez uvedení montáže, nářadí nebo výkresů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například montáž, kompletace, aku nářadí, technické výkresy, kontrola kvality.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako manuální zručnost, montáž podle dokumentace, práce s nářadím, pečlivost a dodržování postupů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici montážní pracovník by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte montovat přesně, opakovatelně a podle postupu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ výrobků, montážní kroky, používané nářadí, čtení dokumentace a kontrolu kvality hotových sestav.",
+          "Pomůže praxe ve výrobě, dílně, kompletaci nebo technicky zaměřené vzdělání."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici montážní pracovník hledáme pečlivou a manuálně zručnou posilu pro kompletaci výrobků podle pracovních návodů a technické dokumentace. Oceníme práci s nářadím, důraz na přesnost, kontrolu kvality a spolehlivost při plnění výrobního plánu."
+      }
+    }
   },
   {
     "profession": "obchodní zástupce",
@@ -1197,7 +2301,53 @@
         ]
       }
     ],
-    "slug": "obchodni-zastupce"
+    "slug": "obchodni-zastupce",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost získat klienta, rozvíjet vztah a převést potřebu zákazníka do reálného obchodu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Aktivní vyhledávání nových zákazníků a obchodních příležitostí. Péče o stávající klienty a rozvoj dlouhodobých obchodních vztahů. Prezentace produktů nebo služeb a příprava obchodních nabídek."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v nových zakázkách, péči o klienty a plnění obchodních cílů",
+          "samostatný výkon v terénu i v dlouhodobé práci s klientem",
+          "CRM, obchodní nabídky, akvizici a řidičský průkaz sk. B",
+          "komunikace s klienty, obchodem, marketingem a back officem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouhé prodejní fráze bez čísel, segmentu nebo konkrétního typu obchodní práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například akvizice, CRM, obchodní nabídky, péče o klienty, obchodní cíl.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace se zákazníky, vyjednávací schopnosti, prezentace produktů, budování vztahů a orientace na výsledky.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici obchodní zástupce by měl být jasný a věcný. Personalista chce rychle pochopit, jaký obchodní dopad umíte přinést a v jakém typu prodeje.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte segment zákazníků, akvizici, péči o portfolio, obchodní výsledky, práci v CRM a jednání u klienta.",
+          "Dobře fungují i zkušenosti z aktivního prodeje, call centra nebo zákaznického servisu se silnou orientací na výsledek."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici obchodní zástupce hledáme komunikativní a výsledkově orientovanou posilu pro aktivní získávání klientů a rozvoj obchodních vztahů. Oceníme vyjednávací schopnosti, práci v CRM, přípravu nabídek a samostatnost při obchodních jednáních v terénu."
+      }
+    }
   },
   {
     "profession": "obsluha VZV",
@@ -1245,7 +2395,53 @@
         ]
       }
     ],
-    "slug": "obsluha-vzv"
+    "slug": "obsluha-vzv",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět bezpečnou manipulaci, přesnost při přesunech zboží a jistotu v provozu skladu nebo výroby.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Nakládka, vykládka a přesun materiálu pomocí vysokozdvižného vozíku. Zaskladňování a vyskladňování zboží podle skladových pravidel. Kontrola stavu zásob a správnosti manipulačních údajů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plynulém toku materiálu, správném zaskladnění a bezpečné nakládce",
+          "spolehlivost v provozu a dodržování bezpečnostních pravidel",
+          "průkaz VZV, čtečku, paletové hospodářství a nakládku nebo vykládku",
+          "spolupráce se skladem, logistikou a expedicí"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis skladové práce bez uvedení řízení VZV, typu manipulace nebo bezpečnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například VZV, nakládka, vykládka, čtečka, sklad.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako řízení VZV, manipulace se zbožím, práce ve skladu, pečlivost a dodržování bezpečnosti.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici obsluha VZV by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte manipulovat rychle, bezpečně a bez chyb v evidenci.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ skladu, práci s vozíkem, čtečkou nebo systémem, zaskladňování a dodržování provozních pravidel.",
+          "Pokud začínáte, uveďte průkaz VZV, skladovou praxi nebo zkušenost s manipulací s materiálem."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici obsluha VZV hledáme spolehlivou a pečlivou posilu pro nakládku, vykládku a přesun zboží v rámci skladu nebo výroby. Oceníme platný průkaz VZV, práci se čtečkou, orientaci ve skladu a důsledné dodržování bezpečnostních pravidel."
+      }
+    }
   },
   {
     "profession": "operátor výroby",
@@ -1293,7 +2489,53 @@
         ]
       }
     ],
-    "slug": "operator-vyroby"
+    "slug": "operator-vyroby",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět dochvilnost, přesné dodržování postupu a schopnost držet kvalitu i při opakované práci.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Obsluha výrobní linky nebo svěřeného pracovního stanoviště. Kontrola kvality výrobků během výroby i po dokončení operace. Doplňování materiálu a příprava komponent pro další výrobu."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plnění norem, kvalitě výrobků a stabilním výkonu na lince",
+          "spolehlivost ve směnném provozu a výrobní disciplína",
+          "obsluhu linky, pracovní instrukce, balení a základní kontrolu měřením",
+          "spolupráce s vedoucím směny a kontrolou kvality"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je neurčitý popis výroby bez linky, instrukcí nebo kontroly kvality. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například výroba, obsluha linky, pracovní instrukce, kontrola kvality, balení.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako spolehlivost, pečlivost, dodržování pracovních postupů, kontrola kvality a schopnost práce ve výrobě.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici operátor výroby by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládnete opakovanou práci přesně, bezpečně a v tempu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ výroby, stanoviště, instrukce, kvalitu, normy a odpovědnost za správný průběh operace.",
+          "Pomohou brigády ve výrobě, směnný provoz nebo zkušenost s kontrolou a balením výrobků."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici operátor výroby hledáme spolehlivou a pečlivou posilu pro obsluhu výrobní linky a plnění pracovních instrukcí. Oceníme důraz na kvalitu, schopnost pracovat ve směnném provozu, základní kontrolu výrobků a zodpovědný přístup k výrobnímu tempu."
+      }
+    }
   },
   {
     "profession": "pečovatelka",
@@ -1341,7 +2583,53 @@
         ]
       }
     ],
-    "slug": "pecovatelka"
+    "slug": "pecovatelka",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět empatii, trpělivost, respekt k důstojnosti klienta a spolehlivost v každodenní péči.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Pomoc klientům při běžných denních činnostech a osobní hygieně. Podpora klientů při stravování, pohybu a udržování soběstačnosti. Citlivá komunikace s klienty i jejich rodinami."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v komfortu klientů, pravidelné péči a citlivé komunikaci s okolím",
+          "lidský a důsledný přístup i u náročnější klientely",
+          "asistenci při hygieně, polohování, podávání stravy a vedení záznamů",
+          "spolupráce s rodinou a pečujícím týmem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná prohlášení o empatii bez popisu péče, klientů nebo pracovních situací. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například péče o klienty, hygiena, polohování, záznamy o péči, domácí péče.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako empatie, trpělivost, péče o klienty, komunikace a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici pečovatelka by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte spojit praktickou pomoc s citlivým lidským přístupem.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ klientů, konkrétní činnosti péče, dokumentaci, spolupráci s rodinou a schopnost samostatně organizovat den.",
+          "Pokud začínáte, pomůže kurz pracovníka v sociálních službách, praxe nebo dobrovolnická péče."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici pečovatelka hledáme empatickou a spolehlivou posilu pro každodenní podporu klientů. Náplní práce bude pomoc při hygieně, stravování a pohybu, vedení základních záznamů a citlivá komunikace s klienty i jejich rodinami."
+      }
+    }
   },
   {
     "profession": "personalista",
@@ -1389,7 +2677,53 @@
         ]
       }
     ],
-    "slug": "personalista"
+    "slug": "personalista",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost kvalitně vést nábor, udržet pořádek v dokumentaci a jednat profesionálně s kandidáty i zaměstnanci.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Zajištění náboru zaměstnanců od inzerce po organizaci pohovorů. Komunikace s kandidáty a koordinace výběrového procesu. Správa personální dokumentace a administrativní podpora HR agendy."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v obsazení pozic, plynulém náboru a správně vedené personální agendě",
+          "diskrétnost, přesnost a spolehlivost v HR procesech",
+          "HR systém, onboarding, personální dokumentaci a organizaci pohovorů",
+          "komunikace s manažery, kandidáty a zaměstnanci"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné HR fráze bez uvedení náboru, administrativy nebo rozsahu agendy. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například nábor, onboarding, HR systém, personální dokumentace, pohovory.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako nábor zaměstnanců, komunikace, administrativa, organizace práce a diskrétnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici personalista by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte spojit práci s lidmi a přesnou agendu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte náborové kanály, počet obsazovaných pozic, administrativu, onboarding a komunikaci s manažery nebo zaměstnanci.",
+          "Pomůže administrativa, recruitment support, office role nebo práce s dokumenty a komunikací."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici personalista hledáme komunikativní a organizovanou posilu pro nábor, koordinaci pohovorů a vedení personální agendy. Oceníme diskrétnost, práci v HR systému, přesnost v dokumentech a schopnost profesionálně komunikovat s kandidáty i interními týmy."
+      }
+    }
   },
   {
     "profession": "pokladní",
@@ -1437,7 +2771,53 @@
         ]
       }
     ],
-    "slug": "pokladni"
+    "slug": "pokladni",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět rychlost, přesnost při markování a příjemný kontakt se zákazníkem i při rutinním provozu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Obsluha pokladny a přijímání plateb v hotovosti i kartou. Komunikace se zákazníky a poskytování základních informací. Kontrola správnosti účtování a uzávěrka pokladny."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v bezchybném účtování, kvalitní obsluze a plynulém odbavení zákazníků",
+          "spolehlivost při práci s hotovostí a směnnou uzávěrkou",
+          "pokladnu, platební terminál, hotovostní uzávěrku a věrnostní programy",
+          "komunikace se zákazníky i spolupráce s prodejnou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouhé uvedení práce na kase bez zmínky o přesnosti, zákaznickém servisu nebo uzávěrce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například pokladna, terminál, hotovost, uzávěrka, zákaznický servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako práce s pokladnou, komunikace se zákazníky, přesnost, spolehlivost a zákaznický servis.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici pokladní by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte spojit rychlost obsluhy s přesností a klidným jednáním.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ provozu, práci s pokladním systémem, řešení dotazů, uzávěrku a zkušenost se špičkou na prodejně.",
+          "Pomůže praxe v maloobchodu, obsluha zákazníků nebo práce s hotovostí a terminálem."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici pokladní hledáme pečlivou a vstřícnou posilu pro obsluhu pokladny a rychlé odbavování zákazníků. Oceníme přesnost při účtování, práci s hotovostí i kartou, spolehlivost při uzávěrce a profesionální komunikaci na prodejně."
+      }
+    }
   },
   {
     "profession": "prodavač",
@@ -1485,7 +2865,53 @@
         ]
       }
     ],
-    "slug": "prodavac"
+    "slug": "prodavac",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět aktivní přístup k zákazníkovi, znalost sortimentu a schopnost udržet prodejnu přehlednou a obchodně funkční.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Aktivní obsluha zákazníků a pomoc s výběrem sortimentu. Doplňování zboží a kontrola cenového označení na prodejně. Udržování pořádku, přehlednosti a atraktivního vystavení zboží."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v spokojenosti zákazníků, doplňkovém prodeji a dobrém stavu prodejny",
+          "spolehlivý výkon v každodenním provozu prodejny",
+          "pokladnu, aranžování zboží, inventury a doplňkový prodej",
+          "komunikace se zákazníky a spolupráce s vedoucím či kolegy"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné tvrzení o prodeji bez práce se zákazníkem, sortimentem nebo pokladnou. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například prodej, zákaznický servis, pokladna, doplňování zboží, inventury.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace se zákazníky, prodejní dovednosti, doplňování zboží, spolehlivost a příjemné vystupování.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici prodavač by měl být jasný a věcný. Personalista chce rychle pochopit, jak umíte prodávat a současně udržet dobrý standard prodejny.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ sortimentu, obsluhu zákazníků, doplňování zboží, pokladnu, doplňkový prodej a řešení dotazů nebo reklamací.",
+          "Pomůže i kratší praxe v maloobchodu, brigády na prodejně nebo silná orientace na zákazníka."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici prodavač hledáme komunikativní a spolehlivou posilu se zájmem o zákazníka a prodej. Náplní práce bude obsluha zákazníků, doplňování a vystavení zboží, práce s pokladnou a podpora běžného provozu prodejny."
+      }
+    }
   },
   {
     "profession": "prodavačka",
@@ -1533,7 +2959,53 @@
         ]
       }
     ],
-    "slug": "prodavacka"
+    "slug": "prodavacka",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět aktivní přístup k zákazníkovi, znalost sortimentu a schopnost udržet prodejnu přehlednou a obchodně funkční.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Aktivní obsluha zákazníků a pomoc s výběrem sortimentu. Doplňování zboží a kontrola cenového označení na prodejně. Udržování pořádku, přehlednosti a atraktivního vystavení zboží."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v spokojenosti zákazníků, doplňkovém prodeji a dobrém stavu prodejny",
+          "spolehlivý výkon v každodenním provozu prodejny",
+          "pokladnu, aranžování zboží, inventury a doplňkový prodej",
+          "komunikace se zákazníky a spolupráce s vedoucím či kolegy"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecné tvrzení o prodeji bez práce se zákazníkem, sortimentem nebo pokladnou. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například prodej, zákaznický servis, pokladna, doplňování zboží, inventury.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace se zákazníky, prodejní dovednosti, doplňování zboží, spolehlivost a příjemné vystupování.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici prodavačka by měl být jasný a věcný. Personalista chce rychle pochopit, jak umíte prodávat a současně udržet dobrý standard prodejny.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ sortimentu, obsluhu zákazníků, doplňování zboží, pokladnu, doplňkový prodej a řešení dotazů nebo reklamací.",
+          "Pomůže i kratší praxe v maloobchodu, brigády na prodejně nebo silná orientace na zákazníka."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici prodavačka hledáme komunikativní a spolehlivou posilu se zájmem o zákazníka a prodej. Náplní práce bude obsluha zákazníků, doplňování a vystavení zboží, práce s pokladnou a podpora běžného provozu prodejny."
+      }
+    }
   },
   {
     "profession": "programátor",
@@ -1581,7 +3053,53 @@
         ]
       }
     ],
-    "slug": "programator"
+    "slug": "programator",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět kvalitu kódu, schopnost řešit problém, chápat zadání a doručovat funkční řešení bez zbytečné komplikace.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Vývoj a údržba aplikací podle zadání a technické specifikace. Oprava chyb, úpravy funkcionalit a testování vlastního kódu. Spolupráce s analytiky, testery nebo dalšími vývojáři."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v nových funkcích, opravách chyb, kvalitě kódu a udržitelnosti řešení",
+          "spolehlivý vývoj, testování a dotahování úkolů",
+          "HTML, CSS, JavaScript, TypeScript, React, Next.js a API",
+          "spolupráce s analytiky, testery a dalšími vývojáři"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je výčet technologií bez ukázky projektů, funkcionalit nebo technického přínosu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například JavaScript, TypeScript, React, Next.js, API.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako programování, analytické myšlení, řešení problémů, samostatnost a spolupráce v týmu.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici programátor by měl být jasný a věcný. Personalista chce rychle pochopit, co umíte postavit, opravit nebo zrychlit v reálném vývoji.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte projekty, stack, konkrétní funkcionality, práci s API, testování a přístup ke kvalitě a udržovatelnosti kódu.",
+          "Na začátku je zásadní portfolio, GitHub, vlastní projekty, freelance práce nebo školní aplikace."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici programátor hledáme analytickou a samostatnou posilu pro vývoj a údržbu aplikací. Oceníme zkušenost s moderním JavaScriptovým stackem, řešením chyb, prací s API, verzováním a schopnost psát přehledný a udržitelný kód."
+      }
+    }
   },
   {
     "profession": "projektový manažer",
@@ -1629,7 +3147,53 @@
         ]
       }
     ],
-    "slug": "projektovy-manazer"
+    "slug": "projektovy-manazer",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost udržet projekt v pohybu, hlídat termíny, rozpočet a sladit lidi kolem společného cíle.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Plánování, koordinace a dohled nad průběhem svěřených projektů. Komunikace s klienty, dodavateli a interními členy týmu. Hlídání termínů, rozpočtů a plnění jednotlivých milníků."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v dodržení milníků, řízení rizik a plynulé koordinaci týmů",
+          "jistota v organizaci práce a komunikaci se stakeholdery",
+          "Jira nebo Trello, harmonogram, rozpočet a řízení stakeholderů",
+          "koordinace interního týmu, klienta i dodavatelů"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je manažerské fráze bez konkrétních projektů, termínů, rozpočtů nebo výsledků. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například harmonogram, Jira, rozpočet, stakeholder management, koordinace projektu.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako plánování projektů, komunikace, organizace práce, řízení termínů a řešení problémů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici projektový manažer by měl být jasný a věcný. Personalista chce rychle pochopit, jaké projekty umíte ukočírovat od startu po předání.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ projektů, velikost týmu, termíny, rozpočet, nástroje a způsob řešení změn, rizik nebo eskalací.",
+          "Pomůže koordinace menších projektů, vedení interních iniciativ nebo organizačně náročných akcí."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici projektový manažer hledáme organizovanou a komunikativní posilu, která zvládne plánování projektu, koordinaci lidí i hlídání termínů a rozpočtu. Oceníme práci v projektových nástrojích, přehled v prioritách a schopnost rychle řešit vzniklé překážky."
+      }
+    }
   },
   {
     "profession": "recepční",
@@ -1677,7 +3241,53 @@
         ]
       }
     ],
-    "slug": "recepcni"
+    "slug": "recepcni",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět reprezentativní vystupování, spolehlivou organizaci provozu a příjemný první kontakt pro návštěvníky i klienty.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Vítání návštěv a poskytování základních informací klientům i partnerům. Vyřizování telefonátů, e-mailů a provozní administrativy recepce. Evidence návštěv, rezervací a příchozí korespondence."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plynulém chodu recepce, správné evidenci a profesionálním dojmu",
+          "spolehlivost v každodenním provozu a při více úkolech najednou",
+          "rezervační systém, telefonní ústřednu, evidenci návštěv a MS Office",
+          "komunikace s návštěvníky, interním týmem a vedením"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis kontaktu s lidmi bez provozní agendy, rezervací nebo administrativy. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například recepce, evidence návštěv, rezervační systém, telefonní ústředna, administrativa.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace, reprezentativní vystupování, organizace práce, administrativa a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici recepční by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte být příjemným prvním kontaktem i oporou provozu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ recepce, rezervace, telefonickou komunikaci, práci s návštěvami, administrativu a řešení běžných provozních požadavků.",
+          "Pomůže praxe z hotelu, kanceláře, zákaznického servisu nebo jiná reprezentativní front office role."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici recepční hledáme reprezentativní a spolehlivou posilu pro zajištění prvního kontaktu s návštěvami a každodenní administrativní podporu recepce. Oceníme komunikaci, organizaci práce, práci s rezervačním systémem a profesionální vystupování."
+      }
+    }
   },
   {
     "profession": "řidič",
@@ -1725,7 +3335,53 @@
         ]
       }
     ],
-    "slug": "ridic"
+    "slug": "ridic",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět bezpečnou jízdu, spolehlivost, orientaci na trase a zodpovědný přístup k vozidlu i přepravě.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Přeprava zboží nebo osob podle plánovaných tras a časových oken. Kontrola vozidla před jízdou a péče o jeho provozní stav. Vyplňování přepravní dokumentace a potvrzování převzetí zásilek."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v včasném doručení, bezproblémovém provozu a správně vedené dokumentaci",
+          "samostatný a bezpečný výkon v každodenním provozu",
+          "GPS navigaci, knihu jízd, základní údržbu a řidičský průkaz sk. B",
+          "komunikace s dispečinkem, zákazníky nebo skladem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouhé uvedení řidičského oprávnění bez typu přepravy, tras nebo odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například řidič, rozvoz, GPS, kniha jízd, přepravní dokumentace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako bezpečná jízda, spolehlivost, samostatnost, plánování tras a péče o vozidlo.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici řidič by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte jezdit bezpečně, samostatně a s provozní disciplínou.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ přepravy, region, plánování tras, kontakt se zákazníky a péči o vozidlo nebo dokumentaci.",
+          "Pokud začínáte, zdůrazněte řidičskou praxi, dochvilnost, orientaci a odpovědný přístup."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici řidič hledáme spolehlivou a samostatnou posilu pro přepravu osob nebo zboží podle plánovaných tras. Oceníme bezpečnou jízdu, práci s navigací, vedení knihy jízd a zodpovědný přístup k technickému stavu vozidla."
+      }
+    }
   },
   {
     "profession": "řidič kamionu",
@@ -1773,7 +3429,53 @@
         ]
       }
     ],
-    "slug": "ridic-kamionu"
+    "slug": "ridic-kamionu",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět bezpečnou dálkovou přepravu, dodržování předpisů a samostatnost na trase i při práci s dokumenty.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Přeprava zboží na vnitrostátních nebo mezinárodních trasách. Kontrola nákladu, přepravních dokladů a technického stavu soupravy. Dodržování jízdních režimů, bezpečnostních pravidel a termínů doručení."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v včasném doručení, správném vedení přepravních dokladů a hospodárném provozu",
+          "odpovědný výkon na dlouhých trasách a v režimové dopravě",
+          "řidičský průkaz C+E, profesní průkaz, kartu řidiče a digitální tachograf",
+          "komunikace s dispečinkem, sklady a zákazníky"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je chybějící informace o typu dopravy, oprávněních nebo práci s tachografem. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například C+E, profesní průkaz, tachograf, mezinárodní doprava, přepravní doklady.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako dálková přeprava, plánování tras, práce s dokumentací, spolehlivost a dodržování předpisů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici řidič kamionu by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládáte trasu, předpisy i samostatné rozhodování na cestě.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ přeprav, země nebo regiony, práci s tachografem, nákladem, dokumenty a provozní zodpovědnost.",
+          "Pokud jste na začátku, zdůrazněte všechna oprávnění, školení a praxi s nákladním vozidlem."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici řidič kamionu hledáme spolehlivou a samostatnou posilu pro vnitrostátní nebo mezinárodní přepravu. Oceníme oprávnění C+E, profesní průkaz, práci s digitálním tachografem, dodržování jízdních režimů a zodpovědný přístup k soupravě i nákladu."
+      }
+    }
   },
   {
     "profession": "servírka",
@@ -1821,7 +3523,53 @@
         ]
       }
     ],
-    "slug": "servirka"
+    "slug": "servirka",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět rychlou a přesnou obsluhu, příjemné vystupování a schopnost udržet dobrý servis i při plném provozu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Obsluha hostů v restauraci a přijímání objednávek. Doporučování jídel a nápojů podle nabídky podniku. Příprava stolů, udržování čistoty a kontrola inventáře."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v spokojenosti hostů, plynulém servisu a přesném odbavení objednávek",
+          "spolehlivost v každé směně a kultivované vystupování",
+          "pokladní systém, znalost menu, servírování a inkaso plateb",
+          "spolupráce s kuchyní, barem a ostatní obsluhou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je strohý popis obsluhy bez typu provozu, tempa nebo zákaznického přístupu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například obsluha hostů, servírování, pokladna, menu, zákaznický servis.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako komunikace se zákazníky, profesionální vystupování, spolehlivost a pečlivost, schopnost práce pod tlakem a týmová spolupráce.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici servírka by měl být jasný a věcný. Personalista chce rychle pochopit, jestli umíte vytvořit hostům dobrý zážitek a současně držet tempo provozu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ podniku, práci s hosty, objednávkami a pokladnou, ale i zvládání špičky a spolupráci s kuchyní.",
+          "Pomohou brigády v restauraci, kavárně nebo zkušenost s přímou obsluhou zákazníků."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici servírka hledáme komunikativní a spolehlivou posilu, která zvládne přijímat objednávky, servírovat pokrmy a udržet příjemnou atmosféru pro hosty. Oceníme práci s pokladním systémem, profesionální vystupování a schopnost fungovat rychle v provozní špičce."
+      }
+    }
   },
   {
     "profession": "skladník",
@@ -1869,7 +3617,53 @@
         ]
       }
     ],
-    "slug": "skladnik"
+    "slug": "skladnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět pořádek ve skladu, přesnost v evidenci a schopnost udržet plynulý tok zboží bez chyb.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příjem, kontrola a ukládání zboží na určená skladová místa. Příprava objednávek k expedici a kompletace zásilek. Evidence pohybů zboží ve skladovém systému nebo pomocí čtečky."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v správném příjmu a výdeji, rychlé expedici a přehledu o zásobách",
+          "spolehlivý výkon v denním skladovém provozu",
+          "čtečku, WMS systém, paletový vozík nebo VZV a inventury",
+          "spolupráce s expedicí, dopravou a výrobou"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis skladové práce bez systémů, inventur nebo typu manipulace. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například sklad, WMS, expedice, inventury, čtečka.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako orientace ve skladu, manipulace se zbožím, evidence zásob, spolehlivost a pečlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici skladník by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte ve skladu držet pořádek, tempo i přesnost.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte příjem a výdej zboží, práci se systémem, kompletaci zásilek, inventury a způsob organizace skladu.",
+          "Pomůže praxe ve skladu, expedici, maloobchodu nebo jakákoli práce s evidencí a manipulací se zbožím."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici skladník hledáme pečlivou a spolehlivou posilu pro příjem, uskladnění a expedici zboží. Oceníme orientaci ve skladu, práci se čtečkou nebo WMS systémem, inventury a zodpovědný přístup k pořádku a správné evidenci zásob."
+      }
+    }
   },
   {
     "profession": "skladový koordinátor",
@@ -1917,7 +3711,53 @@
         ]
       }
     ],
-    "slug": "skladovy-koordinator"
+    "slug": "skladovy-koordinator",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět organizaci skladu, schopnost řídit tok zboží a koordinovat lidi i priority během dne.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Koordinace denních skladových činností a rozdělování práce týmu. Dohled nad příjmem, výdejem a správnou evidencí skladových zásob. Řešení provozních situací mezi skladem, expedicí a dopravou."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v plynulém provozu, správné evidenci zásob a lepší návaznosti mezi skladem a expedicí",
+          "spolehlivé vedení denních skladových procesů",
+          "WMS nebo ERP, plánování směn, inventury a komunikaci s dopravci",
+          "koordinace skladníků, expedice a navazujících oddělení"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je neurčitý popis skladu bez koordinace lidí, priorit nebo systémové práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například koordinace skladu, WMS, plánování směn, inventury, expedice.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako organizace skladu, koordinace týmu, evidence zásob, komunikace a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici skladový koordinátor by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte držet sklad v tempu, pořádku a bez zbytečných prostojů.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte velikost skladu, počet lidí, příjem a výdej, systém, inventury a situace, kdy bylo potřeba přerozdělit kapacity nebo řešit provozní problém.",
+          "Pokud se do role posouváte, zdůrazněte vedení menšího týmu, inventury nebo odpovědnost za část skladu."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici skladový koordinátor hledáme organizovanou a pečlivou posilu, která zvládne rozdělovat práci, hlídat zásoby a koordinovat denní skladový provoz. Oceníme zkušenost s WMS nebo ERP, inventurami, komunikací s dopravci a schopnost řešit operativní situace."
+      }
+    }
   },
   {
     "profession": "student brigádník",
@@ -1965,7 +3805,53 @@
         ]
       }
     ],
-    "slug": "student-brigadnik"
+    "slug": "student-brigadnik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět ochotu pracovat, rychlé zaučení, flexibilitu a spolehlivost i u jednodušších provozních úkolů.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Výpomoc při běžných provozních činnostech podle aktuální potřeby. Plnění jednoduchých úkolů samostatně i pod dohledem zkušenějších kolegů. Komunikace se zákazníky nebo spolupráce s interním týmem."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v rychlé adaptaci, pečlivém plnění úkolů a dobré docházce",
+          "zodpovědný přístup i při kratší nebo sezónní spolupráci",
+          "základní práci na PC, časovou flexibilitu a ochotu učit se nové systémy",
+          "spolupráce s kolegy a otevřenou komunikaci"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš stručný profil bez brigád, školních aktivit nebo ukázky odpovědnosti. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například brigáda, flexibilita, základní práce na PC, výpomoc, komunikace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako rychlé učení, spolehlivost, komunikace, pečlivost a flexibilita.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici student brigádník by měl být jasný a věcný. Personalista chce rychle pochopit, že i bez dlouhé praxe umíte být spolehlivou oporou týmu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte brigády, školní aktivity, časovou flexibilitu, schopnost učit se a konkrétní úkoly, které jste už zvládali.",
+          "Zdůrazněte brigády, praxi, dobrovolnické aktivity nebo odpovědnost ve škole a mimo ni."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici student brigádník hledáme učenlivou a spolehlivou posilu pro výpomoc podle aktuální potřeby provozu. Oceníme časovou flexibilitu, pečlivost, základní práci na PC a ochotu rychle se zaučit do nových úkolů a systémů."
+      }
+    }
   },
   {
     "profession": "svářeč",
@@ -2013,7 +3899,53 @@
         ]
       }
     ],
-    "slug": "svarec"
+    "slug": "svarec",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět technickou přesnost, kvalitu svaru, orientaci ve výkresu a dodržování bezpečnostních pravidel.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Svařování kovových dílů a konstrukcí podle technické dokumentace. Příprava materiálu, seřízení vybavení a kontrola svarů. Dodržování předepsaných technologických a bezpečnostních postupů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitě spojů, nízké chybovosti a plynulé návaznosti na výrobu",
+          "spolehlivý výkon v dílně i ve výrobním provozu",
+          "MIG, MAG, TIG, svářečský průkaz a výkresovou dokumentaci",
+          "spolupráce s výrobou a kontrolou kvality"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis kovovýroby bez metody svařování, certifikace nebo dokumentace. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například MIG, MAG, TIG, svářečský průkaz, výkresová dokumentace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako svařování, technická zručnost, práce podle dokumentace, pečlivost a dodržování bezpečnosti.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici svářeč by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte svařovat přesně, bezpečně a podle technického zadání.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte metody svařování, materiály, typ výrobků, čtení dokumentace a kontrolu kvality hotových svarů.",
+          "Pokud začínáte, zdůrazněte svářečský průkaz, odborný výcvik, praxi a schopnost číst výkresy."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici svářeč hledáme technicky zručnou a pečlivou posilu pro svařování kovových dílů a konstrukcí podle dokumentace. Oceníme znalost metod MIG, MAG nebo TIG, platný svářečský průkaz, důraz na kvalitu svaru a dodržování bezpečnostních postupů."
+      }
+    }
   },
   {
     "profession": "tesař",
@@ -2061,7 +3993,53 @@
         ]
       }
     ],
-    "slug": "tesar"
+    "slug": "tesar",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost při práci se dřevem, čtení technických podkladů a schopnost postavit konstrukci kvalitně a bezpečně.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Výroba a montáž dřevěných konstrukcí podle výkresové dokumentace. Příprava materiálu, měření a přesné opracování dřevěných prvků. Montáž krovů, bednění nebo dalších stavebních konstrukcí."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitní montáži, přesném měření a správném provedení konstrukcí",
+          "spolehlivost na stavbě a jistota při řemeslné práci",
+          "motorovou pilu, výrobu krovů, bednění a měření nebo řezání materiálu",
+          "spolupráce se stavbou a dalšími řemesly"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš obecný popis stavební práce bez dřeva, konstrukcí nebo výkresů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například tesař, krovy, bednění, práce se dřevem, technické podklady.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako manuální zručnost, práce se dřevem, montáž konstrukcí, čtení technických podkladů a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici tesař by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládáte řemeslnou přesnost i práci v terénu.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ konstrukcí, práce se dřevem, měření, montáž, výkresy a dodržování bezpečnosti na stavbě.",
+          "Pomůže praxe na stavbě, učiliště, montáže dřevostaveb nebo výroba krovů a bednění."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici tesař hledáme manuálně zručnou a spolehlivou posilu pro výrobu a montáž dřevěných konstrukcí. Oceníme práci podle technických podkladů, zkušenost s krovy nebo bedněním, přesné měření a důraz na kvalitní a bezpečné provedení."
+      }
+    }
   },
   {
     "profession": "tester softwaru",
@@ -2109,7 +4087,53 @@
         ]
       }
     ],
-    "slug": "tester-softwaru"
+    "slug": "tester-softwaru",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět smysl pro detail, schopnost systematicky hledat chyby a přesně popsat, co je potřeba opravit.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Provádění manuálních testů aplikací podle připravených scénářů. Vyhledávání chyb, ověřování funkčnosti a kontrola uživatelského chování. Zapisování výsledků testování a detailní popis nalezených problémů."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitě release, včasném odhalení chyb a přehledné dokumentaci testů",
+          "důsledná práce s opakováním, prioritami a testovací disciplinou",
+          "testovací scénáře, Jira, bug tracking, API testing a regresní testování",
+          "spolupráce s vývojem a analytiky při reprodukci a ověřování chyb"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná zmínka o testování bez nástrojů, typů testů nebo konkrétního výstupu. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například testování, Jira, bug tracking, regresní testy, testovací scénáře.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako testování aplikací, analytické myšlení, smysl pro detail, hledání chyb a dokumentace.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici tester softwaru by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte odhalit chybu a předat ji týmu v použitelné podobě.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ produktu, testovací scénáře, manuální nebo API testy, reprodukci chyb a práci s ticketovacím nástrojem.",
+          "Dobře fungují i testovací ukázky, kurzy QA, vlastní checklisty nebo zkušenost s detailní kontrolou aplikací."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici tester softwaru hledáme pečlivou a analytickou posilu pro manuální testování aplikací a kontrolu nových funkcionalit. Oceníme tvorbu testovacích scénářů, práci v Jira nebo bug trackingu, regresní testování a schopnost přesně dokumentovat nalezené chyby."
+      }
+    }
   },
   {
     "profession": "účetní",
@@ -2157,7 +4181,53 @@
         ]
       }
     ],
-    "slug": "ucetni"
+    "slug": "ucetni",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět přesnost v dokladech, jistotu v účetních termínech a spolehlivost při každodenní evidenci i uzávěrkách.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Zpracování přijatých a vydaných dokladů v účetním systému. Kontrola správnosti účetních podkladů a jejich evidence. Příprava podkladů pro uzávěrky, přiznání nebo audit."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v správně zaúčtovaných dokladech, včasných podkladech a bezchybné evidenci",
+          "důslednost, termíny a pořádek v účetní agendě",
+          "podvojné účetnictví, účetní software, DPH a Excel",
+          "komunikace s kolegy, dodavateli a dalšími odděleními nad podklady"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je pouze obecné tvrzení o účetnictví bez dokladů, uzávěrek, DPH nebo systému. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například účetnictví, DPH, účetní software, doklady, Excel.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako účetní agenda, práce s doklady, přesnost, spolehlivost a dodržování termínů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici účetní by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte pracovat přesně, diskrétně a v účetních termínech.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ agendy, doklady, fakturaci, uzávěrky, DPH, systém a rozsah odpovědnosti za účetní procesy.",
+          "Pomůže účetní praxe, fakturace, back office agenda nebo školní projekty zaměřené na účetnictví."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici účetní hledáme pečlivou a zodpovědnou posilu pro zpracování účetních dokladů a podporu účetní agendy. Oceníme znalost účetního software, DPH, práci v Excelu, důslednost při kontrole údajů a schopnost plnit termíny."
+      }
+    }
   },
   {
     "profession": "učitel",
@@ -2205,7 +4275,53 @@
         ]
       }
     ],
-    "slug": "ucitel"
+    "slug": "ucitel",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět schopnost předat látku srozumitelně, vést třídu a vytvářet prostředí, ve kterém se studenti mohou rozvíjet.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava a vedení výuky podle osnov a vzdělávacích plánů. Předávání znalostí s ohledem na úroveň a potřeby žáků. Hodnocení výsledků, oprava prací a poskytování zpětné vazby."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v pokroku žáků, kvalitě výuky a dobře vedené třídní dokumentaci",
+          "odpovědný pedagogický přístup a dobrá organizace hodin",
+          "výukové plány, třídní dokumentaci, interaktivní tabuli a hodnocení žáků",
+          "komunikace s rodiči, kolegy a vedením školy"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná zmínka o práci s dětmi bez předmětu, úrovně výuky nebo pedagogických výstupů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například výuka, třídní dokumentace, výukové plány, hodnocení žáků, pedagogika.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako pedagogické dovednosti, komunikace, trpělivost, předávání znalostí a organizace výuky.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici učitel by měl být jasný a věcný. Personalista chce rychle pochopit, jak dobře umíte spojit odbornost, autoritu a lidský přístup.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte vyučovaný předmět, úroveň žáků, přípravu hodin, hodnocení, práci s třídou a komunikaci s rodiči nebo kolegy.",
+          "Pomohou pedagogické praxe, suplování, doučování nebo vedení kroužků a vzdělávacích aktivit."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici učitel hledáme trpělivou a komunikativní posilu, která dokáže kvalitně připravit a vést výuku, motivovat žáky a pracovat s třídní dokumentací. Oceníme pedagogické dovednosti, zodpovědný přístup a schopnost spolupracovat s rodiči i kolegy."
+      }
+    }
   },
   {
     "profession": "učitel mateřské školy",
@@ -2253,7 +4369,53 @@
         ]
       }
     ],
-    "slug": "ucitel-materske-skoly"
+    "slug": "ucitel-materske-skoly",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět trpělivost, pozitivní přístup k dětem, bezpečné vedení třídy a schopnost podporovat rozvoj přirozenou formou.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Příprava a vedení vzdělávacích i volnočasových aktivit pro děti. Podpora sociálního, pohybového a kreativního rozvoje dětí. Dohled nad bezpečností, hygienou a denním režimem třídy."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v klidném chodu třídy, rozvoji dětí a dobré spolupráci s rodiči",
+          "laskavý, ale důsledný přístup v každodenním režimu",
+          "předškolní pedagogiku, tvořivé a pohybové aktivity a třídní dokumentaci",
+          "spolupráce s rodiči a ostatními pedagogy"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná prohlášení o vztahu k dětem bez popisu aktivit, dokumentace nebo pedagogické práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například mateřská škola, předškolní pedagogika, aktivity, komunikace s rodiči, dokumentace.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako práce s dětmi, trpělivost, empatie, organizace aktivit a zodpovědnost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici učitel mateřské školy by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte dětem vytvořit bezpečné a podnětné prostředí.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte denní režim, plán aktivit, individuální přístup, komunikaci s rodiči a podporu samostatnosti nebo adaptace dětí.",
+          "Pomohou pedagogické praxe, hlídání, vedení dětských skupin nebo kurzy zaměřené na předškolní práci."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici učitel mateřské školy hledáme trpělivou a empatickou posilu se vztahem k dětem a chutí podporovat jejich každodenní rozvoj. Oceníme předškolní pedagogiku, organizaci aktivit, vedení dokumentace a citlivou komunikaci s rodiči i kolegy."
+      }
+    }
   },
   {
     "profession": "uklízečka",
@@ -2301,7 +4463,53 @@
         ]
       }
     ],
-    "slug": "uklizecka"
+    "slug": "uklizecka",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět důslednost, samostatnost a schopnost udržet svěřené prostory v čistotě podle daného standardu.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Úklid kanceláří, společných prostor nebo provozních místností. Doplňování hygienických potřeb a kontrola čistoty svěřených prostor. Používání vhodných čisticích prostředků podle typu povrchu."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v čistotě prostoru, spolehlivě odvedeném úklidu a dodržování harmonogramu",
+          "pravidelný a pečlivý výkon bez potřeby neustálé kontroly",
+          "čisticí prostředky, dezinfekci, třídění odpadu a případně strojové čištění",
+          "ohleduplné jednání v provozu a spolupráci s ostatními pracovníky"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je příliš stručný popis úklidu bez typu prostoru, režimu nebo hygienických standardů. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například úklid, dezinfekce, hygienické standardy, čisticí prostředky, třídění odpadu.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako pečlivost, smysl pro pořádek, samostatnost, dodržování hygieny a spolehlivost.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici uklízečka by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte pracovat samostatně, důsledně a s citem pro pořádek.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ uklízených prostor, frekvenci, používané prostředky, hygienické postupy a spolehlivost při plnění harmonogramu.",
+          "Pomůže i kratší praxe v úklidu, hotelu, kancelářích nebo provozu s důrazem na hygienu."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici uklízečka hledáme pečlivou a spolehlivou posilu pro pravidelný úklid kanceláří nebo provozních prostor. Oceníme samostatnost, smysl pro pořádek, používání vhodných čisticích prostředků a důsledné dodržování hygienických pravidel i stanoveného harmonogramu."
+      }
+    }
   },
   {
     "profession": "zdravotní sestra",
@@ -2349,7 +4557,53 @@
         ]
       }
     ],
-    "slug": "zdravotni-sestra"
+    "slug": "zdravotni-sestra",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět odbornost, lidský přístup k pacientovi a jistotu v péči, dokumentaci i komunikaci na oddělení.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Poskytování ošetřovatelské péče pacientům dle pokynů a standardů. Monitorování zdravotního stavu pacientů a vedení záznamů. Příprava pacientů na vyšetření, zákroky nebo další ošetření."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v kvalitě ošetřovatelské péče, přesné dokumentaci a klidném kontaktu s pacienty",
+          "odpovědnost a profesionalita i v náročném zdravotnickém provozu",
+          "odběry, aplikaci léků, dokumentaci, asistenci při vyšetřeních a zdravotnické přístroje",
+          "spolupráce s lékaři, pacienty a zdravotnickým týmem"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecná zmínka o péči bez typu oddělení, výkonů nebo dokumentace. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například ošetřovatelská péče, dokumentace, aplikace léků, ambulance, pacient.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako péče o pacienty, empatie, odbornost, komunikace a vedení dokumentace.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici zdravotní sestra by měl být jasný a věcný. Personalista chce rychle pochopit, že zvládáte odbornost i citlivý přístup k lidem.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ oddělení, ošetřovatelské úkony, práci s dokumentací, přístroji a každodenní spolupráci s týmem nebo pacienty.",
+          "Na začátku pomohou klinické praxe, specializované stáže a jasně uvedené odborné kompetence."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici zdravotní sestra hledáme empatickou a zodpovědnou posilu pro poskytování ošetřovatelské péče a podporu chodu oddělení nebo ambulance. Oceníme práci se zdravotnickou dokumentací, aplikaci léčby, odborný přístup a profesionální komunikaci s pacienty i týmem."
+      }
+    }
   },
   {
     "profession": "zedník",
@@ -2397,6 +4651,52 @@
         ]
       }
     ],
-    "slug": "zednik"
+    "slug": "zednik",
+    "sections": {
+      "whatRecruitersAppreciate": {
+        "heading": "Co u této profese personalisté ocení",
+        "paragraphs": [
+          "U této profese funguje konkrétní a přehledný životopis, ze kterého je rychle vidět řemeslnou zručnost, práci podle výkresu a schopnost odvést přesnou a kvalitní stavební práci.",
+          "Zmiňte typické úkoly, se kterými máte zkušenosti, například: Provádění zdění, omítek, betonáží a dalších stavebních prací. Práce podle projektové dokumentace a pokynů stavbyvedoucího. Příprava materiálu, nářadí a pracovního prostoru na stavbě."
+        ],
+        "bullets": [
+          "kde jste firmě pomohli, například v správném provedení zdiva, omítek a dalších stavebních prací v požadované kvalitě",
+          "spolehlivost na stavbě a respekt k technologickým postupům",
+          "zdění, práci s maltou a betonem, omítky, stěrky a stavební výkresy",
+          "spolupráce s ostatními řemeslníky a stavbyvedoucím"
+        ]
+      },
+      "commonCvMistakes": {
+        "heading": "Nejčastější chyby v životopise",
+        "paragraphs": [
+          "Nejčastější problém je obecný popis stavební práce bez typu činností, materiálů nebo výkresové práce. Vytvořte jednoduchý, ale konkrétní dokument."
+        ],
+        "bullets": [
+          "chybějící výsledky, rozsah práce nebo konkrétní odpovědnost",
+          "nejasně uvedené nástroje, systémy, oprávnění nebo odborné dovednosti",
+          "příliš dlouhý nebo chaotický text bez jasné struktury a návaznosti na pozici"
+        ]
+      },
+      "atsTips": {
+        "heading": "Tipy pro ATS a výběrová řízení",
+        "paragraphs": [
+          "Personalisté často používají ATS nebo rychlé filtrování životopisů. Používejte proto stejné výrazy jako v inzerátu, například zednické práce, zdění, omítky, beton, stavební výkresy.",
+          "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí. U této role se vyplatí mít dobře viditelné dovednosti jako zednické práce, manuální zručnost, práce podle výkresů, spolehlivost a dodržování postupů.",
+          "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise."
+        ]
+      },
+      "howToWriteCv": {
+        "heading": "Jak napsat životopis pro tuto profesi",
+        "paragraphs": [
+          "Životopis pro pozici zedník by měl být jasný a věcný. Personalista chce rychle pochopit, že umíte pracovat přesně, fyzicky a podle stavebního zadání.",
+          "Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte typ staveb, zdění, omítky, betonáže, práci podle výkresů a dodržování bezpečnosti i termínů.",
+          "Pomůže praxe na stavbě, učiliště, rekonstrukce nebo zkušenost s hrubými i dokončovacími pracemi."
+        ]
+      },
+      "jobAdExample": {
+        "heading": "Příklad inzerátu",
+        "text": "Na pozici zedník hledáme manuálně zručnou a spolehlivou posilu pro zdění, omítky, betonáže a další stavební práce podle projektové dokumentace. Oceníme zkušenost s různými materiály, dodržování technologických postupů a zodpovědný přístup ke kvalitě provedení."
+      }
+    }
   }
 ]

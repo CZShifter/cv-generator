@@ -571,7 +571,9 @@ export default function ProfessionPage({ content }: PageProps) {
               <ul>
                 {content.related.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/cs/profese/${item.urlSlug}`}>{highlightText(item.name)}</Link>
+                    <Link href={`/cs/profese/${item.urlSlug}`}>
+                      {highlightText(`vzor ${item.name}`)}
+                    </Link>
                   </li>
                 ))}
               </ul>
