@@ -66,6 +66,7 @@ export type ProfessionContent = {
   };
   related: { slug: string; urlSlug: string; name: string }[];
   faqs: { question: string; answer: string }[];
+  faqHeading: string;
 };
 
 const BASE_PROFESSIONS: ProfessionSeedBase[] = [
@@ -852,7 +853,13 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
       skills: skills.slice(0, 6),
     },
     related,
-    faqs: ui.faqs(seed.name),
+    faqs: cvData.faq?.items ? cvData.faq.items : ui.faqs(seed.name),
+    faqHeading:
+      cvData.faq?.heading
+        ? cvData.faq.heading
+        : locale === "cs"
+          ? "Časté otázky (FAQ)"
+          : "Časté otázky (FAQ)",
   };
 }
 
