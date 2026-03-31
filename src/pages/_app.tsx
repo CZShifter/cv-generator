@@ -296,6 +296,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
           name="seznam-wmt"
           content={isSk ? "GymOn2qDbXWcHdkSoXsYiiVZAMC3WPNN" : "cxiiNfR161OyA8q2JjZbKQFz645Tx0dg"}
         />
+        <meta
+          name="yandex-verification"
+          content={isSk ? "f119a658cb450613" : "8902e254184f9008"}
+        />
         <link rel="icon" href={FAVICON_URL_32} sizes="32x32" />
         <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON_URL} sizes="180x180" />
         <link rel="icon" href={FAVICON_URL_192} sizes="192x192" />
