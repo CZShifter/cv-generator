@@ -262,49 +262,6 @@ const CATEGORY_LABELS: Record<Locale, Record<ProfessionCategory, string>> = {
   },
 };
 
-const CATEGORY_INTRO: Record<Locale, Record<ProfessionCategory, string>> = {
-  cs: {
-    logistics:
-      "Na pozici [position] hledáme spolehlivého a pečlivého zaměstnance s orientací ve skladu a dobrou fyzickou zdatností. Náplní práce bude příjem a výdej zboží, evidence zásob i příprava objednávek. Oceníme zodpovědný přístup, samostatnost a chuť podílet se na plynulém chodu skladu.",
-    manual:
-      "Na pozici [position] hledáme manuálně zručného a samostatného člověka s technickým myšlením. Důležitá je schopnost práce podle výkresů, kontrola kvality a důsledné dodržování pracovních postupů i BOZP. Oceníme pečlivost, odpovědný přístup a ochotu odvádět kvalitní práci v každodenním provozu.",
-    service:
-      "Na pozici [position] hledáme člověka s příjemným vystupováním, rychlostí, spolehlivostí a dobrou komunikací se zákazníky. Náplní práce bude obsluha zákazníků, udržování čistoty a řešení požadavků hostů. Oceníme ochotu pracovat s lidmi, profesionální přístup a snahu vytvářet příjemnou atmosféru.",
-    retail:
-      "Na pozici [position] hledáme pečlivého a vstřícného zaměstnance se zaměřením na zákaznický servis a práci s pokladnou. Vaší náplní bude prodej zboží, doplňování regálů a řešení reklamací. Oceníme spolehlivost, příjemné vystupování a aktivní přístup k zákazníkům i každodenním povinnostem na prodejně.",
-    office:
-      "Na pozici [position] hledáme spolehlivého a organizovaného člověka, který ovládá práci s MS Office a má dobré komunikační schopnosti. Náplní práce bude správa dokumentace, administrativa a koordinace úkolů. Oceníme samostatnost, pečlivost a schopnost udržet pořádek v každodenní kancelářské agendě.",
-    tech:
-      "Na pozici [position] hledáme systematického kolegu s analytickým myšlením, schopností práce s daty a komunikací v týmu. Náplní práce bude tvorba řešení, testování a dokumentace. Oceníme pečlivý přístup, schopnost hledat souvislosti a chuť podílet se na kvalitním technickém výstupu.",
-    education:
-      "Na pozici [position] hledáme trpělivého a komunikativního člověka, který zvládne přípravu materiálů i zodpovědný přístup k práci. Náplní bude příprava výuky, hodnocení studentů a spolupráce s rodiči. Oceníme schopnost předávat informace srozumitelně, empaticky a s důrazem na individuální přístup.",
-    healthcare:
-      "Na pozici [position] hledáme pečlivého a odolného člověka s empatií a profesionálním přístupem. Náplní práce bude péče o klienty, vedení dokumentace a spolupráce s týmem. Oceníme zodpovědnost, schopnost zvládat stresové situace a opravdový zájem o kvalitní a citlivou péči o druhé.",
-    student:
-      "Na pozici [position] hledáme spolehlivého a flexibilního člověka s ochotou učit se novým věcem. Náplní práce bude výpomoc týmu, plnění zadaných úkolů a rychlá adaptace na pracovní prostředí. Oceníme aktivní přístup, samostatnost a chuť získat nové zkušenosti v praxi.",
-  },
-  sk: {
-    logistics:
-      "Na pozíciu [position] hľadáme spoľahlivého a precízneho zamestnanca so znalosťou skladu a dobrou fyzickou zdatnosťou. Náplňou práce bude príjem a výdaj tovaru, evidencia zásob aj príprava objednávok. Oceníme zodpovedný prístup, samostatnosť a chuť podieľať sa na plynulom chode skladu.",
-    manual:
-      "Na pozíciu [position] hľadáme manuálne zručného a samostatného človeka s technickým myslením. Dôležitá je schopnosť práce podľa výkresov, kontrola kvality a dôsledné dodržiavanie pracovných postupov aj BOZP. Oceníme precíznosť, zodpovedný prístup a ochotu odvádzať kvalitnú prácu v každodennej prevádzke.",
-    service:
-      "Na pozíciu [position] hľadáme človeka s príjemným vystupovaním, rýchlosťou, spoľahlivosťou a dobrou komunikáciou so zákazníkmi. Náplňou práce bude obsluha zákazníkov, udržiavanie čistoty a riešenie požiadaviek hostí. Oceníme ochotu pracovať s ľuďmi, profesionálny prístup a snahu vytvárať príjemnú atmosféru.",
-    retail:
-      "Na pozíciu [position] hľadáme precízneho a ústretového zamestnanca so zameraním na zákaznícky servis a prácu s pokladňou. Vašou náplňou bude predaj tovaru, dopĺňanie regálov a riešenie reklamácií. Oceníme spoľahlivosť, príjemné vystupovanie a aktívny prístup k zákazníkom aj každodenným povinnostiam na predajni.",
-    office:
-      "Na pozíciu [position] hľadáme spoľahlivého a organizovaného človeka, ktorý ovláda prácu s MS Office a má dobré komunikačné schopnosti. Náplňou práce bude správa dokumentácie, administratíva a koordinácia úloh. Oceníme samostatnosť, precíznosť a schopnosť udržať poriadok v každodennej kancelárskej agende.",
-    tech:
-      "Na pozíciu [position] hľadáme systematického kolegu s analytickým myslením, schopnosťou práce s dátami a komunikáciou v tíme. Náplňou práce bude tvorba riešení, testovanie a dokumentácia. Oceníme precízny prístup, schopnosť hľadať súvislosti a chuť podieľať sa na kvalitnom technickom výstupe.",
-    education:
-      "Na pozíciu [position] hľadáme trpezlivého a komunikatívneho človeka, ktorý zvládne prípravu materiálov aj zodpovedný prístup k práci. Náplňou bude príprava výučby, hodnotenie študentov a spolupráca s rodičmi. Oceníme schopnosť odovzdávať informácie zrozumiteľne, empaticky a s dôrazom na individuálny prístup.",
-    healthcare:
-      "Na pozíciu [position] hľadáme precízneho a odolného človeka s empatiou a profesionálnym prístupom. Náplňou práce bude starostlivosť o klientov, vedenie dokumentácie a spolupráca s tímom. Oceníme zodpovednosť, schopnosť zvládať stresové situácie a úprimný záujem o kvalitnú a citlivú starostlivosť o druhých.",
-    student:
-      "Na pozíciu [position] hľadáme spoľahlivého a flexibilného človeka s ochotou učiť sa novým veciam. Náplňou práce bude výpomoc tímu, plnenie zadaných úloh a rýchla adaptácia na pracovné prostredie. Oceníme aktívny prístup, samostatnosť a chuť získať nové skúsenosti v praxi.",
-  },
-};
-
 type AdExample = ProfessionContent["adExample"];
 
 const AD_EXAMPLE_OVERRIDES: Record<Locale, Record<string, AdExample>> = {
@@ -361,7 +318,6 @@ const UI_TEXT: Record<Locale, {
     educationHeading: string;
     skillsHeading: string;
   };
-  faqs: (name: string) => { question: string; answer: string }[];
 }> = {
   cs: {
     introLead: (name) =>
@@ -398,38 +354,6 @@ const UI_TEXT: Record<Locale, {
       educationHeading: "Vzdělání a kurzy (příklad)",
       skillsHeading: "Klíčové dovednosti (příklad)",
     },
-    faqs: (name) => [
-      {
-        question: `Jak dlouhý má být životopis pro pozici ${name}?`,
-        answer:
-          `Ideální rozsah pro pozici ${name} je jedna až dvě strany A4. Absolventům stačí jedna strana pro rychlé skenování, zkušení profesionálové využijí dvě. Důležité je prioritizovat zkušenosti za posledních 15 let a starší uvádět jen heslovitě, aby dokument zůstal přehledný pro náboráře i systémy ATS.`,
-      },
-      {
-        question: "Co musí obsahovat správně napsaný životopis?",
-        answer:
-          "Povinný základ tvoří kontaktní údaje, profesní shrnutí, praxe, vzdělání a dovednosti. Profesní shrnutí v úvodu slouží jako krátký „elevator pitch“ definující váš přínos. V sekci dovedností uvádějte konkrétní nástroje (např. SAP, Google Workspace) s úrovní pokročilosti, aby náborář ihned viděl vaši technickou zdatnost.",
-      },
-      {
-        question: "Má být v životopise fotografie?",
-        answer:
-          "Fotografie není povinná, v Česku je však běžná pro lepší zapamatovatelnost. Musí být vždy profesionální (pasový formát), nikoliv momentka z dovolené. V zahraničí (USA, UK) se naopak nedoporučuje kvůli prevenci diskriminace. Často je lepší odkázat na profesionální portrét na LinkedInu.",
-      },
-      {
-        question: "Jak napsat životopis bez praxe?",
-        answer:
-          "Zaměřte se na přenositelné dovednosti, stáže a dobrovolnictví, které náboráři uznávají jako plnohodnotnou praxi. Uveďte školní projekty, kde jste prokázali odpovědnost či vedení týmu. Zdůrazněte digitální gramotnost a certifikáty z kurzů, které dokládají vaši snahu o profesní růst i bez formální historie. Vzor najdete zde: /cs/profese/zivotopis-absolvent-bez-praxe.",
-      },
-      {
-        question: "Jak upravit životopis podle konkrétní pracovní nabídky?",
-        answer:
-          "Přizpůsobení je klíčové pro průchod přes systémy ATS. Identifikujte klíčová slova v inzerátu a organicky je vložte do svého textu. Příkladem je zrcadlení odborných termínů (např. „Agile“) v profesním shrnutí. Personalizace ukazuje vaši motivaci a jasně propojuje vaše zkušenosti s potřebami konkrétního zaměstnavatele.",
-      },
-      {
-        question: `Jak má vypadat životopis pro pozici ${name} v roce 2026?`,
-        answer:
-          `Moderní životopis pro pozici ${name} sází na minimalismus, bezpatková písma (Calibri, Aptos) a dostatek bílého místa. Musí být čitelný pro lidi i stroje. Místo frází uvádějte měřitelné výsledky (např. „úspora 15 % nákladů“). Nezapomeňte na funkční odkazy na LinkedIn či online portfolio pro hlubší vhled.`,
-      },
-    ],
   },
   sk: {
     introLead: (name) =>
@@ -466,38 +390,6 @@ const UI_TEXT: Record<Locale, {
       educationHeading: "Vzdelanie a kurzy (príklad)",
       skillsHeading: "Kľúčové zručnosti (príklad)",
     },
-    faqs: (name) => [
-      {
-        question: `Ako dlhý má byť životopis pre pozíciu ${name}?`,
-        answer:
-          `Ideálny rozsah pre pozíciu ${name} je jedna až dve strany A4. Absolventom stačí jedna strana pre rýchle skenovanie, skúsení profesionáli využijú dve. Dôležité je prioritizovať skúsenosti za posledných 15 rokov a staršie uvádzať len heslovito, aby dokument zostal prehľadný pre náborárov aj systémy ATS.`,
-      },
-      {
-        question: "Čo musí obsahovať správne napísaný životopis?",
-        answer:
-          "Povinný základ tvoria kontaktné údaje, profesijné zhrnutie, prax, vzdelanie a zručnosti. Profesijné zhrnutie v úvode slúži ako krátky „elevator pitch“ definujúci váš prínos. V sekcii zručností uvádzajte konkrétne nástroje (napr. SAP, Google Workspace) s úrovňou pokročilosti, aby náborár hneď videl vašu technickú zdatnosť.",
-      },
-      {
-        question: "Má byť v životopise fotografia?",
-        answer:
-          "Fotografia nie je povinná, na Slovensku je však bežná pre lepšiu zapamätateľnosť. Musí byť vždy profesionálna (pasový formát), nie momentka z dovolenky. V zahraničí (USA, UK) sa naopak neodporúča kvôli prevencii diskriminácie. Často je lepšie odkázať na profesionálny portrét na LinkedIne.",
-      },
-      {
-        question: "Ako napísať životopis bez praxe?",
-        answer:
-          "Zamerajte sa na prenositeľné zručnosti, stáže a dobrovoľníctvo, ktoré náborári uznávajú ako plnohodnotnú prax. Uveďte školské projekty, kde ste preukázali zodpovednosť či vedenie tímu. Zdôraznite digitálnu gramotnosť a certifikáty z kurzov, ktoré dokladajú vašu snahu o profesijný rast aj bez formálnej histórie. Vzor nájdete tu: /sk/profese/zivotopis-absolvent-bez-praxe.",
-      },
-      {
-        question: "Ako upraviť životopis podľa konkrétnej pracovnej ponuky?",
-        answer:
-          "Prispôsobenie je kľúčové pre priechod cez systémy ATS. Identifikujte kľúčové slová v inzeráte a organicky ich vložte do svojho textu. Príkladom je zrkadlenie odborných termínov (napr. „Agile“) v profesijnom zhrnutí. Personalizácia ukazuje vašu motiváciu a jasne prepája vaše skúsenosti s potrebami konkrétneho zamestnávateľa.",
-      },
-      {
-        question: `Ako má vyzerať životopis pre pozíciu ${name} v roku 2026?`,
-        answer:
-          `Moderný životopis pre pozíciu ${name} stavia na minimalizme, bezpätkových písmach (Calibri, Aptos) a dostatku bieleho miesta. Musí byť čitateľný pre ľudí aj stroje. Namiesto fráz uvádzajte merateľné výsledky (napr. „úspora 15 % nákladov“). Nezabudnite na funkčné odkazy na LinkedIn či online portfólio pre hlbší vhľad.`,
-      },
-    ],
   },
 };
 
@@ -703,92 +595,9 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     ];
   };
 
-  const defaultBodySections = [
-    {
-      heading: ui.sections.howTo,
-      paragraphs:
-        locale === "cs"
-          ? [
-              `Životopis pro pozici ${seed.name} by měl být jasný a věcný. Personalista chce rychle pochopit, co umíte a jaké výsledky můžete přinést.`,
-              `Zaměřte se na konkrétní zkušenosti, které souvisí s náplní práce. Uveďte měřitelné výsledky, nástroje a procesy, se kterými pracujete.`,
-              `Pokud s profesí začínáte, zdůrazněte praxi, brigády, kurzy nebo projekty. Důležitá je motivace a rychlá adaptace. Podrobný návod, [blog]jak napsat životopis[/blog], najdete v našem blogu.`,
-            ]
-          : [
-              `Životopis pre pozíciu ${seed.name} má byť jasný a vecný. Personalista chce rýchlo pochopiť, čo viete a aké výsledky prinesiete.`,
-              `Zamerajte sa na skúsenosti, ktoré súvisia s náplňou práce. Uveďte merateľné výsledky, nástroje a procesy, s ktorými pracujete.`,
-              `Ak s profesiou začínate, zvýraznite prax, brigády, kurzy alebo projekty. Dôležitá je motivácia a rýchla adaptácia. Podrobný návod, [blog]ako napísať životopis[/blog], nájdete na našom blogu.`,
-            ],
-    },
-    {
-      heading: ui.sections.ats,
-      paragraphs:
-        locale === "cs"
-          ? [
-              "Personalisté často používají ATS (automatické systémy). Používejte proto stejné výrazy jako v inzerátu a nezakrývejte důležité informace do grafiky.",
-              "Ideální je jednoduchá struktura, dobře čitelné nadpisy a standardní názvy sekcí (Zkušenosti, Vzdělání, Dovednosti).",
-              "Níže je ukázka inzerátu s klíčovými výrazy, které se vyplatí použít i v životopise.",
-            ]
-          : [
-              "Personalisti často používajú ATS (automatické systémy). Používajte preto rovnaké výrazy ako v inzeráte a neschovávajte dôležité informácie do grafiky.",
-              "Ideálna je jednoduchá štruktúra, dobre čitateľné nadpisy a štandardné názvy sekcií (Skúsenosti, Vzdelanie, Zručnosti).",
-              "Nižšie je ukážka inzerátu s kľúčovými výrazmi, ktoré sa oplatí použiť aj v životopise.",
-            ],
-    },
-    {
-      heading: ui.sections.highlight,
-      paragraphs:
-        locale === "cs"
-          ? [
-              `U této profese funguje přehledná struktura a jasné priority. Důraz dejte na zkušenosti z praxe a na dovednosti jako ${skillsString}.`,
-              `Zmiňte typické úkoly, se kterými máte zkušenosti, například: ${responsibilitiesString}.`,
-            ]
-          : [
-              `Pri tejto profesii funguje prehľadná štruktúra a jasné priority. Dôraz dajte na prax a zručnosti ako ${skillsString}.`,
-              `Spomeňte typické úlohy, s ktorými máte skúsenosti, napríklad: ${responsibilitiesString}.`,
-            ],
-      bullets:
-        locale === "cs"
-          ? [
-              "konkrétní výsledky a úspory času/peněz",
-              "stabilita a spolehlivost v provozu",
-              "nástroje a systémy, které ovládáte",
-              "spolupráce v týmu a komunikace",
-            ]
-          : [
-              "konkrétne výsledky a úspory času/peňazí",
-              "stabilita a spoľahlivosť v prevádzke",
-              "nástroje a systémy, ktoré ovládate",
-              "spolupráca v tíme a komunikácia",
-            ],
-    },
-    {
-      heading: ui.sections.mistakes,
-      paragraphs:
-        locale === "cs"
-          ? [
-              "Nejčastější problém je příliš obecný nebo nepřehledný životopis. Vytvořte jednoduchý, ale konkrétní dokument.",
-            ]
-          : [
-              "Najčastejším problémom je príliš všeobecný alebo neprehľadný životopis. Vytvorte jednoduchý, ale konkrétny dokument.",
-            ],
-      bullets:
-        locale === "cs"
-          ? [
-              "chybějící výsledky a konkrétní čísla",
-              "neaktuální nebo chaotické zkušenosti",
-              "příliš dlouhý text bez struktury",
-            ]
-          : [
-              "chýbajúce výsledky a konkrétne čísla",
-              "neaktuálne alebo chaotické skúsenosti",
-              "príliš dlhý text bez štruktúry",
-            ],
-    },
-  ];
-
   const bodySections = cvData.sections
     ? buildCzSectionsFromJson(cvData.sections)
-    : defaultBodySections;
+    : [];
 
   const adExampleBase = AD_EXAMPLE_OVERRIDES[locale][seed.slug] ?? AD_EXAMPLE_BASE[locale];
   const adResponsibilities = responsibilities.slice(0, 4);
@@ -797,7 +606,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
   const adIntroText =
     jobAdIntroText && jobAdIntroText.length > 0
       ? jobAdIntroText
-      : CATEGORY_INTRO[locale][seed.category].replace("[position]", seed.name);
+      : adExampleBase.introText ?? "";
   const adTitle =
     cvData.sections?.jobAdExample?.heading
       ? cvData.sections.jobAdExample.heading
@@ -853,7 +662,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
       skills: skills.slice(0, 6),
     },
     related,
-    faqs: cvData.faq?.items ? cvData.faq.items : ui.faqs(seed.name),
+    faqs: cvData.faq?.items ?? [],
     faqHeading:
       cvData.faq?.heading
         ? cvData.faq.heading

@@ -11,7 +11,7 @@ export const OG_IMAGE_SK = `${SITE_URL_SK}/img/og-cvgen-sk.jpg?v=${SITE_VERSION}
 export const SITE_NAME_SK = "RýchlyŽivotopis";
 export const SITE_MAIL_SK = "rychlyzivotopis@gmail.com";
 // Meta icony
-export const FAVICON_URL_32 = `/img/favicon.png?v=${SITE_VERSION}`;
+export const FAVICON_URL_32 = `/favicon.ico`;
 export const FAVICON_URL_192 = `/img/favicon-192.png?v=${SITE_VERSION}`;
 export const APPLE_TOUCH_ICON_URL = `/img/apple-touch-icon.png?v=${SITE_VERSION}`;
 // Loga
