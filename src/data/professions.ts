@@ -280,7 +280,7 @@ const AD_EXAMPLE_BASE: Record<Locale, AdExample> = {
     requirements: [],
     note: "",
   },
-  sk: {
+   sk: {
     title: "Príklad inzerátu:",
     introText: "",
     intro: [],
@@ -560,7 +560,7 @@ export function buildProfessionContent(locale: Locale, slug: string): Profession
     const sentence =
       locale === "cs"
         ? "Podrobný návod, [blog]jak napsat životopis[/blog], najdete v našem blogu."
-        : "Podrobný návod, [blog]ako napísať životopis[/blog], nájdete v našom blogu.";
+        : "Podrobný návod, [blog]ako napísať životopis[/blog], nájdete v našom blogovom článku.";
     const spacer = text.endsWith(".") ? " " : ". ";
     return `${text}${spacer}${sentence}`;
   };

@@ -113,7 +113,7 @@ const CERTS_BY_CATEGORY: Record<Locale, Record<string, { name: string; place: st
     office: [{ name: "Pokročilá práca s MS Office", place: "NICOM", year: "2020" }],
     tech: [{ name: "Základy webového vývoja", place: "ITnetwork.sk", year: "2019" }],
     education: [{ name: "Pedagogické minimum", place: "Akreditovaný kurz", year: "2017" }],
-    healthcare: [{ name: "Prvá pomoc", place: "ČČK", year: "2021" }],
+    healthcare: [{ name: "Prvá pomoc", place: "SČK", year: "2021" }],
     student: [],
   },
 };
