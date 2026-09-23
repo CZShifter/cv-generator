@@ -42,7 +42,8 @@ async function response(load, file, host) {
   return { body, headers };
 }
 
-for (const host of ["rychlyzivotopis.sk", "zivotopisrychle.sk"]) {
+const slovakHosts = ["rychlyzivotopis.sk", "zivotopisrychle.sk", "zivotopisrychlo.sk"];
+for (const host of slovakHosts) {
   test("Configured domain: " + host, async () => {
     const previous = process.env.SITE_URL_SK;
     try {
@@ -70,8 +71,10 @@ for (const host of ["rychlyzivotopis.sk", "zivotopisrychle.sk"]) {
           assert.ok(body.includes(origin + "/sk/"));
           assert.ok(body.includes("https://rychlyzivotopis.cz/cs/"));
           assert.ok(!body.includes("https://zivotopisrychle.cz"));
-          const inactive = host === "rychlyzivotopis.sk" ? "zivotopisrychle.sk" : "rychlyzivotopis.sk";
-          assert.ok(!body.includes("https://" + inactive));
+          assert.ok(!body.includes("https://zivotopisrychlo.cz"));
+          for (const inactive of slovakHosts.filter(candidate => candidate !== host)) {
+            assert.ok(!body.includes("https://" + inactive));
+          }
         }
         const { body } = await response(load, "src/pages/" + name + ".ts", "preview.vercel.app");
         assert.ok(body.includes("https://preview.vercel.app/sk/"));
@@ -93,9 +96,9 @@ for (const host of ["rychlyzivotopis.sk", "zivotopisrychle.sk"]) {
 test("Configuration normalizes trailing slash and rejects invalid origins", () => {
   const previous = process.env.SITE_URL_SK;
   try {
-    process.env.SITE_URL_SK = " https://zivotopisrychle.sk/ ";
-    assert.equal(loader()("next.config.ts").default.env.SITE_URL_SK, "https://zivotopisrychle.sk");
-    for (const value of ["http://zivotopisrychle.sk", "https://zivotopisrychle.sk/sk", "https://example.com"]) {
+    process.env.SITE_URL_SK = " https://zivotopisrychlo.sk/ ";
+    assert.equal(loader()("next.config.ts").default.env.SITE_URL_SK, "https://zivotopisrychlo.sk");
+    for (const value of ["http://zivotopisrychlo.sk", "https://zivotopisrychlo.sk/sk", "https://example.com"]) {
       process.env.SITE_URL_SK = value;
       assert.throws(() => loader()("next.config.ts"), /SITE_URL_SK must be/);
     }

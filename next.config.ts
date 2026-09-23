@@ -11,8 +11,8 @@ const commitSha =
 // One public Slovak origin for pages, middleware and existing payment URLs.
 const siteUrlSk = (process.env.SITE_URL_SK || "https://rychlyzivotopis.sk")
   .trim().replace(/\/+$/, "");
-if (!["https://rychlyzivotopis.sk", "https://zivotopisrychle.sk"].includes(siteUrlSk)) {
-  throw new Error("SITE_URL_SK must be https://rychlyzivotopis.sk or https://zivotopisrychle.sk");
+if (!["https://rychlyzivotopis.sk", "https://zivotopisrychle.sk", "https://zivotopisrychlo.sk"].includes(siteUrlSk)) {
+  throw new Error("SITE_URL_SK must be https://rychlyzivotopis.sk, https://zivotopisrychle.sk or https://zivotopisrychlo.sk");
 }
 
 const nextConfig: NextConfig = {
