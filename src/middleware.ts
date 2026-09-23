@@ -1,11 +1,12 @@
 // middleware.ts
 import { NextResponse } from "next/server";
+import { SITE_HOST_SK } from "@/config/site";
 import type { NextRequest } from "next/server";
 
 // Povolené hostname (bez portu). Pro preview Vercelu používáme suffix match.
 const allowedHostnames = [
   "rychlyzivotopis.cz",
-  "rychlyzivotopis.sk",
+  SITE_HOST_SK,
   "localhost",
   "127.0.0.1",
   ".vercel.app", // wildcard suffix (cokoliv.vercel.app)

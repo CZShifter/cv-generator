@@ -8,6 +8,13 @@ const commitSha =
   process.env.COMMIT_SHA ||            // jiné CI
   "dev";
 
+// One public Slovak origin for pages, middleware and existing payment URLs.
+const siteUrlSk = (process.env.SITE_URL_SK || "https://rychlyzivotopis.sk")
+  .trim().replace(/\/+$/, "");
+if (!["https://rychlyzivotopis.sk", "https://zivotopisrychle.sk"].includes(siteUrlSk)) {
+  throw new Error("SITE_URL_SK must be https://rychlyzivotopis.sk or https://zivotopisrychle.sk");
+}
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
@@ -20,6 +27,7 @@ const nextConfig: NextConfig = {
   },
 
   env: {
+    SITE_URL_SK: siteUrlSk,
     NEXT_PUBLIC_APP_VERSION: commitSha, // ← bude dostupné na klientovi
   },
 

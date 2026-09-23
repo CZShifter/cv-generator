@@ -2,6 +2,8 @@
 // GA4 + Consent Mode v2 + cross-domain linker + SPA page_view
 // Pokud měříš přes tento kód, měj GA4 tagy v GTM pauznuté.
 
+import { SITE_HOST_SK } from "@/config/site";
+
 export { initSklik, initGoogleAds } from "./adsPixel";
 
 /* ---------------------------------- CONFIG --------------------------------- */
@@ -13,8 +15,8 @@ const GA_FORCE_MP = process.env.NEXT_PUBLIC_GA_FORCE_MP === "1";
 const CROSS_DOMAIN: string[] = [
   "rychlyzivotopis.cz",
   "www.rychlyzivotopis.cz",
-  "rychlyzivotopis.sk",
-  "www.rychlyzivotopis.sk",
+  SITE_HOST_SK,
+  `www.${SITE_HOST_SK}`,
 ];
 
 /* -------------------------------- INTERNAL --------------------------------- */

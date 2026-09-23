@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { createClient } from "@supabase/supabase-js";
 import { generateCvArtifacts } from "@/server/cvGeneration";
+import { handleMissingCvWebhook } from "@/server/missingCvWebhook";
 
 const COMGATE_BASE = "https://payments.comgate.cz";
 const MERCHANT = process.env.COMGATE_MERCHANT!;
@@ -36,6 +37,7 @@ function readParam(req: NextApiRequest, key: string): string | undefined {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.setHeader("Cache-Control", "no-store");
   if (req.method !== "POST") return res.status(405).end();
 
   const transId =
@@ -56,25 +58,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     | null = null;
 
   if (transId) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("cv_entries")
       .select("id, payment_status, pdf_status, comgate_trans_id")
       .eq("comgate_trans_id", transId)
-      .single();
+      .maybeSingle();
+    if (error) return res.status(503).json({ error: "CV lookup failed" });
     row = data ?? null;
   }
 
   if (!row && refId) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("cv_entries")
       .select("id, payment_status, pdf_status, comgate_trans_id")
       .eq("comgate_ref_id", refId)
-      .single();
+      .maybeSingle();
+    if (error) return res.status(503).json({ error: "CV lookup failed" });
     row = data ?? null;
   }
 
   if (!row) {
-    return res.status(404).json({ error: "CV not found for webhook" });
+    return handleMissingCvWebhook(res, MERCHANT, SECRET, transId, refId);
   }
 
   const statusRes = await fetch(`${COMGATE_BASE}/v1.0/status`, {

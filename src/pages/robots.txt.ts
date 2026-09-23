@@ -1,12 +1,13 @@
 // pages/robots.txt.ts
 import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
+import { SITE_HOST_SK } from "@/config/site";
 
 const ALLOWED_HOSTS = new Set([
   "rychlyzivotopis.cz",
   "www.rychlyzivotopis.cz",
-  "rychlyzivotopis.sk",
-  "www.rychlyzivotopis.sk",
+  SITE_HOST_SK,
+  `www.${SITE_HOST_SK}`,
 ]);
 
 function header(req: IncomingMessage, name: string): string {

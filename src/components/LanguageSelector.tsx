@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "@/scss/LanguageSelector.module.scss";
 import { FaChevronDown } from "react-icons/fa";
 import Head from "next/head";
-import { SITE_VERSION } from "@/config/site";
+import { SITE_VERSION, SITE_HOST_SK } from "@/config/site";
 
 type Lang = "cs" | "sk";
 
@@ -25,7 +25,7 @@ function withLangPrefix(pathname: string, lang: Lang): string {
 }
 
 const PROD_HOST_CZ = "rychlyzivotopis.cz";
-const PROD_HOST_SK = "rychlyzivotopis.sk";
+const PROD_HOST_SK = SITE_HOST_SK;
 
 function isProdCZ(host: string) {
   return host === PROD_HOST_CZ;

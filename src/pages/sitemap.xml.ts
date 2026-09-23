@@ -1,5 +1,6 @@
 import type { GetServerSideProps } from "next";
 import type { IncomingMessage } from "http";
+import { SITE_URL, SITE_URL_SK } from "@/config/site";
 
 function header(req: IncomingMessage, name: string): string {
   const v = req.headers[name.toLowerCase()];
@@ -39,9 +40,9 @@ function resolveBases(req: IncomingMessage) {
   if (isLocal || isPreview) {
     alternateBase = primaryBase;            // stejnej host na preview/local
   } else if (isCz) {
-    alternateBase = primaryBase.replace(/\.cz(?::\d+)?$/, ".sk");
+    alternateBase = SITE_URL_SK;
   } else if (host.endsWith(".sk") || host.startsWith("sk.")) {
-    alternateBase = primaryBase.replace(/\.sk(?::\d+)?$/, ".cz");
+    alternateBase = SITE_URL;
   } else {
     alternateBase = primaryBase;
   }
