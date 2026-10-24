@@ -46,7 +46,9 @@ for (const lang of ['cs', 'sk']) {
   ]) {
     test(lang + '/' + route + ': input, language and response contract', async () => {
       const requests = [];
-      const text = output === 'points' ? '- První bod\n- Druhý bod\n- Třetí bod\n- Čtvrtý bod' : '  Text s diakritikou: příliš žluťoučký, ľudský prístup.  ';
+      const text = output === 'points' ? '- První bod\n- Druhý bod\n- Třetí bod\n- Čtvrtý bod' : output === 'summary'
+        ? 'Jsem astrofyzik a studuji černé díry. Vlastní teleskop mi umožňuje být v kontaktu s noční oblohou. Zajímá mě propojení pozorování s teorií a hledání souvislostí, které pomáhají lépe porozumět fungování vesmíru.'
+        : '  Text s diakritikou: příliš žluťoučký, ľudský prístup.  ';
       const Client = fakeClient((_body, api) => api === 'chat'
         ? { choices: [{ finish_reason: 'stop', message: { content: text } }] }
         : { status: 'completed', output_text: text }, requests);
@@ -58,6 +60,9 @@ for (const lang of ['cs', 'sk']) {
       assert.equal(requests.length, 1);
       assert.equal(requests[0].model, 'gpt-6-luna');
       if (output === 'motivation') {
+        assert.equal(requests[0].reasoning.effort, 'medium');
+        assert.equal(requests[0].temperature, undefined);
+      } else if (output === 'summary') {
         assert.equal(requests[0].reasoning.effort, 'low');
         assert.equal(requests[0].temperature, undefined);
       } else {
@@ -65,7 +70,7 @@ for (const lang of ['cs', 'sk']) {
         assert.equal(requests[0].temperature, 0.5);
       }
       const messages = requests[0].messages || requests[0].input;
-      assert.match(messages[0].content, lang === 'cs' ? /spisovnou češtinou/ : /spisovnou slovenčinou/);
+      assert.match(messages[0].content, lang === 'cs' ? /spisovnou češtin(?:ou|u)/ : /spisovn(?:ou slovenčinou|ú slovenčinu)/);
       assert.equal(JSON.parse(messages[1].content)[field], input);
       assert.equal(res.headers['Pragma'], 'no-cache');
       if (output === 'points') assert.deepEqual(Array.from(res.body.points), ['První bod', 'Druhý bod', 'Třetí bod', 'Čtvrtý bod']);
@@ -129,3 +134,67 @@ for (const lang of ['cs', 'sk']) {
     }
   });
 }
+
+const developedBio = 'Jsem astrofyzik a studuji černé díry. Vlastní teleskop mi umožňuje být v kontaktu s noční oblohou. Zajímá mě propojení pozorování s teorií a hledání souvislostí, které pomáhají lépe porozumět fungování vesmíru.';
+
+test('summary revises a one-line paraphrase once on Luna', async () => {
+  const requests = [];
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: requests.length === 1 ? 'Jsem astrofyzik.' : developedBio }), requests));
+  const messages = [{ role: 'system', content: 'Piš česky.' }, { role: 'user', content: 'Astrofyzik' }];
+  assert.equal(await helper.askSummary(messages), developedBio);
+  assert.equal(requests.length, 2);
+  assert.equal(requests[1].input[0].content, 'Piš česky.');
+  assert.equal(requests[1].input[1].content, 'Astrofyzik');
+  for (const request of requests) {
+    assert.equal(request.model, 'gpt-6-luna');
+    assert.equal(request.reasoning.effort, 'low');
+    assert.equal(request.max_output_tokens, 1600);
+  }
+});
+
+test('summary revision is bounded and does not accept another short or oversized text', async () => {
+  for (const output of ['Pouze krátká věta.', 'slovo '.repeat(71)]) {
+    const requests = [];
+    const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: output }), requests));
+    await assert.rejects(helper.askSummary([{ role: 'user', content: 'Účetní' }]));
+    assert.equal(requests.length, 2);
+  }
+});
+
+test('summary returns one paragraph and preserves Czech diacritics', async () => {
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: developedBio.replace('Vlastní', '\n\nVlastní') })));
+  assert.equal(await helper.askSummary([{ role: 'user', content: 'Astrofyzik' }]), developedBio);
+});
+
+test('letters normalize escaped and Markdown line breaks without removing actual content', async () => {
+  const slash = String.fromCharCode(92);
+  const escaped = 'Vážená paní Nováková,' + slash + 'n' + slash + 'nText dopisu.' + slash + '\n' + slash + '\nS pozdravem  \r\nJan Novák';
+  const requests = [];
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: escaped }), requests));
+  assert.equal(await helper.askChatGPT([{ role: 'user', content: 'Test' }]), 'Vážená paní Nováková,\n\nText dopisu.\n\nS pozdravem\nJan Novák');
+  assert.equal(requests[0].reasoning.effort, 'medium');
+  assert.equal(requests[0].max_output_tokens, 3200);
+});
+
+test('summary rejects incomplete output without attempting to polish a truncated response', async () => {
+  const requests = [];
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'incomplete', output_text: developedBio }), requests));
+  await assert.rejects(helper.askSummary([{ role: 'user', content: 'Astrofyzik' }]));
+  assert.equal(requests.length, 1);
+});
+
+test('letter repairs unresolved gender alternatives once, preserving the original request', async () => {
+  const requests = [];
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: requests.length === 1 ? 'Chtěl/a bych pracovat ve společnosti Delta.' : 'Mám zájem o práci ve společnosti Delta.' }), requests));
+  assert.equal(await helper.askChatGPT([{ role: 'user', content: 'Jsem účetní. Firma Delta.' }]), 'Mám zájem o práci ve společnosti Delta.');
+  assert.equal(requests.length, 2);
+  assert.equal(requests[1].input[0].content, 'Jsem účetní. Firma Delta.');
+  assert.equal(requests[1].model, 'gpt-6-luna');
+});
+
+test('letter does not return unresolved gender alternatives after its bounded repair', async () => {
+  const requests = [];
+  const helper = loadModule('src/pages/api/chatgpt5.ts', fakeClient(() => ({ status: 'completed', output_text: 'Rád/a přijdu na setkání.' }), requests));
+  await assert.rejects(helper.askChatGPT([{ role: 'user', content: 'Účetní' }]));
+  assert.equal(requests.length, 2);
+});

@@ -42,3 +42,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/b
 ## Supabase heartbeat
 
 Nastavení denního Vercel Cron jobu a přenos původního endpointu: [Supabase heartbeat](Dokumentace/SUPABASE_HEARTBEAT.md).
+
+## AI generování CV a motivačních dopisů
+
+Model GPT-6 Luna, nastavení API, pravidla českých a slovenských promptů, validace výstupů a postup ověření: [AI generování](Dokumentace/AI_GENEROVANI.md).
