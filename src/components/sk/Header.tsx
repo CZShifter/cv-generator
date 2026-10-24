@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image"
-import { LOGO_COLOR_URL_SK, SITE_VERSION } from "@/config/site";
+import { LOGO_COLOR_URL_SK, SITE_VERSION,  SITE_NAME_SK } from "@/config/site";
 import styles from "@/scss/Header.module.scss";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -40,7 +40,7 @@ export default function Header() {
           <Image
             className={styles.logo}
             src={`${LOGO_COLOR_URL_SK}?v=${SITE_VERSION}`}
-            alt="Vytvorte moderný životopis online – Profesionálne CV za 5 minút | RýchlyŽivotopis.sk"
+            alt={`Vytvorte moderný životopis online – Profesionálne CV za 5 minút | ${SITE_NAME_SK}`}
             width={201}
             height={60}
             priority

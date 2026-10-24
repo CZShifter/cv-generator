@@ -11,17 +11,22 @@ export type ChatGPTMessage = {
 };
 
 export async function askChatGPT(
-  messages: ChatGPTMessage[],
-  model: string = "gpt-4.1-mini"
+  messages: ChatGPTMessage[]
 ): Promise<string | undefined> {
   try {
     const completion = await openai.chat.completions.create({
-      model,
+      model: "gpt-6-luna",
       messages,
-      max_tokens: 600,
-      temperature: 0.7,
+      max_completion_tokens: 600,
+      reasoning_effort: "none",
+      temperature: 0.5,
     });
-    return completion.choices[0]?.message?.content?.trim();
+    const choice = completion.choices[0];
+    const text = choice?.message?.content?.trim();
+    if (choice?.finish_reason !== "stop" || !text) {
+      throw new Error("AI nevrátila úplný text. Zkuste to prosím znovu.");
+    }
+    return text;
   } catch (error: unknown) {
     if (error instanceof Error) {
       //console.error("ChatGPT API error:", error.message);

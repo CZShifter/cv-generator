@@ -21,40 +21,23 @@ function isAPIErrorLike(e: unknown): e is APIErrorLike {
 }
 
 export async function askChatGPT(
-  messages: ChatGPTMessage[],
-  model: string = "gpt-5-mini"
+  messages: ChatGPTMessage[]
 ): Promise<string | undefined> {
   try {
-    // Responses API; pro GPT-5 používej max_output_tokens
+    // Responses API používá max_output_tokens.
     const response = await openai.responses.create({
-      model,
+      model: "gpt-6-luna",
       input: messages.map(m => ({ role: m.role, content: m.content })),
-      max_output_tokens: 700, // ~300–400 slov
-      temperature: 0.7,
+      max_output_tokens: 1600, // Rezerva pro celý dopis v češtině i slovenštině.
+      reasoning: { effort: "low" },
     });
 
-    return response.output_text?.trim();
-  } catch (error: unknown) {
-    // volitelný fallback na 4.1-mini, pokud nemáš přístup k 5-mini
-    if (model !== "gpt-4.1-mini") {
-      try {
-        const fallback = await openai.responses.create({
-          model: "gpt-4.1-mini",
-          input: messages.map(m => ({ role: m.role, content: m.content })),
-          max_output_tokens: 700,
-          temperature: 0.7,
-        });
-        return fallback.output_text?.trim();
-      } catch (fallbackErr: unknown) {
-        // zaloguj i selhání fallbacku
-        if (isAPIErrorLike(fallbackErr)) {
-          //console.error("OpenAI fallback API error:", fallbackErr.status, fallbackErr.message, fallbackErr.error);
-        } else {
-          //console.error("Unknown fallback error:", fallbackErr);
-        }
-      }
+    const text = response.output_text?.trim();
+    if (response.status !== "completed" || !text) {
+      throw new Error("AI nevrátila úplný text. Zkuste to prosím znovu.");
     }
-
+    return text;
+  } catch (error: unknown) {
     if (isAPIErrorLike(error)) {
       //console.error("OpenAI API error:", error.status, error.message, error.error);
       throw new Error(error.message || "Chyba při komunikaci s ChatGPT API.");
